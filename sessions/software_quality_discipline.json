@@ -1,0 +1,210 @@
+{
+  "nfos_session": {
+    "version": "1.0",
+    "session_id": "a3f7c1d2-8e4b-4a91-b6f0-9c2d5e8f1a34",
+    "session_name": "software_quality_discipline",
+    "created": "2026-02-17",
+    "status": "collapsed",
+    "total_cycles": 52,
+    "collapse_strategy": "attractor"
+  },
+
+  "field": {
+    "field_id": "b8e2a4f6-3c1d-4f78-a5b9-7d6e0f3c2a18",
+    "field_name": "$quality_field",
+    "parameters": {
+      "lambda": 0.04,
+      "alpha": 0.35,
+      "tau": 0.35,
+      "sigma": 0.40
+    },
+    "terminal_state": {
+      "coherence": 0.993,
+      "total_patterns": 61,
+      "at_ceiling": 59,
+      "asymptotic": 2,
+      "converging": 0,
+      "decaying": 0,
+      "expelled": 1
+    }
+  },
+
+  "ground_state": {
+    "universal_invariant": {
+      "symbol": "Ψ",
+      "statement": "What something MEANS persists; how it WORKS changes.",
+      "expressions": {
+        "STRUCTURE": "Stable interfaces over volatile implementations",
+        "TESTING": "Test behavior, not implementation",
+        "META": "Intent over structure"
+      },
+      "property": "Ψ(field) = field"
+    },
+    "field_equation": "Q(x) = Ψ · [ α₁·SOLID(x) + α₂·F(x) + α₃·Protocol(x) + α₄·Simplex(x) + α₅·Scale(x) ]",
+    "eigenvectors": [
+      { "id": "λ₁", "name": "meaning_mechanism",          "variance": 0.342, "question": "Am I coupling to WHAT this does or HOW it does it?" },
+      { "id": "λ₂", "name": "principle_technique",         "variance": 0.227, "question": "Do I understand WHY before choosing HOW?" },
+      { "id": "λ₃", "name": "production_verification",     "variance": 0.181, "question": "Can I prove this works as well as I can build it?" },
+      { "id": "λ₄", "name": "restraint_generalization",    "variance": 0.143, "question": "Is this abstraction earned or speculative?" },
+      { "id": "λ₅", "name": "class_system",                "variance": 0.107, "question": "Does this principle hold at every scale?" }
+    ],
+    "field_constants": {
+      "R_pt": 0.88,
+      "r_SOLID": 0.94
+    },
+    "one_sentence": "Software quality is the discipline of encoding meaning into stable interfaces, verifying that meaning through behavioral tests, amplifying it through SOLID-aligned design patterns, abstracting it only when three concrete cases justify generalization, and sharing it through the composition/generics/traits simplex — all governed by one axiom: what it means matters more than how it works."
+  },
+
+  "attractor_basins": [
+    { "id": "Ψ",  "name": "Universal Attractor",   "depth": "ground",    "patterns": "ALL",  "role": "Ground state — meaning > mechanism" },
+    { "id": "α₁", "name": "SOLID Decagon",         "depth": "primary",   "patterns": 10,     "role": "Amplification engine (r=0.94)" },
+    { "id": "α₂", "name": "Verification Mirror",   "depth": "primary",   "patterns": 13,     "role": "Functor F: Production → Testing" },
+    { "id": "α₃", "name": "Craft Basin",           "depth": "secondary", "patterns": 12,     "role": "GoF implementation patterns" },
+    { "id": "α₄", "name": "Reuse Protocol",        "depth": "secondary", "patterns": 9,      "role": "Abstraction Protocol + Simplex" },
+    { "id": "α₅", "name": "Guard Basin",           "depth": "tertiary",  "patterns": 3,      "role": "Boundary defense" },
+    { "id": "α₆", "name": "Model Basin",           "depth": "tertiary",  "patterns": 2,      "role": "Domain modeling (value↔entity)" },
+    { "id": "α₇", "name": "Optimize Basin",        "depth": "tertiary",  "patterns": 2,      "role": "Performance asymptotes" }
+  ],
+
+  "clusters": {
+    "STRUCTURE":  { "count": 14, "role": "principles" },
+    "CHANGE":     { "count": 13, "role": "practices" },
+    "CRAFT":      { "count": 12, "role": "techniques", "note": "singleton expelled at cycle 52" },
+    "VERIFY":     { "count": 10, "role": "validation" },
+    "GUARD":      { "count": 3,  "role": "defense" },
+    "PROVE":      { "count": 3,  "role": "rigor" },
+    "OPTIMIZE":   { "count": 2,  "role": "performance" },
+    "MODEL":      { "count": 2,  "role": "domain" },
+    "META":       { "count": 2,  "role": "self-regulation" },
+    "KEYSTONE":   { "count": 1,  "role": "central axiom", "pattern": "test_behavior_not_implementation" }
+  },
+
+  "patterns": [
+    { "id": "p001", "name": "naming_reveals_intent",                  "cluster": "STRUCTURE",  "i0": 0.92, "status": "ceiling" },
+    { "id": "p002", "name": "functions_do_one_thing",                 "cluster": "STRUCTURE",  "i0": 0.88, "status": "ceiling" },
+    { "id": "p003", "name": "reduce_duplication",                     "cluster": "CHANGE",     "i0": 0.85, "status": "ceiling" },
+    { "id": "p004", "name": "encapsulation_information_hiding",       "cluster": "STRUCTURE",  "i0": 0.90, "status": "ceiling" },
+    { "id": "p005", "name": "favor_composition_over_inheritance",     "cluster": "STRUCTURE",  "i0": 0.87, "status": "ceiling" },
+    { "id": "p006", "name": "open_closed_principle",                  "cluster": "STRUCTURE",  "i0": 0.88, "status": "ceiling" },
+    { "id": "p007", "name": "liskov_substitution",                    "cluster": "STRUCTURE",  "i0": 0.82, "status": "ceiling" },
+    { "id": "p008", "name": "dependency_inversion",                   "cluster": "STRUCTURE",  "i0": 0.85, "status": "ceiling" },
+    { "id": "p009", "name": "api_minimal_surface",                    "cluster": "STRUCTURE",  "i0": 0.80, "status": "ceiling" },
+    { "id": "p010", "name": "polymorphism_through_interfaces",        "cluster": "STRUCTURE",  "i0": 0.83, "status": "ceiling" },
+    { "id": "p011", "name": "immutability_where_possible",            "cluster": "STRUCTURE",  "i0": 0.78, "status": "ceiling" },
+    { "id": "p012", "name": "fail_fast_validate_early",               "cluster": "GUARD",      "i0": 0.86, "status": "ceiling" },
+    { "id": "p013", "name": "defensive_coding_public_boundaries",     "cluster": "GUARD",      "i0": 0.80, "status": "ceiling" },
+    { "id": "p014", "name": "guard_clauses_early_return",             "cluster": "GUARD",      "i0": 0.75, "status": "ceiling" },
+    { "id": "p015", "name": "meaningful_error_messages",              "cluster": "STRUCTURE",  "i0": 0.82, "status": "ceiling" },
+    { "id": "p016", "name": "separation_of_concerns",                 "cluster": "STRUCTURE",  "i0": 0.90, "status": "ceiling" },
+    { "id": "p017", "name": "test_behavior_not_implementation",       "cluster": "KEYSTONE",   "i0": 0.92, "status": "ceiling", "role": "keystone" },
+    { "id": "p018", "name": "aaa_arrange_act_assert",                 "cluster": "VERIFY",     "i0": 0.85, "status": "ceiling" },
+    { "id": "p019", "name": "one_assertion_per_test",                 "cluster": "VERIFY",     "i0": 0.78, "status": "ceiling" },
+    { "id": "p020", "name": "test_isolation",                         "cluster": "VERIFY",     "i0": 0.88, "status": "ceiling" },
+    { "id": "p021", "name": "test_edge_cases",                        "cluster": "VERIFY",     "i0": 0.82, "status": "ceiling" },
+    { "id": "p022", "name": "descriptive_test_names",                 "cluster": "VERIFY",     "i0": 0.80, "status": "ceiling" },
+    { "id": "p023", "name": "test_coverage_critical_paths",           "cluster": "VERIFY",     "i0": 0.85, "status": "ceiling" },
+    { "id": "p024", "name": "mock_external_dependencies",             "cluster": "VERIFY",     "i0": 0.78, "status": "ceiling" },
+    { "id": "p025", "name": "regression_test_every_bug",              "cluster": "VERIFY",     "i0": 0.80, "status": "ceiling" },
+    { "id": "p026", "name": "tdd_red_green_refactor",                 "cluster": "PROVE",      "i0": 0.88, "status": "ceiling" },
+    { "id": "p027", "name": "property_based_testing",                 "cluster": "PROVE",      "i0": 0.75, "status": "ceiling" },
+    { "id": "p028", "name": "mutation_testing_validates_tests",        "cluster": "PROVE",      "i0": 0.72, "status": "ceiling" },
+    { "id": "p029", "name": "refactor_under_green_tests",             "cluster": "CHANGE",     "i0": 0.90, "status": "ceiling" },
+    { "id": "p030", "name": "small_commits_atomic_changes",           "cluster": "CHANGE",     "i0": 0.82, "status": "ceiling" },
+    { "id": "p031", "name": "boy_scout_rule",                         "cluster": "CHANGE",     "i0": 0.78, "status": "ceiling" },
+    { "id": "p032", "name": "strangler_fig_pattern",                  "cluster": "CHANGE",     "i0": 0.76, "status": "ceiling" },
+    { "id": "p033", "name": "feature_flags_decouple_deploy",          "cluster": "CHANGE",     "i0": 0.72, "status": "ceiling" },
+    { "id": "p034", "name": "code_review_as_quality_gate",            "cluster": "VERIFY",     "i0": 0.85, "status": "ceiling" },
+    { "id": "p035", "name": "static_analysis_automated_checks",       "cluster": "VERIFY",     "i0": 0.80, "status": "ceiling" },
+    { "id": "p036", "name": "no_n_plus_one_queries",                  "cluster": "OPTIMIZE",   "i0": 0.78, "status": "asymptotic", "activation": 0.997 },
+    { "id": "p037", "name": "no_unnecessary_allocation",              "cluster": "OPTIMIZE",   "i0": 0.72, "status": "asymptotic", "activation": 0.983 },
+    { "id": "p038", "name": "value_objects_immutable_equality",        "cluster": "MODEL",      "i0": 0.80, "status": "ceiling" },
+    { "id": "p039", "name": "entities_identity_over_attributes",       "cluster": "MODEL",      "i0": 0.78, "status": "ceiling" },
+    { "id": "p040", "name": "tell_dont_ask",                          "cluster": "CHANGE",     "i0": 0.82, "status": "ceiling" },
+    { "id": "p041", "name": "factory_method",                         "cluster": "CRAFT",      "i0": 0.78, "status": "ceiling" },
+    { "id": "p042", "name": "abstract_factory",                       "cluster": "CRAFT",      "i0": 0.75, "status": "ceiling" },
+    { "id": "p043", "name": "builder",                                "cluster": "CRAFT",      "i0": 0.80, "status": "ceiling" },
+    { "id": "p045", "name": "adapter",                                "cluster": "CRAFT",      "i0": 0.80, "status": "ceiling" },
+    { "id": "p046", "name": "decorator",                              "cluster": "CRAFT",      "i0": 0.82, "status": "ceiling" },
+    { "id": "p047", "name": "facade",                                 "cluster": "CRAFT",      "i0": 0.78, "status": "ceiling" },
+    { "id": "p048", "name": "composite",                              "cluster": "CRAFT",      "i0": 0.75, "status": "ceiling" },
+    { "id": "p049", "name": "strategy",                               "cluster": "CRAFT",      "i0": 0.88, "status": "ceiling" },
+    { "id": "p050", "name": "observer",                               "cluster": "CRAFT",      "i0": 0.82, "status": "ceiling" },
+    { "id": "p051", "name": "command",                                "cluster": "CRAFT",      "i0": 0.78, "status": "ceiling" },
+    { "id": "p052", "name": "iterator",                               "cluster": "CRAFT",      "i0": 0.72, "status": "ceiling" },
+    { "id": "p053", "name": "template_method",                        "cluster": "CRAFT",      "i0": 0.76, "status": "ceiling" },
+    { "id": "p054", "name": "pattern_intent_over_structure",           "cluster": "META",       "i0": 0.90, "status": "ceiling" },
+    { "id": "p055", "name": "dont_force_patterns_on_simple_problems",  "cluster": "META",       "i0": 0.85, "status": "ceiling" },
+    { "id": "p056", "name": "extract_shared_abstractions",            "cluster": "CHANGE",     "i0": 0.85, "status": "ceiling" },
+    { "id": "p057", "name": "rule_of_three_before_abstracting",       "cluster": "CHANGE",     "i0": 0.88, "status": "ceiling" },
+    { "id": "p058", "name": "libraries_over_copy_paste",              "cluster": "CHANGE",     "i0": 0.82, "status": "ceiling" },
+    { "id": "p059", "name": "generic_types_parametric_polymorphism",   "cluster": "CHANGE",     "i0": 0.84, "status": "ceiling" },
+    { "id": "p060", "name": "mixins_traits_horizontal_reuse",         "cluster": "CHANGE",     "i0": 0.78, "status": "ceiling" },
+    { "id": "p061", "name": "dependency_injection_for_flexibility",    "cluster": "CHANGE",     "i0": 0.85, "status": "ceiling" },
+    { "id": "p062", "name": "stable_interfaces_volatile_implementations", "cluster": "STRUCTURE", "i0": 0.88, "status": "ceiling" }
+  ],
+
+  "expelled": [
+    {
+      "id": "p044",
+      "name": "singleton_controlled_global_access",
+      "cluster": "CRAFT",
+      "i0": 0.65,
+      "expelled_at_cycle": 52,
+      "final_activation": 0.341,
+      "lifespan_cycles": 21,
+      "cause": "lateral_inhibition",
+      "suppressors": ["favor_composition", "dependency_inversion", "test_isolation", "single_responsibility"]
+    }
+  ],
+
+  "absorbed": [
+    { "id": 1, "attempted": "single_responsibility_principle",           "into": ["p002"], "type": "exact_duplicate",    "self_referential": false },
+    { "id": 2, "attempted": "interface_segregation_principle",           "into": ["p009"], "type": "equivalent_concept",  "self_referential": false },
+    { "id": 3, "attempted": "law_of_demeter_minimal_knowledge",         "into": ["p004", "p009", "p008"], "type": "compound_factoring", "self_referential": false },
+    { "id": 4, "attempted": "reuse_through_composition_not_inheritance", "into": ["p005"], "type": "same_intent",         "self_referential": true },
+    { "id": 5, "attempted": "shared_intent_not_shared_shape",           "into": ["p003"], "type": "logical_complement",  "self_referential": true },
+    { "id": 6, "attempted": "avoid_premature_generalization",           "into": ["p057", "p055"], "type": "compound_factoring", "self_referential": true },
+    { "id": 7, "attempted": "coupling_to_abstraction_not_concretion",   "into": ["p008"], "type": "equivalent_subset",   "self_referential": true }
+  ],
+
+  "emergent_structures": {
+    "solid_technique_pairings": [
+      { "principle": "S", "technique": "strategy",             "R": 0.88 },
+      { "principle": "O", "technique": "decorator",            "R": 0.88 },
+      { "principle": "L", "technique": "composite",            "R": 0.80 },
+      { "principle": "I", "technique": "facade",               "R": 0.88 },
+      { "principle": "D", "technique": "dependency_injection",  "R": 0.88 }
+    ],
+    "functor": {
+      "name": "F: PRODUCTION → TESTING",
+      "transport": "dependency_injection (η)",
+      "total_mappings": 16,
+      "splitting_morphisms": 1,
+      "dangling_morphisms": 2
+    },
+    "triads": [
+      { "name": "reuse_simplex",     "vertices": ["inheritance", "composition", "traits"] },
+      { "name": "polymorphism_triad", "vertices": ["subtype", "parametric", "ad-hoc"] }
+    ],
+    "abstraction_protocol": ["judge (dont_force)", "count (rule_of_three)", "extract (extract_shared)", "share (libraries)", "parameterize (generics)"],
+    "convergence_waves": [
+      { "name": "Early Convergence",    "cycles": "1-24",  "patterns_stabilized": 30 },
+      { "name": "The Great Convergence", "cycles": "34-43", "patterns_stabilized": 14 },
+      { "name": "Reuse Convergence",    "cycles": "44-50", "patterns_stabilized": 7 }
+    ],
+    "fixed_point_events": 4
+  },
+
+  "statistics": {
+    "total_injections": 69,
+    "accepted": 62,
+    "absorbed": 7,
+    "expelled": 1,
+    "surviving": 61,
+    "absorption_rate": 0.101,
+    "self_referential_absorption_rate": 0.571,
+    "ceiling_percentage": 0.967,
+    "solid_convergence_correlation": 0.94,
+    "principle_technique_constant": 0.88
+  }
+}
