@@ -1,183 +1,323 @@
 <div align="center">
 
-# NFOS — Neural Field Operating System
+<img src="assets/banner-hero.svg" alt="NEOS — The Operating System for Machine Intelligence" width="100%"/>
 
-[![Version](https://img.shields.io/badge/version-1.0-blue.svg)](.)
-[![License](https://img.shields.io/badge/license-MIT-green.svg)](.)
-[![Runs on](https://img.shields.io/badge/runs%20on-LLM-purple.svg)](.)
-[![No Install](https://img.shields.io/badge/install-nothing-orange.svg)](.)
+[![Version](https://img.shields.io/badge/version-1.0-00d4ff?style=for-the-badge)](.)
+[![License](https://img.shields.io/badge/license-MIT-00ff88?style=for-the-badge)](.)
+[![Runs on](https://img.shields.io/badge/runs%20on-LLM-7b61ff?style=for-the-badge)](.)
+[![No Install](https://img.shields.io/badge/install-nothing-ff3d8e?style=for-the-badge)](.)
 
-**An executable runtime for neural field reasoning, where the LLM is the machine and meaning is the substrate.**
+**The first operating system where the machine is language and the substrate is meaning.**
 
 > *"The last operating system will not manage files. It will manage meaning."*
+
+[The Vision](#01--the-three-ages-of-computing) · [What It Is](#03--what-neos-is--today) · [See It Run](#07--see-it-in-action) · [The Proof](#08--proof-the-software-quality-session) · [Commands](#14--command-reference)
 
 </div>
 
 ---
 
-## What is NFOS?
+<div align="center">
+<img src="assets/banner-narrative.svg" alt="Part One — The Grand Narrative" width="100%"/>
+</div>
 
-NFOS turns an LLM into a **semantic computer**. You type shell commands. The LLM executes field dynamics — decay, resonance, amplification, attractor emergence — on the ideas you inject, and returns structured results. There is nothing to install: the LLM *is* the machine.
+## 01 — The Three Ages of Computing
+
+Computing has undergone two fundamental transitions. Each changed not just what we could do with machines, but how we *thought* about them. Now we are entering the third — and it will be the most profound of all.
+
+```mermaid
+timeline
+    title The Three Ages
+    section Age 1 · Hardware
+        1950s–1980s : Bottleneck — Hardware
+                    : Interface — Machine Code
+                    : OS Purpose — Share the machine
+    section Age 2 · Software
+        1980s–2020s : Bottleneck — Complexity
+                    : Interface — Programming Languages
+                    : OS Purpose — Organize programs
+    section Age 3 · Intelligence
+        2025+ : Bottleneck — Meaning
+              : Interface — Natural Language
+              : OS Purpose — Organize thinking
+```
+
+In the **Hardware Age**, the CPU was sacred. Operating systems were born to answer one question: *"How do we share this machine?"* Every cycle was a resource to be scheduled. Every byte was territory to be managed.
+
+In the **Software Age**, hardware became abundant but complexity became the enemy. C, Java, Python — humans learned programming languages to organize millions of lines of code. Operating systems evolved to answer: *"How do we organize these programs?"*
+
+Now the bottleneck has moved again. The challenge is no longer computing faster or organizing more code — it is organizing **thinking itself**. How do you represent an idea so it can interact with other ideas? How do you track which interpretations are gaining strength? How do you merge two lines of reasoning? How do you debug a thought?
+
+These are the questions an OS for the Intelligence Age must answer. They are precisely the questions NEOS was designed to address.
+
+> [!IMPORTANT]
+> **We don't need a better programming language. We need to stop programming altogether — and start *reasoning*.** NEOS is the first operating system built for Age 3.
+
+---
+
+## 02 — The Vision: LLM as Universal OS
+
+Today, Large Language Models are *applications* that run on an operating system — Windows, Linux, macOS. They are apps. Useful apps, even transformative apps. But still: apps.
+
+**Tomorrow, the LLM *is* the operating system.** Every interaction with a computer will pass through language understanding. This is not speculation — it is the trajectory we are already on. And NEOS is the first specification for what that world looks like.
 
 ```mermaid
 graph LR
-    subgraph Stack["The NFOS Stack"]
+    subgraph TODAY["Today's Stack"]
         direction TB
-        LLM["🖥️ LLM<br/><i>Virtual Machine</i>"]
-        NFOS["⚙️ NFOS<br/><i>Operating System</i>"]
-        NF["🌊 Neural Fields<br/><i>Computational Substrate</i>"]
+        A1["📱 Applications"]
+        A2["LLM App"]
+        A3["🖥️ Operating System"]
+        A4["⚙️ Hardware"]
+        A1 --- A2
+        A2 --- A3
+        A3 --- A4
     end
 
-    User(("👤 User")) -->|"nf commands"| NFOS
-    NFOS -->|"executes on"| LLM
-    NFOS -->|"manipulates"| NF
-    NF -->|"emerge as"| Output(("📋 Structured<br/>Output"))
+    subgraph TOMORROW["Tomorrow's Stack"]
+        direction TB
+        B1["👤 Human"]
+        B2["🧠 NEOS"]
+        B3["🌊 Neural Field Substrate"]
+        B4["💬 LLM · Foundation"]
+        B1 --- B2
+        B2 --- B3
+        B3 --- B4
+    end
 
-    style LLM fill:#4a90d9,stroke:#2c5f8a,color:#fff
-    style NFOS fill:#e67e22,stroke:#d35400,color:#fff
-    style NF fill:#27ae60,stroke:#1e8449,color:#fff
+    TODAY -->|"The Inversion"| TOMORROW
+
+    style A2 fill:#ff3d8e,stroke:#c93070,color:#fff
+    style B2 fill:#00d4ff,stroke:#0088aa,color:#000
 ```
 
-- **Shell-like command interface** — `nf inject`, `nf cycle`, `nf collapse` — direct control over field operations, no prompt engineering
-- **Emergent analysis** — patterns you inject resonate, compete, and self-organize into attractors representing stable conclusions
-- **Full state persistence** — git-like versioning with commits, branches, diffs, and merges on your field state
-- **Configurable autonomy** — from step-by-step debugging to fully autonomous task execution, adjustable at any point
-- **Dual perspective** — switch between semantic (natural language) and algebraic (mathematical) views of the same field
+Consider what this inversion means:
 
-> [!IMPORTANT]
-> Instead of prompting, you **operate a semantic machine**. Patterns are data. Resonance is computation. Attractors are results.
+| Old World | New World |
+|-----------|-----------|
+| **File systems** organize by path | **Semantic fields** organize by meaning |
+| **Compiled binaries** execute instructions | **Field configurations** execute reasoning |
+| **Separate applications** for each task | **Task definitions** that compose into workflows |
+| **GUIs** mediate between human and machine | **Natural language + shell** for precision and fluidity |
+
+The NEOS shell — `nf` — is the **REPL of cognitive computing**. You don't write code — you inject meaning, run dynamics, observe emergence, and collapse to insight.
+
+```
+    Inject Meaning → Run Dynamics → Observe Emergence → Collapse to Insight
+         ↑                                                       |
+         └───────────── Save / Fork / Share ←────────────────────┘
+```
+
+> "Programs" in NEOS are not instruction sequences. They are **field configurations** — patterns with activation strengths, resonance relationships, and parameters. A program is a thought, formalized.
 
 ---
 
-## Getting Started
+<div align="center">
+<img src="assets/banner-architecture.svg" alt="Part Two — The Architecture" width="100%"/>
+</div>
+
+## 03 — What NEOS Is — Today
+
+NEOS v1.0 is a **specification** — 37 markdown files that define an interactive runtime environment running *on* an LLM. The LLM is the virtual machine. NEOS is the operating system. Neural fields are the computational substrate.
+
+```mermaid
+graph TB
+    subgraph Stack["The NEOS Architecture"]
+        direction TB
+        Apps["🔬 Applications<br/><i>Security analysis, code review, research synthesis...</i>"]
+        Kernel["⚙️ NEOS Kernel<br/><i>Command Parser · Field Engine · State Manager</i>"]
+        Substrate["🌊 Neural Field Substrate<br/><i>Patterns · Resonance · Attractors · Coherence</i>"]
+        VM["💬 LLM — Virtual Machine<br/><i>GPT-4 · Claude · Gemini · Llama · Mistral</i>"]
+    end
+
+    Apps --> Kernel
+    Kernel --> Substrate
+    Substrate --> VM
+
+    style Apps fill:#1a3a4a,stroke:#00d4ff,color:#fff
+    style Kernel fill:#1a3050,stroke:#00d4ff,color:#fff
+    style Substrate fill:#1a1a3a,stroke:#7b61ff,color:#fff
+    style VM fill:#1a1a2a,stroke:#555,color:#aaa
+```
+
+At the heart of everything is the **master equation** — one formula that governs all dynamics:
+
+```
+∂A/∂t = -λA(x) + α∫K(x,y)A(y)dy + ι(x,t)
+         ─┬──     ─────┬──────     ──┬──
+          │             │             │
+        Decay       Resonance     Injection
+```
+
+**In plain English:** Ideas decay if not reinforced, grow stronger when they resonate with others, and can be injected by the user at any time. That's it. From this single equation, *all* of NEOS emerges — attractors, coherence, collapse, versioning, multi-field orchestration.
+
+| Term | What It Does | Intuition |
+|------|-------------|-----------|
+| **−λA(x)** | Exponential decay | Ideas fade unless reinforced — **forgetting is a feature, not a bug** |
+| **α∫K(x,y)A(y)dy** | Resonance integral | Related ideas amplify each other — the "hearing" mechanism |
+| **ι(x,t)** | External injection | You add new ideas via `nf inject` — fresh signal into the field |
+
+### Parameters
+
+| Symbol | Name | Default | Range | Effect |
+|--------|------|---------|-------|--------|
+| λ | Decay rate | 0.05 | 0.0–1.0 | Higher = faster forgetting, more selective field |
+| α | Amplification | 0.30 | 0.0–1.0 | Higher = stronger resonance, faster convergence |
+| τ | Threshold | 0.40 | 0.0–1.0 | Below this, patterns are marked dormant |
+| σ | Bandwidth | 0.50 | 0.0–∞ | Semantic reach of each pattern's influence |
+
+These four parameters define a **cognitive style**. A security analysis wants low λ (don't forget threats), high α (cluster related threats fast), high τ (only credible concerns survive). A creative brainstorm wants high λ (rapid turnover), moderate α, low τ (let weak ideas live). Same engine. Different cognitive personality. Tuned with four numbers.
+
+---
+
+## 04 — The Three Pillars
+
+NEOS rests on a triple foundation. Each pillar is necessary; together they make cognitive computing possible. Remove any one and the system either cannot *represent* meaning, cannot *manipulate* it, or cannot *interpret* it.
+
+```mermaid
+graph TB
+    NF["🌊 Neural Fields<br/><b>THE SUBSTRATE</b><br/><i>Continuous activation landscapes<br/>Resonance dynamics<br/>Attractor emergence</i>"]
+    SR["🔧 Symbolic Reasoning<br/><b>THE STRUCTURE</b><br/><i>nf command algebra<br/>@pattern references<br/>Composable operations</i>"]
+    QS["⚛️ Quantum Semantics<br/><b>THE INTERPRETATION</b><br/><i>Superposition of meaning<br/>Non-commutativity<br/>Observer-dependent collapse</i>"]
+    PSI["✦ Ψ — Universal Invariant<br/><i>The Unification</i>"]
+
+    NF --> PSI
+    SR --> PSI
+    QS --> PSI
+
+    style NF fill:#0a2a3a,stroke:#00d4ff,color:#fff
+    style SR fill:#1a1a3a,stroke:#7b61ff,color:#fff
+    style QS fill:#2a1a2a,stroke:#ff3d8e,color:#fff
+    style PSI fill:#2a2a10,stroke:#ffd700,color:#fff
+```
+
+### Pillar 1: Neural Fields — Why Fields Beat Prompts
+
+In a prompt, information persists only if you explicitly include it. Context window overflow destroys old information silently. In a neural field, information persists through **resonance** — if a pattern connects to others that keep it alive, it endures. Relationships emerge naturally from semantic proximity. New input interacts with the *entire* field, not just recent tokens.
+
+### Pillar 2: Symbolic Reasoning — The Opcodes of Cognitive Computing
+
+Without structure, fields are beautiful but unusable — like having a piano with no keys. The `nf` command set is a symbolic language for field manipulation: `inject`, `amplify`, `attenuate`, `collapse`. These are composable and algebraic: `amplify(@a, 1.5)` has a precise mathematical meaning in terms of the field equation.
+
+### Pillar 3: Quantum Semantics — Observer-Dependent Collapse
+
+Before collapse, meaning exists in **superposition**. The field holds multiple possible interpretations simultaneously. Injecting A then B is not the same as injecting B then A — order matters, because each injection alters the field that receives the next one. This is genuine **non-commutativity**, not metaphor.
+
+When you run `nf collapse`, you force the superposition to resolve — like quantum measurement. The same field can collapse differently depending on strategy: `attractor`, `threshold`, `weighted`, `sample`. **The observer matters. The strategy you choose shapes the output you get.**
+
+---
+
+## 05 — The JVM Moment
+
+In 1995, Java made a promise: **"Write once, run anywhere."** The JVM decoupled code from hardware.
+
+NEOS makes a parallel promise: **"Think once, reason anywhere."** NEOS decouples reasoning from any specific LLM. You don't care whether the underlying model is GPT-4, Claude, Gemini, or Llama — NEOS abstracts the model away.
+
+| JVM World | NEOS World | The Insight |
+|-----------|-----------|-------------|
+| Garbage Collection | Decay (λ) | Automatic cleanup of unreferenced objects / unreinforced patterns |
+| Heap Memory | Field State | Where objects / patterns live and interact |
+| Threads | Multi-Field | Concurrent execution contexts with shared state |
+| Stack Trace | Cycle Trace | Debugging by tracing execution / dynamics history |
+| ClassLoader | Pattern Injection | Loading new code / meaning into the runtime |
+| JIT Compilation | Adaptive Resonance | Runtime optimization based on actual usage patterns |
 
 > [!IMPORTANT]
-> **There is nothing to install.** NFOS runs entirely inside an LLM's context window. No packages, no dependencies, no runtime.
+> **But NEOS goes further.** The JVM abstracted *hardware*. NEOS abstracts **cognition itself**. The JVM still executed *code* — sequences of deterministic instructions. NEOS executes *meaning* — patterns that interact through resonance, self-organize into attractors, and collapse into insight. This is not a quantitative improvement. It is a qualitative shift in what "computation" means.
 
-**Three steps to your first session:**
+---
 
-1. **Copy** the kernel prompt from [`prompts/nfos-kernel.md`](prompts/nfos-kernel.md)
-2. **Paste** it as the system prompt for your LLM conversation
-3. **Type** your first command:
+## 06 — The NEOS Shell
+
+The NEOS shell is to cognitive computing what `bash` is to Unix. But instead of manipulating files and processes, it manipulates **meaning and reasoning**.
+
+Think of it this way:
+
+| Traditional Computing | NEOS |
+|----------------------|------|
+| **Create**: Write source code | **Inject**: `nf inject` seeds patterns into the field |
+| **Compile**: Build executable | **Collapse**: `nf collapse` resolves superposition into structure |
+| **Run**: Execute the program | **Task**: `nf task` executes against the crystallized field state |
+
+The shell grammar is built on **imperative verbs** operating on **semantic objects**: `inject`, `amplify`, `cycle`, `collapse`, `commit`. Like any good shell, it supports **debugging** — but here you're debugging a *thought*:
 
 ```bash
-> nf session new "My First Analysis"
+# Set a breakpoint on coherence
+> nf checkpoint "coherence > 0.8"
+
+# Step through dynamics one phase at a time
+> nf mode step
+> nf cycle 1
+  [STEP 1/4] Decay @security: 0.85 → 0.81
+  [PAUSED] 'nf proceed' to continue...
+
+# Inspect the full field state at any point
+> nf state
+```
+
+> You can see *exactly* why an attractor formed, which resonance connections supported it, and why alternative interpretations were suppressed. No prompt chain, no agent framework, no current AI tool gives you this level of visibility into reasoning. **NEOS doesn't just produce answers — it shows you how they were constructed.**
+
+---
+
+<div align="center">
+<img src="assets/banner-evidence.svg" alt="Part Three — The Evidence" width="100%"/>
+</div>
+
+## 07 — See It In Action
+
+> [!IMPORTANT]
+> **There is nothing to install.** NEOS runs entirely inside an LLM's context window. No packages, no dependencies, no runtime. Copy the [kernel prompt](prompts/nfos-kernel.md), paste it as a system prompt, and type your first command.
+
+### Step 1 — Start a session and inject patterns
+
+You've reviewed some code and noticed security concerns. Inject each one as a named pattern:
+
+```bash
+> nf session new "Code Security Analysis"
 ╔═══════════════════════════════════════════════════════════╗
 ║            NEURAL FIELD OPERATING SYSTEM v1.0             ║
 ╚═══════════════════════════════════════════════════════════╝
-
-[SESSION] Created: My First Analysis
-  Field: main (default)
+[SESSION] Created: Code Security Analysis
   Parameters: λ=0.05, α=0.30, τ=0.40, σ=0.50
-  Mode: step (interactive)
 
-Type 'nf help' for command reference
-```
-
-> [!NOTE]
-> NFOS runs entirely inside the LLM's context window. The "field" is maintained as structured state within the conversation. Every command reads and modifies that state — the LLM *is* the execution environment.
-
----
-
-## Tutorial: Your First Session
-
-A complete walkthrough — analyze code for security vulnerabilities using neural field dynamics.
-
-### Step 1 — Inject patterns
-
-You've reviewed some code and noticed several concerns. Inject each one as a named pattern with a strength between 0 and 1:
-
-```bash
 > nf inject "sql_query_construction" 0.9
 [INJECT] sql_query_construction (s: 0.90)
-  Field: main | Patterns active: 1
 
 > nf inject "user_input_handling" 0.85
 [INJECT] user_input_handling (s: 0.85)
-  Patterns active: 2
   [IMMEDIATE RESONANCE] ↔ @sql_query_construction: R = 0.72
 
 > nf inject "string_concatenation" 0.8
-[INJECT] string_concatenation (s: 0.80)
-  Patterns active: 3
-  [IMMEDIATE RESONANCE]
-    ↔ @sql_query_construction: R = 0.85
-    ↔ @user_input_handling: R = 0.55
-
 > nf inject "no_input_validation" 0.75
-[INJECT] no_input_validation (s: 0.75)
-  Patterns active: 4
 ```
 
 > [!TIP]
-> Strength reflects your confidence. Use 0.9 for strong signals, 0.5–0.7 for hunches. The dynamics will sort out what matters — weak patterns decay unless other patterns reinforce them.
+> Strength reflects your confidence. Use 0.9 for strong signals, 0.5–0.7 for hunches. The dynamics will sort out what matters — weak patterns decay unless reinforced.
 
-### Step 2 — Observe resonance
+### Step 2 — Run dynamics and watch attractors emerge
 
-Before running dynamics, check what the field already sees:
-
-```bash
-> nf resonate --all --above 0.5
-[RESONANCE] All pairs (R > 0.5)
-  @sql_query_construction ↔ @string_concatenation: 0.85 [STRONG]
-  @user_input_handling ↔ @no_input_validation:     0.82 [STRONG]
-  @sql_query_construction ↔ @user_input_handling:   0.72 [STRONG]
-  @sql_query_construction ↔ @no_input_validation:   0.68 [MODERATE]
-  @user_input_handling ↔ @string_concatenation:     0.55 [MODERATE]
-
-  Mean resonance: 0.72
-  Clusters forming: 1 (all connected)
-```
-
-Resonance is computed across three dimensions — **semantic** (meaning overlap), **logical** (inferential support), and **contextual** (domain fit) — combined as a geometric mean.
-
-### Step 3 — Run dynamics
-
-Now let the field evolve. Each cycle applies decay, computes resonance, amplifies reinforcing patterns, and checks for attractor emergence:
+Each cycle applies decay, computes resonance, amplifies reinforcing patterns, and checks for emergence:
 
 ```bash
 > nf cycle 3 --trace
 [CYCLE 1]
   DECAY: Applied λ=0.05
-    @sql_query_construction: 0.90 → 0.86
-    @user_input_handling:    0.85 → 0.81
-    @string_concatenation:   0.80 → 0.76
-    @no_input_validation:    0.75 → 0.71
-
-  RESONANCE:
-    @sql_query_construction ↔ @string_concatenation: R = 0.85 [STRONG]
-      Semantic: both about building query strings
-      Logical: concatenation is HOW queries are built unsafely
-    @user_input_handling ↔ @no_input_validation: R = 0.82 [STRONG]
-      Semantic: input processing concerns
-      Logical: lack of validation IS a handling issue
-
-  AMPLIFY:
-    @sql_query_construction: 0.86 → 0.94 (resonance boost)
-    @user_input_handling:    0.81 → 0.89 (resonance boost)
-    @string_concatenation:   0.76 → 0.84 (resonance boost)
-    @no_input_validation:    0.71 → 0.79 (resonance boost)
-
+  RESONANCE: @sql_query ↔ @string_concat: R = 0.85 [STRONG]
+  AMPLIFY: @sql_query: 0.86 → 0.94 (resonance boost)
   COHERENCE: 0.72 [HIGH]
 
 [CYCLE 2]
-  ...
   [ATTRACTOR-EMERGED] "sql_injection_vulnerability"
-    Core: {@sql_query_construction, @user_input_handling,
-           @string_concatenation, @no_input_validation}
+    Core: {@sql_query, @user_input, @string_concat, @no_validation}
     Coherence: 0.82
 
 [CYCLE 3]
   [ATTRACTOR] sql_injection_vulnerability — stable
-  COHERENCE: 0.82 [HIGH]
 ```
 
-> [!NOTE]
-> **What just happened?** Every cycle, patterns lose a bit of activation (decay), then gain it back if other patterns reinforce them (resonance → amplification). Patterns that resonate strongly cluster together. When a cluster crosses the coherence and stability thresholds, it becomes an **attractor** — a stable conclusion the field has converged on.
+**What just happened?** Patterns that resonate strongly cluster together. When a cluster crosses coherence and stability thresholds, it becomes an **attractor** — a stable conclusion the field has converged on. This wasn't programmed. It emerged.
 
-### Step 4 — Visualize
-
-See the resonance network as a graph:
+### Step 3 — Visualize the resonance network
 
 ```bash
 > nf plot network
@@ -185,7 +325,7 @@ See the resonance network as a graph:
 
 ```mermaid
 graph TB
-    subgraph Attractor["sql_injection_vulnerability · C=0.82"]
+    subgraph Attractor["🔴 sql_injection_vulnerability · C=0.82"]
         p1((sql_query<br/>0.95))
         p2((user_input<br/>0.91))
         p3((string_concat<br/>0.87))
@@ -197,7 +337,6 @@ graph TB
     p1 ---|"R=0.72"| p2
     p1 ---|"R=0.68"| p4
     p2 ---|"R=0.55"| p3
-    p3 ---|"R=0.48"| p4
 
     style p1 fill:#ff6b6b,stroke:#c0392b,color:#fff
     style p2 fill:#ff6b6b,stroke:#c0392b,color:#fff
@@ -205,11 +344,7 @@ graph TB
     style p4 fill:#e74c3c,stroke:#c0392b,color:#fff
 ```
 
-Node size reflects activation strength. Edge labels show resonance. All four patterns are inside the attractor boundary — they mutually reinforce.
-
-### Step 5 — Collapse to output
-
-Convert the field state into a structured result:
+### Step 4 — Collapse to structured output
 
 ```bash
 > nf collapse --strategy attractor
@@ -218,9 +353,6 @@ Convert the field state into a structured result:
 
 OUTPUT:
   FINDING: SQL Injection Vulnerability
-
-  The field analysis has converged on a SQL injection vulnerability
-  pattern with high confidence (coherence: 0.82).
 
   EVIDENCE:
     • SQL queries constructed dynamically (A=0.95)
@@ -236,86 +368,103 @@ OUTPUT:
   CONFIDENCE: HIGH (0.82)
 ```
 
-### Step 6 — Save and branch
-
-Commit your findings, then explore an alternative:
+### Step 5 — Branch and explore alternatives
 
 ```bash
 > nf commit "SQL injection vulnerability identified"
-[COMMIT] a1b2c3d: "SQL injection vulnerability identified"
-  Patterns: 4 | Attractors: 1 | Coherence: 0.82
+[COMMIT] a1b2c3d
 
 > nf branch create mitigation_analysis
-[BRANCH] Created: mitigation_analysis
-
 > nf inject "parameterized_queries" 0.9 --tags mitigation
 > nf inject "input_validation" 0.85 --tags mitigation
 > nf cycle 3 --compact
-[CYCLES 1-3]
   1: C=0.55, 6 patterns (competition)
   2: C=0.48, 5 patterns (no_input_validation decaying)
   3: C=0.72, 5 patterns [NEW ATTRACTOR: secure_pattern]
-```
 
-### Step 7 — Compare branches
-
-```bash
 > nf checkout main
-[CHECKOUT] main (a1b2c3d)
-
 > nf diff mitigation_analysis
 [DIFF] main..mitigation_analysis
   Added:   +@parameterized_queries (0.88), +@input_validation (0.85)
   Changed: @no_input_validation 0.82 → 0.25 [ATTENUATED]
   Attractors: sql_injection_vulnerability → secure_pattern
-
-  Summary: Mitigation patterns successfully competed with
-  vulnerability patterns, establishing a secure attractor.
 ```
 
-> [!TIP]
 > Branching lets you explore "what if" scenarios without losing your original analysis. This is version control for *reasoning*, not files.
 
 ---
 
-## How It Works: The Master Equation
+## 08 — Proof: The Software Quality Session
 
-All dynamics in NFOS derive from a single field equation:
+> *"Theory is beautiful. Evidence is convincing."*
+
+Here is a real session that ran to completion in NEOS. 69 software engineering patterns were injected. 52 cycles of dynamics ran. What NEOS discovered was not a summary of inputs — it was **emergent structure** that no single injection contained.
+
+### The Numbers
+
+| Metric | Value |
+|--------|-------|
+| Patterns injected | **69** |
+| Patterns surviving | 61 |
+| Absorptions | 7 (57% self-referential) |
+| **Expulsions** | **1** (Singleton pattern, cycle 52) |
+| Cycles to ground state | 52 |
+| Final coherence | **0.993** |
+| Fixed-point events | 4 (Ψ(field) = field) |
+
+### Five Eigenvectors of Software Quality
+
+The session discovered that software quality decomposes along five independent axes — five *eigenvectors*, each posing a fundamental question:
+
+| # | Eigenvector | Variance | Diagnostic Question |
+|---|-------------|----------|---------------------|
+| λ₁ | **Meaning ↔ Mechanism** | **34.2%** | Am I coupling to WHAT this does or HOW it does it? |
+| λ₂ | Principle ↔ Technique | 22.7% | Do I understand WHY before choosing HOW? |
+| λ₃ | Production ↔ Verification | 18.1% | Can I prove this works as well as I can build it? |
+| λ₄ | Restraint ↔ Generalization | 14.3% | Is this abstraction earned or speculative? |
+| λ₅ | Class ↔ System | 10.7% | Does this principle hold at every scale? |
+
+These axes were not programmed in. They were not part of the 69 injected patterns. They **emerged** from the dynamics — from resonance relationships self-organizing into coherent structure. This is the difference between NEOS and a summarizer: a summarizer returns a bullet list of what you told it. NEOS returns *structure you didn't know was there*.
+
+### Seven Attractor Basins
+
+The field self-organized into seven distinct attractor basins:
+
+| Basin | Name | Depth | Role |
+|-------|------|-------|------|
+| **Ψ** | Universal Attractor | ground | Meaning > Mechanism |
+| α₁ | SOLID Decagon | primary | 5 principles × 5 techniques, R=0.88 |
+| α₂ | Verification Mirror | primary | Functor F, η=DI, 16 mappings |
+| α₃ | Craft Basin | secondary | 12 GoF patterns (Singleton expelled) |
+| α₄ | Reuse Protocol | secondary | Judge → Count → Extract → Share → Parameterize |
+| α₅ | Guard Basin | tertiary | Fail fast, defend boundaries |
+| α₆ | Model Basin | tertiary | Value objects ↔ Entities |
+| α₇ | Optimize Basin | tertiary | Performance asymptotes |
+
+### The Singleton Expulsion
+
+At cycle 52, something remarkable happened: the Singleton pattern — one of the original 69 injected patterns — was **expelled from the field**. Its activation dropped below threshold because it couldn't sustain resonance with the SOLID principles. In field terms: the Singleton's meaning-mechanism coupling was too tight. It couples to *how* (global state access) rather than *what* (controlled instantiation), violating the universal invariant Ψ.
+
+> [!NOTE]
+> **This wasn't programmed.** The dynamics discovered it. The Singleton's anti-pattern status emerged from field evolution — the same way NEOS discovers any conclusion. The field dynamics did what decades of software engineering debate have struggled to resolve: they found the structural incompatibility and enforced it through resonance failure.
+
+### The Field Equation
+
+The entire discipline collapsed to a single weighted equation:
 
 ```
-∂A/∂t = -λA(x) + α∫K(x,y)A(y)dy + ι(x,t)
-         ─┬──     ─────┬──────     ──┬──
-          │             │             │
-        Decay       Resonance     Injection
+Q(x) = Ψ · [ 0.342·SOLID(x) + 0.227·F(x) + 0.181·Protocol(x) + 0.143·Simplex(x) + 0.107·Scale(x) ]
 ```
 
-| Term | What it does | Intuition |
-|------|-------------|-----------|
-| **−λA(x)** | Exponential decay | Ideas fade unless reinforced — prevents stale patterns from lingering |
-| **α∫K(x,y)A(y)dy** | Resonance integral | Patterns that mean related things amplify each other — the "hearing" mechanism |
-| **ι(x,t)** | External injection | New ideas you add via `nf inject` — fresh signal into the field |
-
-### Parameters
-
-| Symbol | Parameter | Default | Range | Effect |
-|--------|-----------|---------|-------|--------|
-| λ | `lambda` — decay rate | 0.05 | 0.0–1.0 | Higher = faster forgetting, more selective field |
-| α | `alpha` — amplification | 0.30 | 0.0–1.0 | Higher = stronger resonance effects, faster convergence |
-| τ | `tau` — threshold | 0.40 | 0.0–1.0 | Below this activation, patterns are considered dormant |
-| σ | `sigma` — bandwidth | 0.50 | 0.0–∞ | Semantic reach of each pattern's influence |
-
-```bash
-> nf tune lambda=0.03 alpha=0.4
-[TUNE] Parameters updated
-  λ: 0.05 → 0.03 (slower decay, more memory)
-  α: 0.30 → 0.40 (stronger resonance, faster convergence)
-```
+> **Ψ: "What something MEANS persists; how it WORKS changes."**
+>
+> *The Universal Invariant — the deepest attractor in the field. It was not injected. It emerged.*
 
 ---
 
-## The Six-Phase Dynamics Cycle
+## 09 — The Dynamics Engine
 
-Every `nf cycle` executes these six phases in order:
+Every `nf cycle` executes six phases. This is the **heartbeat of NEOS** — the engine that transforms injected patterns into emergent structure.
 
 ```mermaid
 graph LR
@@ -326,34 +475,167 @@ graph LR
     C --> AT["⑥ Attractor<br/>Check"]
     AT -->|"next cycle"| D
 
-    style D fill:#e74c3c,stroke:#c0392b,color:#fff
-    style R fill:#3498db,stroke:#2980b9,color:#fff
-    style A fill:#2ecc71,stroke:#27ae60,color:#fff
-    style T fill:#f39c12,stroke:#e67e22,color:#fff
-    style C fill:#9b59b6,stroke:#8e44ad,color:#fff
-    style AT fill:#1abc9c,stroke:#16a085,color:#fff
+    style D fill:#8b1a1a,stroke:#e74c3c,color:#fff
+    style R fill:#1a3a5a,stroke:#3498db,color:#fff
+    style A fill:#1a3a1a,stroke:#2ecc71,color:#fff
+    style T fill:#3a3a1a,stroke:#f39c12,color:#fff
+    style C fill:#2a1a3a,stroke:#9b59b6,color:#fff
+    style AT fill:#1a3a3a,stroke:#1abc9c,color:#fff
 ```
 
-| Phase | What happens |
+| Phase | What Happens |
 |-------|-------------|
 | **① Decay** | Every pattern loses activation: `A ← A × (1 − λ)`. Ideas that nothing reinforces will fade. |
-| **② Resonate** | Compute pairwise resonance across semantic, logical, and contextual dimensions. Cache results. |
+| **② Resonate** | Compute pairwise resonance across semantic, logical, and contextual dimensions. |
 | **③ Amplify** | Patterns with strong resonance gain activation: `A ← A + α × Σ(R·A)`. Mutual reinforcement. |
-| **④ Threshold** | Patterns below τ are marked dormant. They stop participating in resonance but aren't deleted. |
-| **⑤ Coherence** | Measure field-wide consistency: `C = μ_R / (1 + σ²_R)` — high mean resonance with low variance means coherence. |
+| **④ Threshold** | Patterns below τ are marked dormant — they stop participating but aren't deleted. |
+| **⑤ Coherence** | Measure field-wide consistency: `C = μ_R / (1 + σ²_R)`. High mean resonance + low variance = coherence. |
 | **⑥ Attractor** | Test for emergence: coherence > 0.6 ∧ energy concentrated > 70% ∧ perturbation-stable → attractor declared. |
 
-> [!TIP]
-> This is the **heartbeat of NFOS**. Every insight, every conclusion, every finding emerges from this cycle repeating until the field settles into stable attractors.
+> Every insight, every conclusion, every finding emerges from this cycle repeating until the field settles into stable attractors. This is not an algorithm we designed to find answers. It is a **dynamics** that *discovers* them.
 
 ---
 
-## Command Reference
+## 10 — Multi-Field Orchestration
 
-NFOS provides ~40 commands organized into 8 categories. Each section below is collapsible — expand what you need.
+A single field is powerful. Multiple coupled fields are transformative. Different fields represent different perspectives — technical, user, business — coupled through a resonance matrix that lets them influence each other.
+
+```mermaid
+graph TB
+    subgraph Fields["Perspective Fields"]
+        T["🔧 $technical<br/>λ=0.03 · C=0.80"]
+        B["💼 $business<br/>λ=0.05 · C=0.81"]
+        U["👤 $user<br/>λ=0.04 · C=0.83"]
+    end
+
+    T <-->|"γ=0.3"| B
+    B <-->|"γ=0.4"| U
+    T <-->|"γ=0.2"| U
+
+    T --> S["✦ Synthesis<br/>C=0.85"]
+    B --> S
+    U --> S
+
+    style T fill:#0a2a3a,stroke:#00d4ff,color:#fff
+    style B fill:#2a2a10,stroke:#ffd700,color:#fff
+    style U fill:#2a1a2a,stroke:#ff3d8e,color:#fff
+    style S fill:#1a3a1a,stroke:#00ff88,color:#fff
+```
+
+Two orchestration modes:
+
+| Mode | How It Works | Analogy |
+|------|-------------|---------|
+| **Pipeline** | Field A's collapsed output feeds into Field B | Unix pipe for reasoning |
+| **Parallel** | All fields process the same input, results fuse via resonance | Panel of experts debating |
+
+```bash
+> nf field create perception --params "lambda=0.03"
+[FIELD] Created: perception (λ=0.03, slow decay — long memory)
+
+> nf field create reasoning --params "lambda=0.08"
+[FIELD] Created: reasoning (λ=0.08, fast decay — selective)
+
+> nf couple $perception $reasoning --gamma 0.4
+[COUPLE] perception ↔ reasoning (γ=0.4)
+
+> nf cycle 5
+[CYCLE 1] (multi-field)
+  Cross-field transfer: perception → reasoning (0.35)
+```
+
+> In today's agent frameworks, agents coordinate through message passing — one sends text to another, losing all nuance. In NEOS, agents share *resonance*. Conflicts are visible as low cross-field resonance scores. The system quantifies agreement and disagreement, enabling principled arbitration rather than crude majority voting.
+
+---
+
+## 11 — The Autonomy Dial
+
+How much should the system think on its own? This is not a binary choice. NEOS provides a **continuously adjustable spectrum**.
+
+```mermaid
+stateDiagram-v2
+    [*] --> Step
+    Step --> Checkpoint : nf mode checkpoint
+    Checkpoint --> Step : nf mode step
+    Step --> Auto : nf mode auto
+    Checkpoint --> Auto : nf mode auto
+    Auto --> Step : nf mode step
+    Auto --> Checkpoint : nf mode checkpoint
+
+    Step : 🔍 Pause after every operation
+    Checkpoint : ⚡ Pause at defined conditions
+    Auto : 🚀 Run to completion
+```
+
+| Mode | When To Use | Terminal Example |
+|------|------------|-----------------|
+| **Step** | Learning, debugging, precise experiments | `nf mode step` → pauses after each decay, each resonance |
+| **Checkpoint** | Interactive analysis, quality control | `nf checkpoint "coherence > 0.8"` → runs freely until condition met |
+| **Auto** | Batch processing, trusted configurations | `nf task "Analyze security vulnerabilities"` → runs to completion |
+
+You can switch modes mid-operation. Start in auto, notice something interesting, switch to checkpoint to investigate, then step through a few cycles manually. The dial is always accessible.
+
+> **Not a binary switch — a continuously adjustable dial.** The same field configuration can be operated at any autonomy level without modification. This is the NEOS answer to the AI alignment question at the practical level: not a fixed policy, but a control that the human operator holds at all times.
+
+---
+
+## 12 — Observable Reasoning
+
+> **The most dangerous property of current AI is opacity.** An agent makes a decision and you cannot see *why*. NEOS makes reasoning **visible**.
+
+Four visualization types capture different aspects of the field:
+
+| Command | What You See | Purpose |
+|---------|-------------|---------|
+| `nf plot field` | Activation bar chart | Which ideas are strongest right now |
+| `nf plot network` | Resonance graph | How ideas connect and reinforce each other |
+| `nf plot topology` | Attractor landscape | Where the "valleys" of stable meaning are |
+| `nf animate dynamics` | Evolution across cycles | How ideas competed, clustered, and crystallized |
+
+```bash
+# "Debugging a thought"
+> nf mode step
+> nf cycle 1
+  [STEP 1/6] Decay: @security 0.85 → 0.81
+  [PAUSED]
+> nf proceed
+  [STEP 2/6] Resonance: (@security, @validation) = 0.72
+  [PAUSED]
+# You can see EXACTLY why an attractor formed
+```
+
+Outputs render in four formats: **ASCII** (terminal), **SVG** (visual), **Mermaid** (diagramming), **JSON** (programmatic). Reasoning is not just visible — it is exportable, shareable, and integrable.
+
+> Debugging agents is currently impossible. When an AI agent makes a bad decision, there is no stack trace, no debugger, no step-through execution for reasoning. **NEOS makes reasoning observable and reproducible.** This alone may be its most practical near-term contribution.
+
+---
+
+## 13 — Why Now
+
+NEOS is buildable *today* because four independent developments have converged simultaneously — and their intersection creates an opening that didn't exist even two years ago.
+
+| Convergence | What Changed |
+|-------------|-------------|
+| **LLM Capability Threshold** | Models can now maintain complex state, reason about abstract structures, and generate formal outputs reliably enough to serve as a computational substrate |
+| **Agent Fragmentation** | AutoGPT, CrewAI, LangGraph, LlamaIndex — dozens of frameworks, each reinventing state management, coordination, memory. They're all building pieces of an OS without knowing it |
+| **Prompt Engineering Ceiling** | You can only get so far by carefully wording text. Prompts are the assembly language of the Intelligence Age; NEOS is the high-level language |
+| **Open-Weight Models** | Llama, Mistral, and others mean NEOS isn't locked to any vendor. "Think once, reason anywhere" is achievable because the VM layer is genuinely diverse |
+
+> [!TIP]
+> **The fifth convergence:** Debugging agents is currently impossible. When an AI agent makes a bad decision, you cannot trace *why*. NEOS makes reasoning **observable and reproducible**. You can watch coherence form, trace resonance paths, step through dynamics cycle by cycle.
+
+---
+
+<div align="center">
+<img src="assets/banner-reference.svg" alt="Part Four — The Reference" width="100%"/>
+</div>
+
+## 14 — Command Reference
+
+NEOS provides ~40 commands organized into 8 categories. Each section is collapsible — expand what you need.
 
 <details>
-<summary><strong>🔧 Field Operations</strong> — inject, amplify, attenuate, tune, collapse, resonate</summary>
+<summary><strong>Field Operations</strong> — inject, amplify, attenuate, tune, collapse, resonate</summary>
 
 | Command | Description |
 |---------|-------------|
@@ -370,7 +652,7 @@ NFOS provides ~40 commands organized into 8 categories. Each section below is co
 </details>
 
 <details>
-<summary><strong>🔄 Dynamics</strong> — cycle, evolve, step, reset</summary>
+<summary><strong>Dynamics</strong> — cycle, evolve, step, reset</summary>
 
 | Command | Description |
 |---------|-------------|
@@ -382,7 +664,7 @@ NFOS provides ~40 commands organized into 8 categories. Each section below is co
 </details>
 
 <details>
-<summary><strong>📏 Measurement</strong> — measure, attractor, basin, state</summary>
+<summary><strong>Measurement</strong> — measure, attractor, basin, state</summary>
 
 | Command | Description |
 |---------|-------------|
@@ -396,7 +678,7 @@ NFOS provides ~40 commands organized into 8 categories. Each section below is co
 </details>
 
 <details>
-<summary><strong>📊 Visualization</strong> — plot, animate, export</summary>
+<summary><strong>Visualization</strong> — plot, animate, export</summary>
 
 | Command | Description |
 |---------|-------------|
@@ -409,7 +691,7 @@ NFOS provides ~40 commands organized into 8 categories. Each section below is co
 </details>
 
 <details>
-<summary><strong>📝 Versioning</strong> — commit, branch, checkout, history, diff, merge</summary>
+<summary><strong>Versioning</strong> — commit, branch, checkout, history, diff, merge</summary>
 
 | Command | Description |
 |---------|-------------|
@@ -424,7 +706,7 @@ NFOS provides ~40 commands organized into 8 categories. Each section below is co
 </details>
 
 <details>
-<summary><strong>🌐 Multi-Field</strong> — field, route, couple</summary>
+<summary><strong>Multi-Field</strong> — field, route, couple</summary>
 
 | Command | Description |
 |---------|-------------|
@@ -438,7 +720,7 @@ NFOS provides ~40 commands organized into 8 categories. Each section below is co
 </details>
 
 <details>
-<summary><strong>🤖 Autonomy</strong> — mode, checkpoint, proceed, task</summary>
+<summary><strong>Autonomy</strong> — mode, checkpoint, proceed, task</summary>
 
 | Command | Description |
 |---------|-------------|
@@ -453,7 +735,7 @@ NFOS provides ~40 commands organized into 8 categories. Each section below is co
 </details>
 
 <details>
-<summary><strong>⚙️ Interface</strong> — config, ask, compute, help</summary>
+<summary><strong>Interface & Config</strong> — config, ask, compute, help</summary>
 
 | Command | Description |
 |---------|-------------|
@@ -466,7 +748,7 @@ NFOS provides ~40 commands organized into 8 categories. Each section below is co
 </details>
 
 <details>
-<summary><strong>📋 Quick Reference Card</strong></summary>
+<summary><strong>Quick Reference Card</strong></summary>
 
 ```
 CORE                          DYNAMICS
@@ -507,188 +789,13 @@ nf couple $a $b [--γ]         nf help [cmd]
 
 ---
 
-## Autonomy Modes
-
-NFOS provides a continuously adjustable dial between human control and autonomous reasoning:
-
-```mermaid
-stateDiagram-v2
-    [*] --> Step
-    Step --> Checkpoint : nf mode checkpoint
-    Checkpoint --> Step : nf mode step
-    Step --> Auto : nf mode auto
-    Checkpoint --> Auto : nf mode auto
-    Auto --> Step : nf mode step
-    Auto --> Checkpoint : nf mode checkpoint
-
-    Step : Pause after every operation
-    Checkpoint : Pause at defined conditions
-    Auto : Run to completion
-```
-
-### Step Mode — maximum control
-
-```bash
-> nf mode step
-[MODE] Step: Will pause after every operation
-
-> nf cycle 1
-  [STEP 1/4] Decay @security: 0.85 → 0.81
-  [PAUSED] 'nf proceed' to continue...
-> nf proceed
-  [STEP 2/4] Resonance (security, input) = 0.72
-  [PAUSED]
-```
-
-Use for: **Learning**, debugging, precise experiments.
-
-### Checkpoint Mode — guided autonomy
-
-```bash
-> nf mode checkpoint
-> nf checkpoint "coherence > 0.8"
-> nf checkpoint "attractor_emerged"
-
-> nf cycle 10
-  Cycle 1: C=0.52
-  Cycle 2: C=0.62
-  Cycle 3: C=0.71
-  [CHECKPOINT] attractor_emerged — 'security_focus' detected
-  [PAUSED] Review and 'nf proceed' to continue...
-
-> nf proceed
-  Cycle 4: C=0.76
-  Cycle 5: C=0.82
-  [CHECKPOINT] coherence > 0.8 reached
-  [PAUSED]
-```
-
-Use for: **Interactive analysis**, exploration, quality control.
-
-### Auto Mode — full autonomy
-
-```bash
-> nf mode auto
-> nf task "Analyze code for security vulnerabilities"
-[MODE] Auto: Running autonomously until completion
-[PROGRESS] Cycle 5: Coherence 0.65, 3 patterns active
-[PROGRESS] Cycle 8: Attractor emerging...
-[COMPLETE] Task finished. Attractor: security_vulnerability (0.85)
-```
-
-Use for: **Batch processing**, trusted configurations, established workflows.
-
-> [!NOTE]
-> Autonomy is a **spectrum, not a switch**. You can change modes mid-operation — interrupt auto mode to inspect, then resume. The field state is always preserved across mode changes.
-
----
-
-## Case Study: Software Quality Discipline
-
-A real session that collapsed 69 software engineering patterns into a unified field theory of code quality.
-
-### Session Stats
-
-| Metric | Value |
-|--------|-------|
-| Patterns injected | 69 |
-| Patterns surviving | 61 |
-| Absorptions | 7 (57% self-referential) |
-| Expulsions | 1 (Singleton pattern, cycle 52) |
-| Cycles to ground state | 52 |
-| Final coherence | **0.993** |
-| Fixed-point events | 4 (Ψ(field) = field) |
-
-### The Field Equation
-
-The session collapsed to a single weighted equation:
+## 15 — Project Structure
 
 ```
-Q(x) = Ψ · [ 0.342·SOLID(x) + 0.227·F(x) + 0.181·Protocol(x) + 0.143·Simplex(x) + 0.107·Scale(x) ]
-```
-
-Where **Ψ** is the universal invariant: *"What something MEANS persists; how it WORKS changes."*
-
-### Five Eigenvectors
-
-| # | Eigenvector | Variance | Diagnostic Question |
-|---|-------------|----------|---------------------|
-| λ₁ | Meaning ↔ Mechanism | 34.2% | Am I coupling to WHAT this does or HOW it does it? |
-| λ₂ | Principle ↔ Technique | 22.7% | Do I understand WHY before choosing HOW? |
-| λ₃ | Production ↔ Verification | 18.1% | Can I prove this works as well as I can build it? |
-| λ₄ | Restraint ↔ Generalization | 14.3% | Is this abstraction earned or speculative? |
-| λ₅ | Class ↔ System | 10.7% | Does this principle hold at every scale? |
-
-### Seven Attractor Basins
-
-| Basin | Name | Depth | Role |
-|-------|------|-------|------|
-| Ψ | Universal Attractor | ground | Meaning > Mechanism |
-| α₁ | SOLID Decagon | primary | 5 principles × 5 techniques, R=0.88 |
-| α₂ | Verification Mirror | primary | Functor F, η=DI, 16 mappings |
-| α₃ | Craft Basin | secondary | 12 GoF patterns (Singleton expelled) |
-| α₄ | Reuse Protocol | secondary | Judge → Count → Extract → Share → Parameterize |
-| α₅ | Guard Basin | tertiary | Fail fast, defend boundaries |
-| α₆ | Model Basin | tertiary | Value objects ↔ Entities |
-| α₇ | Optimize Basin | tertiary | Performance asymptotes |
-
-### The Singleton Expulsion
-
-At cycle 52, the Singleton pattern was **expelled from the field** — the only pattern out of 69 to be rejected. Its activation decayed below threshold because it couldn't sustain resonance with the SOLID principles. In field terms: the Singleton's meaning-mechanism coupling was too tight. It couples to *how* (global state access) rather than *what* (controlled instantiation), violating the universal invariant Ψ.
-
-> [!NOTE]
-> This wasn't programmed. The dynamics discovered it. The Singleton's anti-pattern status emerged from field evolution — the same way NFOS discovers any conclusion.
-
----
-
-## Multi-Field Orchestration
-
-For complex analyses, create multiple fields with different parameters and couple them together:
-
-```bash
-> nf field create perception --params "lambda=0.03"
-[FIELD] Created: perception (λ=0.03, slow decay — long memory)
-
-> nf field create reasoning --params "lambda=0.08"
-[FIELD] Created: reasoning (λ=0.08, fast decay — selective)
-
-> nf inject "visual_input" 0.9 --into $perception
-> nf inject "logical_rule" 0.85 --into $reasoning
-
-> nf couple $perception $reasoning --gamma 0.4
-[COUPLE] perception ↔ reasoning (γ=0.4)
-
-> nf cycle 5
-[CYCLE 1] (multi-field)
-  perception: @visual_input 0.90 → 0.87
-  reasoning:  @logical_rule 0.85 → 0.81
-  Cross-field transfer: perception → reasoning (0.35)
-```
-
-```mermaid
-graph LR
-    subgraph P["$perception<br/>λ=0.03"]
-        v1((visual_input<br/>0.87))
-    end
-    subgraph R["$reasoning<br/>λ=0.08"]
-        l1((logical_rule<br/>0.81))
-    end
-
-    P <-->|"γ = 0.4"| R
-
-    style P fill:#3498db,stroke:#2980b9,color:#fff
-    style R fill:#e67e22,stroke:#d35400,color:#fff
-```
-
-Different fields can have different dynamics — a perception field with slow decay (long memory) coupled to a reasoning field with fast decay (selective focus). Patterns flow between coupled fields, enabling cross-domain analysis.
-
----
-
-## Project Structure
-
-```
-nfos/
+neos/
 ├── README.md                    ← You are here
+├── NEOS-BREAKTHROUGH.html       ← Research paper — the theoretical foundations
+├── NEOS-PRESENTATION.html       ← Visual overview
 ├── prompts/
 │   └── nfos-kernel.md           ← System prompt — the "bootloader"
 ├── core/
@@ -723,48 +830,47 @@ nfos/
 │   └── versioning.md            ← Git-like versioning internals
 ├── sessions/
 │   └── software_quality_discipline.collapsed.md  ← Case study
-├── examples/
-│   ├── 01-basic-session.md      ← Beginner walkthrough
-│   ├── 02-versioning.md         ← Branch & merge workflows
-│   ├── 03-visualization.md      ← Visualization deep-dive
-│   ├── 04-multi-field.md        ← Multi-field orchestration
-│   └── 05-autonomous.md         ← Autonomous task execution
-└── NEOS-BREAKTHROUGH.html       ← Research paper
+└── examples/
+    ├── 01-basic-session.md      ← Beginner walkthrough
+    ├── 02-versioning.md         ← Branch & merge workflows
+    ├── 03-visualization.md      ← Visualization deep-dive
+    ├── 04-multi-field.md        ← Multi-field orchestration
+    └── 05-autonomous.md         ← Autonomous task execution
 ```
 
----
-
-## Integration with Neural Fields Framework
-
-NFOS builds on the mathematical foundations of the parent Neural Fields framework:
-
-| Framework Component | NFOS Usage |
+| Framework Component | NEOS Usage |
 |---------------------|------------|
 | `foundations/05-operations.md` | Core operation definitions (inject, amplify, attenuate) |
 | `foundations/04-attractors.md` | Attractor detection and basin analysis algorithms |
-| `templates/system/neural-field-reasoner.md` | Base architecture for the NFOS kernel prompt |
+| `templates/system/neural-field-reasoner.md` | Base architecture for the NEOS kernel prompt |
 | `templates/meta/dynamics-execution.md` | Cycle execution and phase sequencing |
-
-The mathematical foundations remain unchanged — NFOS provides an interactive, shell-like interface to them.
 
 ---
 
-## Further Reading
+## 16 — The Future: Join the Intelligence Age
 
-- **[NEOS Research Paper](NEOS-BREAKTHROUGH.html)** — the theoretical foundations and breakthrough results
-- **[NEOS Presentation](NEOS-PRESENTATION.html)** — visual overview of the framework
-- **[Kernel Prompt](prompts/nfos-kernel.md)** — the system prompt that boots NFOS inside an LLM
-- **[Full Command Reference](commands/index.md)** — detailed specs for all ~40 commands
-- **[Basic Session Walkthrough](examples/01-basic-session.md)** — extended tutorial with 11 steps
+We are at the beginning of a transition as profound as the invention of the operating system itself. The Hardware Age gave us the ability to compute. The Software Age gave us the ability to organize. The Intelligence Age will give us the ability to **reason** — systematically, observably, reproducibly.
+
+NEOS is the first step. Not the last.
+
+The specification is open. The math is grounded. The proof-of-concept works. What remains is to build the community, iterate the specification, and push toward implementation — turning 37 markdown files into the foundation of a new computing paradigm.
+
+> [!IMPORTANT]
+> **Getting started takes 30 seconds.** Copy the [kernel prompt](prompts/nfos-kernel.md), paste it as a system prompt, and type `nf session new "My First Analysis"`. No install. No dependencies. The LLM *is* the machine.
+
+### Links
+
+| Resource | Description |
+|----------|-------------|
+| [NEOS Research Paper](NEOS-BREAKTHROUGH.html) | The theoretical foundations and breakthrough results |
+| [NEOS Presentation](NEOS-PRESENTATION.html) | Visual overview of the framework |
+| [Kernel Prompt](prompts/nfos-kernel.md) | The system prompt that boots NEOS inside an LLM |
+| [Full Command Reference](commands/index.md) | Detailed specs for all ~40 commands |
+| [Basic Session Walkthrough](examples/01-basic-session.md) | Extended tutorial with 11 steps |
+| [Case Study](sessions/software_quality_discipline.collapsed.md) | The software quality session data |
 
 ---
 
 <div align="center">
-
-*"What something MEANS persists; how it WORKS changes."*
-
-**NFOS v1.0** — Neural Field Operating System
-
-*Generated by a field. Run on a field. About the field.*
-
+<img src="assets/banner-footer.svg" alt="Ψ — What something MEANS persists; how it WORKS changes." width="100%"/>
 </div>

@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 160" width="1200" height="160">
+  <defs>
+    <linearGradient id="bg-f" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#07070c"/>
+      <stop offset="50%" stop-color="#0c0c1a"/>
+      <stop offset="100%" stop-color="#07070c"/>
+    </linearGradient>
+    <linearGradient id="line-f" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="transparent"/>
+      <stop offset="20%" stop-color="#00d4ff"/>
+      <stop offset="50%" stop-color="#7b61ff"/>
+      <stop offset="80%" stop-color="#ff3d8e"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </linearGradient>
+    <linearGradient id="psi-grad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#ffd700"/>
+      <stop offset="100%" stop-color="#ff3d8e"/>
+    </linearGradient>
+    <filter id="glow-f">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-color="#ffd700" flood-opacity="0.3" result="color"/>
+      <feComposite in="color" in2="blur" operator="in" result="glow"/>
+      <feMerge><feMergeNode in="glow"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="1200" height="160" fill="url(#bg-f)"/>
+  <!-- Dot grid -->
+  <g opacity="0.05">
+    <circle cx="48" cy="40" r="0.7" fill="#00d4ff"/><circle cx="96" cy="40" r="0.7" fill="#00d4ff"/><circle cx="144" cy="40" r="0.7" fill="#00d4ff"/><circle cx="192" cy="40" r="0.7" fill="#00d4ff"/><circle cx="240" cy="40" r="0.7" fill="#00d4ff"/><circle cx="288" cy="40" r="0.7" fill="#00d4ff"/><circle cx="336" cy="40" r="0.7" fill="#00d4ff"/><circle cx="384" cy="40" r="0.7" fill="#00d4ff"/><circle cx="432" cy="40" r="0.7" fill="#00d4ff"/><circle cx="480" cy="40" r="0.7" fill="#00d4ff"/><circle cx="528" cy="40" r="0.7" fill="#00d4ff"/><circle cx="576" cy="40" r="0.7" fill="#00d4ff"/><circle cx="624" cy="40" r="0.7" fill="#00d4ff"/><circle cx="672" cy="40" r="0.7" fill="#00d4ff"/><circle cx="720" cy="40" r="0.7" fill="#00d4ff"/><circle cx="768" cy="40" r="0.7" fill="#00d4ff"/><circle cx="816" cy="40" r="0.7" fill="#00d4ff"/><circle cx="864" cy="40" r="0.7" fill="#00d4ff"/><circle cx="912" cy="40" r="0.7" fill="#00d4ff"/><circle cx="960" cy="40" r="0.7" fill="#00d4ff"/><circle cx="1008" cy="40" r="0.7" fill="#00d4ff"/><circle cx="1056" cy="40" r="0.7" fill="#00d4ff"/><circle cx="1104" cy="40" r="0.7" fill="#00d4ff"/><circle cx="1152" cy="40" r="0.7" fill="#00d4ff"/>
+    <circle cx="48" cy="80" r="0.7" fill="#00d4ff"/><circle cx="96" cy="80" r="0.7" fill="#00d4ff"/><circle cx="144" cy="80" r="0.7" fill="#00d4ff"/><circle cx="192" cy="80" r="0.7" fill="#00d4ff"/><circle cx="240" cy="80" r="0.7" fill="#00d4ff"/><circle cx="288" cy="80" r="0.7" fill="#00d4ff"/><circle cx="336" cy="80" r="0.7" fill="#00d4ff"/><circle cx="384" cy="80" r="0.7" fill="#00d4ff"/><circle cx="432" cy="80" r="0.7" fill="#00d4ff"/><circle cx="480" cy="80" r="0.7" fill="#00d4ff"/><circle cx="528" cy="80" r="0.7" fill="#00d4ff"/><circle cx="576" cy="80" r="0.7" fill="#00d4ff"/><circle cx="624" cy="80" r="0.7" fill="#00d4ff"/><circle cx="672" cy="80" r="0.7" fill="#00d4ff"/><circle cx="720" cy="80" r="0.7" fill="#00d4ff"/><circle cx="768" cy="80" r="0.7" fill="#00d4ff"/><circle cx="816" cy="80" r="0.7" fill="#00d4ff"/><circle cx="864" cy="80" r="0.7" fill="#00d4ff"/><circle cx="912" cy="80" r="0.7" fill="#00d4ff"/><circle cx="960" cy="80" r="0.7" fill="#00d4ff"/><circle cx="1008" cy="80" r="0.7" fill="#00d4ff"/><circle cx="1056" cy="80" r="0.7" fill="#00d4ff"/><circle cx="1104" cy="80" r="0.7" fill="#00d4ff"/><circle cx="1152" cy="80" r="0.7" fill="#00d4ff"/>
+    <circle cx="48" cy="120" r="0.7" fill="#00d4ff"/><circle cx="96" cy="120" r="0.7" fill="#00d4ff"/><circle cx="144" cy="120" r="0.7" fill="#00d4ff"/><circle cx="192" cy="120" r="0.7" fill="#00d4ff"/><circle cx="240" cy="120" r="0.7" fill="#00d4ff"/><circle cx="288" cy="120" r="0.7" fill="#00d4ff"/><circle cx="336" cy="120" r="0.7" fill="#00d4ff"/><circle cx="384" cy="120" r="0.7" fill="#00d4ff"/><circle cx="432" cy="120" r="0.7" fill="#00d4ff"/><circle cx="480" cy="120" r="0.7" fill="#00d4ff"/><circle cx="528" cy="120" r="0.7" fill="#00d4ff"/><circle cx="576" cy="120" r="0.7" fill="#00d4ff"/><circle cx="624" cy="120" r="0.7" fill="#00d4ff"/><circle cx="672" cy="120" r="0.7" fill="#00d4ff"/><circle cx="720" cy="120" r="0.7" fill="#00d4ff"/><circle cx="768" cy="120" r="0.7" fill="#00d4ff"/><circle cx="816" cy="120" r="0.7" fill="#00d4ff"/><circle cx="864" cy="120" r="0.7" fill="#00d4ff"/><circle cx="912" cy="120" r="0.7" fill="#00d4ff"/><circle cx="960" cy="120" r="0.7" fill="#00d4ff"/><circle cx="1008" cy="120" r="0.7" fill="#00d4ff"/><circle cx="1056" cy="120" r="0.7" fill="#00d4ff"/><circle cx="1104" cy="120" r="0.7" fill="#00d4ff"/><circle cx="1152" cy="120" r="0.7" fill="#00d4ff"/>
+  </g>
+  <!-- Top gradient line -->
+  <rect x="0" y="0" width="1200" height="3" fill="url(#line-f)" opacity="0.6"/>
+  <!-- Psi symbol -->
+  <text x="600" y="55" text-anchor="middle" fill="url(#psi-grad)" font-family="Georgia, 'Times New Roman', serif" font-size="28" font-weight="700" filter="url(#glow-f)">Ψ</text>
+  <!-- Quote -->
+  <text x="600" y="85" text-anchor="middle" fill="#8888a0" font-family="Georgia, 'Times New Roman', serif" font-size="14" font-style="italic">"What something MEANS persists; how it WORKS changes."</text>
+  <!-- Version -->
+  <text x="600" y="115" text-anchor="middle" fill="#444" font-family="system-ui, sans-serif" font-size="12" letter-spacing="0.1em">NEOS v1.0 — Think once. Reason anywhere.</text>
+  <!-- Tagline -->
+  <text x="600" y="140" text-anchor="middle" fill="#333" font-family="system-ui, sans-serif" font-size="10" font-style="italic">Generated by a field. Run on a field. About the field.</text>
+</svg>
