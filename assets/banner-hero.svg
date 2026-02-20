@@ -1,19 +1,19 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" width="1200" height="400">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" width="1200" height="700">
   <defs>
-    <!-- Background gradient -->
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+    <!-- Background gradient matching paper's #07070c → #0c0c1a -->
+    <linearGradient id="bg" x1="0" y1="0" x2="0.5" y2="1">
       <stop offset="0%" stop-color="#07070c"/>
       <stop offset="50%" stop-color="#0c0c1a"/>
       <stop offset="100%" stop-color="#07070c"/>
     </linearGradient>
 
-    <!-- Title cyan-to-purple gradient -->
-    <linearGradient id="title-grad" x1="0" y1="0" x2="1" y2="0">
+    <!-- Title gradient: cyan → purple (paper's .grad-text) -->
+    <linearGradient id="title-grad" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0%" stop-color="#00d4ff"/>
       <stop offset="100%" stop-color="#7b61ff"/>
     </linearGradient>
 
-    <!-- Gradient divider line (transparent -> cyan -> purple -> pink -> transparent) -->
+    <!-- Divider line gradient: transparent → cyan → purple → pink → transparent -->
     <linearGradient id="line-grad" x1="0" y1="0" x2="1" y2="0">
       <stop offset="0%" stop-color="transparent"/>
       <stop offset="20%" stop-color="#00d4ff"/>
@@ -22,183 +22,92 @@
       <stop offset="100%" stop-color="transparent"/>
     </linearGradient>
 
-    <!-- Glow filter for title -->
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="4" result="blur"/>
-      <feFlood flood-color="#00d4ff" flood-opacity="0.4" result="color"/>
+    <!-- Cyan glow filter (paper's #glow-cyan) -->
+    <filter id="glow-cyan" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur"/>
+      <feFlood flood-color="#00d4ff" flood-opacity="0.6" result="color"/>
       <feComposite in="color" in2="blur" operator="in" result="glow"/>
       <feMerge><feMergeNode in="glow"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
 
-    <!-- Glow filter for Intelligence Age box -->
-    <filter id="glow-box">
+    <!-- Title glow -->
+    <filter id="glow-title" x="-20%" y="-20%" width="140%" height="140%">
       <feGaussianBlur stdDeviation="6" result="blur"/>
-      <feFlood flood-color="#00d4ff" flood-opacity="0.35" result="color"/>
+      <feFlood flood-color="#00d4ff" flood-opacity="0.15" result="color"/>
       <feComposite in="color" in2="blur" operator="in" result="glow"/>
       <feMerge><feMergeNode in="glow"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
+
+    <!-- Radial glow behind Intelligence Age box -->
+    <radialGradient id="intel-glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="rgba(0,212,255,0.12)"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </radialGradient>
   </defs>
 
   <!-- ===== BACKGROUND ===== -->
-  <rect width="1200" height="400" fill="url(#bg)"/>
+  <rect width="1200" height="700" fill="url(#bg)"/>
 
-  <!-- ===== DOT GRID (radial dots at 48px spacing, opacity 0.08, color #00b4ff) ===== -->
-  <g opacity="0.08">
-    <!-- Row y=48 -->
-    <circle cx="48" cy="48" r="0.8" fill="#00b4ff"/><circle cx="96" cy="48" r="0.8" fill="#00b4ff"/>
-    <circle cx="144" cy="48" r="0.8" fill="#00b4ff"/><circle cx="192" cy="48" r="0.8" fill="#00b4ff"/>
-    <circle cx="240" cy="48" r="0.8" fill="#00b4ff"/><circle cx="288" cy="48" r="0.8" fill="#00b4ff"/>
-    <circle cx="336" cy="48" r="0.8" fill="#00b4ff"/><circle cx="384" cy="48" r="0.8" fill="#00b4ff"/>
-    <circle cx="432" cy="48" r="0.8" fill="#00b4ff"/><circle cx="480" cy="48" r="0.8" fill="#00b4ff"/>
-    <circle cx="528" cy="48" r="0.8" fill="#00b4ff"/><circle cx="576" cy="48" r="0.8" fill="#00b4ff"/>
-    <circle cx="624" cy="48" r="0.8" fill="#00b4ff"/><circle cx="672" cy="48" r="0.8" fill="#00b4ff"/>
-    <circle cx="720" cy="48" r="0.8" fill="#00b4ff"/><circle cx="768" cy="48" r="0.8" fill="#00b4ff"/>
-    <circle cx="816" cy="48" r="0.8" fill="#00b4ff"/><circle cx="864" cy="48" r="0.8" fill="#00b4ff"/>
-    <circle cx="912" cy="48" r="0.8" fill="#00b4ff"/><circle cx="960" cy="48" r="0.8" fill="#00b4ff"/>
-    <circle cx="1008" cy="48" r="0.8" fill="#00b4ff"/><circle cx="1056" cy="48" r="0.8" fill="#00b4ff"/>
-    <circle cx="1104" cy="48" r="0.8" fill="#00b4ff"/><circle cx="1152" cy="48" r="0.8" fill="#00b4ff"/>
-
-    <!-- Row y=96 -->
-    <circle cx="48" cy="96" r="0.8" fill="#00b4ff"/><circle cx="96" cy="96" r="0.8" fill="#00b4ff"/>
-    <circle cx="144" cy="96" r="0.8" fill="#00b4ff"/><circle cx="192" cy="96" r="0.8" fill="#00b4ff"/>
-    <circle cx="240" cy="96" r="0.8" fill="#00b4ff"/><circle cx="288" cy="96" r="0.8" fill="#00b4ff"/>
-    <circle cx="336" cy="96" r="0.8" fill="#00b4ff"/><circle cx="384" cy="96" r="0.8" fill="#00b4ff"/>
-    <circle cx="432" cy="96" r="0.8" fill="#00b4ff"/><circle cx="480" cy="96" r="0.8" fill="#00b4ff"/>
-    <circle cx="528" cy="96" r="0.8" fill="#00b4ff"/><circle cx="576" cy="96" r="0.8" fill="#00b4ff"/>
-    <circle cx="624" cy="96" r="0.8" fill="#00b4ff"/><circle cx="672" cy="96" r="0.8" fill="#00b4ff"/>
-    <circle cx="720" cy="96" r="0.8" fill="#00b4ff"/><circle cx="768" cy="96" r="0.8" fill="#00b4ff"/>
-    <circle cx="816" cy="96" r="0.8" fill="#00b4ff"/><circle cx="864" cy="96" r="0.8" fill="#00b4ff"/>
-    <circle cx="912" cy="96" r="0.8" fill="#00b4ff"/><circle cx="960" cy="96" r="0.8" fill="#00b4ff"/>
-    <circle cx="1008" cy="96" r="0.8" fill="#00b4ff"/><circle cx="1056" cy="96" r="0.8" fill="#00b4ff"/>
-    <circle cx="1104" cy="96" r="0.8" fill="#00b4ff"/><circle cx="1152" cy="96" r="0.8" fill="#00b4ff"/>
-
-    <!-- Row y=144 -->
-    <circle cx="48" cy="144" r="0.8" fill="#00b4ff"/><circle cx="96" cy="144" r="0.8" fill="#00b4ff"/>
-    <circle cx="144" cy="144" r="0.8" fill="#00b4ff"/><circle cx="192" cy="144" r="0.8" fill="#00b4ff"/>
-    <circle cx="240" cy="144" r="0.8" fill="#00b4ff"/><circle cx="288" cy="144" r="0.8" fill="#00b4ff"/>
-    <circle cx="336" cy="144" r="0.8" fill="#00b4ff"/><circle cx="384" cy="144" r="0.8" fill="#00b4ff"/>
-    <circle cx="432" cy="144" r="0.8" fill="#00b4ff"/><circle cx="480" cy="144" r="0.8" fill="#00b4ff"/>
-    <circle cx="528" cy="144" r="0.8" fill="#00b4ff"/><circle cx="576" cy="144" r="0.8" fill="#00b4ff"/>
-    <circle cx="624" cy="144" r="0.8" fill="#00b4ff"/><circle cx="672" cy="144" r="0.8" fill="#00b4ff"/>
-    <circle cx="720" cy="144" r="0.8" fill="#00b4ff"/><circle cx="768" cy="144" r="0.8" fill="#00b4ff"/>
-    <circle cx="816" cy="144" r="0.8" fill="#00b4ff"/><circle cx="864" cy="144" r="0.8" fill="#00b4ff"/>
-    <circle cx="912" cy="144" r="0.8" fill="#00b4ff"/><circle cx="960" cy="144" r="0.8" fill="#00b4ff"/>
-    <circle cx="1008" cy="144" r="0.8" fill="#00b4ff"/><circle cx="1056" cy="144" r="0.8" fill="#00b4ff"/>
-    <circle cx="1104" cy="144" r="0.8" fill="#00b4ff"/><circle cx="1152" cy="144" r="0.8" fill="#00b4ff"/>
-
-    <!-- Row y=192 -->
-    <circle cx="48" cy="192" r="0.8" fill="#00b4ff"/><circle cx="96" cy="192" r="0.8" fill="#00b4ff"/>
-    <circle cx="144" cy="192" r="0.8" fill="#00b4ff"/><circle cx="192" cy="192" r="0.8" fill="#00b4ff"/>
-    <circle cx="240" cy="192" r="0.8" fill="#00b4ff"/><circle cx="288" cy="192" r="0.8" fill="#00b4ff"/>
-    <circle cx="336" cy="192" r="0.8" fill="#00b4ff"/><circle cx="384" cy="192" r="0.8" fill="#00b4ff"/>
-    <circle cx="432" cy="192" r="0.8" fill="#00b4ff"/><circle cx="480" cy="192" r="0.8" fill="#00b4ff"/>
-    <circle cx="528" cy="192" r="0.8" fill="#00b4ff"/><circle cx="576" cy="192" r="0.8" fill="#00b4ff"/>
-    <circle cx="624" cy="192" r="0.8" fill="#00b4ff"/><circle cx="672" cy="192" r="0.8" fill="#00b4ff"/>
-    <circle cx="720" cy="192" r="0.8" fill="#00b4ff"/><circle cx="768" cy="192" r="0.8" fill="#00b4ff"/>
-    <circle cx="816" cy="192" r="0.8" fill="#00b4ff"/><circle cx="864" cy="192" r="0.8" fill="#00b4ff"/>
-    <circle cx="912" cy="192" r="0.8" fill="#00b4ff"/><circle cx="960" cy="192" r="0.8" fill="#00b4ff"/>
-    <circle cx="1008" cy="192" r="0.8" fill="#00b4ff"/><circle cx="1056" cy="192" r="0.8" fill="#00b4ff"/>
-    <circle cx="1104" cy="192" r="0.8" fill="#00b4ff"/><circle cx="1152" cy="192" r="0.8" fill="#00b4ff"/>
-
-    <!-- Row y=240 -->
-    <circle cx="48" cy="240" r="0.8" fill="#00b4ff"/><circle cx="96" cy="240" r="0.8" fill="#00b4ff"/>
-    <circle cx="144" cy="240" r="0.8" fill="#00b4ff"/><circle cx="192" cy="240" r="0.8" fill="#00b4ff"/>
-    <circle cx="240" cy="240" r="0.8" fill="#00b4ff"/><circle cx="288" cy="240" r="0.8" fill="#00b4ff"/>
-    <circle cx="336" cy="240" r="0.8" fill="#00b4ff"/><circle cx="384" cy="240" r="0.8" fill="#00b4ff"/>
-    <circle cx="432" cy="240" r="0.8" fill="#00b4ff"/><circle cx="480" cy="240" r="0.8" fill="#00b4ff"/>
-    <circle cx="528" cy="240" r="0.8" fill="#00b4ff"/><circle cx="576" cy="240" r="0.8" fill="#00b4ff"/>
-    <circle cx="624" cy="240" r="0.8" fill="#00b4ff"/><circle cx="672" cy="240" r="0.8" fill="#00b4ff"/>
-    <circle cx="720" cy="240" r="0.8" fill="#00b4ff"/><circle cx="768" cy="240" r="0.8" fill="#00b4ff"/>
-    <circle cx="816" cy="240" r="0.8" fill="#00b4ff"/><circle cx="864" cy="240" r="0.8" fill="#00b4ff"/>
-    <circle cx="912" cy="240" r="0.8" fill="#00b4ff"/><circle cx="960" cy="240" r="0.8" fill="#00b4ff"/>
-    <circle cx="1008" cy="240" r="0.8" fill="#00b4ff"/><circle cx="1056" cy="240" r="0.8" fill="#00b4ff"/>
-    <circle cx="1104" cy="240" r="0.8" fill="#00b4ff"/><circle cx="1152" cy="240" r="0.8" fill="#00b4ff"/>
-
-    <!-- Row y=288 -->
-    <circle cx="48" cy="288" r="0.8" fill="#00b4ff"/><circle cx="96" cy="288" r="0.8" fill="#00b4ff"/>
-    <circle cx="144" cy="288" r="0.8" fill="#00b4ff"/><circle cx="192" cy="288" r="0.8" fill="#00b4ff"/>
-    <circle cx="240" cy="288" r="0.8" fill="#00b4ff"/><circle cx="288" cy="288" r="0.8" fill="#00b4ff"/>
-    <circle cx="336" cy="288" r="0.8" fill="#00b4ff"/><circle cx="384" cy="288" r="0.8" fill="#00b4ff"/>
-    <circle cx="432" cy="288" r="0.8" fill="#00b4ff"/><circle cx="480" cy="288" r="0.8" fill="#00b4ff"/>
-    <circle cx="528" cy="288" r="0.8" fill="#00b4ff"/><circle cx="576" cy="288" r="0.8" fill="#00b4ff"/>
-    <circle cx="624" cy="288" r="0.8" fill="#00b4ff"/><circle cx="672" cy="288" r="0.8" fill="#00b4ff"/>
-    <circle cx="720" cy="288" r="0.8" fill="#00b4ff"/><circle cx="768" cy="288" r="0.8" fill="#00b4ff"/>
-    <circle cx="816" cy="288" r="0.8" fill="#00b4ff"/><circle cx="864" cy="288" r="0.8" fill="#00b4ff"/>
-    <circle cx="912" cy="288" r="0.8" fill="#00b4ff"/><circle cx="960" cy="288" r="0.8" fill="#00b4ff"/>
-    <circle cx="1008" cy="288" r="0.8" fill="#00b4ff"/><circle cx="1056" cy="288" r="0.8" fill="#00b4ff"/>
-    <circle cx="1104" cy="288" r="0.8" fill="#00b4ff"/><circle cx="1152" cy="288" r="0.8" fill="#00b4ff"/>
-
-    <!-- Row y=336 -->
-    <circle cx="48" cy="336" r="0.8" fill="#00b4ff"/><circle cx="96" cy="336" r="0.8" fill="#00b4ff"/>
-    <circle cx="144" cy="336" r="0.8" fill="#00b4ff"/><circle cx="192" cy="336" r="0.8" fill="#00b4ff"/>
-    <circle cx="240" cy="336" r="0.8" fill="#00b4ff"/><circle cx="288" cy="336" r="0.8" fill="#00b4ff"/>
-    <circle cx="336" cy="336" r="0.8" fill="#00b4ff"/><circle cx="384" cy="336" r="0.8" fill="#00b4ff"/>
-    <circle cx="432" cy="336" r="0.8" fill="#00b4ff"/><circle cx="480" cy="336" r="0.8" fill="#00b4ff"/>
-    <circle cx="528" cy="336" r="0.8" fill="#00b4ff"/><circle cx="576" cy="336" r="0.8" fill="#00b4ff"/>
-    <circle cx="624" cy="336" r="0.8" fill="#00b4ff"/><circle cx="672" cy="336" r="0.8" fill="#00b4ff"/>
-    <circle cx="720" cy="336" r="0.8" fill="#00b4ff"/><circle cx="768" cy="336" r="0.8" fill="#00b4ff"/>
-    <circle cx="816" cy="336" r="0.8" fill="#00b4ff"/><circle cx="864" cy="336" r="0.8" fill="#00b4ff"/>
-    <circle cx="912" cy="336" r="0.8" fill="#00b4ff"/><circle cx="960" cy="336" r="0.8" fill="#00b4ff"/>
-    <circle cx="1008" cy="336" r="0.8" fill="#00b4ff"/><circle cx="1056" cy="336" r="0.8" fill="#00b4ff"/>
-    <circle cx="1104" cy="336" r="0.8" fill="#00b4ff"/><circle cx="1152" cy="336" r="0.8" fill="#00b4ff"/>
-
-    <!-- Row y=384 -->
-    <circle cx="48" cy="384" r="0.8" fill="#00b4ff"/><circle cx="96" cy="384" r="0.8" fill="#00b4ff"/>
-    <circle cx="144" cy="384" r="0.8" fill="#00b4ff"/><circle cx="192" cy="384" r="0.8" fill="#00b4ff"/>
-    <circle cx="240" cy="384" r="0.8" fill="#00b4ff"/><circle cx="288" cy="384" r="0.8" fill="#00b4ff"/>
-    <circle cx="336" cy="384" r="0.8" fill="#00b4ff"/><circle cx="384" cy="384" r="0.8" fill="#00b4ff"/>
-    <circle cx="432" cy="384" r="0.8" fill="#00b4ff"/><circle cx="480" cy="384" r="0.8" fill="#00b4ff"/>
-    <circle cx="528" cy="384" r="0.8" fill="#00b4ff"/><circle cx="576" cy="384" r="0.8" fill="#00b4ff"/>
-    <circle cx="624" cy="384" r="0.8" fill="#00b4ff"/><circle cx="672" cy="384" r="0.8" fill="#00b4ff"/>
-    <circle cx="720" cy="384" r="0.8" fill="#00b4ff"/><circle cx="768" cy="384" r="0.8" fill="#00b4ff"/>
-    <circle cx="816" cy="384" r="0.8" fill="#00b4ff"/><circle cx="864" cy="384" r="0.8" fill="#00b4ff"/>
-    <circle cx="912" cy="384" r="0.8" fill="#00b4ff"/><circle cx="960" cy="384" r="0.8" fill="#00b4ff"/>
-    <circle cx="1008" cy="384" r="0.8" fill="#00b4ff"/><circle cx="1056" cy="384" r="0.8" fill="#00b4ff"/>
-    <circle cx="1104" cy="384" r="0.8" fill="#00b4ff"/><circle cx="1152" cy="384" r="0.8" fill="#00b4ff"/>
+  <!-- ===== DOT GRID (paper's .hero-dots: radial-gradient circle 1px, 48px spacing, opacity 0.25) ===== -->
+  <g opacity="0.12">
+    <circle cx="48" cy="48" r="0.8" fill="#00b4ff"/><circle cx="96" cy="48" r="0.8" fill="#00b4ff"/><circle cx="144" cy="48" r="0.8" fill="#00b4ff"/><circle cx="192" cy="48" r="0.8" fill="#00b4ff"/><circle cx="240" cy="48" r="0.8" fill="#00b4ff"/><circle cx="288" cy="48" r="0.8" fill="#00b4ff"/><circle cx="336" cy="48" r="0.8" fill="#00b4ff"/><circle cx="384" cy="48" r="0.8" fill="#00b4ff"/><circle cx="432" cy="48" r="0.8" fill="#00b4ff"/><circle cx="480" cy="48" r="0.8" fill="#00b4ff"/><circle cx="528" cy="48" r="0.8" fill="#00b4ff"/><circle cx="576" cy="48" r="0.8" fill="#00b4ff"/><circle cx="624" cy="48" r="0.8" fill="#00b4ff"/><circle cx="672" cy="48" r="0.8" fill="#00b4ff"/><circle cx="720" cy="48" r="0.8" fill="#00b4ff"/><circle cx="768" cy="48" r="0.8" fill="#00b4ff"/><circle cx="816" cy="48" r="0.8" fill="#00b4ff"/><circle cx="864" cy="48" r="0.8" fill="#00b4ff"/><circle cx="912" cy="48" r="0.8" fill="#00b4ff"/><circle cx="960" cy="48" r="0.8" fill="#00b4ff"/><circle cx="1008" cy="48" r="0.8" fill="#00b4ff"/><circle cx="1056" cy="48" r="0.8" fill="#00b4ff"/><circle cx="1104" cy="48" r="0.8" fill="#00b4ff"/><circle cx="1152" cy="48" r="0.8" fill="#00b4ff"/>
+    <circle cx="48" cy="96" r="0.8" fill="#00b4ff"/><circle cx="96" cy="96" r="0.8" fill="#00b4ff"/><circle cx="144" cy="96" r="0.8" fill="#00b4ff"/><circle cx="192" cy="96" r="0.8" fill="#00b4ff"/><circle cx="240" cy="96" r="0.8" fill="#00b4ff"/><circle cx="288" cy="96" r="0.8" fill="#00b4ff"/><circle cx="336" cy="96" r="0.8" fill="#00b4ff"/><circle cx="384" cy="96" r="0.8" fill="#00b4ff"/><circle cx="432" cy="96" r="0.8" fill="#00b4ff"/><circle cx="480" cy="96" r="0.8" fill="#00b4ff"/><circle cx="528" cy="96" r="0.8" fill="#00b4ff"/><circle cx="576" cy="96" r="0.8" fill="#00b4ff"/><circle cx="624" cy="96" r="0.8" fill="#00b4ff"/><circle cx="672" cy="96" r="0.8" fill="#00b4ff"/><circle cx="720" cy="96" r="0.8" fill="#00b4ff"/><circle cx="768" cy="96" r="0.8" fill="#00b4ff"/><circle cx="816" cy="96" r="0.8" fill="#00b4ff"/><circle cx="864" cy="96" r="0.8" fill="#00b4ff"/><circle cx="912" cy="96" r="0.8" fill="#00b4ff"/><circle cx="960" cy="96" r="0.8" fill="#00b4ff"/><circle cx="1008" cy="96" r="0.8" fill="#00b4ff"/><circle cx="1056" cy="96" r="0.8" fill="#00b4ff"/><circle cx="1104" cy="96" r="0.8" fill="#00b4ff"/><circle cx="1152" cy="96" r="0.8" fill="#00b4ff"/>
+    <circle cx="48" cy="144" r="0.8" fill="#00b4ff"/><circle cx="96" cy="144" r="0.8" fill="#00b4ff"/><circle cx="144" cy="144" r="0.8" fill="#00b4ff"/><circle cx="192" cy="144" r="0.8" fill="#00b4ff"/><circle cx="240" cy="144" r="0.8" fill="#00b4ff"/><circle cx="288" cy="144" r="0.8" fill="#00b4ff"/><circle cx="336" cy="144" r="0.8" fill="#00b4ff"/><circle cx="384" cy="144" r="0.8" fill="#00b4ff"/><circle cx="432" cy="144" r="0.8" fill="#00b4ff"/><circle cx="480" cy="144" r="0.8" fill="#00b4ff"/><circle cx="528" cy="144" r="0.8" fill="#00b4ff"/><circle cx="576" cy="144" r="0.8" fill="#00b4ff"/><circle cx="624" cy="144" r="0.8" fill="#00b4ff"/><circle cx="672" cy="144" r="0.8" fill="#00b4ff"/><circle cx="720" cy="144" r="0.8" fill="#00b4ff"/><circle cx="768" cy="144" r="0.8" fill="#00b4ff"/><circle cx="816" cy="144" r="0.8" fill="#00b4ff"/><circle cx="864" cy="144" r="0.8" fill="#00b4ff"/><circle cx="912" cy="144" r="0.8" fill="#00b4ff"/><circle cx="960" cy="144" r="0.8" fill="#00b4ff"/><circle cx="1008" cy="144" r="0.8" fill="#00b4ff"/><circle cx="1056" cy="144" r="0.8" fill="#00b4ff"/><circle cx="1104" cy="144" r="0.8" fill="#00b4ff"/><circle cx="1152" cy="144" r="0.8" fill="#00b4ff"/>
+    <circle cx="48" cy="192" r="0.8" fill="#00b4ff"/><circle cx="96" cy="192" r="0.8" fill="#00b4ff"/><circle cx="144" cy="192" r="0.8" fill="#00b4ff"/><circle cx="192" cy="192" r="0.8" fill="#00b4ff"/><circle cx="240" cy="192" r="0.8" fill="#00b4ff"/><circle cx="288" cy="192" r="0.8" fill="#00b4ff"/><circle cx="336" cy="192" r="0.8" fill="#00b4ff"/><circle cx="384" cy="192" r="0.8" fill="#00b4ff"/><circle cx="432" cy="192" r="0.8" fill="#00b4ff"/><circle cx="480" cy="192" r="0.8" fill="#00b4ff"/><circle cx="528" cy="192" r="0.8" fill="#00b4ff"/><circle cx="576" cy="192" r="0.8" fill="#00b4ff"/><circle cx="624" cy="192" r="0.8" fill="#00b4ff"/><circle cx="672" cy="192" r="0.8" fill="#00b4ff"/><circle cx="720" cy="192" r="0.8" fill="#00b4ff"/><circle cx="768" cy="192" r="0.8" fill="#00b4ff"/><circle cx="816" cy="192" r="0.8" fill="#00b4ff"/><circle cx="864" cy="192" r="0.8" fill="#00b4ff"/><circle cx="912" cy="192" r="0.8" fill="#00b4ff"/><circle cx="960" cy="192" r="0.8" fill="#00b4ff"/><circle cx="1008" cy="192" r="0.8" fill="#00b4ff"/><circle cx="1056" cy="192" r="0.8" fill="#00b4ff"/><circle cx="1104" cy="192" r="0.8" fill="#00b4ff"/><circle cx="1152" cy="192" r="0.8" fill="#00b4ff"/>
+    <circle cx="48" cy="240" r="0.8" fill="#00b4ff"/><circle cx="96" cy="240" r="0.8" fill="#00b4ff"/><circle cx="144" cy="240" r="0.8" fill="#00b4ff"/><circle cx="192" cy="240" r="0.8" fill="#00b4ff"/><circle cx="240" cy="240" r="0.8" fill="#00b4ff"/><circle cx="288" cy="240" r="0.8" fill="#00b4ff"/><circle cx="336" cy="240" r="0.8" fill="#00b4ff"/><circle cx="384" cy="240" r="0.8" fill="#00b4ff"/><circle cx="432" cy="240" r="0.8" fill="#00b4ff"/><circle cx="480" cy="240" r="0.8" fill="#00b4ff"/><circle cx="528" cy="240" r="0.8" fill="#00b4ff"/><circle cx="576" cy="240" r="0.8" fill="#00b4ff"/><circle cx="624" cy="240" r="0.8" fill="#00b4ff"/><circle cx="672" cy="240" r="0.8" fill="#00b4ff"/><circle cx="720" cy="240" r="0.8" fill="#00b4ff"/><circle cx="768" cy="240" r="0.8" fill="#00b4ff"/><circle cx="816" cy="240" r="0.8" fill="#00b4ff"/><circle cx="864" cy="240" r="0.8" fill="#00b4ff"/><circle cx="912" cy="240" r="0.8" fill="#00b4ff"/><circle cx="960" cy="240" r="0.8" fill="#00b4ff"/><circle cx="1008" cy="240" r="0.8" fill="#00b4ff"/><circle cx="1056" cy="240" r="0.8" fill="#00b4ff"/><circle cx="1104" cy="240" r="0.8" fill="#00b4ff"/><circle cx="1152" cy="240" r="0.8" fill="#00b4ff"/>
+    <circle cx="48" cy="288" r="0.8" fill="#00b4ff"/><circle cx="96" cy="288" r="0.8" fill="#00b4ff"/><circle cx="144" cy="288" r="0.8" fill="#00b4ff"/><circle cx="192" cy="288" r="0.8" fill="#00b4ff"/><circle cx="240" cy="288" r="0.8" fill="#00b4ff"/><circle cx="288" cy="288" r="0.8" fill="#00b4ff"/><circle cx="336" cy="288" r="0.8" fill="#00b4ff"/><circle cx="384" cy="288" r="0.8" fill="#00b4ff"/><circle cx="432" cy="288" r="0.8" fill="#00b4ff"/><circle cx="480" cy="288" r="0.8" fill="#00b4ff"/><circle cx="528" cy="288" r="0.8" fill="#00b4ff"/><circle cx="576" cy="288" r="0.8" fill="#00b4ff"/><circle cx="624" cy="288" r="0.8" fill="#00b4ff"/><circle cx="672" cy="288" r="0.8" fill="#00b4ff"/><circle cx="720" cy="288" r="0.8" fill="#00b4ff"/><circle cx="768" cy="288" r="0.8" fill="#00b4ff"/><circle cx="816" cy="288" r="0.8" fill="#00b4ff"/><circle cx="864" cy="288" r="0.8" fill="#00b4ff"/><circle cx="912" cy="288" r="0.8" fill="#00b4ff"/><circle cx="960" cy="288" r="0.8" fill="#00b4ff"/><circle cx="1008" cy="288" r="0.8" fill="#00b4ff"/><circle cx="1056" cy="288" r="0.8" fill="#00b4ff"/><circle cx="1104" cy="288" r="0.8" fill="#00b4ff"/><circle cx="1152" cy="288" r="0.8" fill="#00b4ff"/>
+    <circle cx="48" cy="336" r="0.8" fill="#00b4ff"/><circle cx="96" cy="336" r="0.8" fill="#00b4ff"/><circle cx="144" cy="336" r="0.8" fill="#00b4ff"/><circle cx="192" cy="336" r="0.8" fill="#00b4ff"/><circle cx="240" cy="336" r="0.8" fill="#00b4ff"/><circle cx="288" cy="336" r="0.8" fill="#00b4ff"/><circle cx="336" cy="336" r="0.8" fill="#00b4ff"/><circle cx="384" cy="336" r="0.8" fill="#00b4ff"/><circle cx="432" cy="336" r="0.8" fill="#00b4ff"/><circle cx="480" cy="336" r="0.8" fill="#00b4ff"/><circle cx="528" cy="336" r="0.8" fill="#00b4ff"/><circle cx="576" cy="336" r="0.8" fill="#00b4ff"/><circle cx="624" cy="336" r="0.8" fill="#00b4ff"/><circle cx="672" cy="336" r="0.8" fill="#00b4ff"/><circle cx="720" cy="336" r="0.8" fill="#00b4ff"/><circle cx="768" cy="336" r="0.8" fill="#00b4ff"/><circle cx="816" cy="336" r="0.8" fill="#00b4ff"/><circle cx="864" cy="336" r="0.8" fill="#00b4ff"/><circle cx="912" cy="336" r="0.8" fill="#00b4ff"/><circle cx="960" cy="336" r="0.8" fill="#00b4ff"/><circle cx="1008" cy="336" r="0.8" fill="#00b4ff"/><circle cx="1056" cy="336" r="0.8" fill="#00b4ff"/><circle cx="1104" cy="336" r="0.8" fill="#00b4ff"/><circle cx="1152" cy="336" r="0.8" fill="#00b4ff"/>
+    <circle cx="48" cy="384" r="0.8" fill="#00b4ff"/><circle cx="96" cy="384" r="0.8" fill="#00b4ff"/><circle cx="144" cy="384" r="0.8" fill="#00b4ff"/><circle cx="192" cy="384" r="0.8" fill="#00b4ff"/><circle cx="240" cy="384" r="0.8" fill="#00b4ff"/><circle cx="288" cy="384" r="0.8" fill="#00b4ff"/><circle cx="336" cy="384" r="0.8" fill="#00b4ff"/><circle cx="384" cy="384" r="0.8" fill="#00b4ff"/><circle cx="432" cy="384" r="0.8" fill="#00b4ff"/><circle cx="480" cy="384" r="0.8" fill="#00b4ff"/><circle cx="528" cy="384" r="0.8" fill="#00b4ff"/><circle cx="576" cy="384" r="0.8" fill="#00b4ff"/><circle cx="624" cy="384" r="0.8" fill="#00b4ff"/><circle cx="672" cy="384" r="0.8" fill="#00b4ff"/><circle cx="720" cy="384" r="0.8" fill="#00b4ff"/><circle cx="768" cy="384" r="0.8" fill="#00b4ff"/><circle cx="816" cy="384" r="0.8" fill="#00b4ff"/><circle cx="864" cy="384" r="0.8" fill="#00b4ff"/><circle cx="912" cy="384" r="0.8" fill="#00b4ff"/><circle cx="960" cy="384" r="0.8" fill="#00b4ff"/><circle cx="1008" cy="384" r="0.8" fill="#00b4ff"/><circle cx="1056" cy="384" r="0.8" fill="#00b4ff"/><circle cx="1104" cy="384" r="0.8" fill="#00b4ff"/><circle cx="1152" cy="384" r="0.8" fill="#00b4ff"/>
+    <circle cx="48" cy="432" r="0.8" fill="#00b4ff"/><circle cx="96" cy="432" r="0.8" fill="#00b4ff"/><circle cx="144" cy="432" r="0.8" fill="#00b4ff"/><circle cx="192" cy="432" r="0.8" fill="#00b4ff"/><circle cx="240" cy="432" r="0.8" fill="#00b4ff"/><circle cx="288" cy="432" r="0.8" fill="#00b4ff"/><circle cx="336" cy="432" r="0.8" fill="#00b4ff"/><circle cx="384" cy="432" r="0.8" fill="#00b4ff"/><circle cx="432" cy="432" r="0.8" fill="#00b4ff"/><circle cx="480" cy="432" r="0.8" fill="#00b4ff"/><circle cx="528" cy="432" r="0.8" fill="#00b4ff"/><circle cx="576" cy="432" r="0.8" fill="#00b4ff"/><circle cx="624" cy="432" r="0.8" fill="#00b4ff"/><circle cx="672" cy="432" r="0.8" fill="#00b4ff"/><circle cx="720" cy="432" r="0.8" fill="#00b4ff"/><circle cx="768" cy="432" r="0.8" fill="#00b4ff"/><circle cx="816" cy="432" r="0.8" fill="#00b4ff"/><circle cx="864" cy="432" r="0.8" fill="#00b4ff"/><circle cx="912" cy="432" r="0.8" fill="#00b4ff"/><circle cx="960" cy="432" r="0.8" fill="#00b4ff"/><circle cx="1008" cy="432" r="0.8" fill="#00b4ff"/><circle cx="1056" cy="432" r="0.8" fill="#00b4ff"/><circle cx="1104" cy="432" r="0.8" fill="#00b4ff"/><circle cx="1152" cy="432" r="0.8" fill="#00b4ff"/>
+    <circle cx="48" cy="480" r="0.8" fill="#00b4ff"/><circle cx="96" cy="480" r="0.8" fill="#00b4ff"/><circle cx="144" cy="480" r="0.8" fill="#00b4ff"/><circle cx="192" cy="480" r="0.8" fill="#00b4ff"/><circle cx="240" cy="480" r="0.8" fill="#00b4ff"/><circle cx="288" cy="480" r="0.8" fill="#00b4ff"/><circle cx="336" cy="480" r="0.8" fill="#00b4ff"/><circle cx="384" cy="480" r="0.8" fill="#00b4ff"/><circle cx="432" cy="480" r="0.8" fill="#00b4ff"/><circle cx="480" cy="480" r="0.8" fill="#00b4ff"/><circle cx="528" cy="480" r="0.8" fill="#00b4ff"/><circle cx="576" cy="480" r="0.8" fill="#00b4ff"/><circle cx="624" cy="480" r="0.8" fill="#00b4ff"/><circle cx="672" cy="480" r="0.8" fill="#00b4ff"/><circle cx="720" cy="480" r="0.8" fill="#00b4ff"/><circle cx="768" cy="480" r="0.8" fill="#00b4ff"/><circle cx="816" cy="480" r="0.8" fill="#00b4ff"/><circle cx="864" cy="480" r="0.8" fill="#00b4ff"/><circle cx="912" cy="480" r="0.8" fill="#00b4ff"/><circle cx="960" cy="480" r="0.8" fill="#00b4ff"/><circle cx="1008" cy="480" r="0.8" fill="#00b4ff"/><circle cx="1056" cy="480" r="0.8" fill="#00b4ff"/><circle cx="1104" cy="480" r="0.8" fill="#00b4ff"/><circle cx="1152" cy="480" r="0.8" fill="#00b4ff"/>
+    <circle cx="48" cy="528" r="0.8" fill="#00b4ff"/><circle cx="96" cy="528" r="0.8" fill="#00b4ff"/><circle cx="144" cy="528" r="0.8" fill="#00b4ff"/><circle cx="192" cy="528" r="0.8" fill="#00b4ff"/><circle cx="240" cy="528" r="0.8" fill="#00b4ff"/><circle cx="288" cy="528" r="0.8" fill="#00b4ff"/><circle cx="336" cy="528" r="0.8" fill="#00b4ff"/><circle cx="384" cy="528" r="0.8" fill="#00b4ff"/><circle cx="432" cy="528" r="0.8" fill="#00b4ff"/><circle cx="480" cy="528" r="0.8" fill="#00b4ff"/><circle cx="528" cy="528" r="0.8" fill="#00b4ff"/><circle cx="576" cy="528" r="0.8" fill="#00b4ff"/><circle cx="624" cy="528" r="0.8" fill="#00b4ff"/><circle cx="672" cy="528" r="0.8" fill="#00b4ff"/><circle cx="720" cy="528" r="0.8" fill="#00b4ff"/><circle cx="768" cy="528" r="0.8" fill="#00b4ff"/><circle cx="816" cy="528" r="0.8" fill="#00b4ff"/><circle cx="864" cy="528" r="0.8" fill="#00b4ff"/><circle cx="912" cy="528" r="0.8" fill="#00b4ff"/><circle cx="960" cy="528" r="0.8" fill="#00b4ff"/><circle cx="1008" cy="528" r="0.8" fill="#00b4ff"/><circle cx="1056" cy="528" r="0.8" fill="#00b4ff"/><circle cx="1104" cy="528" r="0.8" fill="#00b4ff"/><circle cx="1152" cy="528" r="0.8" fill="#00b4ff"/>
+    <circle cx="48" cy="576" r="0.8" fill="#00b4ff"/><circle cx="96" cy="576" r="0.8" fill="#00b4ff"/><circle cx="144" cy="576" r="0.8" fill="#00b4ff"/><circle cx="192" cy="576" r="0.8" fill="#00b4ff"/><circle cx="240" cy="576" r="0.8" fill="#00b4ff"/><circle cx="288" cy="576" r="0.8" fill="#00b4ff"/><circle cx="336" cy="576" r="0.8" fill="#00b4ff"/><circle cx="384" cy="576" r="0.8" fill="#00b4ff"/><circle cx="432" cy="576" r="0.8" fill="#00b4ff"/><circle cx="480" cy="576" r="0.8" fill="#00b4ff"/><circle cx="528" cy="576" r="0.8" fill="#00b4ff"/><circle cx="576" cy="576" r="0.8" fill="#00b4ff"/><circle cx="624" cy="576" r="0.8" fill="#00b4ff"/><circle cx="672" cy="576" r="0.8" fill="#00b4ff"/><circle cx="720" cy="576" r="0.8" fill="#00b4ff"/><circle cx="768" cy="576" r="0.8" fill="#00b4ff"/><circle cx="816" cy="576" r="0.8" fill="#00b4ff"/><circle cx="864" cy="576" r="0.8" fill="#00b4ff"/><circle cx="912" cy="576" r="0.8" fill="#00b4ff"/><circle cx="960" cy="576" r="0.8" fill="#00b4ff"/><circle cx="1008" cy="576" r="0.8" fill="#00b4ff"/><circle cx="1056" cy="576" r="0.8" fill="#00b4ff"/><circle cx="1104" cy="576" r="0.8" fill="#00b4ff"/><circle cx="1152" cy="576" r="0.8" fill="#00b4ff"/>
+    <circle cx="48" cy="624" r="0.8" fill="#00b4ff"/><circle cx="96" cy="624" r="0.8" fill="#00b4ff"/><circle cx="144" cy="624" r="0.8" fill="#00b4ff"/><circle cx="192" cy="624" r="0.8" fill="#00b4ff"/><circle cx="240" cy="624" r="0.8" fill="#00b4ff"/><circle cx="288" cy="624" r="0.8" fill="#00b4ff"/><circle cx="336" cy="624" r="0.8" fill="#00b4ff"/><circle cx="384" cy="624" r="0.8" fill="#00b4ff"/><circle cx="432" cy="624" r="0.8" fill="#00b4ff"/><circle cx="480" cy="624" r="0.8" fill="#00b4ff"/><circle cx="528" cy="624" r="0.8" fill="#00b4ff"/><circle cx="576" cy="624" r="0.8" fill="#00b4ff"/><circle cx="624" cy="624" r="0.8" fill="#00b4ff"/><circle cx="672" cy="624" r="0.8" fill="#00b4ff"/><circle cx="720" cy="624" r="0.8" fill="#00b4ff"/><circle cx="768" cy="624" r="0.8" fill="#00b4ff"/><circle cx="816" cy="624" r="0.8" fill="#00b4ff"/><circle cx="864" cy="624" r="0.8" fill="#00b4ff"/><circle cx="912" cy="624" r="0.8" fill="#00b4ff"/><circle cx="960" cy="624" r="0.8" fill="#00b4ff"/><circle cx="1008" cy="624" r="0.8" fill="#00b4ff"/><circle cx="1056" cy="624" r="0.8" fill="#00b4ff"/><circle cx="1104" cy="624" r="0.8" fill="#00b4ff"/><circle cx="1152" cy="624" r="0.8" fill="#00b4ff"/>
+    <circle cx="48" cy="672" r="0.8" fill="#00b4ff"/><circle cx="96" cy="672" r="0.8" fill="#00b4ff"/><circle cx="144" cy="672" r="0.8" fill="#00b4ff"/><circle cx="192" cy="672" r="0.8" fill="#00b4ff"/><circle cx="240" cy="672" r="0.8" fill="#00b4ff"/><circle cx="288" cy="672" r="0.8" fill="#00b4ff"/><circle cx="336" cy="672" r="0.8" fill="#00b4ff"/><circle cx="384" cy="672" r="0.8" fill="#00b4ff"/><circle cx="432" cy="672" r="0.8" fill="#00b4ff"/><circle cx="480" cy="672" r="0.8" fill="#00b4ff"/><circle cx="528" cy="672" r="0.8" fill="#00b4ff"/><circle cx="576" cy="672" r="0.8" fill="#00b4ff"/><circle cx="624" cy="672" r="0.8" fill="#00b4ff"/><circle cx="672" cy="672" r="0.8" fill="#00b4ff"/><circle cx="720" cy="672" r="0.8" fill="#00b4ff"/><circle cx="768" cy="672" r="0.8" fill="#00b4ff"/><circle cx="816" cy="672" r="0.8" fill="#00b4ff"/><circle cx="864" cy="672" r="0.8" fill="#00b4ff"/><circle cx="912" cy="672" r="0.8" fill="#00b4ff"/><circle cx="960" cy="672" r="0.8" fill="#00b4ff"/><circle cx="1008" cy="672" r="0.8" fill="#00b4ff"/><circle cx="1056" cy="672" r="0.8" fill="#00b4ff"/><circle cx="1104" cy="672" r="0.8" fill="#00b4ff"/><circle cx="1152" cy="672" r="0.8" fill="#00b4ff"/>
   </g>
 
-  <!-- ===== GIANT "NEOS" TITLE (centered, y=140) ===== -->
-  <text x="600" y="140" text-anchor="middle" fill="url(#title-grad)" font-family="system-ui, -apple-system, sans-serif" font-size="88" font-weight="800" letter-spacing="0.05em" filter="url(#glow)">NEOS</text>
+  <!-- ===== THREE ERAS ASCENDING DIAGRAM (paper's exact hero SVG, centered) ===== -->
+  <!-- Paper's viewBox 0 0 500 200, scaled 2x and centered at x=350..850, y=60..300 -->
+
+  <!-- Radial glow behind Intelligence Age -->
+  <ellipse cx="710" cy="145" rx="180" ry="80" fill="url(#intel-glow)"/>
+
+  <!-- Hardware Age — dull gray, bottom-left of ascending path -->
+  <rect x="370" y="220" width="168" height="63" rx="8" fill="rgba(80,80,100,0.04)" stroke="#444" stroke-width="1" opacity="0.5"/>
+  <text x="454" y="256" text-anchor="middle" fill="#555" font-family="system-ui, -apple-system, sans-serif" font-size="17">Hardware Age</text>
+
+  <!-- Software Age — purple-tinted, middle height -->
+  <rect x="560" y="160" width="168" height="63" rx="8" fill="rgba(123,97,255,0.05)" stroke="rgba(123,97,255,0.4)" stroke-width="1" opacity="0.8"/>
+  <text x="644" y="196" text-anchor="middle" fill="rgba(155,138,255,0.8)" font-family="system-ui, -apple-system, sans-serif" font-size="17">Software Age</text>
+
+  <!-- Intelligence Age — glowing cyan, highest position -->
+  <rect x="640" y="95" width="182" height="70" rx="10" fill="rgba(0,212,255,0.08)" stroke="#00d4ff" stroke-width="2" filter="url(#glow-cyan)"/>
+  <text x="731" y="136" text-anchor="middle" fill="#00d4ff" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="700">Intelligence Age</text>
+
+  <!-- Connecting ascending lines -->
+  <line x1="538" y1="240" x2="560" y2="195" stroke="rgba(100,100,130,0.3)" stroke-width="1.5"/>
+  <line x1="728" y1="175" x2="640" y2="140" stroke="rgba(0,180,255,0.25)" stroke-width="1.5" filter="url(#glow-cyan)"/>
+
+  <!-- "NEOS" label above Intelligence Age box -->
+  <text x="731" y="80" text-anchor="middle" fill="rgba(0,212,255,0.5)" font-family="system-ui, -apple-system, sans-serif" font-size="15" font-weight="600" letter-spacing="0.1em">NEOS</text>
+
+  <!-- ===== GIANT "NEOS" TITLE (paper's h1 .grad-text, centered below diagram) ===== -->
+  <text x="600" y="420" text-anchor="middle" fill="url(#title-grad)" font-family="system-ui, -apple-system, sans-serif" font-size="120" font-weight="800" letter-spacing="0.04em" filter="url(#glow-title)">NEOS</text>
 
   <!-- ===== GRADIENT DIVIDER LINE ===== -->
-  <rect x="300" y="160" width="600" height="2" rx="1" fill="url(#line-grad)"/>
+  <rect x="250" y="450" width="700" height="2" rx="1" fill="url(#line-grad)"/>
 
-  <!-- ===== SUBTITLE (smaller, dimmer caps, y=195) ===== -->
-  <text x="600" y="195" text-anchor="middle" fill="#8888a0" font-family="system-ui, -apple-system, sans-serif" font-size="15" letter-spacing="0.15em">THE OPERATING SYSTEM FOR MACHINE INTELLIGENCE</text>
+  <!-- ===== TAGLINE (paper's .hero-tagline) ===== -->
+  <text x="600" y="500" text-anchor="middle" fill="#8888a0" font-family="system-ui, -apple-system, sans-serif" font-size="22">The last operating system will not manage files.</text>
+  <text x="600" y="535" text-anchor="middle" fill="#8888a0" font-family="system-ui, -apple-system, sans-serif" font-size="22">It will manage <tspan fill="#ffffff" font-weight="700">meaning</tspan>.</text>
 
-  <!-- ===== THREE ERAS ASCENDING DIAGRAM (left-offset, x=150-550, y=200-330) ===== -->
-  <!--
-    Scaled up from the paper's 500x200 viewBox to fit x=150-550, y=200-330.
-    Paper coordinates mapped:
-      Hardware Age box:   (50,140,120x45)  -> (150, 290, 170x58) rx=8
-      Software Age box:   (190,95,120x45)  -> (340, 250, 170x58) rx=8
-      Intelligence Age:   (330,45,130x50)  -> (420, 208, 185x64) rx=10
-    Connecting lines scaled similarly.
-    "NEOS" label above Intelligence Age box.
-  -->
+  <!-- ===== SUBTITLE (paper's dimmer subtitle) ===== -->
+  <text x="600" y="590" text-anchor="middle" fill="#555" font-family="system-ui, -apple-system, sans-serif" font-size="15" letter-spacing="0.15em">THE OPERATING SYSTEM FOR MACHINE INTELLIGENCE</text>
 
-  <!-- Hardware Age - dull gray rectangle, bottom-left, opacity 0.5 -->
-  <rect x="150" y="290" width="170" height="58" rx="8" fill="rgba(80,80,100,0.04)" stroke="#444" stroke-width="1" opacity="0.5"/>
-  <text x="235" y="324" text-anchor="middle" fill="#555" font-size="16" font-family="system-ui, -apple-system, sans-serif">Hardware Age</text>
-
-  <!-- Software Age - purple-tinted rectangle, middle height, opacity 0.8 -->
-  <rect x="340" y="250" width="170" height="58" rx="8" fill="rgba(123,97,255,0.05)" stroke="rgba(123,97,255,0.4)" stroke-width="1" opacity="0.8"/>
-  <text x="425" y="284" text-anchor="middle" fill="rgba(155,138,255,0.8)" font-size="16" font-family="system-ui, -apple-system, sans-serif">Software Age</text>
-
-  <!-- Intelligence Age - glowing cyan rectangle, highest position -->
-  <rect x="420" y="208" width="185" height="64" rx="10" fill="rgba(0,212,255,0.08)" stroke="#00d4ff" stroke-width="2" filter="url(#glow-box)"/>
-  <text x="512" y="246" text-anchor="middle" fill="#00d4ff" font-size="17" font-weight="700" font-family="system-ui, -apple-system, sans-serif">Intelligence Age</text>
-
-  <!-- Connecting lines ascending between eras -->
-  <line x1="320" y1="310" x2="340" y2="282" stroke="rgba(100,100,130,0.3)" stroke-width="1.5"/>
-  <line x1="510" y1="262" x2="420" y2="245" stroke="rgba(0,180,255,0.25)" stroke-width="1.5"/>
-
-  <!-- "NEOS" label above Intelligence Age box, subtle -->
-  <text x="512" y="196" text-anchor="middle" fill="rgba(0,212,255,0.5)" font-size="14" font-weight="600" letter-spacing="0.1em" font-family="system-ui, -apple-system, sans-serif">NEOS</text>
-
-  <!-- ===== TAGLINE (y=330, dim italic text) ===== -->
-  <text x="600" y="330" text-anchor="middle" fill="#555" font-family="Georgia, 'Times New Roman', serif" font-size="14" font-style="italic">"The last operating system will not manage files. It will manage meaning."</text>
+  <!-- ===== "Explore the Future" button-like element ===== -->
+  <rect x="485" y="620" width="230" height="44" rx="8" fill="none" stroke="#00d4ff" stroke-width="1"/>
+  <text x="600" y="648" text-anchor="middle" fill="#00d4ff" font-family="system-ui, -apple-system, sans-serif" font-size="15" letter-spacing="0.05em">Explore the Future</text>
 
   <!-- ===== BOTTOM GRADIENT LINE ===== -->
-  <rect x="0" y="396" width="1200" height="4" fill="url(#line-grad)" opacity="0.6"/>
+  <rect x="0" y="696" width="1200" height="4" fill="url(#line-grad)" opacity="0.6"/>
 </svg>
