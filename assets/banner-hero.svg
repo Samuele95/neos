@@ -3,7 +3,7 @@
     <!-- Background gradient matching paper's #07070c → #0c0c1a -->
     <linearGradient id="bg" x1="0" y1="0" x2="0.5" y2="1">
       <stop offset="0%" stop-color="#07070c"/>
-      <stop offset="50%" stop-color="#0c0c1a"/>
+      <stop offset="50%" stop-color="#0c0c14"/>
       <stop offset="100%" stop-color="#07070c"/>
     </linearGradient>
 
@@ -49,7 +49,7 @@
   <rect width="1200" height="700" fill="url(#bg)"/>
 
   <!-- ===== DOT GRID (paper's .hero-dots: radial-gradient circle 1px, 48px spacing, opacity 0.25) ===== -->
-  <g opacity="0.12">
+  <g opacity="0.03">
     <circle cx="48" cy="48" r="0.8" fill="#00b4ff"/><circle cx="96" cy="48" r="0.8" fill="#00b4ff"/><circle cx="144" cy="48" r="0.8" fill="#00b4ff"/><circle cx="192" cy="48" r="0.8" fill="#00b4ff"/><circle cx="240" cy="48" r="0.8" fill="#00b4ff"/><circle cx="288" cy="48" r="0.8" fill="#00b4ff"/><circle cx="336" cy="48" r="0.8" fill="#00b4ff"/><circle cx="384" cy="48" r="0.8" fill="#00b4ff"/><circle cx="432" cy="48" r="0.8" fill="#00b4ff"/><circle cx="480" cy="48" r="0.8" fill="#00b4ff"/><circle cx="528" cy="48" r="0.8" fill="#00b4ff"/><circle cx="576" cy="48" r="0.8" fill="#00b4ff"/><circle cx="624" cy="48" r="0.8" fill="#00b4ff"/><circle cx="672" cy="48" r="0.8" fill="#00b4ff"/><circle cx="720" cy="48" r="0.8" fill="#00b4ff"/><circle cx="768" cy="48" r="0.8" fill="#00b4ff"/><circle cx="816" cy="48" r="0.8" fill="#00b4ff"/><circle cx="864" cy="48" r="0.8" fill="#00b4ff"/><circle cx="912" cy="48" r="0.8" fill="#00b4ff"/><circle cx="960" cy="48" r="0.8" fill="#00b4ff"/><circle cx="1008" cy="48" r="0.8" fill="#00b4ff"/><circle cx="1056" cy="48" r="0.8" fill="#00b4ff"/><circle cx="1104" cy="48" r="0.8" fill="#00b4ff"/><circle cx="1152" cy="48" r="0.8" fill="#00b4ff"/>
     <circle cx="48" cy="96" r="0.8" fill="#00b4ff"/><circle cx="96" cy="96" r="0.8" fill="#00b4ff"/><circle cx="144" cy="96" r="0.8" fill="#00b4ff"/><circle cx="192" cy="96" r="0.8" fill="#00b4ff"/><circle cx="240" cy="96" r="0.8" fill="#00b4ff"/><circle cx="288" cy="96" r="0.8" fill="#00b4ff"/><circle cx="336" cy="96" r="0.8" fill="#00b4ff"/><circle cx="384" cy="96" r="0.8" fill="#00b4ff"/><circle cx="432" cy="96" r="0.8" fill="#00b4ff"/><circle cx="480" cy="96" r="0.8" fill="#00b4ff"/><circle cx="528" cy="96" r="0.8" fill="#00b4ff"/><circle cx="576" cy="96" r="0.8" fill="#00b4ff"/><circle cx="624" cy="96" r="0.8" fill="#00b4ff"/><circle cx="672" cy="96" r="0.8" fill="#00b4ff"/><circle cx="720" cy="96" r="0.8" fill="#00b4ff"/><circle cx="768" cy="96" r="0.8" fill="#00b4ff"/><circle cx="816" cy="96" r="0.8" fill="#00b4ff"/><circle cx="864" cy="96" r="0.8" fill="#00b4ff"/><circle cx="912" cy="96" r="0.8" fill="#00b4ff"/><circle cx="960" cy="96" r="0.8" fill="#00b4ff"/><circle cx="1008" cy="96" r="0.8" fill="#00b4ff"/><circle cx="1056" cy="96" r="0.8" fill="#00b4ff"/><circle cx="1104" cy="96" r="0.8" fill="#00b4ff"/><circle cx="1152" cy="96" r="0.8" fill="#00b4ff"/>
     <circle cx="48" cy="144" r="0.8" fill="#00b4ff"/><circle cx="96" cy="144" r="0.8" fill="#00b4ff"/><circle cx="144" cy="144" r="0.8" fill="#00b4ff"/><circle cx="192" cy="144" r="0.8" fill="#00b4ff"/><circle cx="240" cy="144" r="0.8" fill="#00b4ff"/><circle cx="288" cy="144" r="0.8" fill="#00b4ff"/><circle cx="336" cy="144" r="0.8" fill="#00b4ff"/><circle cx="384" cy="144" r="0.8" fill="#00b4ff"/><circle cx="432" cy="144" r="0.8" fill="#00b4ff"/><circle cx="480" cy="144" r="0.8" fill="#00b4ff"/><circle cx="528" cy="144" r="0.8" fill="#00b4ff"/><circle cx="576" cy="144" r="0.8" fill="#00b4ff"/><circle cx="624" cy="144" r="0.8" fill="#00b4ff"/><circle cx="672" cy="144" r="0.8" fill="#00b4ff"/><circle cx="720" cy="144" r="0.8" fill="#00b4ff"/><circle cx="768" cy="144" r="0.8" fill="#00b4ff"/><circle cx="816" cy="144" r="0.8" fill="#00b4ff"/><circle cx="864" cy="144" r="0.8" fill="#00b4ff"/><circle cx="912" cy="144" r="0.8" fill="#00b4ff"/><circle cx="960" cy="144" r="0.8" fill="#00b4ff"/><circle cx="1008" cy="144" r="0.8" fill="#00b4ff"/><circle cx="1056" cy="144" r="0.8" fill="#00b4ff"/><circle cx="1104" cy="144" r="0.8" fill="#00b4ff"/><circle cx="1152" cy="144" r="0.8" fill="#00b4ff"/>
@@ -102,7 +102,7 @@
   <text x="600" y="535" text-anchor="middle" fill="#8888a0" font-family="system-ui, -apple-system, sans-serif" font-size="22">It will manage <tspan fill="#ffffff" font-weight="700">meaning</tspan>.</text>
 
   <!-- ===== SUBTITLE (paper's dimmer subtitle) ===== -->
-  <text x="600" y="590" text-anchor="middle" fill="#555" font-family="system-ui, -apple-system, sans-serif" font-size="15" letter-spacing="0.15em">THE OPERATING SYSTEM FOR MACHINE INTELLIGENCE</text>
+  <text x="600" y="590" text-anchor="middle" fill="#8888a0" font-family="system-ui, -apple-system, sans-serif" font-size="15" letter-spacing="0.15em">THE OPERATING SYSTEM FOR MACHINE INTELLIGENCE</text>
 
   <!-- ===== "Explore the Future" button-like element ===== -->
   <rect x="485" y="620" width="230" height="44" rx="8" fill="none" stroke="#00d4ff" stroke-width="1"/>
