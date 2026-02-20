@@ -11,7 +11,10 @@
 
 > *"The last operating system will not manage files. It will manage meaning."*
 
-[Read the Paper](https://samuele95.github.io/neos/NEOS-BREAKTHROUGH.html) · [Presentation](https://samuele95.github.io/neos/NEOS-PRESENTATION.html) · [The Vision](#01--the-three-ages-of-computing) · [What It Is](#03--what-neos-is--today) · [See It Run](#07--see-it-in-action) · [The Proof](#08--proof-the-software-quality-session) · [Commands](#14--command-reference)
+[![Read the Paper](https://img.shields.io/badge/📄_Read_the_Paper-ffd700?style=for-the-badge&logoColor=black)](https://samuele95.github.io/papers/neos/)
+[![View Presentation](https://img.shields.io/badge/🎬_View_Presentation-ff3d8e?style=for-the-badge&logoColor=white)](https://samuele95.github.io/papers/neos/)
+
+[The Vision](#01--the-three-ages-of-computing) · [What It Is](#03--what-neos-is--today) · [See It Run](#07--see-it-in-action) · [The Proof](#08--proof-the-software-quality-session) · [Commands](#14--command-reference)
 
 </div>
 
@@ -735,8 +738,8 @@ The specification is open. The math is grounded. The proof-of-concept works. Wha
 
 | Resource | Description |
 |----------|-------------|
-| [NEOS Research Paper](https://samuele95.github.io/neos/NEOS-BREAKTHROUGH.html) | The theoretical foundations and breakthrough results |
-| [NEOS Presentation](https://samuele95.github.io/neos/NEOS-PRESENTATION.html) | Visual overview of the framework |
+| [NEOS Research Paper](https://samuele95.github.io/papers/neos/) | The theoretical foundations and breakthrough results |
+| [NEOS Presentation](https://samuele95.github.io/papers/neos/) | Visual overview of the framework |
 | [Kernel Prompt](prompts/nfos-kernel.md) | The system prompt that boots NEOS inside an LLM |
 | [Full Command Reference](commands/index.md) | Detailed specs for all ~40 commands |
 | [Basic Session Walkthrough](examples/01-basic-session.md) | Extended tutorial with 11 steps |
