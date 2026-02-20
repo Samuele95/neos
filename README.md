@@ -5,7 +5,6 @@
 [![Version](https://img.shields.io/badge/version-1.0-00d4ff?style=for-the-badge)](.)
 [![License](https://img.shields.io/badge/license-MIT-00ff88?style=for-the-badge)](.)
 [![Runs on](https://img.shields.io/badge/runs%20on-LLM-7b61ff?style=for-the-badge)](.)
-[![No Install](https://img.shields.io/badge/install-nothing-ff3d8e?style=for-the-badge)](.)
 
 **The first operating system where the machine is language and the substrate is meaning.**
 
