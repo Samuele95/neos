@@ -11,7 +11,7 @@
 
 > *"The last operating system will not manage files. It will manage meaning."*
 
-[The Vision](#01--the-three-ages-of-computing) · [What It Is](#03--what-neos-is--today) · [See It Run](#07--see-it-in-action) · [The Proof](#08--proof-the-software-quality-session) · [Commands](#14--command-reference)
+[Read the Paper](https://samuele95.github.io/neos/NEOS-BREAKTHROUGH.html) · [The Vision](#01--the-three-ages-of-computing) · [What It Is](#03--what-neos-is--today) · [See It Run](#07--see-it-in-action) · [The Proof](#08--proof-the-software-quality-session) · [Commands](#14--command-reference)
 
 </div>
 
