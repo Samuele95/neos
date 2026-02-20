@@ -1,57 +1,24 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" width="1200" height="700">
   <defs>
-    <!-- Background: paper's --bg #07070c -->
-    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#07070c"/>
-      <stop offset="100%" stop-color="#07070c"/>
-    </linearGradient>
-
     <!-- Title gradient: paper's .grad-text = linear-gradient(135deg, --cyan, --purple) -->
     <linearGradient id="title-grad" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0%" stop-color="#00d4ff"/>
       <stop offset="100%" stop-color="#7b61ff"/>
     </linearGradient>
-
-    <!-- Cyan glow filter: paper's #glow-cyan -->
-    <filter id="glow-cyan" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur"/>
-      <feFlood flood-color="#00d4ff" flood-opacity="0.6" result="color"/>
-      <feComposite in="color" in2="blur" operator="in" result="glow"/>
-      <feMerge><feMergeNode in="glow"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-
-    <!-- Title glow: paper's #hero h1 text-shadow: 0 0 40px rgba(0,212,255,0.15), 0 0 80px rgba(123,97,255,0.08) -->
-    <filter id="glow-title" x="-30%" y="-30%" width="160%" height="160%">
-      <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur1"/>
-      <feFlood flood-color="#00d4ff" flood-opacity="0.15" result="cyan"/>
-      <feComposite in="cyan" in2="blur1" operator="in" result="glow1"/>
-      <feGaussianBlur in="SourceGraphic" stdDeviation="16" result="blur2"/>
-      <feFlood flood-color="#7b61ff" flood-opacity="0.08" result="purple"/>
-      <feComposite in="purple" in2="blur2" operator="in" result="glow2"/>
-      <feMerge>
-        <feMergeNode in="glow2"/>
-        <feMergeNode in="glow1"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
-
     <!-- Bottom line gradient -->
     <linearGradient id="line-grad" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="transparent"/>
+      <stop offset="0%" stop-color="#07070c"/>
       <stop offset="20%" stop-color="#00d4ff"/>
       <stop offset="50%" stop-color="#7b61ff"/>
       <stop offset="80%" stop-color="#ff3d8e"/>
-      <stop offset="100%" stop-color="transparent"/>
+      <stop offset="100%" stop-color="#07070c"/>
     </linearGradient>
   </defs>
 
-  <!-- ===== BACKGROUND: solid #07070c (paper's body background) ===== -->
+  <!-- BACKGROUND: solid #07070c -->
   <rect width="1200" height="700" fill="#07070c"/>
 
-  <!-- ===== DOT GRID ===== -->
-  <!-- Paper: background-image: radial-gradient(circle 1px, rgba(0,180,255,0.08) 0.5px, transparent 0.5px); -->
-  <!-- background-size: 48px 48px; opacity: 0.25; -->
-  <!-- Effective per-dot: rgba(0,180,255, 0.08*0.25 = 0.02) -->
+  <!-- DOT GRID: paper's hero-dots rgba(0,180,255,0.08) at 48px, container opacity 0.25 -->
   <g opacity="0.03">
     <circle cx="48" cy="48" r="0.8" fill="#00b4ff"/><circle cx="96" cy="48" r="0.8" fill="#00b4ff"/><circle cx="144" cy="48" r="0.8" fill="#00b4ff"/><circle cx="192" cy="48" r="0.8" fill="#00b4ff"/><circle cx="240" cy="48" r="0.8" fill="#00b4ff"/><circle cx="288" cy="48" r="0.8" fill="#00b4ff"/><circle cx="336" cy="48" r="0.8" fill="#00b4ff"/><circle cx="384" cy="48" r="0.8" fill="#00b4ff"/><circle cx="432" cy="48" r="0.8" fill="#00b4ff"/><circle cx="480" cy="48" r="0.8" fill="#00b4ff"/><circle cx="528" cy="48" r="0.8" fill="#00b4ff"/><circle cx="576" cy="48" r="0.8" fill="#00b4ff"/><circle cx="624" cy="48" r="0.8" fill="#00b4ff"/><circle cx="672" cy="48" r="0.8" fill="#00b4ff"/><circle cx="720" cy="48" r="0.8" fill="#00b4ff"/><circle cx="768" cy="48" r="0.8" fill="#00b4ff"/><circle cx="816" cy="48" r="0.8" fill="#00b4ff"/><circle cx="864" cy="48" r="0.8" fill="#00b4ff"/><circle cx="912" cy="48" r="0.8" fill="#00b4ff"/><circle cx="960" cy="48" r="0.8" fill="#00b4ff"/><circle cx="1008" cy="48" r="0.8" fill="#00b4ff"/><circle cx="1056" cy="48" r="0.8" fill="#00b4ff"/><circle cx="1104" cy="48" r="0.8" fill="#00b4ff"/><circle cx="1152" cy="48" r="0.8" fill="#00b4ff"/>
     <circle cx="48" cy="96" r="0.8" fill="#00b4ff"/><circle cx="96" cy="96" r="0.8" fill="#00b4ff"/><circle cx="144" cy="96" r="0.8" fill="#00b4ff"/><circle cx="192" cy="96" r="0.8" fill="#00b4ff"/><circle cx="240" cy="96" r="0.8" fill="#00b4ff"/><circle cx="288" cy="96" r="0.8" fill="#00b4ff"/><circle cx="336" cy="96" r="0.8" fill="#00b4ff"/><circle cx="384" cy="96" r="0.8" fill="#00b4ff"/><circle cx="432" cy="96" r="0.8" fill="#00b4ff"/><circle cx="480" cy="96" r="0.8" fill="#00b4ff"/><circle cx="528" cy="96" r="0.8" fill="#00b4ff"/><circle cx="576" cy="96" r="0.8" fill="#00b4ff"/><circle cx="624" cy="96" r="0.8" fill="#00b4ff"/><circle cx="672" cy="96" r="0.8" fill="#00b4ff"/><circle cx="720" cy="96" r="0.8" fill="#00b4ff"/><circle cx="768" cy="96" r="0.8" fill="#00b4ff"/><circle cx="816" cy="96" r="0.8" fill="#00b4ff"/><circle cx="864" cy="96" r="0.8" fill="#00b4ff"/><circle cx="912" cy="96" r="0.8" fill="#00b4ff"/><circle cx="960" cy="96" r="0.8" fill="#00b4ff"/><circle cx="1008" cy="96" r="0.8" fill="#00b4ff"/><circle cx="1056" cy="96" r="0.8" fill="#00b4ff"/><circle cx="1104" cy="96" r="0.8" fill="#00b4ff"/><circle cx="1152" cy="96" r="0.8" fill="#00b4ff"/>
@@ -69,50 +36,39 @@
     <circle cx="48" cy="672" r="0.8" fill="#00b4ff"/><circle cx="96" cy="672" r="0.8" fill="#00b4ff"/><circle cx="144" cy="672" r="0.8" fill="#00b4ff"/><circle cx="192" cy="672" r="0.8" fill="#00b4ff"/><circle cx="240" cy="672" r="0.8" fill="#00b4ff"/><circle cx="288" cy="672" r="0.8" fill="#00b4ff"/><circle cx="336" cy="672" r="0.8" fill="#00b4ff"/><circle cx="384" cy="672" r="0.8" fill="#00b4ff"/><circle cx="432" cy="672" r="0.8" fill="#00b4ff"/><circle cx="480" cy="672" r="0.8" fill="#00b4ff"/><circle cx="528" cy="672" r="0.8" fill="#00b4ff"/><circle cx="576" cy="672" r="0.8" fill="#00b4ff"/><circle cx="624" cy="672" r="0.8" fill="#00b4ff"/><circle cx="672" cy="672" r="0.8" fill="#00b4ff"/><circle cx="720" cy="672" r="0.8" fill="#00b4ff"/><circle cx="768" cy="672" r="0.8" fill="#00b4ff"/><circle cx="816" cy="672" r="0.8" fill="#00b4ff"/><circle cx="864" cy="672" r="0.8" fill="#00b4ff"/><circle cx="912" cy="672" r="0.8" fill="#00b4ff"/><circle cx="960" cy="672" r="0.8" fill="#00b4ff"/><circle cx="1008" cy="672" r="0.8" fill="#00b4ff"/><circle cx="1056" cy="672" r="0.8" fill="#00b4ff"/><circle cx="1104" cy="672" r="0.8" fill="#00b4ff"/><circle cx="1152" cy="672" r="0.8" fill="#00b4ff"/>
   </g>
 
-  <!-- ===== THREE ERAS ASCENDING DIAGRAM ===== -->
-  <!-- Paper's EXACT SVG viewBox="0 0 500 200", embedded at 1:1 scale, centered -->
-  <!-- Paper's diagram center is ~x=255, so offset = 600-255 = 345 -->
-  <!-- Placed at y=80 to give breathing room above -->
+  <!-- THREE ERAS ASCENDING DIAGRAM (paper's exact coords, centered) -->
   <g transform="translate(345, 80)" opacity="0.85">
-    <!-- Hardware era: paper line 322 -->
-    <rect x="50" y="140" width="120" height="45" rx="6" fill="rgba(80,80,100,0.04)" stroke="#444" stroke-width="1" opacity="0.5"/>
-    <text x="110" y="167" text-anchor="middle" fill="#555" font-family="system-ui, -apple-system, sans-serif" font-size="13">Hardware Age</text>
-    <!-- Software era: paper line 325 -->
-    <rect x="190" y="95" width="120" height="45" rx="6" fill="rgba(123,97,255,0.05)" stroke="rgba(123,97,255,0.4)" stroke-width="1" opacity="0.8"/>
-    <text x="250" y="122" text-anchor="middle" fill="rgba(155,138,255,0.8)" font-family="system-ui, -apple-system, sans-serif" font-size="13">Software Age</text>
-    <!-- Intelligence era - glowing: paper line 328 -->
-    <rect x="330" y="45" width="130" height="50" rx="8" fill="rgba(0,212,255,0.08)" stroke="#00d4ff" stroke-width="2" filter="url(#glow-cyan)"/>
-    <text x="395" y="75" text-anchor="middle" fill="#00d4ff" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700">Intelligence Age</text>
-    <!-- Connecting lines: paper lines 331-332 -->
-    <line x1="170" y1="155" x2="190" y2="120" stroke="rgba(100,100,130,0.3)" stroke-width="1"/>
-    <line x1="310" y1="110" x2="330" y2="75" stroke="rgba(0,180,255,0.25)" stroke-width="1" filter="url(#glow-cyan)"/>
-    <!-- NEOS label: paper line 334 -->
-    <text x="395" y="30" text-anchor="middle" fill="rgba(0,212,255,0.5)" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600" letter-spacing="0.1em">NEOS</text>
+    <!-- Hardware era -->
+    <rect x="50" y="140" width="120" height="45" rx="6" fill="#50506e" fill-opacity="0.04" stroke="#444" stroke-width="1" opacity="0.5"/>
+    <text x="110" y="167" text-anchor="middle" fill="#555" font-family="system-ui, sans-serif" font-size="13">Hardware Age</text>
+    <!-- Software era -->
+    <rect x="190" y="95" width="120" height="45" rx="6" fill="#7b61ff" fill-opacity="0.05" stroke="#7b61ff" stroke-opacity="0.4" stroke-width="1" opacity="0.8"/>
+    <text x="250" y="122" text-anchor="middle" fill="#9b8aff" fill-opacity="0.8" font-family="system-ui, sans-serif" font-size="13">Software Age</text>
+    <!-- Intelligence era (glow simulated with larger rect behind) -->
+    <rect x="326" y="41" width="138" height="58" rx="12" fill="#00d4ff" fill-opacity="0.06" stroke="none"/>
+    <rect x="330" y="45" width="130" height="50" rx="8" fill="#00d4ff" fill-opacity="0.08" stroke="#00d4ff" stroke-width="2"/>
+    <text x="395" y="75" text-anchor="middle" fill="#00d4ff" font-family="system-ui, sans-serif" font-size="14" font-weight="700">Intelligence Age</text>
+    <!-- Connecting lines -->
+    <line x1="170" y1="155" x2="190" y2="120" stroke="#646482" stroke-opacity="0.3" stroke-width="1"/>
+    <line x1="310" y1="110" x2="330" y2="75" stroke="#00b4ff" stroke-opacity="0.25" stroke-width="1"/>
+    <!-- NEOS label -->
+    <text x="395" y="30" text-anchor="middle" fill="#00d4ff" fill-opacity="0.5" font-family="system-ui, sans-serif" font-size="11" font-weight="600" letter-spacing="0.1em">NEOS</text>
   </g>
 
-  <!-- ===== GIANT "NEOS" TITLE ===== -->
-  <!-- Paper: h1 .grad-text, font-family Outfit, font-size clamp(2.5rem,6vw,4.5rem), font-weight 700 -->
-  <!-- text-shadow: 0 0 40px rgba(0,212,255,0.15), 0 0 80px rgba(123,97,255,0.08) -->
-  <text x="600" y="420" text-anchor="middle" fill="url(#title-grad)" font-family="system-ui, -apple-system, sans-serif" font-size="120" font-weight="800" letter-spacing="-0.02em" filter="url(#glow-title)">NEOS</text>
+  <!-- GIANT "NEOS" TITLE with gradient fill -->
+  <text x="600" y="420" text-anchor="middle" fill="url(#title-grad)" font-family="system-ui, sans-serif" font-size="120" font-weight="800" letter-spacing="-0.02em">NEOS</text>
 
-  <!-- ===== TAGLINE ===== -->
-  <!-- Paper: .hero-tagline, font-size clamp(1rem,2.5vw,1.4rem), color --text-dim #8888a0 -->
-  <!-- "meaning" in <strong style="color:#fff"> -->
-  <text x="600" y="490" text-anchor="middle" fill="#8888a0" font-family="system-ui, -apple-system, sans-serif" font-size="22">The last operating system will not manage files.</text>
-  <text x="600" y="525" text-anchor="middle" fill="#8888a0" font-family="system-ui, -apple-system, sans-serif" font-size="22">It will manage <tspan fill="#ffffff" font-weight="700">meaning</tspan>.</text>
+  <!-- TAGLINE -->
+  <text x="600" y="490" text-anchor="middle" fill="#8888a0" font-family="system-ui, sans-serif" font-size="22">The last operating system will not manage files.</text>
+  <text x="600" y="525" text-anchor="middle" fill="#8888a0" font-family="system-ui, sans-serif" font-size="22">It will manage <tspan fill="#ffffff" font-weight="700">meaning</tspan>.</text>
 
-  <!-- ===== SUBTITLE ===== -->
-  <!-- Paper: color --text-dim #8888a0, font-size 0.9rem -->
-  <text x="600" y="580" text-anchor="middle" fill="#8888a0" font-family="system-ui, -apple-system, sans-serif" font-size="14">The Operating System for Machine Intelligence</text>
+  <!-- SUBTITLE -->
+  <text x="600" y="580" text-anchor="middle" fill="#8888a0" font-family="system-ui, sans-serif" font-size="14">The Operating System for Machine Intelligence</text>
 
-  <!-- ===== CTA BUTTON ===== -->
-  <!-- Paper: .hero-cta, border 1px solid --cyan, color --cyan, padding 0.8rem 2.5rem, border-radius 8px -->
+  <!-- CTA BUTTON -->
   <rect x="490" y="610" width="220" height="42" rx="8" fill="none" stroke="#00d4ff" stroke-width="1"/>
-  <text x="600" y="637" text-anchor="middle" fill="#00d4ff" font-family="system-ui, -apple-system, sans-serif" font-size="15" letter-spacing="0.05em">Explore the Future</text>
+  <text x="600" y="637" text-anchor="middle" fill="#00d4ff" font-family="system-ui, sans-serif" font-size="15" letter-spacing="0.05em">Explore the Future</text>
 
-  <!-- ===== SCROLL HINT (chevron) ===== -->
-  <!-- Paper: .scroll-hint, position absolute bottom 2rem -->
-  <g opacity="0.5">
-    <polyline points="591,672 600,681 609,672" fill="none" stroke="#00d4ff" stroke-width="2"/>
-  </g>
+  <!-- SCROLL HINT -->
+  <polyline points="591,672 600,681 609,672" fill="none" stroke="#00d4ff" stroke-width="2" opacity="0.5"/>
 </svg>
