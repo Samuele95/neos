@@ -25,22 +25,9 @@
 
 Computing has undergone two fundamental transitions. Each changed not just what we could do with machines, but how we *thought* about them. Now we are entering the third — and it will be the most profound of all.
 
-```mermaid
-timeline
-    title The Three Ages
-    section Age 1 · Hardware
-        1950s–1980s : Bottleneck — Hardware
-                    : Interface — Machine Code
-                    : OS Purpose — Share the machine
-    section Age 2 · Software
-        1980s–2020s : Bottleneck — Complexity
-                    : Interface — Programming Languages
-                    : OS Purpose — Organize programs
-    section Age 3 · Intelligence
-        2025+ : Bottleneck — Meaning
-              : Interface — Natural Language
-              : OS Purpose — Organize thinking
-```
+<div align="center">
+<img src="assets/diagram-timeline.svg" alt="The Three Ages of Computing" width="100%"/>
+</div>
 
 In the **Hardware Age**, the CPU was sacred. Operating systems were born to answer one question: *"How do we share this machine?"* Every cycle was a resource to be scheduled. Every byte was territory to be managed.
 
@@ -61,35 +48,9 @@ Today, Large Language Models are *applications* that run on an operating system 
 
 **Tomorrow, the LLM *is* the operating system.** Every interaction with a computer will pass through language understanding. This is not speculation — it is the trajectory we are already on. And NEOS is the first specification for what that world looks like.
 
-```mermaid
-graph LR
-    subgraph TODAY["Today's Stack"]
-        direction TB
-        A1["📱 Applications"]
-        A2["LLM App"]
-        A3["🖥️ Operating System"]
-        A4["⚙️ Hardware"]
-        A1 --- A2
-        A2 --- A3
-        A3 --- A4
-    end
-
-    subgraph TOMORROW["Tomorrow's Stack"]
-        direction TB
-        B1["👤 Human"]
-        B2["🧠 NEOS"]
-        B3["🌊 Neural Field Substrate"]
-        B4["💬 LLM · Foundation"]
-        B1 --- B2
-        B2 --- B3
-        B3 --- B4
-    end
-
-    TODAY -->|"The Inversion"| TOMORROW
-
-    style A2 fill:#ff3d8e,stroke:#c93070,color:#fff
-    style B2 fill:#00d4ff,stroke:#0088aa,color:#000
-```
+<div align="center">
+<img src="assets/diagram-inversion.svg" alt="The Inversion — Today's Stack vs Tomorrow's Stack" width="100%"/>
+</div>
 
 Consider what this inversion means:
 
@@ -120,25 +81,9 @@ The NEOS shell — `nf` — is the **REPL of cognitive computing**. You don't wr
 
 NEOS v1.0 is a **specification** — 37 markdown files that define an interactive runtime environment running *on* an LLM. The LLM is the virtual machine. NEOS is the operating system. Neural fields are the computational substrate.
 
-```mermaid
-graph TB
-    subgraph Stack["The NEOS Architecture"]
-        direction TB
-        Apps["🔬 Applications<br/><i>Security analysis, code review, research synthesis...</i>"]
-        Kernel["⚙️ NEOS Kernel<br/><i>Command Parser · Field Engine · State Manager</i>"]
-        Substrate["🌊 Neural Field Substrate<br/><i>Patterns · Resonance · Attractors · Coherence</i>"]
-        VM["💬 LLM — Virtual Machine<br/><i>GPT-4 · Claude · Gemini · Llama · Mistral</i>"]
-    end
-
-    Apps --> Kernel
-    Kernel --> Substrate
-    Substrate --> VM
-
-    style Apps fill:#1a3a4a,stroke:#00d4ff,color:#fff
-    style Kernel fill:#1a3050,stroke:#00d4ff,color:#fff
-    style Substrate fill:#1a1a3a,stroke:#7b61ff,color:#fff
-    style VM fill:#1a1a2a,stroke:#555,color:#aaa
-```
+<div align="center">
+<img src="assets/diagram-stack.svg" alt="The NEOS Architecture Stack" width="100%"/>
+</div>
 
 At the heart of everything is the **master equation** — one formula that governs all dynamics:
 
@@ -174,22 +119,9 @@ These four parameters define a **cognitive style**. A security analysis wants lo
 
 NEOS rests on a triple foundation. Each pillar is necessary; together they make cognitive computing possible. Remove any one and the system either cannot *represent* meaning, cannot *manipulate* it, or cannot *interpret* it.
 
-```mermaid
-graph TB
-    NF["🌊 Neural Fields<br/><b>THE SUBSTRATE</b><br/><i>Continuous activation landscapes<br/>Resonance dynamics<br/>Attractor emergence</i>"]
-    SR["🔧 Symbolic Reasoning<br/><b>THE STRUCTURE</b><br/><i>nf command algebra<br/>@pattern references<br/>Composable operations</i>"]
-    QS["⚛️ Quantum Semantics<br/><b>THE INTERPRETATION</b><br/><i>Superposition of meaning<br/>Non-commutativity<br/>Observer-dependent collapse</i>"]
-    PSI["✦ Ψ — Universal Invariant<br/><i>The Unification</i>"]
-
-    NF --> PSI
-    SR --> PSI
-    QS --> PSI
-
-    style NF fill:#0a2a3a,stroke:#00d4ff,color:#fff
-    style SR fill:#1a1a3a,stroke:#7b61ff,color:#fff
-    style QS fill:#2a1a2a,stroke:#ff3d8e,color:#fff
-    style PSI fill:#2a2a10,stroke:#ffd700,color:#fff
-```
+<div align="center">
+<img src="assets/diagram-pillars.svg" alt="The Three Pillars — Neural Fields, Symbolic Reasoning, Quantum Semantics" width="100%"/>
+</div>
 
 ### Pillar 1: Neural Fields — Why Fields Beat Prompts
 
@@ -323,26 +255,9 @@ Each cycle applies decay, computes resonance, amplifies reinforcing patterns, an
 > nf plot network
 ```
 
-```mermaid
-graph TB
-    subgraph Attractor["🔴 sql_injection_vulnerability · C=0.82"]
-        p1((sql_query<br/>0.95))
-        p2((user_input<br/>0.91))
-        p3((string_concat<br/>0.87))
-        p4((no_validation<br/>0.82))
-    end
-
-    p1 ---|"R=0.85"| p3
-    p2 ---|"R=0.82"| p4
-    p1 ---|"R=0.72"| p2
-    p1 ---|"R=0.68"| p4
-    p2 ---|"R=0.55"| p3
-
-    style p1 fill:#ff6b6b,stroke:#c0392b,color:#fff
-    style p2 fill:#ff6b6b,stroke:#c0392b,color:#fff
-    style p3 fill:#e74c3c,stroke:#c0392b,color:#fff
-    style p4 fill:#e74c3c,stroke:#c0392b,color:#fff
-```
+<div align="center">
+<img src="assets/diagram-network.svg" alt="Resonance Network — SQL Injection Vulnerability Attractor" width="100%"/>
+</div>
 
 ### Step 4 — Collapse to structured output
 
@@ -466,22 +381,9 @@ Q(x) = Ψ · [ 0.342·SOLID(x) + 0.227·F(x) + 0.181·Protocol(x) + 0.143·Simpl
 
 Every `nf cycle` executes six phases. This is the **heartbeat of NEOS** — the engine that transforms injected patterns into emergent structure.
 
-```mermaid
-graph LR
-    D["① Decay<br/><code>-λA(x)</code>"] --> R["② Resonate<br/><code>K(x,y)</code>"]
-    R --> A["③ Amplify<br/><code>+αΣR·A</code>"]
-    A --> T["④ Threshold<br/><code>A < τ ?</code>"]
-    T --> C["⑤ Coherence<br/><code>μ/(1+σ²)</code>"]
-    C --> AT["⑥ Attractor<br/>Check"]
-    AT -->|"next cycle"| D
-
-    style D fill:#8b1a1a,stroke:#e74c3c,color:#fff
-    style R fill:#1a3a5a,stroke:#3498db,color:#fff
-    style A fill:#1a3a1a,stroke:#2ecc71,color:#fff
-    style T fill:#3a3a1a,stroke:#f39c12,color:#fff
-    style C fill:#2a1a3a,stroke:#9b59b6,color:#fff
-    style AT fill:#1a3a3a,stroke:#1abc9c,color:#fff
-```
+<div align="center">
+<img src="assets/diagram-dynamics.svg" alt="The Six-Phase Dynamics Cycle" width="100%"/>
+</div>
 
 | Phase | What Happens |
 |-------|-------------|
@@ -500,27 +402,9 @@ graph LR
 
 A single field is powerful. Multiple coupled fields are transformative. Different fields represent different perspectives — technical, user, business — coupled through a resonance matrix that lets them influence each other.
 
-```mermaid
-graph TB
-    subgraph Fields["Perspective Fields"]
-        T["🔧 $technical<br/>λ=0.03 · C=0.80"]
-        B["💼 $business<br/>λ=0.05 · C=0.81"]
-        U["👤 $user<br/>λ=0.04 · C=0.83"]
-    end
-
-    T <-->|"γ=0.3"| B
-    B <-->|"γ=0.4"| U
-    T <-->|"γ=0.2"| U
-
-    T --> S["✦ Synthesis<br/>C=0.85"]
-    B --> S
-    U --> S
-
-    style T fill:#0a2a3a,stroke:#00d4ff,color:#fff
-    style B fill:#2a2a10,stroke:#ffd700,color:#fff
-    style U fill:#2a1a2a,stroke:#ff3d8e,color:#fff
-    style S fill:#1a3a1a,stroke:#00ff88,color:#fff
-```
+<div align="center">
+<img src="assets/diagram-multifield.svg" alt="Multi-Field Orchestration — Coupled Perspective Fields" width="100%"/>
+</div>
 
 Two orchestration modes:
 
@@ -552,20 +436,9 @@ Two orchestration modes:
 
 How much should the system think on its own? This is not a binary choice. NEOS provides a **continuously adjustable spectrum**.
 
-```mermaid
-stateDiagram-v2
-    [*] --> Step
-    Step --> Checkpoint : nf mode checkpoint
-    Checkpoint --> Step : nf mode step
-    Step --> Auto : nf mode auto
-    Checkpoint --> Auto : nf mode auto
-    Auto --> Step : nf mode step
-    Auto --> Checkpoint : nf mode checkpoint
-
-    Step : 🔍 Pause after every operation
-    Checkpoint : ⚡ Pause at defined conditions
-    Auto : 🚀 Run to completion
-```
+<div align="center">
+<img src="assets/diagram-autonomy.svg" alt="The Autonomy Dial — Step, Checkpoint, Auto" width="100%"/>
+</div>
 
 | Mode | When To Use | Terminal Example |
 |------|------------|-----------------|
@@ -862,8 +735,8 @@ The specification is open. The math is grounded. The proof-of-concept works. Wha
 
 | Resource | Description |
 |----------|-------------|
-| [NEOS Research Paper](NEOS-BREAKTHROUGH.html) | The theoretical foundations and breakthrough results |
-| [NEOS Presentation](NEOS-PRESENTATION.html) | Visual overview of the framework |
+| [NEOS Research Paper](https://samuele95.github.io/neos/NEOS-BREAKTHROUGH.html) | The theoretical foundations and breakthrough results |
+| [NEOS Presentation](https://samuele95.github.io/neos/NEOS-PRESENTATION.html) | Visual overview of the framework |
 | [Kernel Prompt](prompts/nfos-kernel.md) | The system prompt that boots NEOS inside an LLM |
 | [Full Command Reference](commands/index.md) | Detailed specs for all ~40 commands |
 | [Basic Session Walkthrough](examples/01-basic-session.md) | Extended tutorial with 11 steps |

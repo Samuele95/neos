@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 300">
+  <defs>
+    <!-- Glow filter for node circles -->
+    <filter id="glow-red" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="2.5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <!-- Subtle glow for attractor boundary -->
+    <filter id="glow-boundary" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="500" height="300" fill="#07070c"/>
+
+  <!-- ===== Attractor boundary ===== -->
+  <ellipse cx="250" cy="165" rx="190" ry="120"
+           fill="none" stroke="rgba(255,107,107,0.15)" stroke-width="1"
+           stroke-dasharray="6,4" filter="url(#glow-boundary)"/>
+  <!-- Attractor label -->
+  <text x="250" y="14" text-anchor="middle"
+        fill="#ff6b6b" font-family="monospace" font-size="10"
+        letter-spacing="0.02em" opacity="0.85">sql_injection_vulnerability &#183; C=0.82</text>
+
+  <!-- ===== Resonance edges (drawn first, behind nodes) ===== -->
+
+  <!-- sql_query <-> string_concat  R=0.85  (thickest) -->
+  <line x1="250" y1="80" x2="380" y2="170"
+        stroke="rgba(255,107,107,0.35)" stroke-width="2.8"/>
+  <text x="326" y="118" text-anchor="middle"
+        fill="#888" font-family="monospace" font-size="8"
+        transform="rotate(34,326,118)">R=0.85</text>
+
+  <!-- user_input <-> no_validation  R=0.82 -->
+  <line x1="120" y1="170" x2="250" y2="250"
+        stroke="rgba(255,107,107,0.30)" stroke-width="2.4"/>
+  <text x="176" y="218" text-anchor="middle"
+        fill="#888" font-family="monospace" font-size="8"
+        transform="rotate(31,176,218)">R=0.82</text>
+
+  <!-- sql_query <-> user_input  R=0.72 -->
+  <line x1="250" y1="80" x2="120" y2="170"
+        stroke="rgba(255,107,107,0.25)" stroke-width="2.0"/>
+  <text x="174" y="118" text-anchor="middle"
+        fill="#888" font-family="monospace" font-size="8"
+        transform="rotate(-34,174,118)">R=0.72</text>
+
+  <!-- sql_query <-> no_validation  R=0.68 -->
+  <line x1="250" y1="80" x2="250" y2="250"
+        stroke="rgba(231,76,60,0.22)" stroke-width="1.6"/>
+  <text x="263" y="168" text-anchor="start"
+        fill="#888" font-family="monospace" font-size="8">R=0.68</text>
+
+  <!-- user_input <-> string_concat  R=0.55  (thinnest) -->
+  <line x1="120" y1="170" x2="380" y2="170"
+        stroke="rgba(231,76,60,0.16)" stroke-width="1.0"/>
+  <text x="250" y="182" text-anchor="middle"
+        fill="#888" font-family="monospace" font-size="8">R=0.55</text>
+
+  <!-- ===== Pattern nodes ===== -->
+
+  <!-- sql_query  (top, largest, r=28) -->
+  <circle cx="250" cy="80" r="28"
+          fill="rgba(255,107,107,0.2)" stroke="#ff6b6b" stroke-width="1.2"
+          filter="url(#glow-red)"/>
+  <text x="250" y="77" text-anchor="middle"
+        fill="#ff6b6b" font-family="monospace" font-size="8.5"
+        font-weight="600">sql_query</text>
+  <text x="250" y="89" text-anchor="middle"
+        fill="#ff6b6b" font-family="monospace" font-size="10"
+        font-weight="700" opacity="0.9">0.95</text>
+
+  <!-- user_input  (left, r=24) -->
+  <circle cx="120" cy="170" r="24"
+          fill="rgba(255,107,107,0.2)" stroke="#ff6b6b" stroke-width="1.2"
+          filter="url(#glow-red)"/>
+  <text x="120" y="167" text-anchor="middle"
+        fill="#ff6b6b" font-family="monospace" font-size="8"
+        font-weight="600">user_input</text>
+  <text x="120" y="179" text-anchor="middle"
+        fill="#ff6b6b" font-family="monospace" font-size="10"
+        font-weight="700" opacity="0.9">0.91</text>
+
+  <!-- string_concat  (right, r=20) -->
+  <circle cx="380" cy="170" r="20"
+          fill="rgba(231,76,60,0.2)" stroke="#e74c3c" stroke-width="1.2"
+          filter="url(#glow-red)"/>
+  <text x="380" y="167" text-anchor="middle"
+        fill="#e74c3c" font-family="monospace" font-size="7"
+        font-weight="600">str_concat</text>
+  <text x="380" y="179" text-anchor="middle"
+        fill="#e74c3c" font-family="monospace" font-size="10"
+        font-weight="700" opacity="0.9">0.87</text>
+
+  <!-- no_validation  (bottom, smallest, r=18) -->
+  <circle cx="250" cy="250" r="18"
+          fill="rgba(231,76,60,0.2)" stroke="#e74c3c" stroke-width="1.2"
+          filter="url(#glow-red)"/>
+  <text x="250" y="247" text-anchor="middle"
+        fill="#e74c3c" font-family="monospace" font-size="7"
+        font-weight="600">no_valid</text>
+  <text x="250" y="258" text-anchor="middle"
+        fill="#e74c3c" font-family="monospace" font-size="9.5"
+        font-weight="700" opacity="0.9">0.82</text>
+
+  <!-- ===== Node external labels ===== -->
+  <text x="250" y="46" text-anchor="middle"
+        fill="#556" font-family="monospace" font-size="8"
+        letter-spacing="0.02em">sql_query</text>
+  <text x="64" y="170" text-anchor="middle"
+        fill="#556" font-family="monospace" font-size="8"
+        letter-spacing="0.02em">user_input</text>
+  <text x="380" y="146" text-anchor="middle"
+        fill="#556" font-family="monospace" font-size="8"
+        letter-spacing="0.02em">string_concat</text>
+  <text x="250" y="280" text-anchor="middle"
+        fill="#556" font-family="monospace" font-size="8"
+        letter-spacing="0.02em">no_validation</text>
+</svg>

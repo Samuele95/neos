@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 230">
+  <defs>
+    <!-- Glow for needle tip -->
+    <filter id="needle-glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-color="#7b61ff" flood-opacity="0.5" result="color"/>
+      <feComposite in="color" in2="blur" operator="in" result="glow"/>
+      <feMerge><feMergeNode in="glow"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <!-- Subtle glow for active segment -->
+    <filter id="arc-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2.5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="400" height="230" fill="#07070c"/>
+
+  <!-- Subtle dot grid -->
+  <g opacity="0.04">
+    <circle cx="40" cy="40" r="0.7" fill="#7b61ff"/><circle cx="80" cy="40" r="0.7" fill="#7b61ff"/><circle cx="120" cy="40" r="0.7" fill="#7b61ff"/><circle cx="160" cy="40" r="0.7" fill="#7b61ff"/><circle cx="200" cy="40" r="0.7" fill="#7b61ff"/><circle cx="240" cy="40" r="0.7" fill="#7b61ff"/><circle cx="280" cy="40" r="0.7" fill="#7b61ff"/><circle cx="320" cy="40" r="0.7" fill="#7b61ff"/><circle cx="360" cy="40" r="0.7" fill="#7b61ff"/>
+    <circle cx="40" cy="120" r="0.7" fill="#7b61ff"/><circle cx="80" cy="120" r="0.7" fill="#7b61ff"/><circle cx="120" cy="120" r="0.7" fill="#7b61ff"/><circle cx="160" cy="120" r="0.7" fill="#7b61ff"/><circle cx="200" cy="120" r="0.7" fill="#7b61ff"/><circle cx="240" cy="120" r="0.7" fill="#7b61ff"/><circle cx="280" cy="120" r="0.7" fill="#7b61ff"/><circle cx="320" cy="120" r="0.7" fill="#7b61ff"/><circle cx="360" cy="120" r="0.7" fill="#7b61ff"/>
+    <circle cx="40" cy="200" r="0.7" fill="#7b61ff"/><circle cx="80" cy="200" r="0.7" fill="#7b61ff"/><circle cx="120" cy="200" r="0.7" fill="#7b61ff"/><circle cx="160" cy="200" r="0.7" fill="#7b61ff"/><circle cx="200" cy="200" r="0.7" fill="#7b61ff"/><circle cx="240" cy="200" r="0.7" fill="#7b61ff"/><circle cx="280" cy="200" r="0.7" fill="#7b61ff"/><circle cx="320" cy="200" r="0.7" fill="#7b61ff"/><circle cx="360" cy="200" r="0.7" fill="#7b61ff"/>
+  </g>
+
+  <!-- Title -->
+  <text x="200" y="22" text-anchor="middle" fill="#555" font-family="system-ui, sans-serif" font-size="10" letter-spacing="0.15em">AUTONOMY DIAL</text>
+
+  <!--
+    Gauge center at cx=200, cy=155, radius=95
+    Semi-circle from 180deg (left) to 0deg (right)
+    Arc is split into 3 segments of 60deg each:
+      - Step:       180deg to 120deg  (cyan #00aaff)
+      - Checkpoint:  120deg to  60deg  (purple #7b61ff)
+      - Auto:         60deg to   0deg  (green #00ff88)
+
+    Parametric: x = cx + r*cos(angle), y = cy - r*sin(angle)  [SVG y-down so cy + r*sin for SVG but we use math convention]
+    Actually in SVG: x = cx + r*cos(a_rad), y = cy - r*sin(a_rad) where a is measured from 3-o'clock CCW
+
+    Let's use angles measured from positive-x axis, going counter-clockwise:
+    180deg: (-95,0)  -> (105, 155)
+    120deg: cos120=-0.5, sin120=0.866 -> (200-47.5, 155-82.27) = (152.5, 72.73)
+     60deg: cos60=0.5, sin60=0.866 -> (200+47.5, 155-82.27) = (247.5, 72.73)
+      0deg: (95,0) -> (295, 155)
+  -->
+
+  <!-- Background track (full semicircle) -->
+  <path d="M 105,155 A 95,95 0 0,1 295,155"
+        fill="none" stroke="#222" stroke-width="14" stroke-linecap="round"/>
+
+  <!-- Step segment: 180deg to 120deg (cyan) -->
+  <path d="M 105,155 A 95,95 0 0,1 152.5,72.73"
+        fill="none" stroke="#00aaff" stroke-width="12" stroke-linecap="round" opacity="0.7"/>
+
+  <!-- Checkpoint segment: 120deg to 60deg (purple) - active, with glow -->
+  <path d="M 152.5,72.73 A 95,95 0 0,1 247.5,72.73"
+        fill="none" stroke="#7b61ff" stroke-width="12" stroke-linecap="round" opacity="0.9" filter="url(#arc-glow)"/>
+
+  <!-- Auto segment: 60deg to 0deg (green) -->
+  <path d="M 247.5,72.73 A 95,95 0 0,1 295,155"
+        fill="none" stroke="#00ff88" stroke-width="12" stroke-linecap="round" opacity="0.7"/>
+
+  <!-- Tick marks at segment boundaries -->
+  <!-- 180deg tick -->
+  <line x1="115" y1="155" x2="95" y2="155" stroke="#444" stroke-width="1.5"/>
+  <!-- 120deg tick -->
+  <line x1="157" y1="78" x2="143" y2="64" stroke="#444" stroke-width="1.5"/>
+  <!-- 60deg tick -->
+  <line x1="243" y1="78" x2="257" y2="64" stroke="#444" stroke-width="1.5"/>
+  <!-- 0deg tick -->
+  <line x1="285" y1="155" x2="305" y2="155" stroke="#444" stroke-width="1.5"/>
+
+  <!-- Needle pointing to 90deg (top center = Checkpoint position) -->
+  <!-- 90deg: cos90=0, sin90=1 -> (200, 155-80) = (200, 75) -->
+  <line x1="200" y1="155" x2="200" y2="75" stroke="#e8e8ed" stroke-width="2.5" stroke-linecap="round" filter="url(#needle-glow)"/>
+  <!-- Needle tip -->
+  <circle cx="200" cy="75" r="3" fill="#7b61ff" filter="url(#needle-glow)"/>
+  <!-- Needle hub -->
+  <circle cx="200" cy="155" r="6" fill="#1a1a24" stroke="#555" stroke-width="1.5"/>
+  <circle cx="200" cy="155" r="2.5" fill="#e8e8ed"/>
+
+  <!-- Step label (left) -->
+  <text x="72" y="155" text-anchor="middle" fill="#00aaff" font-family="system-ui, sans-serif" font-size="12" font-weight="700">Step</text>
+  <text x="72" y="170" text-anchor="middle" fill="#00aaff" font-family="system-ui, sans-serif" font-size="8" opacity="0.7">Full control</text>
+
+  <!-- Checkpoint label (top center) -->
+  <text x="200" y="48" text-anchor="middle" fill="#7b61ff" font-family="system-ui, sans-serif" font-size="12" font-weight="700">Checkpoint</text>
+  <text x="200" y="61" text-anchor="middle" fill="#7b61ff" font-family="system-ui, sans-serif" font-size="8" opacity="0.7">Supervised</text>
+
+  <!-- Auto label (right) -->
+  <text x="328" y="155" text-anchor="middle" fill="#00ff88" font-family="system-ui, sans-serif" font-size="12" font-weight="700">Auto</text>
+  <text x="328" y="170" text-anchor="middle" fill="#00ff88" font-family="system-ui, sans-serif" font-size="8" opacity="0.7">Autonomous</text>
+
+  <!-- Current mode indicator -->
+  <rect x="150" y="185" width="100" height="22" rx="4" fill="rgba(123,97,255,0.1)" stroke="#7b61ff" stroke-width="0.8"/>
+  <text x="200" y="200" text-anchor="middle" fill="#7b61ff" font-family="monospace" font-size="10" font-weight="600">CHECKPOINT</text>
+
+  <!-- Decorative: small coherence readout -->
+  <text x="200" y="222" text-anchor="middle" fill="#444" font-family="monospace" font-size="8">autonomy: supervised | trust: 0.72</text>
+</svg>

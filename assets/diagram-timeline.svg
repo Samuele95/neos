@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 220">
+  <rect width="900" height="220" fill="#07070c"/>
+
+  <!-- Timeline line -->
+  <line x1="50" y1="110" x2="850" y2="110" stroke="#333" stroke-width="2"/>
+
+  <!-- Arrow at end -->
+  <polygon points="845,106 855,110 845,114" fill="#333"/>
+
+  <!-- Era 1: Hardware -->
+  <circle cx="150" cy="110" r="8" fill="#555"/>
+  <text x="150" y="60" text-anchor="middle" fill="#888" font-family="system-ui, sans-serif" font-size="11">1950s&#8211;1980s</text>
+  <text x="150" y="78" text-anchor="middle" fill="#aaa" font-family="system-ui, sans-serif" font-size="14" font-weight="600">Hardware</text>
+  <text x="150" y="138" text-anchor="middle" fill="#666" font-family="system-ui, sans-serif" font-size="11">Bottleneck: Hardware</text>
+  <text x="150" y="155" text-anchor="middle" fill="#555" font-family="monospace" font-size="10">Interface: Machine Code</text>
+  <text x="150" y="172" text-anchor="middle" fill="#555" font-family="monospace" font-size="10">OS: Share the machine</text>
+
+  <!-- Era 2: Software -->
+  <circle cx="450" cy="110" r="8" fill="#7b61ff"/>
+  <text x="450" y="60" text-anchor="middle" fill="#7b61ff" font-family="system-ui, sans-serif" font-size="11">1980s&#8211;2020s</text>
+  <text x="450" y="78" text-anchor="middle" fill="#9b8aff" font-family="system-ui, sans-serif" font-size="14" font-weight="600">Software</text>
+  <text x="450" y="138" text-anchor="middle" fill="#7b61ff" font-family="system-ui, sans-serif" font-size="11">Bottleneck: Complexity</text>
+  <text x="450" y="155" text-anchor="middle" fill="#6b52ee" font-family="monospace" font-size="10">Interface: GUI / CLI</text>
+  <text x="450" y="172" text-anchor="middle" fill="#6b52ee" font-family="monospace" font-size="10">OS: Organize files</text>
+
+  <!-- Era 3: Intelligence -->
+  <circle cx="750" cy="110" r="10" fill="#00d4ff"/>
+  <text x="750" y="60" text-anchor="middle" fill="#00d4ff" font-family="system-ui, sans-serif" font-size="11">2025+</text>
+  <text x="750" y="78" text-anchor="middle" fill="#00d4ff" font-family="system-ui, sans-serif" font-size="14" font-weight="700">Intelligence</text>
+  <text x="750" y="138" text-anchor="middle" fill="#00d4ff" font-family="system-ui, sans-serif" font-size="11">Bottleneck: Meaning</text>
+  <text x="750" y="155" text-anchor="middle" fill="#00a8cc" font-family="monospace" font-size="10">Interface: Language</text>
+  <text x="750" y="172" text-anchor="middle" fill="#00a8cc" font-family="monospace" font-size="10">OS: Organize thinking</text>
+</svg>

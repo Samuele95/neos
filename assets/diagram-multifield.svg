@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 250">
+  <defs>
+    <!-- Glow filters for field circles -->
+    <filter id="glow-cyan" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feFlood flood-color="#00d4ff" flood-opacity="0.3" result="color"/>
+      <feComposite in="color" in2="blur" operator="in" result="glow"/>
+      <feMerge><feMergeNode in="glow"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glow-gold" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feFlood flood-color="#ffd700" flood-opacity="0.3" result="color"/>
+      <feComposite in="color" in2="blur" operator="in" result="glow"/>
+      <feMerge><feMergeNode in="glow"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glow-pink" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feFlood flood-color="#ff3d8e" flood-opacity="0.3" result="color"/>
+      <feComposite in="color" in2="blur" operator="in" result="glow"/>
+      <feMerge><feMergeNode in="glow"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glow-green" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feFlood flood-color="#00ff88" flood-opacity="0.35" result="color"/>
+      <feComposite in="color" in2="blur" operator="in" result="glow"/>
+      <feMerge><feMergeNode in="glow"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="600" height="250" fill="#07070c"/>
+
+  <!-- Subtle dot grid -->
+  <g opacity="0.04">
+    <circle cx="50" cy="40" r="0.7" fill="#7b61ff"/><circle cx="100" cy="40" r="0.7" fill="#7b61ff"/><circle cx="150" cy="40" r="0.7" fill="#7b61ff"/><circle cx="200" cy="40" r="0.7" fill="#7b61ff"/><circle cx="250" cy="40" r="0.7" fill="#7b61ff"/><circle cx="300" cy="40" r="0.7" fill="#7b61ff"/><circle cx="350" cy="40" r="0.7" fill="#7b61ff"/><circle cx="400" cy="40" r="0.7" fill="#7b61ff"/><circle cx="450" cy="40" r="0.7" fill="#7b61ff"/><circle cx="500" cy="40" r="0.7" fill="#7b61ff"/><circle cx="550" cy="40" r="0.7" fill="#7b61ff"/>
+    <circle cx="50" cy="130" r="0.7" fill="#7b61ff"/><circle cx="100" cy="130" r="0.7" fill="#7b61ff"/><circle cx="150" cy="130" r="0.7" fill="#7b61ff"/><circle cx="200" cy="130" r="0.7" fill="#7b61ff"/><circle cx="250" cy="130" r="0.7" fill="#7b61ff"/><circle cx="300" cy="130" r="0.7" fill="#7b61ff"/><circle cx="350" cy="130" r="0.7" fill="#7b61ff"/><circle cx="400" cy="130" r="0.7" fill="#7b61ff"/><circle cx="450" cy="130" r="0.7" fill="#7b61ff"/><circle cx="500" cy="130" r="0.7" fill="#7b61ff"/><circle cx="550" cy="130" r="0.7" fill="#7b61ff"/>
+    <circle cx="50" cy="220" r="0.7" fill="#7b61ff"/><circle cx="100" cy="220" r="0.7" fill="#7b61ff"/><circle cx="150" cy="220" r="0.7" fill="#7b61ff"/><circle cx="200" cy="220" r="0.7" fill="#7b61ff"/><circle cx="250" cy="220" r="0.7" fill="#7b61ff"/><circle cx="300" cy="220" r="0.7" fill="#7b61ff"/><circle cx="350" cy="220" r="0.7" fill="#7b61ff"/><circle cx="400" cy="220" r="0.7" fill="#7b61ff"/><circle cx="450" cy="220" r="0.7" fill="#7b61ff"/><circle cx="500" cy="220" r="0.7" fill="#7b61ff"/><circle cx="550" cy="220" r="0.7" fill="#7b61ff"/>
+  </g>
+
+  <!-- Coupling lines between top field circles (dashed) -->
+  <line x1="185" y1="80" x2="265" y2="80" stroke="#00d4ff" stroke-width="1" stroke-dasharray="4,4" opacity="0.35"/>
+  <line x1="335" y1="80" x2="415" y2="80" stroke="#ffd700" stroke-width="1" stroke-dasharray="4,4" opacity="0.35"/>
+  <line x1="175" y1="100" x2="275" y2="100" stroke="#7b61ff" stroke-width="0.7" stroke-dasharray="3,5" opacity="0.2"/>
+  <line x1="325" y1="100" x2="425" y2="100" stroke="#7b61ff" stroke-width="0.7" stroke-dasharray="3,5" opacity="0.2"/>
+
+  <!-- Routing lines from top fields down to Synthesis -->
+  <line x1="150" y1="115" x2="270" y2="195" stroke="#00d4ff" stroke-width="1.2" stroke-dasharray="5,3" opacity="0.4"/>
+  <line x1="300" y1="115" x2="300" y2="170" stroke="#ffd700" stroke-width="1.2" stroke-dasharray="5,3" opacity="0.4"/>
+  <line x1="450" y1="115" x2="330" y2="195" stroke="#ff3d8e" stroke-width="1.2" stroke-dasharray="5,3" opacity="0.4"/>
+
+  <!-- Small data-flow dots on routing lines -->
+  <circle cx="210" cy="155" r="1.5" fill="#00d4ff" opacity="0.5"/>
+  <circle cx="300" cy="150" r="1.5" fill="#ffd700" opacity="0.5"/>
+  <circle cx="390" cy="155" r="1.5" fill="#ff3d8e" opacity="0.5"/>
+
+  <!-- Technical Field (cyan) -->
+  <circle cx="150" cy="80" r="35" fill="rgba(0,212,255,0.06)" stroke="#00d4ff" stroke-width="1.5" filter="url(#glow-cyan)"/>
+  <text x="150" y="72" text-anchor="middle" fill="#00d4ff" font-family="system-ui, sans-serif" font-size="10" font-weight="600">Technical</text>
+  <text x="150" y="88" text-anchor="middle" fill="#00d4ff" font-family="monospace" font-size="10" opacity="0.85">C=0.80</text>
+
+  <!-- Business Field (gold) -->
+  <circle cx="300" cy="80" r="35" fill="rgba(255,215,0,0.06)" stroke="#ffd700" stroke-width="1.5" filter="url(#glow-gold)"/>
+  <text x="300" y="72" text-anchor="middle" fill="#ffd700" font-family="system-ui, sans-serif" font-size="10" font-weight="600">Business</text>
+  <text x="300" y="88" text-anchor="middle" fill="#ffd700" font-family="monospace" font-size="10" opacity="0.85">C=0.81</text>
+
+  <!-- User Field (pink) -->
+  <circle cx="450" cy="80" r="35" fill="rgba(255,61,142,0.06)" stroke="#ff3d8e" stroke-width="1.5" filter="url(#glow-pink)"/>
+  <text x="450" y="72" text-anchor="middle" fill="#ff3d8e" font-family="system-ui, sans-serif" font-size="10" font-weight="600">User</text>
+  <text x="450" y="88" text-anchor="middle" fill="#ff3d8e" font-family="monospace" font-size="10" opacity="0.85">C=0.83</text>
+
+  <!-- Synthesis circle (green, larger, with glow) -->
+  <circle cx="300" cy="210" r="40" fill="rgba(0,255,136,0.07)" stroke="#00ff88" stroke-width="2" filter="url(#glow-green)"/>
+  <text x="300" y="203" text-anchor="middle" fill="#00ff88" font-family="system-ui, sans-serif" font-size="11" font-weight="700">Synthesis</text>
+  <text x="300" y="220" text-anchor="middle" fill="#00ff88" font-family="monospace" font-size="11" opacity="0.9">C=0.85</text>
+
+  <!-- Title -->
+  <text x="300" y="18" text-anchor="middle" fill="#555" font-family="system-ui, sans-serif" font-size="10" letter-spacing="0.15em">MULTI-FIELD ORCHESTRATION</text>
+</svg>

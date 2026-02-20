@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 280" width="800" height="280">
+  <!-- Background -->
+  <rect width="800" height="280" fill="#07070c"/>
+
+  <!-- ═══════════════════════════════════════════════════════════════════ -->
+  <!-- PILLAR 1: Neural Fields — THE SUBSTRATE                           -->
+  <!-- ═══════════════════════════════════════════════════════════════════ -->
+  <rect x="30" y="30" width="220" height="190" rx="12"
+        fill="rgba(0,212,255,0.05)" stroke="#00d4ff" stroke-width="1.5"/>
+  <text x="140" y="58" text-anchor="middle"
+        font-family="'Inter','Segoe UI',system-ui,sans-serif" font-size="13" font-weight="700"
+        fill="#00d4ff">Neural Fields</text>
+  <text x="140" y="74" text-anchor="middle"
+        font-family="'Inter','Segoe UI',system-ui,sans-serif" font-size="9" font-weight="500"
+        fill="#00d4ff" opacity="0.7">THE SUBSTRATE</text>
+  <!-- Separator line -->
+  <line x1="50" y1="82" x2="230" y2="82" stroke="#00d4ff" stroke-width="0.4" opacity="0.3"/>
+  <!-- List items -->
+  <text x="52" y="100" font-family="'Inter','Segoe UI',system-ui,sans-serif" font-size="9" fill="#aaaaaa">Continuous activation</text>
+  <text x="52" y="116" font-family="'Inter','Segoe UI',system-ui,sans-serif" font-size="9" fill="#aaaaaa">Resonance dynamics</text>
+  <text x="52" y="132" font-family="'Inter','Segoe UI',system-ui,sans-serif" font-size="9" fill="#aaaaaa">Attractor emergence</text>
+  <text x="52" y="148" font-family="'Inter','Segoe UI',system-ui,sans-serif" font-size="9" fill="#aaaaaa">Persistence via reinforcement</text>
+  <text x="52" y="164" font-family="'Inter','Segoe UI',system-ui,sans-serif" font-size="9" fill="#aaaaaa">Boundary conditions</text>
+
+  <!-- ═══════════════════════════════════════════════════════════════════ -->
+  <!-- PILLAR 2: Symbolic Reasoning — THE STRUCTURE                      -->
+  <!-- ═══════════════════════════════════════════════════════════════════ -->
+  <rect x="290" y="30" width="220" height="190" rx="12"
+        fill="rgba(123,97,255,0.05)" stroke="#7b61ff" stroke-width="1.5"/>
+  <text x="400" y="58" text-anchor="middle"
+        font-family="'Inter','Segoe UI',system-ui,sans-serif" font-size="13" font-weight="700"
+        fill="#7b61ff">Symbolic Reasoning</text>
+  <text x="400" y="74" text-anchor="middle"
+        font-family="'Inter','Segoe UI',system-ui,sans-serif" font-size="9" font-weight="500"
+        fill="#7b61ff" opacity="0.7">THE STRUCTURE</text>
+  <!-- Separator line -->
+  <line x1="310" y1="82" x2="490" y2="82" stroke="#7b61ff" stroke-width="0.4" opacity="0.3"/>
+  <!-- List items -->
+  <text x="312" y="100" font-family="'Inter','Segoe UI',system-ui,sans-serif" font-size="9" fill="#aaaaaa">Patterns &amp; operations</text>
+  <text x="312" y="116" font-family="'Inter','Segoe UI',system-ui,sans-serif" font-size="9" fill="#aaaaaa">nf command algebra</text>
+  <text x="312" y="132" font-family="'Inter','Segoe UI',system-ui,sans-serif" font-size="9" fill="#aaaaaa">@pattern references</text>
+  <text x="312" y="148" font-family="'Inter','Segoe UI',system-ui,sans-serif" font-size="9" fill="#aaaaaa">$field references</text>
+  <text x="312" y="164" font-family="'Inter','Segoe UI',system-ui,sans-serif" font-size="9" fill="#aaaaaa">Composable transforms</text>
+
+  <!-- ═══════════════════════════════════════════════════════════════════ -->
+  <!-- PILLAR 3: Quantum Semantics — THE INTERPRETATION                  -->
+  <!-- ═══════════════════════════════════════════════════════════════════ -->
+  <rect x="550" y="30" width="220" height="190" rx="12"
+        fill="rgba(255,61,142,0.05)" stroke="#ff3d8e" stroke-width="1.5"/>
+  <text x="660" y="58" text-anchor="middle"
+        font-family="'Inter','Segoe UI',system-ui,sans-serif" font-size="13" font-weight="700"
+        fill="#ff3d8e">Quantum Semantics</text>
+  <text x="660" y="74" text-anchor="middle"
+        font-family="'Inter','Segoe UI',system-ui,sans-serif" font-size="9" font-weight="500"
+        fill="#ff3d8e" opacity="0.7">THE INTERPRETATION</text>
+  <!-- Separator line -->
+  <line x1="570" y1="82" x2="750" y2="82" stroke="#ff3d8e" stroke-width="0.4" opacity="0.3"/>
+  <!-- List items -->
+  <text x="572" y="100" font-family="'Inter','Segoe UI',system-ui,sans-serif" font-size="9" fill="#aaaaaa">Superposition of meaning</text>
+  <text x="572" y="116" font-family="'Inter','Segoe UI',system-ui,sans-serif" font-size="9" fill="#aaaaaa">Non-commutativity</text>
+  <text x="572" y="132" font-family="'Inter','Segoe UI',system-ui,sans-serif" font-size="9" fill="#aaaaaa">Observer-dependent collapse</text>
+  <text x="572" y="148" font-family="'Inter','Segoe UI',system-ui,sans-serif" font-size="9" fill="#aaaaaa">Multiple collapse strategies</text>
+  <text x="572" y="164" font-family="'Inter','Segoe UI',system-ui,sans-serif" font-size="9" fill="#aaaaaa">Context as measurement</text>
+
+  <!-- ═══════════════════════════════════════════════════════════════════ -->
+  <!-- CONNECTOR LINES: Pillars down to unification bar                  -->
+  <!-- ═══════════════════════════════════════════════════════════════════ -->
+  <!-- Pillar 1 connector -->
+  <line x1="140" y1="220" x2="140" y2="240"
+        stroke="#00d4ff" stroke-width="1" opacity="0.3"/>
+  <!-- Pillar 2 connector -->
+  <line x1="400" y1="220" x2="400" y2="240"
+        stroke="#7b61ff" stroke-width="1" opacity="0.3"/>
+  <!-- Pillar 3 connector -->
+  <line x1="660" y1="220" x2="660" y2="240"
+        stroke="#ff3d8e" stroke-width="1" opacity="0.3"/>
+
+  <!-- ═══════════════════════════════════════════════════════════════════ -->
+  <!-- UNIFICATION BAR                                                   -->
+  <!-- ═══════════════════════════════════════════════════════════════════ -->
+  <rect x="30" y="240" width="740" height="35" rx="8"
+        fill="rgba(0,212,255,0.08)" stroke="rgba(0,212,255,0.2)" stroke-width="1"/>
+  <text x="400" y="262" text-anchor="middle"
+        font-family="'Inter','Segoe UI',system-ui,sans-serif" font-size="13" font-weight="600"
+        fill="#00d4ff">NEOS: The Unification</text>
+</svg>

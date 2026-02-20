@@ -1,14 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" width="1200" height="400">
   <defs>
+    <!-- Background gradient -->
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0%" stop-color="#07070c"/>
       <stop offset="50%" stop-color="#0c0c1a"/>
       <stop offset="100%" stop-color="#07070c"/>
     </linearGradient>
+
+    <!-- Title cyan-to-purple gradient -->
     <linearGradient id="title-grad" x1="0" y1="0" x2="1" y2="0">
       <stop offset="0%" stop-color="#00d4ff"/>
       <stop offset="100%" stop-color="#7b61ff"/>
     </linearGradient>
+
+    <!-- Gradient divider line (transparent -> cyan -> purple -> pink -> transparent) -->
     <linearGradient id="line-grad" x1="0" y1="0" x2="1" y2="0">
       <stop offset="0%" stop-color="transparent"/>
       <stop offset="20%" stop-color="#00d4ff"/>
@@ -16,39 +21,30 @@
       <stop offset="80%" stop-color="#ff3d8e"/>
       <stop offset="100%" stop-color="transparent"/>
     </linearGradient>
+
+    <!-- Glow filter for title -->
     <filter id="glow">
       <feGaussianBlur stdDeviation="4" result="blur"/>
       <feFlood flood-color="#00d4ff" flood-opacity="0.4" result="color"/>
       <feComposite in="color" in2="blur" operator="in" result="glow"/>
       <feMerge><feMergeNode in="glow"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
-    <filter id="glow-node">
+
+    <!-- Glow filter for Intelligence Age box -->
+    <filter id="glow-box">
       <feGaussianBlur stdDeviation="6" result="blur"/>
-      <feFlood flood-color="#00d4ff" flood-opacity="0.3" result="color"/>
+      <feFlood flood-color="#00d4ff" flood-opacity="0.35" result="color"/>
       <feComposite in="color" in2="blur" operator="in" result="glow"/>
       <feMerge><feMergeNode in="glow"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
-    <radialGradient id="orb-cyan" cx="0.5" cy="0.5" r="0.5">
-      <stop offset="0%" stop-color="#00d4ff" stop-opacity="0.12"/>
-      <stop offset="100%" stop-color="#00d4ff" stop-opacity="0"/>
-    </radialGradient>
-    <radialGradient id="orb-purple" cx="0.5" cy="0.5" r="0.5">
-      <stop offset="0%" stop-color="#7b61ff" stop-opacity="0.10"/>
-      <stop offset="100%" stop-color="#7b61ff" stop-opacity="0"/>
-    </radialGradient>
-    <radialGradient id="attractor-glow" cx="0.5" cy="0.5" r="0.5">
-      <stop offset="0%" stop-color="#00d4ff" stop-opacity="0.08"/>
-      <stop offset="60%" stop-color="#00d4ff" stop-opacity="0.03"/>
-      <stop offset="100%" stop-color="#00d4ff" stop-opacity="0"/>
-    </radialGradient>
   </defs>
 
-  <!-- Background -->
+  <!-- ===== BACKGROUND ===== -->
   <rect width="1200" height="400" fill="url(#bg)"/>
 
-  <!-- Dot grid (field substrate) -->
+  <!-- ===== DOT GRID (radial dots at 48px spacing, opacity 0.08, color #00b4ff) ===== -->
   <g opacity="0.08">
-    <!-- Row pattern repeating to create the flowing grid from the paper -->
+    <!-- Row y=48 -->
     <circle cx="48" cy="48" r="0.8" fill="#00b4ff"/><circle cx="96" cy="48" r="0.8" fill="#00b4ff"/>
     <circle cx="144" cy="48" r="0.8" fill="#00b4ff"/><circle cx="192" cy="48" r="0.8" fill="#00b4ff"/>
     <circle cx="240" cy="48" r="0.8" fill="#00b4ff"/><circle cx="288" cy="48" r="0.8" fill="#00b4ff"/>
@@ -62,6 +58,7 @@
     <circle cx="1008" cy="48" r="0.8" fill="#00b4ff"/><circle cx="1056" cy="48" r="0.8" fill="#00b4ff"/>
     <circle cx="1104" cy="48" r="0.8" fill="#00b4ff"/><circle cx="1152" cy="48" r="0.8" fill="#00b4ff"/>
 
+    <!-- Row y=96 -->
     <circle cx="48" cy="96" r="0.8" fill="#00b4ff"/><circle cx="96" cy="96" r="0.8" fill="#00b4ff"/>
     <circle cx="144" cy="96" r="0.8" fill="#00b4ff"/><circle cx="192" cy="96" r="0.8" fill="#00b4ff"/>
     <circle cx="240" cy="96" r="0.8" fill="#00b4ff"/><circle cx="288" cy="96" r="0.8" fill="#00b4ff"/>
@@ -75,6 +72,7 @@
     <circle cx="1008" cy="96" r="0.8" fill="#00b4ff"/><circle cx="1056" cy="96" r="0.8" fill="#00b4ff"/>
     <circle cx="1104" cy="96" r="0.8" fill="#00b4ff"/><circle cx="1152" cy="96" r="0.8" fill="#00b4ff"/>
 
+    <!-- Row y=144 -->
     <circle cx="48" cy="144" r="0.8" fill="#00b4ff"/><circle cx="96" cy="144" r="0.8" fill="#00b4ff"/>
     <circle cx="144" cy="144" r="0.8" fill="#00b4ff"/><circle cx="192" cy="144" r="0.8" fill="#00b4ff"/>
     <circle cx="240" cy="144" r="0.8" fill="#00b4ff"/><circle cx="288" cy="144" r="0.8" fill="#00b4ff"/>
@@ -88,6 +86,7 @@
     <circle cx="1008" cy="144" r="0.8" fill="#00b4ff"/><circle cx="1056" cy="144" r="0.8" fill="#00b4ff"/>
     <circle cx="1104" cy="144" r="0.8" fill="#00b4ff"/><circle cx="1152" cy="144" r="0.8" fill="#00b4ff"/>
 
+    <!-- Row y=192 -->
     <circle cx="48" cy="192" r="0.8" fill="#00b4ff"/><circle cx="96" cy="192" r="0.8" fill="#00b4ff"/>
     <circle cx="144" cy="192" r="0.8" fill="#00b4ff"/><circle cx="192" cy="192" r="0.8" fill="#00b4ff"/>
     <circle cx="240" cy="192" r="0.8" fill="#00b4ff"/><circle cx="288" cy="192" r="0.8" fill="#00b4ff"/>
@@ -101,6 +100,7 @@
     <circle cx="1008" cy="192" r="0.8" fill="#00b4ff"/><circle cx="1056" cy="192" r="0.8" fill="#00b4ff"/>
     <circle cx="1104" cy="192" r="0.8" fill="#00b4ff"/><circle cx="1152" cy="192" r="0.8" fill="#00b4ff"/>
 
+    <!-- Row y=240 -->
     <circle cx="48" cy="240" r="0.8" fill="#00b4ff"/><circle cx="96" cy="240" r="0.8" fill="#00b4ff"/>
     <circle cx="144" cy="240" r="0.8" fill="#00b4ff"/><circle cx="192" cy="240" r="0.8" fill="#00b4ff"/>
     <circle cx="240" cy="240" r="0.8" fill="#00b4ff"/><circle cx="288" cy="240" r="0.8" fill="#00b4ff"/>
@@ -114,6 +114,7 @@
     <circle cx="1008" cy="240" r="0.8" fill="#00b4ff"/><circle cx="1056" cy="240" r="0.8" fill="#00b4ff"/>
     <circle cx="1104" cy="240" r="0.8" fill="#00b4ff"/><circle cx="1152" cy="240" r="0.8" fill="#00b4ff"/>
 
+    <!-- Row y=288 -->
     <circle cx="48" cy="288" r="0.8" fill="#00b4ff"/><circle cx="96" cy="288" r="0.8" fill="#00b4ff"/>
     <circle cx="144" cy="288" r="0.8" fill="#00b4ff"/><circle cx="192" cy="288" r="0.8" fill="#00b4ff"/>
     <circle cx="240" cy="288" r="0.8" fill="#00b4ff"/><circle cx="288" cy="288" r="0.8" fill="#00b4ff"/>
@@ -127,6 +128,7 @@
     <circle cx="1008" cy="288" r="0.8" fill="#00b4ff"/><circle cx="1056" cy="288" r="0.8" fill="#00b4ff"/>
     <circle cx="1104" cy="288" r="0.8" fill="#00b4ff"/><circle cx="1152" cy="288" r="0.8" fill="#00b4ff"/>
 
+    <!-- Row y=336 -->
     <circle cx="48" cy="336" r="0.8" fill="#00b4ff"/><circle cx="96" cy="336" r="0.8" fill="#00b4ff"/>
     <circle cx="144" cy="336" r="0.8" fill="#00b4ff"/><circle cx="192" cy="336" r="0.8" fill="#00b4ff"/>
     <circle cx="240" cy="336" r="0.8" fill="#00b4ff"/><circle cx="288" cy="336" r="0.8" fill="#00b4ff"/>
@@ -139,86 +141,64 @@
     <circle cx="912" cy="336" r="0.8" fill="#00b4ff"/><circle cx="960" cy="336" r="0.8" fill="#00b4ff"/>
     <circle cx="1008" cy="336" r="0.8" fill="#00b4ff"/><circle cx="1056" cy="336" r="0.8" fill="#00b4ff"/>
     <circle cx="1104" cy="336" r="0.8" fill="#00b4ff"/><circle cx="1152" cy="336" r="0.8" fill="#00b4ff"/>
+
+    <!-- Row y=384 -->
+    <circle cx="48" cy="384" r="0.8" fill="#00b4ff"/><circle cx="96" cy="384" r="0.8" fill="#00b4ff"/>
+    <circle cx="144" cy="384" r="0.8" fill="#00b4ff"/><circle cx="192" cy="384" r="0.8" fill="#00b4ff"/>
+    <circle cx="240" cy="384" r="0.8" fill="#00b4ff"/><circle cx="288" cy="384" r="0.8" fill="#00b4ff"/>
+    <circle cx="336" cy="384" r="0.8" fill="#00b4ff"/><circle cx="384" cy="384" r="0.8" fill="#00b4ff"/>
+    <circle cx="432" cy="384" r="0.8" fill="#00b4ff"/><circle cx="480" cy="384" r="0.8" fill="#00b4ff"/>
+    <circle cx="528" cy="384" r="0.8" fill="#00b4ff"/><circle cx="576" cy="384" r="0.8" fill="#00b4ff"/>
+    <circle cx="624" cy="384" r="0.8" fill="#00b4ff"/><circle cx="672" cy="384" r="0.8" fill="#00b4ff"/>
+    <circle cx="720" cy="384" r="0.8" fill="#00b4ff"/><circle cx="768" cy="384" r="0.8" fill="#00b4ff"/>
+    <circle cx="816" cy="384" r="0.8" fill="#00b4ff"/><circle cx="864" cy="384" r="0.8" fill="#00b4ff"/>
+    <circle cx="912" cy="384" r="0.8" fill="#00b4ff"/><circle cx="960" cy="384" r="0.8" fill="#00b4ff"/>
+    <circle cx="1008" cy="384" r="0.8" fill="#00b4ff"/><circle cx="1056" cy="384" r="0.8" fill="#00b4ff"/>
+    <circle cx="1104" cy="384" r="0.8" fill="#00b4ff"/><circle cx="1152" cy="384" r="0.8" fill="#00b4ff"/>
   </g>
 
-  <!-- Ambient orbs -->
-  <circle cx="180" cy="200" r="160" fill="url(#orb-cyan)"/>
-  <circle cx="1000" cy="180" r="180" fill="url(#orb-purple)"/>
-
-  <!-- ===== NEURAL FIELD VISUALIZATION (left side) ===== -->
-  <!-- Resonance connections (edges) -->
-  <g opacity="0.35">
-    <line x1="120" y1="170" x2="200" y2="220" stroke="#00d4ff" stroke-width="1.5"/>
-    <line x1="200" y1="220" x2="160" y2="300" stroke="#00d4ff" stroke-width="1"/>
-    <line x1="120" y1="170" x2="80" y2="270" stroke="#7b61ff" stroke-width="0.8"/>
-    <line x1="80" y1="270" x2="160" y2="300" stroke="#7b61ff" stroke-width="1.2"/>
-    <line x1="200" y1="220" x2="280" y2="260" stroke="#00d4ff" stroke-width="0.6"/>
-    <line x1="120" y1="170" x2="160" y2="300" stroke="#00d4ff" stroke-width="0.5" stroke-dasharray="4,4"/>
-  </g>
-
-  <!-- Field pattern nodes (left cluster) -->
-  <circle cx="120" cy="170" r="18" fill="rgba(0,212,255,0.12)" stroke="#00d4ff" stroke-width="1.5" filter="url(#glow-node)"/>
-  <text x="120" y="174" text-anchor="middle" fill="#00d4ff" font-family="monospace" font-size="8" opacity="0.8">0.91</text>
-
-  <circle cx="200" cy="220" r="14" fill="rgba(123,97,255,0.10)" stroke="#7b61ff" stroke-width="1.2"/>
-  <text x="200" y="224" text-anchor="middle" fill="#7b61ff" font-family="monospace" font-size="8" opacity="0.7">0.82</text>
-
-  <circle cx="80" cy="270" r="11" fill="rgba(0,255,136,0.08)" stroke="#00ff88" stroke-width="1"/>
-  <text x="80" y="274" text-anchor="middle" fill="#00ff88" font-family="monospace" font-size="7" opacity="0.6">0.65</text>
-
-  <circle cx="160" cy="300" r="15" fill="rgba(255,61,142,0.08)" stroke="#ff3d8e" stroke-width="1.2"/>
-  <text x="160" y="304" text-anchor="middle" fill="#ff3d8e" font-family="monospace" font-size="8" opacity="0.7">0.78</text>
-
-  <circle cx="280" cy="260" r="8" fill="rgba(255,215,0,0.06)" stroke="#ffd700" stroke-width="0.8" opacity="0.5"/>
-
-  <!-- Attractor basin circle (left) -->
-  <circle cx="140" cy="240" r="80" fill="none" stroke="#00d4ff" stroke-width="0.5" stroke-dasharray="6,6" opacity="0.15"/>
-
-  <!-- ===== NEURAL FIELD VISUALIZATION (right side) ===== -->
-  <!-- Resonance connections -->
-  <g opacity="0.3">
-    <line x1="950" y1="160" x2="1040" y2="200" stroke="#7b61ff" stroke-width="1.2"/>
-    <line x1="1040" y1="200" x2="1000" y2="290" stroke="#ff3d8e" stroke-width="1"/>
-    <line x1="950" y1="160" x2="900" y2="250" stroke="#00d4ff" stroke-width="0.8"/>
-    <line x1="900" y1="250" x2="1000" y2="290" stroke="#7b61ff" stroke-width="1"/>
-    <line x1="1040" y1="200" x2="1100" y2="270" stroke="#7b61ff" stroke-width="0.6"/>
-    <line x1="1100" y1="270" x2="1000" y2="290" stroke="#00d4ff" stroke-width="0.5" stroke-dasharray="4,4"/>
-  </g>
-
-  <!-- Field pattern nodes (right cluster) -->
-  <circle cx="950" cy="160" r="16" fill="rgba(123,97,255,0.10)" stroke="#7b61ff" stroke-width="1.5" filter="url(#glow-node)"/>
-  <text x="950" y="164" text-anchor="middle" fill="#7b61ff" font-family="monospace" font-size="8" opacity="0.8">0.88</text>
-
-  <circle cx="1040" cy="200" r="12" fill="rgba(0,212,255,0.08)" stroke="#00d4ff" stroke-width="1"/>
-  <text x="1040" y="204" text-anchor="middle" fill="#00d4ff" font-family="monospace" font-size="7" opacity="0.7">0.72</text>
-
-  <circle cx="900" cy="250" r="10" fill="rgba(255,215,0,0.08)" stroke="#ffd700" stroke-width="0.8"/>
-  <text x="900" y="254" text-anchor="middle" fill="#ffd700" font-family="monospace" font-size="7" opacity="0.6">0.55</text>
-
-  <circle cx="1000" cy="290" r="13" fill="rgba(0,255,136,0.08)" stroke="#00ff88" stroke-width="1"/>
-  <text x="1000" y="294" text-anchor="middle" fill="#00ff88" font-family="monospace" font-size="7" opacity="0.7">0.75</text>
-
-  <circle cx="1100" cy="270" r="7" fill="rgba(255,61,142,0.06)" stroke="#ff3d8e" stroke-width="0.7" opacity="0.5"/>
-
-  <!-- Attractor basin circle (right) -->
-  <circle cx="990" cy="220" r="85" fill="none" stroke="#7b61ff" stroke-width="0.5" stroke-dasharray="6,6" opacity="0.12"/>
-
-  <!-- ===== TITLE BLOCK ===== -->
-  <!-- Main title -->
+  <!-- ===== GIANT "NEOS" TITLE (centered, y=140) ===== -->
   <text x="600" y="140" text-anchor="middle" fill="url(#title-grad)" font-family="system-ui, -apple-system, sans-serif" font-size="88" font-weight="800" letter-spacing="0.05em" filter="url(#glow)">NEOS</text>
 
-  <!-- Gradient divider line -->
+  <!-- ===== GRADIENT DIVIDER LINE ===== -->
   <rect x="300" y="160" width="600" height="2" rx="1" fill="url(#line-grad)"/>
 
-  <!-- Subtitle -->
-  <text x="600" y="192" text-anchor="middle" fill="#8888a0" font-family="system-ui, -apple-system, sans-serif" font-size="15" letter-spacing="0.15em">THE OPERATING SYSTEM FOR MACHINE INTELLIGENCE</text>
+  <!-- ===== SUBTITLE (smaller, dimmer caps, y=195) ===== -->
+  <text x="600" y="195" text-anchor="middle" fill="#8888a0" font-family="system-ui, -apple-system, sans-serif" font-size="15" letter-spacing="0.15em">THE OPERATING SYSTEM FOR MACHINE INTELLIGENCE</text>
 
-  <!-- Tagline quote -->
-  <text x="600" y="355" text-anchor="middle" fill="#555" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic">"The last operating system will not manage files. It will manage meaning."</text>
+  <!-- ===== THREE ERAS ASCENDING DIAGRAM (left-offset, x=150-550, y=200-330) ===== -->
+  <!--
+    Scaled up from the paper's 500x200 viewBox to fit x=150-550, y=200-330.
+    Paper coordinates mapped:
+      Hardware Age box:   (50,140,120x45)  -> (150, 290, 170x58) rx=8
+      Software Age box:   (190,95,120x45)  -> (340, 250, 170x58) rx=8
+      Intelligence Age:   (330,45,130x50)  -> (420, 208, 185x64) rx=10
+    Connecting lines scaled similarly.
+    "NEOS" label above Intelligence Age box.
+  -->
 
-  <!-- Master equation hint -->
-  <text x="600" y="380" text-anchor="middle" fill="#333" font-family="monospace" font-size="10" letter-spacing="0.05em">∂A/∂t = -λA(x) + α∫K(x,y)A(y)dy + ι(x,t)</text>
+  <!-- Hardware Age - dull gray rectangle, bottom-left, opacity 0.5 -->
+  <rect x="150" y="290" width="170" height="58" rx="8" fill="rgba(80,80,100,0.04)" stroke="#444" stroke-width="1" opacity="0.5"/>
+  <text x="235" y="324" text-anchor="middle" fill="#555" font-size="16" font-family="system-ui, -apple-system, sans-serif">Hardware Age</text>
 
-  <!-- Bottom gradient line -->
+  <!-- Software Age - purple-tinted rectangle, middle height, opacity 0.8 -->
+  <rect x="340" y="250" width="170" height="58" rx="8" fill="rgba(123,97,255,0.05)" stroke="rgba(123,97,255,0.4)" stroke-width="1" opacity="0.8"/>
+  <text x="425" y="284" text-anchor="middle" fill="rgba(155,138,255,0.8)" font-size="16" font-family="system-ui, -apple-system, sans-serif">Software Age</text>
+
+  <!-- Intelligence Age - glowing cyan rectangle, highest position -->
+  <rect x="420" y="208" width="185" height="64" rx="10" fill="rgba(0,212,255,0.08)" stroke="#00d4ff" stroke-width="2" filter="url(#glow-box)"/>
+  <text x="512" y="246" text-anchor="middle" fill="#00d4ff" font-size="17" font-weight="700" font-family="system-ui, -apple-system, sans-serif">Intelligence Age</text>
+
+  <!-- Connecting lines ascending between eras -->
+  <line x1="320" y1="310" x2="340" y2="282" stroke="rgba(100,100,130,0.3)" stroke-width="1.5"/>
+  <line x1="510" y1="262" x2="420" y2="245" stroke="rgba(0,180,255,0.25)" stroke-width="1.5"/>
+
+  <!-- "NEOS" label above Intelligence Age box, subtle -->
+  <text x="512" y="196" text-anchor="middle" fill="rgba(0,212,255,0.5)" font-size="14" font-weight="600" letter-spacing="0.1em" font-family="system-ui, -apple-system, sans-serif">NEOS</text>
+
+  <!-- ===== TAGLINE (y=330, dim italic text) ===== -->
+  <text x="600" y="330" text-anchor="middle" fill="#555" font-family="Georgia, 'Times New Roman', serif" font-size="14" font-style="italic">"The last operating system will not manage files. It will manage meaning."</text>
+
+  <!-- ===== BOTTOM GRADIENT LINE ===== -->
   <rect x="0" y="396" width="1200" height="4" fill="url(#line-grad)" opacity="0.6"/>
 </svg>

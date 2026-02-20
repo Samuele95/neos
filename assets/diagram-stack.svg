@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300">
+  <defs>
+    <!-- Glow filter for the NEOS Kernel layer -->
+    <filter id="glow-cyan" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="600" height="300" fill="#07070c"/>
+
+  <!-- ===== Layer 1: Applications ===== -->
+  <rect x="60" y="16" width="480" height="48" rx="4"
+        fill="rgba(0,212,255,0.06)" stroke="rgba(0,212,255,0.2)" stroke-width="1"/>
+  <text x="300" y="35" text-anchor="middle"
+        fill="#00d4ff" font-family="system-ui, sans-serif" font-size="13" font-weight="700"
+        letter-spacing="0.03em">Applications</text>
+  <text x="300" y="52" text-anchor="middle"
+        fill="#556" font-family="system-ui, sans-serif" font-size="9.5"
+        letter-spacing="0.02em">Security analysis, code review, research synthesis ...</text>
+
+  <!-- Arrow 1 -->
+  <text x="300" y="78" text-anchor="middle"
+        fill="#333" font-family="system-ui, sans-serif" font-size="13">&#8595;</text>
+
+  <!-- ===== Layer 2: NEOS Kernel (highlighted) ===== -->
+  <rect x="60" y="84" width="480" height="52" rx="4"
+        fill="rgba(0,212,255,0.1)" stroke="#00d4ff" stroke-width="1.2"
+        filter="url(#glow-cyan)"/>
+  <text x="300" y="104" text-anchor="middle"
+        fill="#00d4ff" font-family="system-ui, sans-serif" font-size="14" font-weight="700"
+        letter-spacing="0.04em">NEOS Kernel</text>
+  <text x="300" y="122" text-anchor="middle"
+        fill="#6aa" font-family="monospace" font-size="9"
+        letter-spacing="0.01em">Command Parser &#183; Field Engine &#183; State Manager &#183; Visualization &#183; Versioning &#183; Autonomy</text>
+
+  <!-- Arrow 2 -->
+  <text x="300" y="152" text-anchor="middle"
+        fill="#333" font-family="system-ui, sans-serif" font-size="13">&#8595;</text>
+
+  <!-- ===== Layer 3: Neural Field Substrate ===== -->
+  <rect x="60" y="158" width="480" height="52" rx="4"
+        fill="rgba(123,97,255,0.06)" stroke="rgba(123,97,255,0.3)" stroke-width="1"/>
+  <text x="300" y="178" text-anchor="middle"
+        fill="#9b8aff" font-family="system-ui, sans-serif" font-size="13" font-weight="700"
+        letter-spacing="0.03em">Neural Field Substrate</text>
+  <text x="300" y="196" text-anchor="middle"
+        fill="#6b52ee" font-family="monospace" font-size="9"
+        letter-spacing="0.01em">Patterns, resonance, attractors, decay, coherence</text>
+
+  <!-- Arrow 3 -->
+  <text x="300" y="226" text-anchor="middle"
+        fill="#333" font-family="system-ui, sans-serif" font-size="13">&#8595;</text>
+
+  <!-- ===== Layer 4: LLM (Virtual Machine) ===== -->
+  <rect x="60" y="232" width="480" height="52" rx="4"
+        fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+  <text x="300" y="252" text-anchor="middle"
+        fill="#777" font-family="system-ui, sans-serif" font-size="13" font-weight="700"
+        letter-spacing="0.03em">LLM (Virtual Machine)</text>
+  <text x="300" y="270" text-anchor="middle"
+        fill="#444" font-family="monospace" font-size="9"
+        letter-spacing="0.01em">GPT-4, Claude, Gemini, Llama, Mistral, ...</text>
+</svg>
