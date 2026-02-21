@@ -10,8 +10,9 @@
 
 > *"The last operating system will not manage files. It will manage meaning."*
 
-[![Read the Paper](https://img.shields.io/badge/📄_Read_the_Paper-ffd700?style=for-the-badge&logoColor=black)](https://samuele95.github.io/papers/neos/)
-[![View Presentation](https://img.shields.io/badge/🎬_View_Presentation-ff3d8e?style=for-the-badge&logoColor=white)](https://samuele95.github.io/papers/neos/presentation.html)
+[![Paper](https://img.shields.io/badge/📄_Paper-ffd700?style=for-the-badge&logoColor=black)](https://samuele95.github.io/neos/neos-paper.pdf)
+[![Website](https://img.shields.io/badge/🌐_Website-00d4ff?style=for-the-badge&logoColor=black)](https://samuele95.github.io/neos/NEOS-BREAKTHROUGH.html)
+[![Presentation](https://img.shields.io/badge/🎬_Presentation-ff3d8e?style=for-the-badge&logoColor=white)](https://samuele95.github.io/neos/NEOS-PRESENTATION.html)
 
 [The Vision](#01--the-three-ages-of-computing) · [What It Is](#03--what-neos-is--today) · [See It Run](#07--see-it-in-action) · [The Proof](#08--proof-the-software-quality-session) · [Commands](#14--command-reference)
 
@@ -737,8 +738,9 @@ The specification is open. The math is grounded. The proof-of-concept works. Wha
 
 | Resource | Description |
 |----------|-------------|
-| [NEOS Research Paper](https://samuele95.github.io/papers/neos/) | The theoretical foundations and breakthrough results |
-| [NEOS Presentation](https://samuele95.github.io/papers/neos/presentation.html) | Visual overview of the framework |
+| [NEOS Paper (PDF)](https://samuele95.github.io/neos/neos-paper.pdf) | Formal paper (ICLR-style) |
+| [NEOS Website](https://samuele95.github.io/neos/NEOS-BREAKTHROUGH.html) | Interactive HTML paper |
+| [NEOS Presentation](https://samuele95.github.io/neos/NEOS-PRESENTATION.html) | Visual overview |
 | [Kernel Prompt](prompts/nfos-kernel.md) | The system prompt that boots NEOS inside an LLM |
 | [Full Command Reference](commands/index.md) | Detailed specs for all ~40 commands |
 | [Basic Session Walkthrough](examples/01-basic-session.md) | Extended tutorial with 11 steps |
