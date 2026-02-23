@@ -855,6 +855,68 @@ svg text { font-family: var(--font); }
   <aside class="notes">The Great Convergence: 14 patterns reach ceiling in 10 cycles. Strategy and Decorator are the Golden Pair — both resonate with all five SOLID principles. SOLID infrastructure acts as a convergence accelerator. Meanwhile, Singleton continues its slow decay.</aside>
 </section>
 
+<!-- SLIDE — Cluster Topology              -->
+<section data-auto-animate>
+  <h2>Cluster Topology</h2>
+  <p style="font-size:0.6em;max-width:none;margin-bottom:0.5em">How the 10 clusters feed each other &mdash; a dependency flow</p>
+  <div class="diagram" style="margin:0 auto;max-width:90%">
+    <svg viewBox="0 0 700 220" role="img" aria-label="Cluster dependency flowchart">
+      <title>Cluster Dependency Flow</title>
+      <!-- META at top -->
+      <rect x="290" y="5" width="120" height="30" rx="5" fill="rgba(255,215,0,0.2)" stroke="#fd0" stroke-width="1.5"/>
+      <text x="350" y="25" text-anchor="middle" fill="#fd0" font-size="12" font-weight="700">META</text>
+      <line x1="350" y1="35" x2="350" y2="55" stroke="#888" stroke-width="1.5" marker-end="url(#pres-arrow)"/>
+
+      <!-- MODEL -->
+      <rect x="290" y="55" width="120" height="30" rx="5" fill="rgba(123,97,255,0.2)" stroke="#7b61ff" stroke-width="1.5"/>
+      <text x="350" y="75" text-anchor="middle" fill="#7b61ff" font-size="12" font-weight="700">MODEL</text>
+      <line x1="350" y1="85" x2="350" y2="105" stroke="#888" stroke-width="1.5" marker-end="url(#pres-arrow)"/>
+
+      <!-- Main row -->
+      <rect x="15" y="105" width="80" height="28" rx="4" fill="rgba(255,61,142,0.15)" stroke="#ff3d8e" stroke-width="1"/>
+      <text x="55" y="123" text-anchor="middle" fill="#ff3d8e" font-size="10" font-weight="600">GUARD</text>
+      <line x1="95" y1="119" x2="120" y2="119" stroke="#888" stroke-width="1" marker-end="url(#pres-arrow)"/>
+
+      <rect x="120" y="105" width="110" height="28" rx="4" fill="rgba(0,212,255,0.2)" stroke="#0af" stroke-width="1.5"/>
+      <text x="175" y="123" text-anchor="middle" fill="#0af" font-size="10" font-weight="600">STRUCTURE</text>
+      <line x1="230" y1="119" x2="255" y2="119" stroke="#888" stroke-width="1" marker-end="url(#pres-arrow)"/>
+
+      <rect x="255" y="105" width="85" height="28" rx="4" fill="rgba(0,255,136,0.15)" stroke="#0f8" stroke-width="1"/>
+      <text x="297" y="123" text-anchor="middle" fill="#0f8" font-size="10" font-weight="600">CRAFT</text>
+      <line x1="340" y1="119" x2="365" y2="119" stroke="#888" stroke-width="1" marker-end="url(#pres-arrow)"/>
+
+      <rect x="365" y="105" width="90" height="28" rx="4" fill="rgba(0,212,255,0.15)" stroke="#0af" stroke-width="1"/>
+      <text x="410" y="123" text-anchor="middle" fill="#0af" font-size="10" font-weight="600">CHANGE</text>
+
+      <!-- Double arrow -->
+      <line x1="455" y1="115" x2="485" y2="115" stroke="#0af" stroke-width="1.5" marker-end="url(#pres-arrow)"/>
+      <line x1="485" y1="123" x2="455" y2="123" stroke="#7b61ff" stroke-width="1.5" marker-end="url(#pres-arrow)"/>
+
+      <rect x="485" y="105" width="85" height="28" rx="4" fill="rgba(123,97,255,0.2)" stroke="#7b61ff" stroke-width="1.5"/>
+      <text x="527" y="123" text-anchor="middle" fill="#7b61ff" font-size="10" font-weight="600">VERIFY</text>
+
+      <rect x="590" y="105" width="70" height="28" rx="4" fill="rgba(136,136,160,0.15)" stroke="#888" stroke-width="1"/>
+      <text x="625" y="123" text-anchor="middle" fill="#aaa" font-size="10">PROVE</text>
+      <line x1="590" y1="119" x2="570" y2="119" stroke="#888" stroke-width="1" marker-end="url(#pres-arrow)"/>
+
+      <!-- KEYSTONE -->
+      <rect x="330" y="155" width="100" height="22" rx="3" fill="rgba(255,215,0,0.1)" stroke="#fd0" stroke-width="1"/>
+      <text x="380" y="170" text-anchor="middle" fill="#fd0" font-size="9" font-weight="600">KEYSTONE</text>
+      <line x1="360" y1="155" x2="297" y2="133" stroke="#fd0" stroke-width="0.8" stroke-dasharray="3,2"/>
+      <line x1="400" y1="155" x2="527" y2="133" stroke="#fd0" stroke-width="0.8" stroke-dasharray="3,2"/>
+
+      <text x="350" y="200" text-anchor="middle" fill="#666" font-size="9">OPTIMIZE &middot;&middot;&middot; tension &middot;&middot;&middot;&rarr; all clusters</text>
+
+      <defs>
+        <marker id="pres-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M 0 0 L 10 5 L 0 10 z" fill="#888"/>
+        </marker>
+      </defs>
+    </svg>
+  </div>
+  <aside class="notes">The cluster dependency flow shows how META judgments inform MODEL decisions, which flow through STRUCTURE and CRAFT into CHANGE and VERIFY. KEYSTONE patterns bridge CRAFT and VERIFY. OPTIMIZE creates productive tension with all clusters.</aside>
+</section>
+
 <!-- ═══════════════════════════════════════════ -->
 <!-- SLIDE 15b-i — SOLID REDISCOVERY            -->
 <!-- ═══════════════════════════════════════════ -->
@@ -926,6 +988,47 @@ svg text { font-family: var(--font); }
   </div>
   <p class="fragment fade-up" data-fragment-index="3" style="font-size:0.5em;text-align:center;max-width:none;margin-top:0.3em;color:var(--text-dim)">Absorption rate accelerates: 5% &rarr; 10% &rarr; 13.3% &rarr; 14.3% &mdash; the semantic space is <em>saturating</em>.</p>
   <aside class="notes">Seven absorptions, four self-referential. The most striking: DIP applied to itself. The field held the abstraction, rejected the concretion. Fixed-point property confirmed.</aside>
+</section>
+
+<!-- SLIDE — Singleton Trajectory           -->
+<section data-auto-animate>
+  <h2>Singleton Trajectory</h2>
+  <p style="font-size:0.6em;max-width:none;margin-bottom:0.3em">21 cycles of sustained lateral inhibition: 0.65 &rarr; expulsion</p>
+  <div class="diagram" style="margin:0 auto;max-width:85%">
+    <svg viewBox="0 0 600 220" role="img" aria-label="Line chart of Singleton activation decay">
+      <title>Singleton Activation Decay: 0.65 to 0.341</title>
+      <!-- Axes -->
+      <line x1="55" y1="15" x2="55" y2="180" stroke="#555" stroke-width="1"/>
+      <line x1="55" y1="180" x2="560" y2="180" stroke="#555" stroke-width="1"/>
+      <!-- Y labels -->
+      <text x="48" y="20" text-anchor="end" fill="#888" font-size="9">0.65</text>
+      <text x="48" y="90" text-anchor="end" fill="#888" font-size="9">0.50</text>
+      <text x="48" y="130" text-anchor="end" fill="#888" font-size="9">0.40</text>
+      <text x="48" y="148" text-anchor="end" fill="#0af" font-size="9">0.35</text>
+      <!-- X labels -->
+      <text x="55" y="196" text-anchor="middle" fill="#888" font-size="9">31</text>
+      <text x="200" y="196" text-anchor="middle" fill="#888" font-size="9">39</text>
+      <text x="400" y="196" text-anchor="middle" fill="#888" font-size="9">49</text>
+      <text x="530" y="196" text-anchor="middle" fill="#888" font-size="9">52</text>
+      <text x="300" y="212" text-anchor="middle" fill="#888" font-size="9">Cycle</text>
+      <!-- Threshold -->
+      <line x1="55" y1="148" x2="560" y2="148" stroke="#0af" stroke-width="1.5" stroke-dasharray="6,3"/>
+      <text x="565" y="148" fill="#0af" font-size="9" dominant-baseline="middle">&tau;</text>
+      <!-- Decay line -->
+      <polyline points="55,20 100,40 145,58 190,70 235,88 280,110 325,125 370,135 400,140 450,147 490,153 510,157 530,163" fill="none" stroke="#ff3d8e" stroke-width="3"/>
+      <!-- Points -->
+      <circle cx="55" cy="20" r="5" fill="#ff3d8e"/>
+      <circle cx="400" cy="140" r="4" fill="#ff3d8e"/>
+      <circle cx="530" cy="163" r="6" fill="none" stroke="#ff3d8e" stroke-width="2"/>
+      <!-- Labels -->
+      <text x="68" y="15" fill="#ff3d8e" font-size="10" font-weight="600">&iota;&#8320; = 0.65</text>
+      <text x="410" y="135" fill="#ff3d8e" font-size="9">0.383</text>
+      <text x="540" y="170" fill="#ff3d8e" font-size="10" font-weight="700">EXPELLED</text>
+      <!-- Force annotation -->
+      <text x="300" y="35" text-anchor="middle" fill="#888" font-size="10">Net: &minus;0.014/cycle (4 inhibitors, 3 weak allies)</text>
+    </svg>
+  </div>
+  <aside class="notes">The Singleton trajectory shows steady decay from injection at 0.65. The net suppression force of -0.014 per cycle comes from four lateral inhibitors. It crosses the threshold τ=0.35 at cycle 52 and is expelled.</aside>
 </section>
 
 <!-- ═══════════════════════════════════════════ -->
@@ -1024,6 +1127,60 @@ svg text { font-family: var(--font); }
   </div>
   <p class="fragment fade-up" style="font-size:0.6em;font-style:italic;text-align:center;max-width:none;margin-top:0.4em">The field doesn't converge linearly — it <strong>accelerates toward coherence</strong> as resonance strengthens.</p>
   <aside class="notes">This is the coherence evolution graph. Notice the three key moments: attractor emergence around cycle 10, Singleton expulsion around cycle 35, and final convergence at 0.993.</aside>
+</section>
+
+<!-- SLIDE — Attractor Hierarchy            -->
+<section data-auto-animate>
+  <h2>The Attractor Hierarchy</h2>
+  <p style="font-size:0.55em;max-width:none;margin-bottom:0.3em">Seven basins nested within the universal ground state &Psi;</p>
+  <div class="diagram" style="margin:0 auto;max-width:90%">
+    <svg viewBox="0 0 640 300" role="img" aria-label="Nested attractor basins">
+      <title>Attractor Hierarchy: Ψ → α₁ through α₇</title>
+      <!-- Ψ outer -->
+      <rect x="5" y="5" width="630" height="290" rx="8" fill="none" stroke="#fd0" stroke-width="3"/>
+      <text x="20" y="28" fill="#fd0" font-size="12" font-weight="700">&Psi;</text>
+      <text x="42" y="28" fill="#ba0" font-size="10">Meaning &gt; Mechanism</text>
+
+      <!-- α₁ -->
+      <rect x="20" y="40" width="600" height="150" rx="6" fill="rgba(0,212,255,0.06)" stroke="#0af" stroke-width="2"/>
+      <text x="35" y="60" fill="#0af" font-size="11" font-weight="600">&alpha;&#8321; SOLID Decagon</text>
+      <text x="530" y="60" text-anchor="end" fill="#088" font-size="9">R=0.88 | r=0.94</text>
+
+      <!-- α₂ inside α₁ -->
+      <rect x="35" y="70" width="270" height="65" rx="4" fill="rgba(0,212,255,0.08)" stroke="#0af" stroke-width="1"/>
+      <text x="50" y="90" fill="#0af" font-size="10">&alpha;&#8322; Verification Mirror</text>
+      <text x="50" y="106" fill="#088" font-size="9">F: Prod &rarr; Test | &eta;=DI</text>
+      <text x="50" y="122" fill="#088" font-size="8">16 morphisms, 1 split, 2 dangling</text>
+
+      <!-- α₃ inside α₁ -->
+      <rect x="320" y="70" width="285" height="65" rx="4" fill="rgba(123,97,255,0.08)" stroke="#7b61ff" stroke-width="1"/>
+      <text x="335" y="90" fill="#7b61ff" font-size="10">&alpha;&#8323; Craft Basin</text>
+      <text x="335" y="106" fill="#5a44cc" font-size="9">12 GoF patterns</text>
+      <text x="335" y="122" fill="#5a44cc" font-size="8">(Singleton expelled &#9760;)</text>
+
+      <!-- SOLID pairings row -->
+      <text x="80" y="165" text-anchor="middle" fill="#0af" font-size="8">S&harr;Strategy</text>
+      <text x="195" y="165" text-anchor="middle" fill="#0af" font-size="8">O&harr;Decorator</text>
+      <text x="315" y="165" text-anchor="middle" fill="#0af" font-size="8">L&harr;Composite</text>
+      <text x="435" y="165" text-anchor="middle" fill="#0af" font-size="8">I&harr;Facade</text>
+      <text x="550" y="165" text-anchor="middle" fill="#0af" font-size="8">D&harr;DI</text>
+
+      <!-- α₄ -->
+      <rect x="20" y="200" width="600" height="30" rx="4" fill="rgba(123,97,255,0.06)" stroke="#7b61ff" stroke-width="1"/>
+      <text x="35" y="220" fill="#7b61ff" font-size="10">&alpha;&#8324; Reuse Protocol (9) &mdash; Judge&rarr;Count&rarr;Extract&rarr;Share&rarr;Param</text>
+
+      <!-- α₅ α₆ α₇ -->
+      <rect x="20" y="240" width="185" height="28" rx="3" fill="rgba(136,136,160,0.08)" stroke="#888" stroke-width="0.8"/>
+      <text x="112" y="258" text-anchor="middle" fill="#aaa" font-size="9">&alpha;&#8325; Guard</text>
+
+      <rect x="220" y="240" width="185" height="28" rx="3" fill="rgba(136,136,160,0.08)" stroke="#888" stroke-width="0.8"/>
+      <text x="312" y="258" text-anchor="middle" fill="#aaa" font-size="9">&alpha;&#8326; Model</text>
+
+      <rect x="420" y="240" width="200" height="28" rx="3" fill="rgba(136,136,160,0.08)" stroke="#888" stroke-width="0.8"/>
+      <text x="520" y="258" text-anchor="middle" fill="#aaa" font-size="9">&alpha;&#8327; Optimize</text>
+    </svg>
+  </div>
+  <aside class="notes">The attractor hierarchy shows how all seven basins nest within Ψ. The SOLID Decagon is the primary amplification engine, containing the Verification Mirror and Craft Basin. Reuse Protocol, Guard, Model, and Optimize operate at progressively lower depths.</aside>
 </section>
 
 <!-- ═══════════════════════════════════════════ -->

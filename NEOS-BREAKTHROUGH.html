@@ -1020,6 +1020,69 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     </tbody>
     </table>
 
+    <!-- Cluster Dependency Flow -->
+    <h3 class="reveal">Cluster Dependency Flow</h3>
+    <div class="diagram reveal" style="padding:1.5rem">
+      <svg viewBox="0 0 700 200" role="img" aria-label="Cluster dependency flowchart">
+        <title>Cluster Dependency Flow: META → MODEL → GUARD → STRUCTURE → CRAFT → CHANGE ⇄ VERIFY</title>
+        <!-- META -->
+        <rect x="295" y="5" width="110" height="32" rx="4" fill="rgba(255,215,0,0.15)" stroke="#fd0" stroke-width="1.5"/>
+        <text x="350" y="25" text-anchor="middle" fill="#fd0" font-size="11" font-weight="600">META</text>
+        <text x="350" y="48" text-anchor="middle" fill="#ba0" font-size="8">(judgment)</text>
+        <!-- Arrow down -->
+        <line x1="350" y1="37" x2="350" y2="65" stroke="#666" stroke-width="1" marker-end="url(#arrow-flow)"/>
+        <!-- MODEL -->
+        <rect x="295" y="65" width="110" height="32" rx="4" fill="rgba(123,97,255,0.15)" stroke="#7b61ff" stroke-width="1.5"/>
+        <text x="350" y="85" text-anchor="middle" fill="#7b61ff" font-size="11" font-weight="600">MODEL</text>
+        <text x="350" y="108" text-anchor="middle" fill="#5a44cc" font-size="8">(what IS)</text>
+        <!-- Arrow down -->
+        <line x1="350" y1="97" x2="350" y2="125" stroke="#666" stroke-width="1" marker-end="url(#arrow-flow)"/>
+        <!-- Main flow row -->
+        <rect x="20" y="125" width="80" height="30" rx="4" fill="rgba(255,61,142,0.12)" stroke="#ff3d8e" stroke-width="1"/>
+        <text x="60" y="144" text-anchor="middle" fill="#ff3d8e" font-size="10" font-weight="600">GUARD</text>
+        <line x1="100" y1="140" x2="130" y2="140" stroke="#666" stroke-width="1" marker-end="url(#arrow-flow)"/>
+
+        <rect x="130" y="125" width="110" height="30" rx="4" fill="rgba(0,212,255,0.15)" stroke="#0af" stroke-width="1.5"/>
+        <text x="185" y="144" text-anchor="middle" fill="#0af" font-size="10" font-weight="600">STRUCTURE</text>
+        <line x1="240" y1="140" x2="270" y2="140" stroke="#666" stroke-width="1" marker-end="url(#arrow-flow)"/>
+
+        <rect x="270" y="125" width="90" height="30" rx="4" fill="rgba(0,255,136,0.12)" stroke="#0f8" stroke-width="1"/>
+        <text x="315" y="144" text-anchor="middle" fill="#0f8" font-size="10" font-weight="600">CRAFT</text>
+        <line x1="360" y1="140" x2="390" y2="140" stroke="#666" stroke-width="1" marker-end="url(#arrow-flow)"/>
+
+        <rect x="390" y="125" width="95" height="30" rx="4" fill="rgba(0,212,255,0.15)" stroke="#0af" stroke-width="1"/>
+        <text x="437" y="144" text-anchor="middle" fill="#0af" font-size="10" font-weight="600">CHANGE</text>
+
+        <!-- Bidirectional arrow CHANGE ⇄ VERIFY -->
+        <line x1="485" y1="136" x2="520" y2="136" stroke="#0af" stroke-width="1.5" marker-end="url(#arrow-flow)"/>
+        <line x1="520" y1="144" x2="485" y2="144" stroke="#7b61ff" stroke-width="1.5" marker-end="url(#arrow-flow)"/>
+
+        <rect x="520" y="125" width="90" height="30" rx="4" fill="rgba(123,97,255,0.15)" stroke="#7b61ff" stroke-width="1.5"/>
+        <text x="565" y="144" text-anchor="middle" fill="#7b61ff" font-size="10" font-weight="600">VERIFY</text>
+
+        <!-- PROVE arrow into VERIFY -->
+        <rect x="620" y="125" width="70" height="30" rx="4" fill="rgba(136,136,160,0.12)" stroke="#888" stroke-width="1"/>
+        <text x="655" y="144" text-anchor="middle" fill="#888" font-size="10">PROVE</text>
+        <line x1="620" y1="140" x2="610" y2="140" stroke="#888" stroke-width="1" marker-end="url(#arrow-flow)"/>
+
+        <!-- KEYSTONE bridge -->
+        <rect x="355" y="170" width="100" height="24" rx="3" fill="rgba(255,215,0,0.1)" stroke="#fd0" stroke-width="1"/>
+        <text x="405" y="186" text-anchor="middle" fill="#fd0" font-size="9">KEYSTONE</text>
+        <line x1="405" y1="170" x2="315" y2="155" stroke="#fd0" stroke-width="0.8" stroke-dasharray="3,2"/>
+        <line x1="405" y1="170" x2="565" y2="155" stroke="#fd0" stroke-width="0.8" stroke-dasharray="3,2"/>
+
+        <!-- OPTIMIZE tension -->
+        <text x="60" y="185" text-anchor="middle" fill="#888" font-size="8">OPTIMIZE ···tension···→ all</text>
+
+        <!-- Arrow marker definition -->
+        <defs>
+          <marker id="arrow-flow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="#666"/>
+          </marker>
+        </defs>
+      </svg>
+    </div>
+
     <!-- THE SETUP -->
     <h3 class="reveal">The Setup: Creating the Field</h3>
     <p class="reveal">The session begins by creating a field and tuning its cognitive personality. Each parameter change from defaults has a specific rationale:</p>
@@ -1145,6 +1208,59 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       </tbody>
     </table>
 
+    <!-- Attractor Hierarchy Nested Boxes -->
+    <div class="diagram reveal" style="padding:1.5rem">
+      <svg viewBox="0 0 720 380" role="img" aria-label="Nested box diagram showing attractor hierarchy">
+        <title>Attractor Hierarchy: Ψ → α₁ → α₂/α₃, with α₄ and α₅/α₆/α₇</title>
+        <!-- Ψ ground state (outermost) -->
+        <rect x="10" y="10" width="700" height="360" rx="8" fill="none" stroke="#fd0" stroke-width="3"/>
+        <rect x="12" y="12" width="696" height="356" rx="7" fill="none" stroke="#fd0" stroke-width="1" opacity="0.4"/>
+        <text x="30" y="35" fill="#fd0" font-size="13" font-weight="700">&Psi; &mdash; Universal Attractor</text>
+        <text x="30" y="52" fill="#ba0" font-size="10" font-style="italic">"Meaning persists. Mechanism changes."</text>
+
+        <!-- α₁ SOLID Decagon -->
+        <rect x="30" y="65" width="660" height="190" rx="6" fill="rgba(0,212,255,0.05)" stroke="#0af" stroke-width="2"/>
+        <text x="50" y="88" fill="#0af" font-size="12" font-weight="600">&alpha;&#8321; &mdash; SOLID Decagon (10 patterns)</text>
+        <text x="600" y="88" text-anchor="end" fill="#088" font-size="10">R<tspan font-size="8" dy="2">pt</tspan><tspan dy="-2"> = 0.88 | r = 0.94</tspan></text>
+
+        <!-- α₂ Verification Mirror (inside α₁) -->
+        <rect x="50" y="100" width="295" height="100" rx="4" fill="rgba(0,212,255,0.08)" stroke="#0af" stroke-width="1"/>
+        <text x="70" y="120" fill="#0af" font-size="11">&alpha;&#8322; &mdash; Verification Mirror</text>
+        <text x="70" y="140" fill="#088" font-size="10">F: Production &rarr; Testing</text>
+        <text x="70" y="158" fill="#088" font-size="10">&eta; = DI | 16 morphisms</text>
+        <text x="70" y="176" fill="#088" font-size="9">Keystone: @test_behavior = F(stable_interfaces)</text>
+
+        <!-- α₃ Craft Basin (inside α₁) -->
+        <rect x="365" y="100" width="305" height="100" rx="4" fill="rgba(123,97,255,0.08)" stroke="#7b61ff" stroke-width="1"/>
+        <text x="385" y="120" fill="#7b61ff" font-size="11">&alpha;&#8323; &mdash; Craft Basin</text>
+        <text x="385" y="140" fill="#5a44cc" font-size="10">12 GoF patterns (singleton expelled)</text>
+        <text x="385" y="158" fill="#5a44cc" font-size="10">Creational(3) &middot; Structural(4) &middot; Behavioral(5)</text>
+        <text x="385" y="176" fill="#5a44cc" font-size="9">Governed by: "intent over structure"</text>
+
+        <!-- SOLID pairings inside α₁ -->
+        <text x="100" y="235" fill="#0af" font-size="9">S &harr; Strategy</text>
+        <text x="230" y="235" fill="#0af" font-size="9">O &harr; Decorator</text>
+        <text x="360" y="235" fill="#0af" font-size="9">L &harr; Composite</text>
+        <text x="490" y="235" fill="#0af" font-size="9">I &harr; Facade</text>
+        <text x="600" y="235" fill="#0af" font-size="9">D &harr; DI</text>
+
+        <!-- α₄ Reuse Protocol -->
+        <rect x="30" y="265" width="660" height="38" rx="4" fill="rgba(123,97,255,0.06)" stroke="#7b61ff" stroke-width="1"/>
+        <text x="50" y="289" fill="#7b61ff" font-size="11">&alpha;&#8324; &mdash; Reuse Protocol (9)</text>
+        <text x="340" y="289" fill="#5a44cc" font-size="10">Judge &rarr; Count &rarr; Extract &rarr; Share &rarr; Parameterize</text>
+
+        <!-- α₅, α₆, α₇ tertiary -->
+        <rect x="30" y="315" width="200" height="35" rx="3" fill="rgba(136,136,160,0.08)" stroke="#888" stroke-width="1"/>
+        <text x="130" y="337" text-anchor="middle" fill="#888" font-size="10">&alpha;&#8325; Guard &mdash; boundary defense</text>
+
+        <rect x="250" y="315" width="200" height="35" rx="3" fill="rgba(136,136,160,0.08)" stroke="#888" stroke-width="1"/>
+        <text x="350" y="337" text-anchor="middle" fill="#888" font-size="10">&alpha;&#8326; Model &mdash; value&harr;entity</text>
+
+        <rect x="470" y="315" width="220" height="35" rx="3" fill="rgba(136,136,160,0.08)" stroke="#888" stroke-width="1"/>
+        <text x="580" y="337" text-anchor="middle" fill="#888" font-size="10">&alpha;&#8327; Optimize &mdash; perf. asymptotes</text>
+      </svg>
+    </div>
+
     <!-- Coherence Evolution Graph -->
     <h3 class="reveal">Coherence Evolution: 52 Cycles to Convergence</h3>
     <div class="diagram reveal">
@@ -1234,6 +1350,57 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <p class="reveal">The field equation that emerged captures the entire discipline in one formula:</p>
     <div class="equation reveal">Q(x) = &Psi; &middot; [ 0.342&middot;SOLID(x) + 0.227&middot;F(x) + 0.181&middot;Protocol(x) + 0.143&middot;Simplex(x) + 0.107&middot;Scale(x) ]</div>
 
+    <!-- Ground State Flowchart -->
+    <h3 class="reveal">Collapsed Field Ground State</h3>
+    <div class="diagram reveal" style="padding:1.5rem">
+      <svg viewBox="0 0 700 250" role="img" aria-label="Ground state flowchart showing Ψ generating all structure">
+        <title>Collapsed Field: Ψ → SOLID/Functor/Protocol → Craft/Reuse → Guard/Model/Optimize</title>
+        <!-- Ψ at top -->
+        <rect x="270" y="5" width="160" height="40" rx="6" fill="rgba(255,215,0,0.15)" stroke="#fd0" stroke-width="2"/>
+        <text x="350" y="30" text-anchor="middle" fill="#fd0" font-size="13" font-weight="700">&Psi;: MEANING &gt; MECHANISM</text>
+        <!-- generates arrow -->
+        <line x1="350" y1="45" x2="350" y2="70" stroke="#ba0" stroke-width="1.5" marker-end="url(#arrow-flow)"/>
+        <text x="400" y="63" fill="#ba0" font-size="8">generates all structure</text>
+        <!-- Three primary children -->
+        <rect x="80" y="75" width="155" height="45" rx="4" fill="rgba(0,212,255,0.12)" stroke="#0af" stroke-width="1.5"/>
+        <text x="157" y="95" text-anchor="middle" fill="#0af" font-size="11" font-weight="600">SOLID (&alpha;&#8321;)</text>
+        <text x="157" y="112" text-anchor="middle" fill="#088" font-size="9">5&times;5 | R=0.88 | r=0.94</text>
+
+        <rect x="270" y="75" width="155" height="45" rx="4" fill="rgba(0,212,255,0.12)" stroke="#0af" stroke-width="1.5"/>
+        <text x="347" y="95" text-anchor="middle" fill="#0af" font-size="11" font-weight="600">FUNCTOR F (&alpha;&#8322;)</text>
+        <text x="347" y="112" text-anchor="middle" fill="#088" font-size="9">&eta; = DI | 16 mappings</text>
+
+        <rect x="460" y="75" width="155" height="45" rx="4" fill="rgba(0,212,255,0.12)" stroke="#0af" stroke-width="1.5"/>
+        <text x="537" y="95" text-anchor="middle" fill="#0af" font-size="11" font-weight="600">PROTOCOL (&alpha;&#8324;)</text>
+        <text x="537" y="112" text-anchor="middle" fill="#088" font-size="9">Judge&rarr;...&rarr;Parameterize</text>
+
+        <!-- Arrows from Ψ to three -->
+        <line x1="300" y1="45" x2="157" y2="75" stroke="#ba0" stroke-width="1"/>
+        <line x1="400" y1="45" x2="537" y2="75" stroke="#ba0" stroke-width="1"/>
+
+        <!-- Secondary children -->
+        <rect x="145" y="155" width="130" height="35" rx="4" fill="rgba(0,255,136,0.1)" stroke="#0f8" stroke-width="1"/>
+        <text x="210" y="177" text-anchor="middle" fill="#0f8" font-size="10" font-weight="600">CRAFT (&alpha;&#8323;)</text>
+
+        <rect x="420" y="155" width="130" height="35" rx="4" fill="rgba(123,97,255,0.1)" stroke="#7b61ff" stroke-width="1"/>
+        <text x="485" y="177" text-anchor="middle" fill="#7b61ff" font-size="10" font-weight="600">REUSE SIMPLEX</text>
+
+        <!-- Arrows -->
+        <line x1="250" y1="120" x2="210" y2="155" stroke="#666" stroke-width="1" marker-end="url(#arrow-flow)"/>
+        <line x1="445" y1="120" x2="485" y2="155" stroke="#666" stroke-width="1" marker-end="url(#arrow-flow)"/>
+
+        <!-- Tertiary -->
+        <rect x="60" y="215" width="90" height="28" rx="3" fill="rgba(136,136,160,0.08)" stroke="#888" stroke-width="1"/>
+        <text x="105" y="233" text-anchor="middle" fill="#888" font-size="9">GUARD</text>
+
+        <rect x="300" y="215" width="90" height="28" rx="3" fill="rgba(136,136,160,0.08)" stroke="#888" stroke-width="1"/>
+        <text x="345" y="233" text-anchor="middle" fill="#888" font-size="9">MODEL</text>
+
+        <rect x="540" y="215" width="90" height="28" rx="3" fill="rgba(136,136,160,0.08)" stroke="#888" stroke-width="1"/>
+        <text x="585" y="233" text-anchor="middle" fill="#888" font-size="9">OPTIMIZE</text>
+      </svg>
+    </div>
+
     <h3 class="reveal">SOLID &harr; Technique Resonance</h3>
     <p class="reveal">One of the most striking discoveries was the tight coupling between SOLID principles and design patterns. The field found that each SOLID principle has a natural technique partner, with a mean resonance of R=0.88:</p>
     <table class="reveal">
@@ -1247,6 +1414,30 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       </tbody>
     </table>
     <p class="reveal">This is not a table someone wrote. It is a table the field <em>discovered</em> through resonance dynamics. The pairings are not obvious &mdash; but they are deeply correct. SRP naturally resonates with Strategy because both are about isolating a single axis of variation. OCP resonates with Decorator because both extend behavior without modifying the original. These mappings crystallized spontaneously through 52 cycles of dynamics.</p>
+
+    <!-- Convergence Ranking -->
+    <h3 class="reveal">Convergence Ranking by SOLID Alignment</h3>
+    <p class="reveal">The correlation between SOLID alignment and convergence speed (r&nbsp;=&nbsp;0.94) generates a clear ranking of GoF patterns:</p>
+    <table class="reveal" style="width:100%;max-width:600px">
+      <thead>
+        <tr><th>Rank</th><th>Pattern</th><th>SOLID</th><th>Cycles</th><th>Category</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1.</td><td>strategy</td><td style="color:var(--green)">5/5</td><td>4</td><td style="color:var(--green)">ALIGNED</td></tr>
+        <tr><td>1.</td><td>decorator</td><td style="color:var(--green)">5/5</td><td>4</td><td style="color:var(--green)">ALIGNED</td></tr>
+        <tr><td>3.</td><td>adapter</td><td style="color:var(--cyan)">4/5</td><td>4</td><td style="color:var(--green)">ALIGNED</td></tr>
+        <tr><td>4.</td><td>abstract_factory</td><td style="color:var(--cyan)">4/5</td><td>6</td><td style="color:var(--green)">ALIGNED</td></tr>
+        <tr><td>5.</td><td>factory_method</td><td>3/5</td><td>5</td><td style="color:var(--green)">ALIGNED</td></tr>
+        <tr><td>6.</td><td>builder</td><td>2/5</td><td>5</td><td style="color:var(--green)">ALIGNED</td></tr>
+        <tr><td>7.</td><td>observer</td><td>3/5</td><td>5</td><td style="color:var(--cyan)">MODERATE</td></tr>
+        <tr><td>8.</td><td>facade</td><td>3/5</td><td>6</td><td style="color:var(--cyan)">MODERATE</td></tr>
+        <tr><td>9.</td><td>command</td><td>3/5</td><td>6</td><td style="color:var(--cyan)">MODERATE</td></tr>
+        <tr><td>10.</td><td>composite</td><td>2/5</td><td>7</td><td style="color:var(--purple)">CONFLICTED</td></tr>
+        <tr><td>11.</td><td>template_method</td><td>2/5</td><td>7</td><td style="color:var(--purple)">CONFLICTED</td></tr>
+        <tr><td>12.</td><td>iterator</td><td>2/5</td><td>8</td><td>BROAD</td></tr>
+        <tr><td style="color:var(--pink)">13.</td><td style="color:var(--pink)">singleton</td><td style="color:var(--pink)">0/5</td><td style="color:var(--pink)">&infin;</td><td style="color:var(--pink)">ADVERSARIAL &#9760;</td></tr>
+      </tbody>
+    </table>
 
     <h3 class="reveal">The Singleton Expulsion</h3>
     <p class="reveal">At cycle 31, Singleton was injected at 0.65 &mdash; the lowest initial activation in field history. For the first time, the field exhibited <strong>lateral inhibition</strong>: four patterns actively suppressing the newcomer, each from a different quality dimension.</p>
@@ -1268,6 +1459,42 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 <span class="out">  Net force: <span class="warn">-0.014/cycle</span>  (NEGATIVE &mdash; first in field)</span>
 <span class="out">  Coherence: 0.955 &rarr; <span class="val">0.941</span>  (LARGEST SINGLE-INJECTION DROP)</span>
       </div>
+    </div>
+
+    <!-- Singleton Trajectory Plot -->
+    <div class="diagram reveal" style="padding:1rem">
+      <svg viewBox="0 0 700 260" role="img" aria-label="Line chart showing Singleton activation decay from 0.65 to expulsion">
+        <title>Singleton Trajectory: Activation Decay to Expulsion</title>
+        <!-- Axes -->
+        <line x1="70" y1="20" x2="70" y2="210" stroke="#444" stroke-width="1"/>
+        <line x1="70" y1="210" x2="660" y2="210" stroke="#444" stroke-width="1"/>
+        <!-- Y labels -->
+        <text x="60" y="25" text-anchor="end" fill="#666" font-size="10">0.65</text>
+        <text x="60" y="105" text-anchor="end" fill="#666" font-size="10">0.45</text>
+        <text x="60" y="155" text-anchor="end" fill="#666" font-size="10">0.35</text>
+        <text x="60" y="210" text-anchor="end" fill="#666" font-size="10">0.30</text>
+        <text x="25" y="115" text-anchor="middle" fill="#888" font-size="10" transform="rotate(-90,25,115)">A(t)</text>
+        <!-- X labels -->
+        <text x="70" y="228" text-anchor="middle" fill="#666" font-size="9">31</text>
+        <text x="240" y="228" text-anchor="middle" fill="#666" font-size="9">39</text>
+        <text x="450" y="228" text-anchor="middle" fill="#666" font-size="9">47</text>
+        <text x="590" y="228" text-anchor="middle" fill="#666" font-size="9">52</text>
+        <text x="365" y="248" text-anchor="middle" fill="#888" font-size="10">Cycles</text>
+        <!-- Threshold line τ=0.35 -->
+        <line x1="70" y1="155" x2="660" y2="155" stroke="#0af" stroke-width="1" stroke-dasharray="5,3"/>
+        <text x="668" y="155" fill="#0af" font-size="9" dominant-baseline="middle">&tau;</text>
+        <!-- Decay curve -->
+        <polyline points="70,25 130,50 195,72 260,87 320,107 385,130 450,148 500,156 540,162 590,170" fill="none" stroke="#ff3d8e" stroke-width="2.5"/>
+        <!-- Data points -->
+        <circle cx="70" cy="25" r="4" fill="#ff3d8e"/>
+        <circle cx="590" cy="170" r="5" fill="#ff3d8e" stroke="#fff" stroke-width="1"/>
+        <!-- Annotations -->
+        <text x="80" y="20" fill="#ff3d8e" font-size="9">&iota;&#8320; = 0.65</text>
+        <text x="460" y="143" fill="#ff3d8e" font-size="9">0.383 (cycle 49)</text>
+        <text x="598" y="165" fill="#ff3d8e" font-size="9" font-weight="600">EXPELLED</text>
+        <!-- Suppression forces -->
+        <text x="350" y="35" text-anchor="middle" fill="#888" font-size="9">Net force: &minus;0.014/cycle</text>
+      </svg>
     </div>
 
     <p class="reveal"><strong>The four indictments:</strong> <code>@test_isolation</code> (verification: &ldquo;global state makes tests non-deterministic&rdquo;), <code>@determinism</code> (reliability: &ldquo;shared state introduces execution-order dependence&rdquo;), <code>@dependency_direction</code> (architecture: &ldquo;high-level modules must not depend on global access points&rdquo;), and <code>@favor_composition</code> (philosophy: &ldquo;composition over global state&rdquo;). Singleton&rsquo;s only allies: <code>@no_unnecessary_allocations</code> and <code>@factory_method</code> &mdash; both OPTIMIZE cluster outsiders. Controversial patterns find refuge only among other outsiders.</p>

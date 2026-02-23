@@ -321,6 +321,60 @@ The 61~surviving patterns distribute across 51~basin-memberships (overlap
 factor~1.84): some patterns bridge multiple basins, acting as
 connective tissue in the field's topology.
 
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[
+  ground/.style={draw=neosblue!70!black, double, very thick, rounded corners=6pt, inner sep=10pt},
+  primary/.style={draw=neosblue!50!black, thick, rounded corners=4pt, inner sep=8pt},
+  secondary/.style={draw=neosblue!30!black, rounded corners=3pt, inner sep=6pt},
+  tertiary/.style={draw=gray!50, thin, rounded corners=2pt, inner sep=5pt},
+  label/.style={font=\small\sffamily, anchor=north west},
+]
+
+% Ground state
+\node[ground, minimum width=13cm, minimum height=8.5cm] (psi) at (0,0) {};
+\node[label, neosblue!70!black] at (psi.north west) {$\Psi$ --- Universal Attractor (all 61 patterns)};
+\node[font=\scriptsize\itshape, anchor=south, neosblue!50!black] at ([yshift=2pt]psi.south) {``Meaning persists. Mechanism changes.''};
+
+% α₁ SOLID Decagon
+\node[primary, minimum width=11.5cm, minimum height=5cm] (a1) at (0,0.8) {};
+\node[label] at (a1.north west) {$\alpha_1$ --- SOLID Decagon (10 patterns)};
+\node[font=\scriptsize, anchor=north east] at (a1.north east) {$R_{\text{pt}} = 0.88 \mid r = 0.94$};
+
+% α₂ Verification Mirror (inside α₁)
+\node[secondary, minimum width=5cm, minimum height=2.2cm] (a2) at (-2.2,0.2) {};
+\node[label, font=\scriptsize\sffamily] at (a2.north west) {$\alpha_2$ --- Verification Mirror (13)};
+\node[font=\scriptsize] at (a2.center) {$F\colon$ Production $\to$ Testing};
+\node[font=\scriptsize] at ([yshift=-6pt]a2.center) {$\eta = \text{DI}$, 16 morphisms};
+
+% α₃ Craft Basin (inside α₁)
+\node[secondary, minimum width=5cm, minimum height=2.2cm] (a3) at (2.8,0.2) {};
+\node[label, font=\scriptsize\sffamily] at (a3.north west) {$\alpha_3$ --- Craft Basin (12)};
+\node[font=\scriptsize] at (a3.center) {12 GoF patterns};
+\node[font=\scriptsize] at ([yshift=-6pt]a3.center) {(Singleton expelled)};
+
+% α₄ Reuse Protocol (inside Ψ, below α₁)
+\node[secondary, minimum width=11.5cm, minimum height=1.2cm] (a4) at (0,-2.2) {};
+\node[font=\scriptsize\sffamily] at (a4.center) {$\alpha_4$ --- Reuse Protocol (9) \quad Judge $\to$ Count $\to$ Extract $\to$ Share $\to$ Parameterise};
+
+% Tertiary basins
+\node[tertiary, minimum width=3.2cm, minimum height=0.9cm] (a5) at (-4.2,-3.6) {};
+\node[font=\scriptsize\sffamily] at (a5.center) {$\alpha_5$ Guard (3)};
+
+\node[tertiary, minimum width=3.2cm, minimum height=0.9cm] (a6) at (0,-3.6) {};
+\node[font=\scriptsize\sffamily] at (a6.center) {$\alpha_6$ Model (2)};
+
+\node[tertiary, minimum width=3.2cm, minimum height=0.9cm] (a7) at (4.2,-3.6) {};
+\node[font=\scriptsize\sffamily] at (a7.center) {$\alpha_7$ Optimize (2)};
+
+\end{tikzpicture}
+\caption{Attractor hierarchy of the \emph{software\_quality\_discipline} field.
+  $\Psi$~(double border) is the ground state containing all basins.
+  $\alpha_1$~(thick border) nests the primary attractors $\alpha_2$ and~$\alpha_3$.
+  Tertiary basins $\alpha_5$--$\alpha_7$ operate at the field's periphery.}
+\label{fig:attractor-hierarchy}
+\end{figure}
+
 % ─────────────────────────────────────────────────────────────────
 \subsection{SOLID--Technique Resonance}
 
@@ -346,6 +400,62 @@ D --- Dependency Inversion  & Dependency Injection & 0.88 \\
 \bottomrule
 \end{tabular}
 \end{table}
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+  width=0.72\textwidth,
+  height=6cm,
+  xlabel={SOLID Lock Count},
+  ylabel={Cycles to Ceiling},
+  xmin=0.5, xmax=5.5,
+  ymin=0, ymax=10,
+  grid=major,
+  grid style={gray!20},
+  xtick={1,2,3,4,5},
+  only marks,
+  mark=*,
+  mark size=2.5pt,
+  neosblue!70!black,
+  nodes near coords,
+  point meta=explicit symbolic,
+  every node near coord/.append style={font=\tiny, anchor=south west, xshift=2pt},
+]
+
+\addplot coordinates {
+  (5, 4) [strategy]
+  (5, 4) [decorator]
+  (4, 4) [adapter]
+  (4, 6) [abs\_factory]
+  (3, 5) [factory\_meth]
+  (2, 5) [builder]
+  (3, 5) [observer]
+  (3, 6) [facade]
+  (3, 6) [command]
+  (2, 7) [composite]
+  (2, 7) [template\_m]
+  (2, 8) [iterator]
+};
+
+% Trend line (approximate)
+\addplot[red!60!black, dashed, no marks, domain=1:5.5] {11.5 - 1.5*x};
+
+% r annotation
+\node[font=\small, fill=white, inner sep=2pt] at (axis cs:4.5, 8.5)
+  {$r = 0.94$};
+
+% Singleton annotation (expelled)
+\node[font=\scriptsize, red!70!black] at (axis cs:0.8, 9.5)
+  {Singleton: 0/5 $\to \infty$ (expelled)};
+
+\end{axis}
+\end{tikzpicture}
+\caption{SOLID lock count vs.\ convergence speed.  Patterns with more
+  SOLID-principle alignments converge faster ($r = 0.94$).  Singleton
+  (0/5) never converges and is expelled.}
+\label{fig:solid-scatter}
+\end{figure}
 
 % ─────────────────────────────────────────────────────────────────
 \subsection{The Field Equation}
@@ -476,6 +586,67 @@ the sociology of contested design patterns.
     Lifespan: 21 cycles |  Cause: sustained lateral inhibition
 \end{lstlisting}
 \end{terminalbox}
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+  width=0.78\textwidth,
+  height=6cm,
+  xlabel={Cycle},
+  ylabel={Activation $A(t)$},
+  xmin=30, xmax=54,
+  ymin=0.28, ymax=0.70,
+  grid=major,
+  grid style={gray!20},
+  thick,
+  mark options={solid, scale=1.0},
+  legend pos=north east,
+  legend style={font=\small},
+]
+
+% Singleton decay curve
+\addplot[red!70!black, thick, mark=*, mark size=1.5pt] coordinates {
+  (31, 0.650)
+  (33, 0.607)
+  (35, 0.565)
+  (37, 0.551)
+  (39, 0.523)
+  (41, 0.495)
+  (43, 0.467)
+  (45, 0.439)
+  (47, 0.415)
+  (49, 0.383)
+  (50, 0.369)
+  (51, 0.355)
+  (52, 0.341)
+};
+\addlegendentry{Singleton $A(t)$}
+
+% Projected point
+\addplot[red!50!black, dashed, mark=o, mark size=2pt, only marks] coordinates {
+  (52, 0.341)
+};
+
+% Threshold line
+\draw[neosblue!60!black, dashed, thick] (axis cs:30,0.35) -- (axis cs:54,0.35)
+  node[pos=0.85, above, font=\scriptsize] {$\tau = 0.35$};
+
+% Injection marker
+\node[font=\scriptsize, anchor=south east, fill=white, inner sep=1pt]
+  at (axis cs:31, 0.65) {$\iota_0 = 0.65$};
+
+% Expulsion marker
+\draw[red!70!black, ->, thick] (axis cs:52, 0.341) -- (axis cs:52, 0.30)
+  node[below, font=\scriptsize] {EXPELLED};
+
+\end{axis}
+\end{tikzpicture}
+\caption{Singleton trajectory: activation decay from $\iota_0 = 0.65$
+  (cycle~31) to expulsion at $A = 0.341 < \tau$ (cycle~52).  Net
+  suppression force: $-0.014$/cycle from four lateral inhibitors.}
+\label{fig:singleton-trajectory}
+\end{figure}
 
 % ── pgfplots: Coherence evolution ────────────────────────────────
 \begin{figure}[htbp]

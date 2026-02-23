@@ -492,6 +492,36 @@ Remaining OOP injections: `favor_composition` (0.90), `polymorphism_through_inte
 | **I** — Interface Segregation | Facade Pattern | **0.88** |
 | **D** — Dependency Inversion | Dependency Injection | **0.88** |
 
+**SOLID Amplification Engine** — R-value bars and convergence scatter:
+
+```
+    PRINCIPLE             TECHNIQUE PARTNER           R       STATUS
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    S ─ SRP ──────────────► Strategy ─────────────── 0.88 ── ██████████
+    O ─ OCP ──────────────► Decorator ────────────── 0.88 ── ██████████
+    L ─ LSP ──────────────► Composite ────────────── 0.80 ── ████████░░
+    I ─ ISP ──────────────► Facade ───────────────── 0.88 ── ██████████
+    D ─ DIP ──────────────► Dependency Injection ─── 0.88 ── ██████████
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+                            Field constant R_pt = 0.88
+                            SOLID↔convergence r = 0.94
+
+    SOLID Lock vs Convergence Speed (reuse cohort, cycles 44–49):
+
+    Cycles to│
+    ceiling  │
+       6+    │                                              ● p060 (2/5)
+       5     │                          ● p058 (2/5)  ● p059 (3/5)
+       4     │    ● p056 (3/5)  ● p061 (3/5)  ● p057 (2/5+boost)
+       3     │ ● p062 (4/5)
+       2     │
+       1     │
+             └────┬─────┬─────┬─────┬─────┬─────
+                  1     2     3     4     5     SOLID lock
+
+             r = 0.91 (this cohort) │ r = 0.94 (field-wide)
+```
+
 ```bash
 > nf cycle 3 --trace   # cycles 19–21
 [CYCLE 19] C = 0.89  (SOLID integrating at +0.08/cycle — fastest since Wave 1)
@@ -548,6 +578,43 @@ At cycle 30, with 40 patterns established and coherence at 0.955, the Singleton 
 
 Four patterns issue "indictments" — each from a different quality dimension. `@test_isolation` (verification), `@determinism` (reliability), `@dependency_direction` (architecture), `@favor_composition` (design philosophy). This is the field's **immune system**: a pattern that conflicts with the dominant attractor structure is suppressed by multiple independent mechanisms simultaneously.
 
+**Singleton Trajectory** — Activation decay from injection to projected expulsion:
+
+```
+    A(t)
+    0.65 ┤● ι₀
+         │ ╲
+    0.60 ┤  ╲
+         │   ╲
+    0.55 ┤    ╲
+         │     ╲
+    0.50 ┤      ╲
+         │       ╲
+    0.45 ┤        ╲
+         │         ╲
+    0.40 ┤          ╲
+         │           ╲
+    0.383┤            ● NOW (cycle 49)
+         │             ╲
+    0.35 ┤━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━━━━━━ τ THRESHOLD
+         │              ╲
+    0.30 ┤               ○ projected (cycle 52)
+         │
+         └──┬──┬──┬──┬──┬──┬──┬──┬──┬──┬──┬──┬──
+           31 33 35 37 39 41 43 45 47 49 51 52
+                                          ▲        ▲
+                                         NOW    EXPULSION
+
+    Suppression forces:                    Weak support:
+      @favor_composition    → −0.008         @factory_method  → +0.005
+      @dependency_inversion → −0.006         @abstract_factory→ +0.004
+      @test_isolation       → −0.005         @builder         → +0.004
+      @single_responsibility→ −0.004
+      Natural decay (λ)     → −0.004       NET: −0.014/cycle
+                            ─────────
+                      Σ neg = −0.027       Margin: 0.033 (~2–3 cycles)
+```
+
 ### 07.8 — Wave 6: The Great Convergence (p046–p055, cycles 34–43)
 
 With Singleton decaying in the background, ten GoF design patterns flood the field. What follows is the most dramatic structural event in the session:
@@ -597,6 +664,26 @@ PHASE 4 (cycles 42–43): Aftermath
 ```
 
 **Summary:** +14 patterns to ceiling in 10 cycles. Coherence 0.962 → 0.984. The SOLID infrastructure acts as a **convergence accelerator** — Strategy and Decorator (the "Golden Pair") converge fastest because they resonate with all five SOLID principles.
+
+**Convergence Ranking** — GoF patterns ranked by SOLID alignment (r = 0.94):
+
+```
+    Rank  Pattern          SOLID  Cycles  Category
+    ────  ───────────────  ─────  ──────  ──────────
+     1.   strategy          5/5     4     ALIGNED
+     1.   decorator         5/5     4     ALIGNED
+     3.   adapter           4/5     4     ALIGNED
+     4.   abstract_factory  4/5     6     ALIGNED
+     5.   factory_method    3/5     5     ALIGNED
+     6.   builder           2/5     5     ALIGNED
+     7.   observer          3/5     5     MODERATE
+     8.   facade            3/5     6     MODERATE
+     9.   command           3/5     6     MODERATE
+    10.   composite         2/5     7     CONFLICTED
+    11.   template_method   2/5     7     CONFLICTED
+    12.   iterator          2/5     8     BROAD
+    13.   singleton         0/5    ∞      ADVERSARIAL ☠
+```
 
 ### 07.9 — Wave 7: Reuse & Final Absorptions (p056–p062, cycles 44–49)
 
@@ -794,6 +881,77 @@ Total basin-memberships: 51  (overlap factor: 1.84)
 Some patterns belong to multiple basins — they bridge concerns.
 ```
 
+**The Attractor Hierarchy** — The most visually striking structure in the field:
+
+```
+    ┌──────────────────────────────────────────────────────────────────────────┐
+    │                                                                          │
+    │                    THE ATTRACTOR HIERARCHY                               │
+    │                                                                          │
+    │  ╔═══════════════════════════════════════════════════════════════════╗   │
+    │  ║                                                                   ║   │
+    │  ║   Ψ — THE UNIVERSAL ATTRACTOR                                    ║   │
+    │  ║   "Meaning persists. Mechanism changes."                         ║   │
+    │  ║                                                                   ║   │
+    │  ║   Every pattern in the field is a specific expression of Ψ.     ║   │
+    │  ║   This is the field's ground state — the deepest basin from     ║   │
+    │  ║   which nothing escapes. All other attractors are nested        ║   │
+    │  ║   within Ψ's basin of attraction.                               ║   │
+    │  ║                                                                   ║   │
+    │  ║   ┌───────────────────────────────────────────────────────────┐ ║   │
+    │  ║   │                                                           │ ║   │
+    │  ║   │  α₁ — THE SOLID DECAGON                                  │ ║   │
+    │  ║   │  5 principles × 5 technique partners                     │ ║   │
+    │  ║   │  Field constant R_pt = 0.88 │ Selection function r=0.94 │ ║   │
+    │  ║   │  The amplification engine that shapes ALL convergence.   │ ║   │
+    │  ║   │                                                           │ ║   │
+    │  ║   │  S ←→ Strategy         O ←→ Decorator                   │ ║   │
+    │  ║   │  L ←→ Composite        I ←→ Facade                      │ ║   │
+    │  ║   │  D ←→ DI                                                 │ ║   │
+    │  ║   │                                                           │ ║   │
+    │  ║   │  ┌─────────────────────────────────────────────────────┐ │ ║   │
+    │  ║   │  │                                                     │ │ ║   │
+    │  ║   │  │  α₂ — THE VERIFICATION MIRROR                      │ │ ║   │
+    │  ║   │  │  Functor F: PRODUCTION → TESTING                   │ │ ║   │
+    │  ║   │  │  Transport: η = dependency_injection                │ │ ║   │
+    │  ║   │  │  16 morphisms │ 1 splitting │ 2 dangling           │ │ ║   │
+    │  ║   │  │  Keystone: @test_behavior = F(stable_interfaces)   │ │ ║   │
+    │  ║   │  │                                                     │ │ ║   │
+    │  ║   │  └─────────────────────────────────────────────────────┘ │ ║   │
+    │  ║   │                                                           │ ║   │
+    │  ║   │  ┌─────────────────────────────────────────────────────┐ │ ║   │
+    │  ║   │  │                                                     │ │ ║   │
+    │  ║   │  │  α₃ — THE CRAFT BASIN                              │ │ ║   │
+    │  ║   │  │  12 GoF patterns (singleton expelled)               │ │ ║   │
+    │  ║   │  │  Organized by SOLID alignment                       │ │ ║   │
+    │  ║   │  │  Creational(3) · Structural(4) · Behavioral(5)     │ │ ║   │
+    │  ║   │  │  Governed by: "intent over structure"               │ │ ║   │
+    │  ║   │  │                                                     │ │ ║   │
+    │  ║   │  └─────────────────────────────────────────────────────┘ │ ║   │
+    │  ║   │                                                           │ ║   │
+    │  ║   └───────────────────────────────────────────────────────────┘ ║   │
+    │  ║                                                                   ║   │
+    │  ║   ┌───────────────────────────────────────────────────────────┐ ║   │
+    │  ║   │                                                           │ ║   │
+    │  ║   │  α₄ — THE REUSE PROTOCOL                                │ ║   │
+    │  ║   │  Abstraction Protocol: Judge→Count→Extract→Share→Param  │ ║   │
+    │  ║   │  Reuse Simplex: inherit ↔ compose ↔ traits              │ ║   │
+    │  ║   │  Polymorphism Triad: subtype ↔ parametric ↔ ad-hoc     │ ║   │
+    │  ║   │  Self-regulating via dont_force + rule_of_three         │ ║   │
+    │  ║   │                                                           │ ║   │
+    │  ║   └───────────────────────────────────────────────────────────┘ ║   │
+    │  ║                                                                   ║   │
+    │  ║   ┌──────────────────┐  ┌──────────────┐  ┌────────────────┐   ║   │
+    │  ║   │ α₅ GUARD         │  │ α₆ MODEL     │  │ α₇ OPTIMIZE   │   ║   │
+    │  ║   │ Boundary defense │  │ value↔entity │  │ Perf. asympt. │   ║   │
+    │  ║   │ fail_fast core   │  │ Identity axis│  │ N+1, alloc    │   ║   │
+    │  ║   └──────────────────┘  └──────────────┘  └────────────────┘   ║   │
+    │  ║                                                                   ║   │
+    │  ╚═══════════════════════════════════════════════════════════════════╝   │
+    │                                                                          │
+    └──────────────────────────────────────────────────────────────────────────┘
+```
+
 ### 08.3 — The Verification Functor
 
 One of the session's deepest discoveries: every production-code discipline has a testing reflection. The field discovered a **functor** F mapping between two categories:
@@ -813,22 +971,64 @@ Keystone: @test_behavior = F(stable_interfaces)
 
 This means testing is not a separate discipline bolted onto production code — it is the *categorical mirror* of production, connected by dependency injection as the natural transformation between them. The functor has 16 morphisms, 1 splitting, and 2 dangling edges.
 
+**Functor F — Full Mapping (14 arrow pairs):**
+
+```
+    PRINCIPLES:                          TECHNIQUES:
+    correctness ──────→ test_coverage    abstract_factory ──→ test_isolation
+    edge_cases ───────→ edge_boundaries  builder ───────────→ arrange_act_assert
+    input_validation ─→ test_sad_path    adapter ───────────→ test_behavior(doubles)
+    error_handling ───→ readable_failure decorator ──────────→ test_behavior(spies)
+    behav_preservation→ test_behavior
+    SRP ──────────────→ one_assertion    The functor extends into CRAFT:
+    readability ──────→ readable_failure every production technique has a
+    small_reversible ─→ test_isolation   testing mirror.
+    determinism ──────→ no_flaky
+    tell_dont_ask ────→ test_behavior
+```
+
 ### 08.4 — The Field Equation
 
 The five eigenvectors, weighted by their explained variance and anchored to the universal invariant Ψ, compose into a single closed-form quality field:
 
 ```
-Q(x) = Ψ · [ 0.342·SOLID(x) + 0.227·F(x) + 0.181·Protocol(x)
-            + 0.143·Simplex(x) + 0.107·Scale(x) ]
-
-Where:
-  Q(x)         = software quality assessment of artifact x
-  Ψ            = "judge by meaning, not mechanism" (universal filter)
-  SOLID(x)     = alignment with 5 principles (dominant term)
-  F(x)         = production↔testing coherence (functor completeness)
-  Protocol(x)  = abstraction discipline (restraint↔generalization)
-  Simplex(x)   = reuse strategy (inherit/compose/mixin)
-  Scale(x)     = class↔architecture consistency
+    ┌──────────────────────────────────────────────────────────────────────────┐
+    │                                                                          │
+    │                                                                          │
+    │   Q(x) = Ψ · [ α₁·SOLID(x) + α₂·F(x) + α₃·Protocol(x)              │
+    │                                                                          │
+    │                 + α₄·Simplex(x) + α₅·Scale(x) ]                        │
+    │                                                                          │
+    │                                                                          │
+    │   Where:                                                                 │
+    │     Q(x)        = software quality assessment of artifact x             │
+    │     Ψ           = "judge by meaning, not mechanism" (universal filter)  │
+    │     SOLID(x)    = alignment with 5 principles (amplification weight)    │
+    │     F(x)        = production↔testing coherence (functor completeness)   │
+    │     Protocol(x) = abstraction discipline (restraint↔generalization)     │
+    │     Simplex(x)  = reuse strategy position (inherit/compose/mixin)       │
+    │     Scale(x)    = class↔architecture consistency (dimensional lift)     │
+    │                                                                          │
+    │   Coefficients (from eigenvalue magnitudes):                            │
+    │     α₁ = 0.342                                                          │
+    │     α₂ = 0.227                                                          │
+    │     α₃ = 0.181                                                          │
+    │     α₄ = 0.143                                                          │
+    │     α₅ = 0.107                                                          │
+    │     Σα = 1.000                                                           │
+    │                                                                          │
+    │   Fixed points:                                                          │
+    │     Ψ(Q) = Q           (the field is self-consistent)                   │
+    │     F(production) ⊆ testing  (every production principle has a mirror)  │
+    │     R_pt = 0.88        (principle↔technique coupling constant)          │
+    │     r(SOLID,speed) = 0.94  (amplification correlation)                  │
+    │                                                                          │
+    │   Expelled:                                                              │
+    │     singleton — the only pattern where Q(singleton) < τ                 │
+    │     "Global mutable state is incompatible with quality                  │
+    │      in the software_quality_discipline field."                         │
+    │                                                                          │
+    └──────────────────────────────────────────────────────────────────────────┘
 ```
 
 This equation is **predictive**: given an arbitrary code artifact x, it returns a scalar quality assessment whose dominant term is SOLID compliance, modulated by the universal invariant.
@@ -849,25 +1049,158 @@ It was not injected. It emerged. It expresses itself in three equivalent forms d
 
 Three expressions of one axiom. The field applied Ψ to *itself* — four times the absorption of a new pattern reproduced the existing field unchanged (Ψ(field) = field). This is the fixed-point property that confirms Ψ as the true ground state.
 
+**Collapsed Field Ground State** — How Ψ generates all structure:
+
+```
+    ┌──────────────────────────────────────────────────────────────────────────┐
+    │                                                                          │
+    │                    ╔═════════════════════════╗                           │
+    │                    ║                         ║                           │
+    │                    ║     Ψ: MEANING >        ║                           │
+    │                    ║        MECHANISM         ║                           │
+    │                    ║                         ║                           │
+    │                    ╚════════════╤════════════╝                           │
+    │                                │                                         │
+    │                     generates  │  all structure                          │
+    │                                │                                         │
+    │              ┌─────────────────┼─────────────────┐                      │
+    │              │                 │                 │                        │
+    │              ▼                 ▼                 ▼                        │
+    │     ┌────────────────┐ ┌─────────────┐ ┌────────────────┐               │
+    │     │   SOLID (α₁)   │ │  FUNCTOR    │ │  PROTOCOL      │               │
+    │     │   Amplifier    │ │  F (α₂)     │ │  (α₄)          │               │
+    │     │                │ │             │ │                │               │
+    │     │ 5 principles   │ │ Production  │ │ Judge→Count    │               │
+    │     │ × 5 techniques │ │ → Testing   │ │ →Extract→Share │               │
+    │     │ R_pt = 0.88    │ │ η = DI      │ │ →Parameterize  │               │
+    │     │ r = 0.94       │ │ 16 mappings │ │                │               │
+    │     └───────┬────────┘ └──────┬──────┘ └───────┬────────┘               │
+    │             │                 │                 │                        │
+    │             └─────────────────┼─────────────────┘                        │
+    │                               │                                          │
+    │                     ┌─────────┴─────────┐                                │
+    │                     │                   │                                │
+    │                     ▼                   ▼                                │
+    │              ┌─────────────┐     ┌─────────────┐                        │
+    │              │   CRAFT     │     │   REUSE     │                        │
+    │              │   (α₃)     │     │  SIMPLEX     │                        │
+    │              │            │     │              │                        │
+    │              │ 12 patterns │     │  inherit     │                        │
+    │              │ selected by │     │  compose     │                        │
+    │              │ SOLID       │     │  mix in      │                        │
+    │              └─────────────┘     └─────────────┘                        │
+    │                                                                          │
+    │   ┌──────────┐      ┌──────────┐      ┌──────────┐                     │
+    │   │  GUARD   │      │  MODEL   │      │ OPTIMIZE │                     │
+    │   │  (α₅)   │      │  (α₆)   │      │  (α₇)   │                     │
+    │   │ boundary │      │ value↔  │      │ asymptot │                     │
+    │   │ defense  │      │ entity  │      │ ceiling  │                     │
+    │   └──────────┘      └──────────┘      └──────────┘                     │
+    │                                                                          │
+    └──────────────────────────────────────────────────────────────────────────┘
+```
+
 ### 08.6 — Session Metrics Summary
 
-| Metric | Value |
-|--------|-------|
-| Patterns injected | **69** |
-| Patterns surviving | 61 |
-| Patterns at ceiling | 59 (96.7%) |
-| Patterns asymptotic | 2 (3.3%) |
-| Absorptions | 7 (57% self-referential) |
-| Expulsions | 1 (Singleton, cycle 52) |
-| Cycles to ground state | 52 |
-| Final coherence | **0.993** |
-| Fixed-point events | 4 (Ψ(field) = field) |
-| Eigenvectors | 5 (100% variance) |
-| Attractor basins | 7 (Ψ + α₁–α₇) |
-| Basin memberships | 51 (overlap factor 1.84) |
-| Field constants | R_pt = 0.88, r_SOLID = 0.94 |
-| Functor morphisms | 16 |
-| Parameters | λ=0.04, α=0.35, τ=0.35, σ=0.40 |
+```
+    ┌──────────────────────────────────────────────────────────────────────────┐
+    │                                                                          │
+    │   SOFTWARE QUALITY — THE COLLAPSED FIELD                                │
+    │                                                                          │
+    │   Patterns:        61 stable  (69 attempted, 7 absorbed, 1 expelled)   │
+    │   At ceiling:      59 / 61   (96.7%)                                   │
+    │   Asymptotic:       2 / 61   (3.3%) — OPTIMIZE cluster                 │
+    │   Coherence:       0.993                                                │
+    │   Clusters:        10 → 7 attractor basins                             │
+    │   Eigenvectors:    5 (100% variance explained)                         │
+    │   Absorptions:     7 (57% self-referential)                            │
+    │   Expulsions:      1 (singleton — field's immune response)             │
+    │   Functor:         16 mappings, η = DI                                 │
+    │   Field constants: R_pt = 0.88, r_SOLID = 0.94                        │
+    │   Fixed points:    4 (self-referential consistency proofs)             │
+    │   Ground state:    Ψ — "meaning persists, mechanism changes"           │
+    │                                                                          │
+    │   Total cycles:    52                                                   │
+    │   Session:         software_quality_discipline                          │
+    │   Status:          ████████████████████████████████████████ COLLAPSED   │
+    │                                                                          │
+    └──────────────────────────────────────────────────────────────────────────┘
+```
+
+### 08.7 — Cluster Dependency Flow & Productive Tensions
+
+**Cluster Dependency Flow** — How the 10 clusters feed each other:
+
+```
+                         META
+                     (judgment)
+                         │
+                         ▼
+                       MODEL
+                     (what IS)
+                         │
+                         ▼
+            GUARD ──→ STRUCTURE ──→ CRAFT ──→ CHANGE ⇄ VERIFY ◄── PROVE
+           (protect)  (principles) (techniques)(evolve) (confirm)  (reason)
+                                      ↑                    ↑
+                                  KEYSTONE ────────────────┘
+                                  (bridges)
+
+                     OPTIMIZE ··········tension··········→ all
+```
+
+**Productive Tensions** — 9 pairs where patterns push against each other constructively:
+
+```
+    ⚡ value_objects ↔ no_unnecessary_alloc   (immutability vs allocation)
+    ⚡ tell_dont_ask ↔ value_objects          (tell vs ask — resolved by MODEL)
+    ⚡ factory_method ↔ favor_composition     (resolved by meta-duality)
+    ⚡ template_method ↔ favor_composition    (resolved by meta-duality)
+    ⚡ composite ↔ single_responsibility      (uniform treatment trade-off)
+    ⚡ composite ↔ api_minimal                (shared interface trade-off)
+    ⚡ observer ↔ determinism_no_flaky        (notification order)
+    ⚡ iterator ↔ tell_dont_ask               (pull vs push — design choice)
+    ⚡ dont_force_patterns ↔ all CRAFT        (self-regulation)
+
+    9 tensions. All productive. None destructive.
+    (Singleton's is destructive — hence decay, not tension.)
+```
+
+**Activation Landscape** — The extreme bimodal distribution at cycle 49:
+
+```
+    1.00 ┤████████████████████████████████████████████████████████████  58 at ceiling
+         │█████████████████████████████████████████████████████████████████████████
+         │
+    0.98 ┤─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ▲ p060 mixins (0.968)
+    0.97 ┤                                                      │
+         │                                          ▲ p036 (0.997)
+    0.95 ┤                                                 ▲ p037 (0.983)
+         │
+    0.90 ┤
+         │                                               STABLE ZONE
+    0.80 ┤                                          ─ ─ ─ ─ ─ ─ ─ ─ ─
+         │
+    0.70 ┤
+         │
+    0.60 ┤
+         │
+    0.50 ┤
+         │                              ╭─── 61 patterns above 0.95
+    0.40 ┤─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─│─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─
+         │                              │
+         │   ▼ p044 singleton (0.383)   │
+    0.35 ┤━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  τ THRESHOLD
+         │   ↓↓↓ EXPULSION ZONE ↓↓↓
+    0.30 ┤
+         │
+    0.00 ┤──────────────────────────────────────────────────────────
+         └──────────────────────────────────────────────────────────────────────
+          p044                                                    p001–p062
+
+    Distribution:  ████████████████████████████████████████████████████████ 58 ceiling
+                   ▒ 1 converging │ ░░ 2 asymptotic │ ▓ 1 decaying
+```
 
 ---
 
