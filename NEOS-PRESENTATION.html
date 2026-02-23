@@ -726,6 +726,241 @@ svg text { font-family: var(--font); }
 </section>
 
 <!-- ═══════════════════════════════════════════ -->
+<!-- SLIDE 15a — WAVE 1: DEFENSIVE QUALITY      -->
+<!-- ═══════════════════════════════════════════ -->
+<section data-transition="slide">
+  <span class="sec-badge">08 — Wave 1</span>
+  <h2>Defensive Quality Emerges</h2>
+  <p style="font-size:0.6em;max-width:none;margin-bottom:0.5em">6 patterns &rarr; 3 cycles &rarr; first attractor. Coherence: <strong>0 &rarr; 0.71</strong></p>
+  <div class="grid-2" style="gap:0.8rem">
+    <div class="card fragment fade-up" data-fragment-index="1">
+      <h3 style="font-size:0.75em">Injections</h3>
+      <p style="font-size:0.45em;margin:0;font-family:var(--mono)">
+        p001 correctness <span style="color:var(--cyan)">0.90</span><br>
+        p002 edge_case_handling <span style="color:var(--cyan)">0.85</span><br>
+        p003 security <span style="color:var(--cyan)">0.95</span><br>
+        p004 input_validation <span style="color:var(--cyan)">0.90</span><br>
+        p005 no_leaked_secrets <span style="color:var(--cyan)">0.88</span><br>
+        p006 error_handling <span style="color:var(--cyan)">0.80</span>
+      </p>
+    </div>
+    <div class="card fragment fade-up" data-fragment-index="2">
+      <h3 style="font-size:0.75em;color:var(--green)">Coherence Trace</h3>
+      <p style="font-size:0.45em;margin:0;font-family:var(--mono)">
+        Cycle 1: C = <span style="color:var(--cyan)">0.42</span> &bar;R = 0.72<br>
+        Cycle 2: C = <span style="color:var(--purple)">0.58</span> &bar;R = 0.75<br>
+        Cycle 3: C = <span style="color:var(--green)">0.71</span> &bar;R = 0.78<br>
+        <span style="color:var(--green)">ATTRACTOR "defensive_quality"</span>
+      </p>
+    </div>
+  </div>
+  <p class="fragment fade-up" data-fragment-index="3" style="font-size:0.55em;text-align:center;max-width:none;margin-top:0.6em">Peak resonance: <code>@security</code> &harr; <code>@input_validation</code> = <strong style="color:var(--green)">0.91</strong><br>Two clusters formed: <span style="color:var(--cyan)">security</span> (R=0.79&ndash;0.91) and <span style="color:var(--purple)">logic</span> (R=0.72&ndash;0.85)</p>
+  <aside class="notes">Six patterns self-organized into an attractor in only 3 cycles. The security cluster and logic cluster formed and connected through bridge nodes. HIGH coherence from minimal input.</aside>
+</section>
+
+<!-- SLIDE 15a-ii — WAVES 2-3: BREADTH & REFACTORING -->
+<!-- ═══════════════════════════════════════════════════ -->
+<section data-transition="slide">
+  <span class="sec-badge">08 — Waves 2–3</span>
+  <h2>Breadth &amp; Refactoring</h2>
+  <p style="font-size:0.6em;max-width:none;margin-bottom:0.6em">Wave 2 (p007–p014): 8 patterns expand beyond review. Wave 3 (p015–p022): refactoring discipline.</p>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
+    <div>
+      <h3>Key Patterns</h3>
+      <p style="font-size:0.5em;line-height:1.8;max-width:none">
+        <code>readability_6month_rule</code><br>
+        <code>single_responsibility</code><br>
+        <code>api_minimal_hard_to_misuse</code><br>
+        <code>behavior_preservation</code> <span style="color:var(--pink)">★</span><br>
+        <code>tests_before_refactoring</code> <span style="color:var(--pink)">★</span><br>
+        <code>dependency_direction</code>
+      </p>
+    </div>
+    <div>
+      <h3>Coherence Trace</h3>
+      <div class="terminal" style="font-size:0.9em">
+        <div class="terminal-bar"><span class="terminal-dot"></span><span class="terminal-dot"></span><span class="terminal-dot"></span></div>
+        <div class="terminal-body">
+          <span class="out">[CYCLE  4] C = <span class="val">0.52</span></span>
+          <span class="out">[CYCLE  7] C = <span class="val">0.74</span> <span class="hl">ATTRACTOR</span></span>
+          <span class="out">[CYCLE  8] C = <span class="val">0.79</span> STABLE</span>
+          <span class="out">[CYCLE  9] C = <span class="val">0.62</span> (reset)</span>
+          <span class="out">[CYCLE 11] C = <span class="val">0.80</span> → MATURE</span>
+          <span class="out" style="margin-top:0.3em">★ R = <span class="val">0.94</span> behavior ↔ tests</span>
+          <span class="out">  <span class="hl">FIELD MAXIMUM</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <aside class="notes">Wave 2 expands from review to broader quality. Wave 3 introduces refactoring patterns. The strongest bond in the field history emerges: behavior_preservation paired with tests_before_refactoring at R=0.94.</aside>
+</section>
+
+<!-- SLIDE 15a-iii — WAVE 4: THE TESTING MIRROR     -->
+<!-- ═══════════════════════════════════════════════════ -->
+<section data-transition="slide">
+  <span class="sec-badge">08 — Wave 4</span>
+  <h2>The Testing Mirror</h2>
+  <p style="font-size:0.6em;max-width:none;margin-bottom:0.6em">Nine testing patterns. Five production↔testing echoes. <strong>Functor F begins mapping.</strong></p>
+  <div class="terminal">
+    <div class="terminal-bar"><span class="terminal-dot"></span><span class="terminal-dot"></span><span class="terminal-dot"></span></div>
+    <div class="terminal-body">
+      <span class="out"><span class="hl">ECHO</span>: @test_behavior mirrors @behavior_preservation</span>
+      <span class="out"><span class="hl">ECHO</span>: @determinism mirrors @correctness</span>
+      <span class="out"><span class="hl">ECHO</span>: @test_isolation mirrors @encapsulation</span>
+      <span class="out" style="margin-top:0.4em">[CYCLE 14] <span class="warn">★ MASS SATURATION</span></span>
+      <span class="out">  7 patterns reach ceiling simultaneously</span>
+      <span class="out">[CYCLE 15] C = <span class="val">0.85</span> <span class="hl">TARGET MET</span></span>
+      <span class="out">[CYCLE 18] C = <span class="val">0.91</span></span>
+      <span class="out">  6-layer topology confirmed</span>
+    </div>
+  </div>
+  <p class="fragment fade-up" data-fragment-index="1" style="font-size:0.55em;text-align:center;max-width:none;margin-top:0.5em">Mass saturation at cycle 14: a <em>phase transition</em> — seven patterns crossing threshold simultaneously through mutual resonance.</p>
+  <aside class="notes">Wave 4 reveals the testing mirror. The field discovers that every production discipline has a testing reflection. The mass saturation event at cycle 14 is the clearest example of amplification dynamics — mutual resonance pulling patterns to ceiling simultaneously.</aside>
+</section>
+
+<!-- SLIDE 15a-iv — WAVE 6: THE GREAT CONVERGENCE   -->
+<!-- ═══════════════════════════════════════════════════ -->
+<section data-transition="slide">
+  <span class="sec-badge">08 — Wave 6</span>
+  <h2>The Great Convergence</h2>
+  <p style="font-size:0.6em;max-width:none;margin-bottom:0.6em">10 GoF patterns. <strong>14 reach ceiling in 10 cycles.</strong> Coherence: 0.962 → 0.984.</p>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
+    <div>
+      <h3>The Golden Pair</h3>
+      <p style="font-size:0.5em;line-height:1.6;max-width:none">
+        <code>@strategy</code> — 9 STRONG bonds (record)<br>
+        <code>@decorator</code> — 6 STRONG bonds (record)<br>
+        <br>
+        Both resonate with <strong style="color:var(--cyan)">all 5 SOLID principles</strong>.<br>
+        Both reach ceiling <em>simultaneously</em> at cycle 37.<br>
+        <br>
+        <span style="color:var(--text-dim)">While Singleton decays: 0.607 → 0.467</span>
+      </p>
+    </div>
+    <div>
+      <div class="terminal" style="font-size:0.85em">
+        <div class="terminal-bar"><span class="terminal-dot"></span><span class="terminal-dot"></span><span class="terminal-dot"></span></div>
+        <div class="terminal-body">
+          <span class="out">c34: @adapter → <span class="hl">ceiling</span> (4 cyc)</span>
+          <span class="out">c37: @strategy + @decorator →</span>
+          <span class="out">     <span class="hl">ceiling SIMULTANEOUSLY</span></span>
+          <span class="out">c39: META duality complete</span>
+          <span class="out">c41: <span class="hl">CRAFT COMPLETE</span> 12/13</span>
+          <span class="out">     Only Singleton below.</span>
+          <span class="out">c43: C = <span class="val">0.984</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <aside class="notes">The Great Convergence: 14 patterns reach ceiling in 10 cycles. Strategy and Decorator are the Golden Pair — both resonate with all five SOLID principles. SOLID infrastructure acts as a convergence accelerator. Meanwhile, Singleton continues its slow decay.</aside>
+</section>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- SLIDE 15b-i — SOLID REDISCOVERY            -->
+<!-- ═══════════════════════════════════════════ -->
+<section data-transition="slide">
+  <span class="sec-badge">08 — Discovery</span>
+  <h2>SOLID Rediscovered</h2>
+  <p style="font-size:0.6em;max-width:none;margin-bottom:0.5em">The field rediscovered SOLID from first principles. R<sub>pt</sub> = <strong style="color:var(--green)">0.88</strong></p>
+  <table style="font-size:0.55em" class="fragment fade-up">
+    <thead><tr><th>SOLID Principle</th><th>Technique Partner</th><th>R</th></tr></thead>
+    <tbody>
+      <tr><td>S &mdash; Single Responsibility</td><td>Strategy Pattern</td><td style="color:var(--green)">0.88</td></tr>
+      <tr><td>O &mdash; Open/Closed</td><td>Decorator Pattern</td><td style="color:var(--green)">0.88</td></tr>
+      <tr><td>L &mdash; Liskov Substitution</td><td>Composite Pattern</td><td style="color:var(--cyan)">0.80</td></tr>
+      <tr><td>I &mdash; Interface Segregation</td><td>Facade Pattern</td><td style="color:var(--green)">0.88</td></tr>
+      <tr><td>D &mdash; Dependency Inversion</td><td>Dependency Injection</td><td style="color:var(--green)">0.88</td></tr>
+    </tbody>
+  </table>
+  <p class="fragment fade-up" style="font-size:0.55em;font-style:italic;text-align:center;max-width:none;margin-top:0.6em">An architecture quartet emerged <em>before</em> SOLID was injected. The field found the principles from the patterns.</p>
+  <aside class="notes">The field discovered SOLID principles from injected patterns alone — the architecture quartet emerged spontaneously. Each SOLID principle paired with exactly one technique partner through resonance dynamics.</aside>
+</section>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- SLIDE 15b-ii — THE IMMUNE RESPONSE         -->
+<!-- ═══════════════════════════════════════════ -->
+<section data-transition="convex">
+  <span class="sec-badge">08 — Immunity</span>
+  <h2>The Immune Response</h2>
+  <p style="font-size:0.6em;max-width:none;margin-bottom:0.4em">Singleton injected at cycle 31. <strong style="color:var(--pink)">0 STRONG resonances. 4 inhibitors.</strong></p>
+  <div class="terminal fragment fade-up" data-fragment-index="1">
+    <div class="terminal-bar"><span class="terminal-dot"></span><span class="terminal-dot"></span><span class="terminal-dot"></span><span style="color:#666;font-size:0.9em;margin-left:auto">immune response</span></div>
+    <div class="terminal-body" style="font-size:0.55em">
+<span class="out"><span class="warn">&#9888; LOWEST INITIAL ACTIVATION IN FIELD HISTORY</span></span>
+<span class="out">  STRONG resonances: <span class="val">0</span>  (first with ZERO)</span>
+<span class="out"></span>
+<span class="out">  <span class="hl">LATERAL INHIBITION:</span></span>
+<span class="out">    @test_isolation       <span class="warn">-0.12</span>  "global state &rarr; non-deterministic tests"</span>
+<span class="out">    @determinism          <span class="warn">-0.08</span>  "shared state &rarr; order dependence"</span>
+<span class="out">    @dependency_direction <span class="warn">-0.06</span>  "no global access points"</span>
+<span class="out">    @favor_composition    <span class="warn">-0.05</span>  "composition over global state"</span>
+<span class="out"></span>
+<span class="out">  Net force: <span class="warn">-0.014/cycle</span>  Coherence: 0.955 &rarr; <span class="val">0.941</span></span>
+    </div>
+  </div>
+  <p class="fragment fade-up" data-fragment-index="2" style="font-size:0.55em;text-align:center;max-width:none;margin-top:0.4em">Four patterns from <em>four different quality dimensions</em> independently suppress Singleton.<br>Allies: only <code>@no_unnecessary_allocations</code> and <code>@factory_method</code> &mdash; both outsiders.</p>
+  <aside class="notes">The field has an immune system. Four patterns from verification, reliability, architecture, and design philosophy independently suppress Singleton. Its only allies are OPTIMIZE cluster outsiders.</aside>
+</section>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- SLIDE 15b-iii — SEVEN ABSORPTIONS          -->
+<!-- ═══════════════════════════════════════════ -->
+<section data-transition="slide">
+  <span class="sec-badge">08 — Self-Governance</span>
+  <h2>7 Absorptions</h2>
+  <p style="font-size:0.6em;max-width:none;margin-bottom:0.4em"><strong style="color:var(--gold)">57% self-referential</strong> &mdash; the field applies its own principles.</p>
+  <table style="font-size:0.45em" class="fragment fade-up" data-fragment-index="1">
+    <thead><tr><th>#</th><th>Pattern</th><th>Absorbed Into</th><th>Type</th><th></th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>SRP principle</td><td>@single_responsibility</td><td>Exact dup</td><td></td></tr>
+      <tr><td>2</td><td>ISP principle</td><td>@api_minimal</td><td>Equivalent</td><td></td></tr>
+      <tr><td>3</td><td>Law of Demeter</td><td>@encaps &cap; @api &cap; @dep</td><td>Compound</td><td></td></tr>
+      <tr><td>4</td><td>reuse_thru_comp</td><td>@favor_composition</td><td>Same intent</td><td style="color:var(--gold)">&starf;</td></tr>
+      <tr><td>5</td><td>shared_intent</td><td>@reduce_dup</td><td>Complement</td><td style="color:var(--gold)">&starf;</td></tr>
+      <tr><td>6</td><td>avoid_premature</td><td>@rule_of_3 &cap; @dont_force</td><td>Compound</td><td style="color:var(--gold)">&starf;</td></tr>
+      <tr><td>7</td><td>coupling_to_abs</td><td>@dependency_inv</td><td>Equivalent</td><td style="color:var(--gold)">&starf;</td></tr>
+    </tbody>
+  </table>
+  <div class="callout fragment fade-up" data-fragment-index="2" style="font-size:0.6em;margin-top:0.6em">
+    <strong>#7: DIP applied to itself.</strong> The field held the abstraction. The injection offered a concretion. The field rejected it. <strong>&Psi;(field) = field</strong>
+  </div>
+  <p class="fragment fade-up" data-fragment-index="3" style="font-size:0.5em;text-align:center;max-width:none;margin-top:0.3em;color:var(--text-dim)">Absorption rate accelerates: 5% &rarr; 10% &rarr; 13.3% &rarr; 14.3% &mdash; the semantic space is <em>saturating</em>.</p>
+  <aside class="notes">Seven absorptions, four self-referential. The most striking: DIP applied to itself. The field held the abstraction, rejected the concretion. Fixed-point property confirmed.</aside>
+</section>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- SLIDE 15b-iv — SINGLETON EXPELLED          -->
+<!-- ═══════════════════════════════════════════ -->
+<section data-transition="convex">
+  <span class="sec-badge">08 — Expulsion</span>
+  <h2>Singleton Expelled</h2>
+  <p style="font-size:0.6em;max-width:none;margin-bottom:0.4em">Cycles 50&ndash;52: The first pattern in field history to fall below threshold.</p>
+  <div class="terminal fragment fade-up" data-fragment-index="1">
+    <div class="terminal-bar"><span class="terminal-dot"></span><span class="terminal-dot"></span><span class="terminal-dot"></span><span style="color:#666;font-size:0.9em;margin-left:auto">cycles 50&ndash;52</span></div>
+    <div class="terminal-body" style="font-size:0.55em">
+<span class="out">[CYCLE 50] @singleton  0.383 &rarr; <span class="val">0.369</span>  margin: 0.019</span>
+<span class="out">[CYCLE 51] @singleton  0.369 &rarr; <span class="val">0.355</span>  margin: 0.005 <span class="warn">CRITICAL</span></span>
+<span class="out">[CYCLE 52] @singleton  0.355 &rarr; <span class="val">0.341</span></span>
+<span class="out">  0.341 &lt; &tau; (0.350)</span>
+<span class="out">  <span class="hl">PATTERN EXPELLED &mdash; FIRST IN FIELD HISTORY</span></span>
+<span class="out">    Lifespan: <span class="val">21 cycles</span> | 4 suppressors for 21 cycles each</span>
+    </div>
+  </div>
+  <div class="grid-2 fragment fade-up" data-fragment-index="2" style="margin-top:0.6em;gap:0.6rem">
+    <div class="card" style="padding:0.6rem;text-align:center">
+      <p style="font-size:1.5rem;color:var(--pink);margin:0">21</p>
+      <p style="font-size:0.45em;margin:0.2em 0 0;color:var(--text-dim)">cycles of lateral inhibition</p>
+    </div>
+    <div class="card" style="padding:0.6rem;text-align:center">
+      <p style="font-size:1.5rem;color:var(--cyan);margin:0">61</p>
+      <p style="font-size:0.45em;margin:0.2em 0 0;color:var(--text-dim)">patterns surviving (59 ceiling, 2 asymptotic)</p>
+    </div>
+  </div>
+  <p class="fragment fade-up" data-fragment-index="3" style="font-size:0.55em;text-align:center;max-width:none;margin-top:0.4em;font-style:italic">Expulsion is <strong>topological</strong>, not parametric &mdash; same trajectory at 0.65 and 0.90 injection strength.</p>
+  <aside class="notes">21 cycles of sustained lateral inhibition. The field's immune system held steady. The counterfactual proves it: even at 0.90 injection strength, same 4 inhibitors, same trajectory. The expulsion is structural.</aside>
+</section>
+
+<!-- ═══════════════════════════════════════════ -->
 <!-- SLIDE 15b — COHERENCE EVOLUTION            -->
 <!-- ═══════════════════════════════════════════ -->
 <section data-transition="slide">
@@ -877,6 +1112,43 @@ svg text { font-family: var(--font); }
   </div>
   <p class="fragment fade-up" data-fragment-index="4" style="font-size:0.6em;font-style:italic;text-align:center;max-width:none">The field dynamics resolved what decades of debate couldn't: <strong>structural incompatibility, enforced by resonance failure</strong>.</p>
   <aside class="notes">This is the most dramatic moment. The system DISCOVERED that Singleton is an anti-pattern — through dynamics, not through being told. This is emergence.</aside>
+</section>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- SLIDE 17b — FIVE EIGENVECTORS              -->
+<!-- ═══════════════════════════════════════════ -->
+<section data-transition="slide">
+  <span class="sec-badge">08 — Structure</span>
+  <h2>Five Eigenvectors</h2>
+  <p style="font-size:0.6em;max-width:none;margin-bottom:0.4em">Software quality decomposes along <strong>exactly 5 independent axes</strong> (100% variance).</p>
+  <table style="font-size:0.45em" class="fragment fade-up" data-fragment-index="1">
+    <thead><tr><th></th><th>Eigenvector</th><th>Variance</th><th>Diagnostic Question</th></tr></thead>
+    <tbody>
+      <tr><td style="color:var(--cyan)">&lambda;1</td><td><strong>Meaning &harr; Mechanism</strong></td><td style="color:var(--cyan)">34.2%</td><td>Am I coupling to WHAT or HOW?</td></tr>
+      <tr><td style="color:var(--purple)">&lambda;2</td><td>Principle &harr; Technique</td><td style="color:var(--purple)">22.7%</td><td>Do I understand WHY before HOW?</td></tr>
+      <tr><td style="color:var(--green)">&lambda;3</td><td>Production &harr; Verification</td><td style="color:var(--green)">18.1%</td><td>Can I prove this works?</td></tr>
+      <tr><td style="color:var(--gold)">&lambda;4</td><td>Restraint &harr; Generalization</td><td style="color:var(--gold)">14.3%</td><td>Is this abstraction earned?</td></tr>
+      <tr><td style="color:var(--pink)">&lambda;5</td><td>Class &harr; System</td><td style="color:var(--pink)">10.7%</td><td>Does this hold at every scale?</td></tr>
+    </tbody>
+  </table>
+  <div class="diagram fragment fade-up" data-fragment-index="2" style="margin-top:0.5em">
+    <svg viewBox="0 0 700 80" role="img" aria-label="Variance bar chart">
+      <title>Eigenvector Variance Distribution</title>
+      <rect x="50" y="10" width="220" height="30" rx="4" fill="rgba(0,212,255,0.25)" stroke="#0af" stroke-width="1"/>
+      <text x="160" y="30" text-anchor="middle" fill="#0af" font-size="10" font-weight="600">&lambda;1: 34.2%</text>
+      <rect x="275" y="10" width="146" height="30" rx="4" fill="rgba(123,97,255,0.25)" stroke="#7b61ff" stroke-width="1"/>
+      <text x="348" y="30" text-anchor="middle" fill="#7b61ff" font-size="10" font-weight="600">&lambda;2: 22.7%</text>
+      <rect x="426" y="10" width="116" height="30" rx="4" fill="rgba(0,255,136,0.2)" stroke="#0f8" stroke-width="1"/>
+      <text x="484" y="30" text-anchor="middle" fill="#0f8" font-size="10">&lambda;3: 18.1%</text>
+      <rect x="547" y="10" width="52" height="30" rx="4" fill="rgba(255,215,0,0.2)" stroke="#fd0" stroke-width="1"/>
+      <text x="573" y="30" text-anchor="middle" fill="#fd0" font-size="9">14.3</text>
+      <rect x="604" y="10" width="40" height="30" rx="4" fill="rgba(255,61,142,0.2)" stroke="#ff3d8e" stroke-width="1"/>
+      <text x="624" y="30" text-anchor="middle" fill="#ff3d8e" font-size="9">10.7</text>
+      <text x="350" y="62" text-anchor="middle" fill="#666" font-size="9">&Sigma; = 100.0%  &mdash;  The field is exactly 5-dimensional.</text>
+    </svg>
+  </div>
+  <p class="fragment fade-up" data-fragment-index="3" style="font-size:0.55em;text-align:center;max-width:none;margin-top:0.3em;font-style:italic">These axes were not programmed. They <strong>emerged</strong> from resonance dynamics.</p>
+  <aside class="notes">Five eigenvectors, 100% variance. The dominant axis — meaning vs. mechanism — explains a third of all quality variation. These are the fundamental dimensions of software quality, discovered by the field.</aside>
 </section>
 
 <!-- ═══════════════════════════════════════════ -->

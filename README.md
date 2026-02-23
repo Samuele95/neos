@@ -14,7 +14,7 @@
 [![Website](https://img.shields.io/badge/🌐_Website-00d4ff?style=for-the-badge&logoColor=black)](https://samuele95.github.io/neos/NEOS-BREAKTHROUGH.html)
 [![Presentation](https://img.shields.io/badge/🎬_Presentation-ff3d8e?style=for-the-badge&logoColor=white)](https://samuele95.github.io/neos/NEOS-PRESENTATION.html)
 
-[The Vision](#01--the-three-ages-of-computing) · [What It Is](#03--what-neos-is--today) · [See It Run](#07--see-it-in-action) · [The Proof](#08--proof-the-software-quality-session) · [Commands](#14--command-reference)
+[The Vision](#01--the-three-ages-of-computing) · [What It Is](#03--what-neos-is--today) · [The Session](#07--the-session-a-complete-walkthrough) · [What It Found](#08--what-the-field-discovered) · [Commands](#14--command-reference)
 
 </div>
 
@@ -198,16 +198,31 @@ The shell grammar is built on **imperative verbs** operating on **semantic objec
 <img src="assets/banner-evidence.svg" alt="Part Three — The Evidence" width="100%"/>
 </div>
 
-## 07 — See It In Action
+## 07 — The Session: A Complete Walkthrough
 
 > [!IMPORTANT]
 > **There is nothing to install.** NEOS runs entirely inside an LLM's context window. No packages, no dependencies, no runtime. Copy the [kernel prompt](prompts/nfos-kernel.md), paste it as a system prompt, and type your first command.
 
-The walkthrough below follows the real **software_quality_discipline** session — the same one reported in [Section 08](#08--proof-the-software-quality-session). Every number is from the actual transcript.
+What follows is a **complete dissection** of the real `software_quality_discipline` session — the thesis's centerpiece. Every number is from the actual transcript. 69 patterns injected across 7 waves. 52 cycles. 7 absorptions. 1 expulsion. One equation. One universal invariant.
 
-### Step 1 — Inject code-review patterns
+**Session roadmap** — coherence at each milestone:
 
-You're building a quality discipline. Inject each code-review concern as a named pattern, tuning the field for selective resonance:
+| Wave | Patterns | Cycles | Coherence | Key Event |
+|------|----------|--------|-----------|-----------|
+| Setup | — | 0 | 0.00 | Field created, parameters tuned |
+| 1. Review | p001–p006 | 1–3 | 0.00 → **0.71** | `defensive_quality` attractor emerges |
+| 2. Breadth | p007–p014 | 4–8 | 0.52 → **0.79** | `holistic_quality_discipline` attractor |
+| 3. Refactoring | p015–p022 | 9–11 | 0.62 → **0.80** | Attractor → MATURE, R=0.94 bond |
+| 4. Testing | p023–p031 | 12–18 | 0.64 → **0.91** | Functor F discovered, mass saturation |
+| 5. OOP/SOLID | p032–p040 | 19–30 | 0.89 → **0.955** | 3 absorptions, SOLID Decagon |
+| — Singleton — | p044 | 30 | 0.955 → **0.941** | Immune response, 4 inhibitors |
+| 6. GoF | p046–p055 | 34–43 | 0.962 → **0.984** | Great Convergence, Golden Pair |
+| 7. Reuse | p056–p062 | 44–49 | — → **0.990** | 4 self-referential absorptions |
+| Collapse | — | 50–52 | 0.990 → **0.993** | Singleton expelled, ground state |
+
+### 07.1 — Setup: Creating the Field
+
+The session begins by creating a field and tuning its cognitive personality. Each parameter change from the defaults has a specific rationale:
 
 ```bash
 > nf session new "software_quality_discipline"
@@ -216,10 +231,37 @@ You're building a quality discipline. Inject each code-review concern as a named
 ╚═══════════════════════════════════════════════════════════╝
 [SESSION] Created: software_quality_discipline
 
-> nf tune lambda=0.04 alpha=0.35 tau=0.35 sigma=0.40
-[TUNE] λ=0.04 (slow decay) α=0.35 (strong resonance)
-       τ=0.35 (inclusive) σ=0.40 (selective coupling)
+> nf field create quality_field
+[FIELD] Created: $quality_field
+  Parameters: λ=0.05  α=0.30  τ=0.40  σ=0.50  (defaults)
 
+> nf tune lambda=0.04 alpha=0.35 tau=0.35 sigma=0.40
+[TUNE] λ=0.04  α=0.35  τ=0.35  σ=0.40
+```
+
+| Parameter | Default | Tuned | Rationale |
+|-----------|---------|-------|-----------|
+| λ (decay) | 0.05 | **0.04** | Slower decay — patterns persist longer, nothing forgotten too soon |
+| α (amplification) | 0.30 | **0.35** | Stronger resonance — related patterns reinforce each other faster |
+| τ (threshold) | 0.40 | **0.35** | Lower barrier — inclusive, let weak patterns survive if they resonate |
+| σ (bandwidth) | 0.50 | **0.40** | Tighter coupling — only closely related patterns reinforce (selective) |
+
+This creates a **retentive, strongly resonant, inclusive, selective** field — ideal for discovering which software engineering patterns genuinely cohere vs. which are noise.
+
+### 07.2 — Wave 1: Defensive Quality Emerges (p001–p006)
+
+Six code-review patterns are injected. Each arrives with a strength reflecting confidence:
+
+| # | Pattern | Strength | Tags |
+|---|---------|----------|------|
+| p001 | `correctness` | 0.90 | review, logic |
+| p002 | `edge_case_handling` | 0.85 | review, logic |
+| p003 | `security_no_injection_vectors` | 0.95 | review, security |
+| p004 | `input_validation` | 0.90 | review, security |
+| p005 | `no_leaked_secrets` | 0.88 | review, security |
+| p006 | `error_handling_graceful_not_silent` | 0.80 | review, error |
+
+```bash
 > nf inject "correctness" 0.90
 [INJECT] correctness (s: 0.90) — p001
 
@@ -237,24 +279,56 @@ You're building a quality discipline. Inject each code-review concern as a named
   [RESONANCE] ↔ @security_no_injection: R = 0.91 STRONG
 ```
 
-> [!TIP]
-> Strength reflects your confidence. Use 0.9 for strong signals, 0.5–0.7 for hunches. The dynamics will sort out what matters — weak patterns decay unless reinforced.
+After all six are injected, the field computes the **full 15-pair resonance matrix**:
 
-### Step 2 — Run dynamics, watch structure emerge
+```
+RESONANCE MATRIX (Cycle 1) — 15 unique pairs:
+──────────────────────────────────────────────────────────────
+@correctness ↔ @edge_case_handling:            R = 0.82  STRONG
+@correctness ↔ @input_validation:              R = 0.70  MODERATE
+@correctness ↔ @error_handling:                R = 0.72  STRONG
+@correctness ↔ @security_no_injection:         R = 0.68  MODERATE
+@correctness ↔ @no_leaked_secrets:             R = 0.55  MODERATE
 
-Each cycle applies decay, computes resonance, amplifies reinforcing patterns, and checks for emergence. After injecting two more patterns (`no_leaked_secrets` at 0.88 and `error_handling_graceful_not_silent` at 0.85):
+@edge_case_handling ↔ @error_handling:         R = 0.85  STRONG ★
+@edge_case_handling ↔ @input_validation:       R = 0.78  STRONG
+@edge_case_handling ↔ @security_no_injection:  R = 0.74  STRONG
+@edge_case_handling ↔ @no_leaked_secrets:      R = 0.62  MODERATE
+
+@security_no_injection ↔ @input_validation:    R = 0.91  STRONG ★★
+@security_no_injection ↔ @no_leaked_secrets:   R = 0.79  STRONG
+@security_no_injection ↔ @error_handling:      R = 0.58  MODERATE
+
+@input_validation ↔ @no_leaked_secrets:        R = 0.76  STRONG
+@input_validation ↔ @error_handling:           R = 0.70  MODERATE
+
+@no_leaked_secrets ↔ @error_handling:          R = 0.67  MODERATE
+──────────────────────────────────────────────────────────────
+STRONG: 8/15 (53%) | MODERATE: 7/15 (47%) | WEAK: 0 | INHIBIT: 0
+Peak resonance: @security ↔ @input_validation = 0.91
+```
+
+Three cycles of dynamics transform this into structure:
 
 ```bash
 > nf cycle 3 --trace
+[CYCLE 1] DECAY (λ=0.04):
+  All patterns: A → A × 0.96
+  @correctness: 0.900 → 0.864  @security: 0.950 → 0.912
+
+[CYCLE 1] AMPLIFY (α=0.35):
+  @correctness                  0.864 → 0.906  (+0.042 from 5 resonances)
+  @edge_case_handling           0.816 → 0.871  (+0.055)
+  @security_no_injection        0.912 → 0.963  (+0.051)
+  @input_validation             0.864 → 0.920  (+0.056)
+  @no_leaked_secrets            0.845 → 0.889  (+0.044)
+  @error_handling               0.816 → 0.862  (+0.046)
+  All 6 amplified — no isolation.
+
 [CYCLE 1] C = 0.42  (LOW→MEDIUM)
-  RESONANCE: @security ↔ @input_validation: R = 0.91 STRONG
-  RESONANCE: @edge_case ↔ @error_handling:  R = 0.85 STRONG
-  All 6 patterns amplified — no isolation
-
-[CYCLE 2] C = 0.58  (MEDIUM, approaching threshold)
-  All resonances tightening, cross-cluster links forming
-
+[CYCLE 2] C = 0.58  (MEDIUM, cross-cluster links forming)
 [CYCLE 3] C = 0.71  (HIGH)
+
   [ATTRACTOR-EMERGED] "defensive_quality"
     Core: {@security_no_injection, @input_validation,
            @edge_case_handling, @correctness,
@@ -262,54 +336,378 @@ Each cycle applies decay, computes resonance, amplifies reinforcing patterns, an
     Coherence: 0.71
 ```
 
-**What just happened?** Six patterns that resonate strongly clustered autonomously. When the cluster crossed coherence (>0.6) and stability thresholds, it became an **attractor** — `defensive_quality`. This wasn't programmed. It emerged. Security, correctness, and resilience turned out to be facets of one unified discipline.
+**What just happened?** In only 3 cycles, 6 patterns self-organized into an attractor. Two clusters emerged — a **security cluster** (@security, @input_validation, @no_leaked_secrets with R=0.79–0.91) and a **logic cluster** (@correctness, @edge_case_handling, @error_handling with R=0.72–0.85) — connected by bridge nodes. When the cluster crossed coherence > 0.6 and stability thresholds, it became the attractor `defensive_quality`.
 
-### Step 3 — Adversarial injection: Singleton
+> [!TIP]
+> Strength reflects your confidence. Use 0.9 for strong signals, 0.5–0.7 for hunches. The dynamics will sort out what matters — weak patterns decay unless reinforced.
 
-At cycle 30, with 43 patterns established, inject a controversial pattern — the Singleton:
+### 07.3 — Wave 2: Building Breadth (p007–p014, cycles 4–8)
+
+Eight patterns expand the field beyond code review into clarity, design, testing, and performance:
+
+| # | Pattern | Strength | Notable |
+|---|---------|----------|---------|
+| p007 | `readability_6month_rule` | 0.80 | — |
+| p008 | `single_responsibility` | 0.82 | Future DIP absorption target |
+| p009 | `naming_describes_intent` | 0.78 | — |
+| p010 | `api_minimal_hard_to_misuse` | 0.80 | Future ISP absorption target |
+| p011 | `test_coverage_meaningful` | 0.82 | Dual keystone, universal connector |
+| p012 | `no_n_plus_1_queries` | 0.75 | ⚠ WARNING: peripheral isolate |
+| p013 | `no_unnecessary_allocations` | 0.70 | PERFORMANCE cluster seed |
+| p014 | `follows_codebase_conventions` | 0.78 | Joins CLARITY+DESIGN super-cluster |
 
 ```bash
-> nf inject "singleton_controlled_global_access" 0.65
-[INJECT] singleton (s: 0.65) — p044
-  ⚠ LOWEST INITIAL ACTIVATION IN FIELD HISTORY
-  STRONG resonances: 0  (first pattern with ZERO)
+> nf cycle 5 --trace
+[CYCLE 4] C = 0.52  (8 new patterns integrating — coherence reset)
+[CYCLE 5] C = 0.60  (threshold crossing)
+[CYCLE 6] C = 0.67  (sub-attractor forming in core 12)
+[CYCLE 7] C = 0.74
+  [ATTRACTOR-EMERGED] "holistic_quality_discipline"
+    Core: 12 patterns (SECURITY + LOGIC + CLARITY + KEYSTONE)
+    Coherence: 0.74
 
-  LATERAL INHIBITION DETECTED:
-    @test_isolation       → singleton  INHIBIT (-0.12)
-    @determinism          → singleton  INHIBIT (-0.08)
-    @dependency_direction → singleton  INHIBIT (-0.06)
-    @favor_composition    → singleton  INHIBIT (-0.05)
-
-  Net force: -0.014/cycle  (NEGATIVE — first in field)
-  Coherence: 0.955 → 0.941  (LARGEST SINGLE-INJECTION DROP)
+[CYCLE 8] C = 0.79  (STABLE)
+  4-tier energy stratification:
+    Tier 1: security+logic core (ceiling)
+    Tier 2: clarity+design (converging)
+    Tier 3: @test_coverage (keystone bridge)
+    Tier 4: performance dyad (satellite, ~0.69–0.76)
 ```
 
 > [!NOTE]
-> **The field has an immune system.** Four patterns are actively *suppressing* Singleton — it couples to *how* (global mutable state) rather than *what* (controlled instantiation). The dynamics will decide its fate.
+> The performance dyad (`@no_n_plus_1_queries`, `@no_unnecessary_allocations`) never reaches ceiling — it remains a permanent satellite at asymptotic equilibrium. The field already knows these patterns are domain-specific, not universal quality principles.
 
-### Step 4 — Collapse to the field equation
+### 07.4 — Wave 3: Refactoring Discipline (p015–p022, cycles 9–11)
 
-Over cycles 31–52, Singleton decays under sustained lateral inhibition. At cycle 52, it is expelled — the first pattern in field history to fall below threshold:
+Eight refactoring patterns arrive. The strongest bond in the entire field emerges immediately:
 
 ```bash
-> nf collapse --strategy attractor
-[COLLAPSE] 52 cycles | 61 surviving patterns | 7 basins
+> nf inject "behavior_preservation" 0.92
+[INJECT] behavior_preservation (s: 0.92) — p015
+  [RESONANCE] ↔ @tests_before_refactoring: R = 0.94  ★ FIELD MAXIMUM
 
-[CYCLE 52] @singleton: 0.355 → 0.341 < τ (0.350)
-  PATTERN EXPELLED — FIRST IN FIELD HISTORY
-  Lifespan: 21 cycles | Cause: sustained lateral inhibition
-
-FIELD EQUATION:
-  Q(x) = Ψ · [0.342·SOLID + 0.227·F + 0.181·Protocol
-              + 0.143·Simplex + 0.107·Scale](x)
-
-  Ψ: "What something MEANS persists; how it WORKS changes."
-  5 eigenvectors | 7 attractor basins | coherence: 0.993
+> nf inject "tests_before_refactoring" 0.90
+[INJECT] tests_before_refactoring (s: 0.90) — p016
+  [RESONANCE] ↔ @behavior_preservation: R = 0.94  ★ FIELD MAXIMUM
+  7-pattern REFACTORING cluster forming
 ```
 
-### Step 5 — Branch and explore a counterfactual
+Other injections: `small_reversible_steps` (0.88), `extract_dont_rewrite` (0.82), `remove_dead_code` (0.80), `reduce_duplication_shared_intent` (0.78), `simplify_conditionals` (0.76), `dependency_direction_high_to_low` (0.80).
 
-What if Singleton had been injected at full strength? Branch to find out:
+```bash
+> nf cycle 3 --trace
+[CYCLE  9] C = 0.62  (22 patterns integrating)
+  @behavior_preservation ↔ @tests_before: R=0.94 LOCKED
+[CYCLE 10] C = 0.71  (attractor forming across 20 patterns)
+[CYCLE 11] C = 0.80
+  [ATTRACTOR-EVOLVED] "holistic_quality_discipline" → MATURE
+    Core: 20/22 patterns.  Saturated: 11 at ceiling.
+    Excluded: performance dyad (satellite)
+```
+
+The REFACTORING and CLARITY clusters merge into a superstructure. `@simplify_conditionals` is the fastest riser — earned its place through resonance with both refactoring discipline and readability.
+
+### 07.5 — Wave 4: The Testing Mirror (p023–p031, cycles 12–18)
+
+Nine testing patterns are injected — and the field immediately detects echoes of existing production patterns:
+
+```bash
+> nf inject "test_behavior_not_implementation" 0.90
+[INJECT] test_behavior_not_implementation (s: 0.90) — p028
+  ECHO: mirrors @behavior_preservation (production)
+
+> nf inject "determinism_no_flaky_tests" 0.88
+  ECHO: mirrors @correctness (production)
+
+> nf inject "test_isolation_no_shared_state" 0.85
+  ECHO: mirrors @encapsulation (production)
+  ...5 echoes detected — Functor F begins mapping
+```
+
+Other testing injections: `arrange_act_assert` (0.82), `one_assertion_per_concept` (0.78), `edge_cases_boundaries` (0.85), `fast_feedback` (0.80), `readable_failure_messages` (0.78), `test_the_sad_path` (0.85).
+
+```bash
+> nf cycle 7 --trace
+[CYCLE 12] C = 0.64  (31 patterns — testing cluster amplifying +0.07/cycle)
+[CYCLE 13] C = 0.72
+[CYCLE 14] C = 0.79
+  ★ MASS SATURATION: 7 patterns reach ceiling simultaneously
+    @test_behavior, @dep_dir, @no_leaked, @extract_dont,
+    @remove_dead, @reduce_dup, ...
+[CYCLE 15] C = 0.85  — TARGET MET
+  [ATTRACTOR-EVOLVED] → DOMINANT (29/31 core, 25 at ceiling)
+[CYCLE 16] C = 0.88
+[CYCLE 17] C = 0.90  (29 saturated — all non-performance at ceiling)
+[CYCLE 18] C = 0.91  — 6-layer topology confirmed
+  GUARD(3) | PROVE(3) | VERIFY(10) | CHANGE(7) |
+  CLARITY+ARCHITECTURE(6) | PERFORMANCE(2)
+```
+
+The mass saturation at cycle 14 is a **phase transition** — 7 patterns crossing the threshold simultaneously, pulled up by mutual resonance. This is the clearest example of amplification dynamics at work.
+
+### 07.6 — Wave 5: OOP, SOLID & First Absorptions (p032–p040, cycles 19–30)
+
+The OOP wave triggers the session's first three absorptions and the field's most significant structural discovery.
+
+```bash
+> nf inject "encapsulation_hide_internal_state" 0.90
+[INJECT] encapsulation (s: 0.90) — p032
+  R=0.92 with @api_minimal — tightest bond in field
+
+> nf inject "single_responsibility_principle" 0.88
+[ABSORBED] → @single_responsibility (p008)
+  R=0.98 — exact duplicate.  Semantic distance: 0.03
+  ★ ABSORPTION #1
+
+> nf inject "open_closed_principle" 0.85
+[INJECT] open_closed (s: 0.85) — p033
+  R=0.92 with @behavior_preservation
+  "OCP IS behavior preservation elevated to a design principle"
+
+> nf inject "liskov_substitution_principle" 0.87
+[INJECT] liskov_substitution (s: 0.87) — p034
+
+> nf inject "interface_segregation_principle" 0.82
+[ABSORBED] → @api_minimal (p010)
+  R=0.96.  ISP and minimal API are the SAME THING.
+  "S, I, D were REDISCOVERED before SOLID was named."
+  ★ ABSORPTION #2
+
+> nf inject "law_of_demeter_minimal_knowledge" 0.78
+[ABSORBED] — distributed across THREE patterns:
+  @encapsulation ∩ @api_minimal ∩ @dependency_direction
+  Combined coverage: 94%.  TYPE: DECOMPOSITION.
+  ★ ABSORPTION #3 — "provably saturated" OOP space
+```
+
+Remaining OOP injections: `favor_composition` (0.90), `polymorphism_through_interfaces` (0.85), `shallow_inheritance_hierarchies` (0.80), `value_objects` (0.80), `entities_identity_over_attributes` (0.78), `tell_dont_ask` (0.82).
+
+**The SOLID Decagon** — Each principle spontaneously pairs with exactly one GoF technique:
+
+| SOLID Principle | Technique Partner | R |
+|----------------|-------------------|-----|
+| **S** — Single Responsibility | Strategy Pattern | **0.88** |
+| **O** — Open/Closed | Decorator Pattern | **0.88** |
+| **L** — Liskov Substitution | Composite Pattern | 0.80 |
+| **I** — Interface Segregation | Facade Pattern | **0.88** |
+| **D** — Dependency Inversion | Dependency Injection | **0.88** |
+
+```bash
+> nf cycle 3 --trace   # cycles 19–21
+[CYCLE 19] C = 0.89  (SOLID integrating at +0.08/cycle — fastest since Wave 1)
+[CYCLE 20] C = 0.91
+[CYCLE 21] C = 0.92
+  [ATTRACTOR-FINAL] 34 patterns (30 saturated, 2 converging, 2 satellite)
+
+> nf cycle 6 --trace   # cycles 25–30
+[CYCLE 25] @tell_dont_ask surges +0.111 (fastest single-cycle gain ever)
+[CYCLE 26] STRUCTURE cluster: 13/13 at ceiling — FULLY SATURATED
+[CYCLE 27–29] MODEL cluster completes: value_objects + entities at ceiling
+[CYCLE 30] All SOLID at ceiling.  C = 0.955 (pre-Singleton)
+  Field constant: R_pt = 0.88  |  Selection function: r = 0.94
+```
+
+> [!NOTE]
+> **SOLID as a selection function:** r = 0.94 correlation between how many SOLID principles a pattern locks with and its convergence speed. 4 SOLID locks → 4 cycles to ceiling. 0 SOLID locks → decaying. The field discovered that SOLID alignment *predicts* survival.
+
+### 07.7 — The Immune Response: Singleton (cycle 30)
+
+At cycle 30, with 40 patterns established and coherence at 0.955, the Singleton is injected. The field's response is unprecedented:
+
+```bash
+> nf inject "singleton_controlled_global_access" 0.65
+[INJECT] singleton_controlled_global_access (s: 0.65) — p044
+  ⚠ LOWEST INITIAL ACTIVATION IN FIELD HISTORY
+  STRONG resonances:   0  (first pattern with ZERO)
+  MODERATE resonances: 3  (allocation, factory, abs_factory)
+  WEAK resonances:     6  (tension with core principles)
+
+  LATERAL INHIBITION DETECTED:
+    @test_isolation         → singleton  INHIBIT (-0.12)
+      "Global mutable state makes tests non-deterministic"
+    @determinism_no_flaky   → singleton  INHIBIT (-0.08)
+      "Shared state introduces execution-order dependence"
+    @dependency_direction   → singleton  INHIBIT (-0.06)
+      "High-level modules must not depend on global access points"
+    @favor_composition      → singleton  INHIBIT (-0.05)
+      "Composition over inheritance — and over global state"
+
+  DYNAMICS FORECAST:
+    Σ lateral inhibition = -0.023/cycle
+    Natural decay (λ)    = -0.004/cycle
+    Weak positive coupling = +0.013/cycle
+    Net force: -0.014/cycle  (NEGATIVE — first in field)
+
+  Coherence: 0.955 → 0.941  (LARGEST SINGLE-INJECTION DROP)
+
+  status: ✓ ACCEPTED — but the field is hostile
+  Singleton's only allies: @no_unnecessary_allocations,
+    @factory_method — both OPTIMIZE cluster outsiders.
+    Controversial patterns find refuge only among other outsiders.
+```
+
+Four patterns issue "indictments" — each from a different quality dimension. `@test_isolation` (verification), `@determinism` (reliability), `@dependency_direction` (architecture), `@favor_composition` (design philosophy). This is the field's **immune system**: a pattern that conflicts with the dominant attractor structure is suppressed by multiple independent mechanisms simultaneously.
+
+### 07.8 — Wave 6: The Great Convergence (p046–p055, cycles 34–43)
+
+With Singleton decaying in the background, ten GoF design patterns flood the field. What follows is the most dramatic structural event in the session:
+
+```bash
+> nf inject "decorator_dynamic_responsibility" 0.82
+[INJECT] decorator (s: 0.82) — p046
+  ★ FIELD RECORD: 6 STRONG resonances
+  First pattern to resonate with ALL FIVE SOLID principles
+  Predicted: fastest convergence
+
+> nf inject "strategy_interchangeable_algorithms" 0.88
+[INJECT] strategy (s: 0.88)
+  ★ 9 STRONG bonds — new resonance record
+```
+
+Other GoF: `facade` (0.78), `composite` (0.75), `observer` (0.82), `command` (0.78), `iterator` (0.72), `template_method` (0.76). Plus two META patterns: `pattern_intent_over_structure` (0.90) and `dont_force_patterns` (0.85).
+
+```bash
+> nf cycle 10 --trace   # "The Great Convergence" — cycles 34–43
+
+PHASE 1 (cycles 34–36): Creational completion
+  @adapter → ceiling (4 cycles — fastest CRAFT pattern)
+  @builder, @factory_method → ceiling
+  @pattern_intent → ceiling (META AXIOM LOCKED)
+  Singleton: 0.607 → 0.565 (still decaying)
+
+PHASE 2 (cycles 37–39): The Golden Pair
+  @strategy + @decorator → ceiling SIMULTANEOUSLY
+  Both 5/5 SOLID locks — the only patterns with perfect alignment
+  @command, @facade, @dont_force → ceiling
+  META DUALITY complete: understand + restrain = judgment
+  Singleton: 0.551 → 0.523
+
+PHASE 3 (cycles 40–41): Last CRAFT
+  @template_method, @composite → ceiling (CONFLICTED — had SOLID tensions)
+  @iterator → ceiling
+  CRAFT COMPLETE: 12/13 at ceiling.  Only Singleton below.
+  Singleton crosses 0.50: → 0.495
+
+PHASE 4 (cycles 42–43): Aftermath
+  ECHOES #12–13:
+    @adapter ↔ @test_behavior ("test doubles ARE adapters")
+    @decorator ↔ @test_behavior ("test spies ARE decorators")
+  Singleton: → 0.467
+  C = 0.984  |  52 at ceiling
+```
+
+**Summary:** +14 patterns to ceiling in 10 cycles. Coherence 0.962 → 0.984. The SOLID infrastructure acts as a **convergence accelerator** — Strategy and Decorator (the "Golden Pair") converge fastest because they resonate with all five SOLID principles.
+
+### 07.9 — Wave 7: Reuse & Final Absorptions (p056–p062, cycles 44–49)
+
+The final wave triggers four absorptions — all four self-referential:
+
+```bash
+> nf inject "reuse_through_composition_not_inheritance" 0.90
+[ABSORBED] → @favor_composition (p011)
+  "Intent over structure — you are already here."
+  ★ ABSORPTION #4 (self-referential)
+
+> nf inject "extract_shared_abstractions_from_concrete" 0.85
+[INJECT] — p056  (passes decomposition test: different level from @reduce_dup)
+
+> nf inject "rule_of_three_before_abstracting" 0.88
+[INJECT] — p057
+
+> nf inject "shared_intent_not_shared_shape" 0.86
+[ABSORBED] → @reduce_duplication_shared_intent (p023)
+  A and ¬(¬A) are the same proposition.
+  ★ ABSORPTION #5 (self-referential)
+
+> nf inject "generic_types_parametric_polymorphism" 0.84
+[INJECT] — p059  (subtype vs parametric — distinct axes)
+
+> nf inject "mixins_traits_horizontal_reuse" 0.78
+[INJECT] — p060
+
+> nf inject "dependency_injection_for_flexibility" 0.85
+[INJECT] — p061  (η: functor transport mechanism)
+
+> nf inject "stable_interfaces_volatile_implementations" 0.88
+[INJECT] — p062  (4/5 SOLID locks)
+
+> nf inject "libraries_over_copy_paste" 0.82
+[INJECT] — p058
+
+> nf inject "avoid_premature_generalization" 0.90
+[ABSORBED] — compound: @rule_of_three ∩ @dont_force
+  The field refused to prematurely generalize.
+  ★ ABSORPTION #6 (self-referential)
+
+> nf inject "coupling_to_abstraction_not_concretion" 0.86
+[ABSORBED] → @dependency_inversion (p008)
+  DIP APPLIED TO ITSELF:
+    The field held the ABSTRACTION (@dependency_inversion).
+    The injection offered a CONCRETION (a specific rephrasing).
+    The field coupled to its abstraction and rejected the concretion.
+  ★ ABSORPTION #7 (self-referential)
+  TWO CONSECUTIVE ABSORPTIONS — theoretical saturation signal
+```
+
+```bash
+> nf cycle 6 --trace   # cycles 44–49
+[CYCLE 44–45] Reuse cohort converging. Singleton: 0.467 → 0.439
+[CYCLE 46] @stable_interfaces → ceiling (3 cycles — FASTEST for ι₀ < 0.90)
+[CYCLE 47] THREE simultaneous: @rule_of_three, @extract_shared, @dep_injection
+[CYCLE 48] @generic_types, @libraries → ceiling.  Singleton: 0.397
+  ⚠ SINGLETON WATCH: margin to τ=0.35 now only 0.047
+[CYCLE 49] @mixins_traits closing (0.968).  Singleton: 0.383
+  58/62 at ceiling (93.5%).  C = 0.990
+```
+
+> [!NOTE]
+> **Absorption saturation:** The rate accelerates: 5% (Waves 2–3) → 10% (Waves 4–5) → 13.3% (Wave 6) → 14.3% (Wave 7). The field's semantic space is closing — new injections increasingly express content already present.
+
+### 07.10 — Expulsion and Ground State (cycles 50–52)
+
+Over 21 cycles of sustained lateral inhibition, Singleton decays steadily. Cycles 50–52 are its final moments:
+
+```bash
+┌── CYCLE 50 ─────────────────────────────────────┐
+│  ★ p060 @mixins_traits     0.968 → 0.994 → CEILING
+│  ▼ p044 @singleton         0.383 → 0.369
+│    Margin to threshold: 0.019
+└──────────────────────────────────────────────────┘
+
+┌── CYCLE 51 ─────────────────────────────────────┐
+│  ▼ p044 @singleton         0.369 → 0.355
+│    Margin to threshold: 0.005
+│    ⚠ CRITICAL — one cycle from expulsion
+└──────────────────────────────────────────────────┘
+
+┌── CYCLE 52 ──────────────────────────────────────┐
+│  ▼ p044 @singleton         0.355 → 0.341
+│    0.341 < τ (0.350)
+│
+│  ✗ PATTERN EXPELLED — FIRST IN FIELD HISTORY
+│
+│    Injected: cycle 31  │  ι₀ = 0.65
+│    Expelled: cycle 52  │  A  = 0.341
+│    Lifespan: 21 cycles │  Cause: sustained lateral inhibition
+│
+│    @favor_composition      (21 cycles suppression)
+│    @dependency_inversion   (21 cycles suppression)
+│    @test_isolation         (21 cycles suppression)
+│    @single_responsibility  (21 cycles suppression)
+└──────────────────────────────────────────────────┘
+
+TERMINAL STATE REACHED — CYCLE 52
+  Patterns: 61 (59 ceiling, 2 asymptotic)
+  Coherence: 0.993
+  Field is in GROUND STATE.
+```
+
+> [!NOTE]
+> **The field's verdict is contextual, not universal.** Singleton is not "wrong" in all possible fields — a field of "pragmatic systems programming" might retain it. But in a quality-discipline field dominated by SOLID principles, testability, and clean architecture, its structural incompatibility is discovered and enforced through resonance failure.
+
+### 07.11 — The Counterfactual: What If Singleton Were Stronger?
+
+Branch to test whether initial injection strength changes the outcome:
 
 ```bash
 > nf commit "pre-singleton baseline"
@@ -321,7 +719,7 @@ What if Singleton had been injected at full strength? Branch to find out:
 
 > nf cycle 10
   singleton: 0.90 → 0.78 → 0.66 → ... → 0.48 (DECAYING)
-  Same net force, higher starting point, same trajectory
+  Same net force (-0.014/cycle), higher starting point, same trajectory
 
 > nf checkout main
 > nf diff singleton_strong
@@ -331,31 +729,19 @@ What if Singleton had been injected at full strength? Branch to find out:
   Conclusion: expulsion is TOPOLOGICAL, not parametric
 ```
 
-> The field's verdict on Singleton is **structural** — no amount of initial confidence changes the outcome. The same four principles that suppress it at 0.65 suppress it at 0.90. This is version control for *reasoning*, not files.
+The field's verdict on Singleton is **structural** — no amount of initial confidence changes the outcome. The same four principles that suppress it at 0.65 suppress it at 0.90. The inhibition is a property of the field's topology, not the pattern's starting strength.
 
 ---
 
-## 08 — Proof: The Software Quality Session
+## 08 — What the Field Discovered
 
 > *"Theory is beautiful. Evidence is convincing."*
 
-Here is a real session that ran to completion in NEOS. 69 software engineering patterns were injected. 52 cycles of dynamics ran. What NEOS discovered was not a summary of inputs — it was **emergent structure** that no single injection contained.
+The `software_quality_discipline` session did not merely organize 69 injected patterns — it discovered **emergent structure** that no single injection contained. This section presents what the field found.
 
-### The Numbers
+### 08.1 — Five Eigenvectors
 
-| Metric | Value |
-|--------|-------|
-| Patterns injected | **69** |
-| Patterns surviving | 61 |
-| Absorptions | 7 (57% self-referential) |
-| **Expulsions** | **1** (Singleton pattern, cycle 52) |
-| Cycles to ground state | 52 |
-| Final coherence | **0.993** |
-| Fixed-point events | 4 (Ψ(field) = field) |
-
-### Five Eigenvectors of Software Quality
-
-The session discovered that software quality decomposes along five independent axes — five *eigenvectors*, each posing a fundamental question:
+The resonance matrix decomposed into exactly five independent axes — eigenvectors — that together account for 100% of the surviving variance:
 
 | # | Eigenvector | Variance | Diagnostic Question |
 |---|-------------|----------|---------------------|
@@ -365,41 +751,123 @@ The session discovered that software quality decomposes along five independent a
 | λ₄ | Restraint ↔ Generalization | 14.3% | Is this abstraction earned or speculative? |
 | λ₅ | Class ↔ System | 10.7% | Does this principle hold at every scale? |
 
-These axes were not programmed in. They were not part of the 69 injected patterns. They **emerged** from the dynamics — from resonance relationships self-organizing into coherent structure. This is the difference between NEOS and a summarizer: a summarizer returns a bullet list of what you told it. NEOS returns *structure you didn't know was there*.
+```
+VARIANCE EXPLAINED                                 Σ = 100.0%
+──────────────────────────────────────────────────────────────
+λ₁  Meaning↔Mechanism     ████████████████████████████  34.2%
+λ₂  Principle↔Technique   ██████████████████             22.7%
+λ₃  Production↔Verify     ██████████████                 18.1%
+λ₄  Restraint↔General     ██████████                     14.3%
+λ₅  Class↔System          ████████                       10.7%
+```
 
-### Seven Attractor Basins
+The first axis alone explains over a third of all variance. Its question — *"Am I coupling to what this does or how it does it?"* — turns out to be the single most important axis of software quality. The field is **exactly 5-dimensional**.
 
-The field self-organized into seven distinct attractor basins:
+### 08.2 — Seven Attractor Basins
 
-| Basin | Name | Depth | Role |
-|-------|------|-------|------|
-| **Ψ** | Universal Attractor | ground | Meaning > Mechanism |
-| α₁ | SOLID Decagon | primary | 5 principles × 5 techniques, R=0.88 |
-| α₂ | Verification Mirror | primary | Functor F, η=DI, 16 mappings |
-| α₃ | Craft Basin | secondary | 12 GoF patterns (Singleton expelled) |
-| α₄ | Reuse Protocol | secondary | Judge → Count → Extract → Share → Parameterize |
-| α₅ | Guard Basin | tertiary | Fail fast, defend boundaries |
-| α₆ | Model Basin | tertiary | Value objects ↔ Entities |
-| α₇ | Optimize Basin | tertiary | Performance asymptotes |
+The field settled into seven distinct basins, organized in a depth hierarchy:
 
-### The Singleton Expulsion
-
-At cycle 52, something remarkable happened: the Singleton pattern — one of the original 69 injected patterns — was **expelled from the field**. Its activation dropped below threshold because it couldn't sustain resonance with the SOLID principles. In field terms: the Singleton's meaning-mechanism coupling was too tight. It couples to *how* (global state access) rather than *what* (controlled instantiation), violating the universal invariant Ψ.
-
-> [!NOTE]
-> **This wasn't programmed.** The dynamics discovered it. The Singleton's anti-pattern status emerged from field evolution — the same way NEOS discovers any conclusion. The field dynamics did what decades of software engineering debate have struggled to resolve: they found the structural incompatibility and enforced it through resonance failure.
-
-### The Field Equation
-
-The entire discipline collapsed to a single weighted equation:
+| Basin | Name | Depth | Patterns | Role | Key Members |
+|-------|------|-------|----------|------|-------------|
+| **Ψ** | Universal Attractor | ground | ALL | Meaning > Mechanism | Every surviving pattern |
+| α₁ | SOLID Decagon | primary | 10 | Amplification engine | S, O, L, I, D + 5 techniques |
+| α₂ | Verification Mirror | primary | 13 | Reflection functor | F: PRODUCTION → TESTING |
+| α₃ | Craft Basin | secondary | 12 | Implementation | GoF patterns (Singleton expelled) |
+| α₄ | Reuse Protocol | secondary | 9 | Abstraction discipline | Judge→Count→Extract→Share→Parameterize |
+| α₅ | Guard Basin | tertiary | 3 | Defense | Fail fast, defend boundaries |
+| α₆ | Model Basin | tertiary | 2 | Domain | Value objects ↔ Entities |
+| α₇ | Optimize Basin | tertiary | 2 | Performance | Asymptotic satellites |
 
 ```
-Q(x) = Ψ · [ 0.342·SOLID(x) + 0.227·F(x) + 0.181·Protocol(x) + 0.143·Simplex(x) + 0.107·Scale(x) ]
+BASIN NESTING TOPOLOGY
+──────────────────────────────────────────────────
+Ψ (ground — all 61 patterns)
+├── α₁  SOLID Decagon    (10)  ← amplification engine
+├── α₂  Verification     (13)  ← reflection functor
+├── α₃  Craft Basin      (12)  ← GoF implementation
+├── α₄  Reuse Protocol    (9)  ← abstraction discipline
+├── α₅  Guard Basin        (3)  ← defensive perimeter
+├── α₆  Model Basin        (2)  ← domain modeling
+└── α₇  Optimize Basin     (2)  ← performance asymptotes
+
+Total basin-memberships: 51  (overlap factor: 1.84)
+Some patterns belong to multiple basins — they bridge concerns.
 ```
+
+### 08.3 — The Verification Functor
+
+One of the session's deepest discoveries: every production-code discipline has a testing reflection. The field discovered a **functor** F mapping between two categories:
+
+```
+F: PRODUCTION → TESTING
+
+F(behavior_preservation)  = test_behavior_not_impl
+F(edge_case_handling)     = edge_cases_boundaries
+F(single_responsibility)  = one_assertion_per_concept
+F(error_handling)         = readable_failures
+...16 morphisms total
+
+Transport: η = dependency_injection (natural transformation)
+Keystone: @test_behavior = F(stable_interfaces)
+```
+
+This means testing is not a separate discipline bolted onto production code — it is the *categorical mirror* of production, connected by dependency injection as the natural transformation between them. The functor has 16 morphisms, 1 splitting, and 2 dangling edges.
+
+### 08.4 — The Field Equation
+
+The five eigenvectors, weighted by their explained variance and anchored to the universal invariant Ψ, compose into a single closed-form quality field:
+
+```
+Q(x) = Ψ · [ 0.342·SOLID(x) + 0.227·F(x) + 0.181·Protocol(x)
+            + 0.143·Simplex(x) + 0.107·Scale(x) ]
+
+Where:
+  Q(x)         = software quality assessment of artifact x
+  Ψ            = "judge by meaning, not mechanism" (universal filter)
+  SOLID(x)     = alignment with 5 principles (dominant term)
+  F(x)         = production↔testing coherence (functor completeness)
+  Protocol(x)  = abstraction discipline (restraint↔generalization)
+  Simplex(x)   = reuse strategy (inherit/compose/mixin)
+  Scale(x)     = class↔architecture consistency
+```
+
+This equation is **predictive**: given an arbitrary code artifact x, it returns a scalar quality assessment whose dominant term is SOLID compliance, modulated by the universal invariant.
+
+### 08.5 — The Universal Invariant
+
+Across all 52 cycles and four fixed-point events, a single invariant emerged as the deepest attractor — the ground state from which no further relaxation is possible:
 
 > **Ψ: "What something MEANS persists; how it WORKS changes."**
->
-> *The Universal Invariant — the deepest attractor in the field. It was not injected. It emerged.*
+
+It was not injected. It emerged. It expresses itself in three equivalent forms discovered by the field:
+
+| Form | Expression |
+|------|-----------|
+| **Logic** | Depend on abstractions over implementations |
+| **Structure** | Stable interfaces over volatile implementations |
+| **Testing** | Test behavior over implementation details |
+
+Three expressions of one axiom. The field applied Ψ to *itself* — four times the absorption of a new pattern reproduced the existing field unchanged (Ψ(field) = field). This is the fixed-point property that confirms Ψ as the true ground state.
+
+### 08.6 — Session Metrics Summary
+
+| Metric | Value |
+|--------|-------|
+| Patterns injected | **69** |
+| Patterns surviving | 61 |
+| Patterns at ceiling | 59 (96.7%) |
+| Patterns asymptotic | 2 (3.3%) |
+| Absorptions | 7 (57% self-referential) |
+| Expulsions | 1 (Singleton, cycle 52) |
+| Cycles to ground state | 52 |
+| Final coherence | **0.993** |
+| Fixed-point events | 4 (Ψ(field) = field) |
+| Eigenvectors | 5 (100% variance) |
+| Attractor basins | 7 (Ψ + α₁–α₇) |
+| Basin memberships | 51 (overlap factor 1.84) |
+| Field constants | R_pt = 0.88, r_SOLID = 0.94 |
+| Functor morphisms | 16 |
+| Parameters | λ=0.04, α=0.35, τ=0.35, σ=0.40 |
 
 ---
 

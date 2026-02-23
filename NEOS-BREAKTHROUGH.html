@@ -996,7 +996,92 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <span class="sec-num reveal">08 &mdash; Show, Don&rsquo;t Tell</span>
     <h2 class="reveal">Proof: The Software Quality Session</h2>
 
-    <p class="reveal">Theory is beautiful. Evidence is convincing. Here is a real session that ran to completion in NEOS &mdash; the <strong>software quality discipline</strong> session. 69 patterns injected. 52 cycles to convergence. Final coherence: <strong>0.993</strong>. What NEOS discovered was not a summary of inputs &mdash; it was <em>emergent structure</em> that no single injection contained.</p>
+    <p class="reveal">Theory is beautiful. Evidence is convincing. What follows is the <strong>complete dissection</strong> of a real session that ran to completion in NEOS &mdash; the <strong>software quality discipline</strong> session. 69 patterns injected. <strong>61 surviving</strong> (7 absorbed, 1 expelled). 52 cycles to convergence. Final coherence: <strong>0.993</strong>. What NEOS discovered was not a summary of inputs &mdash; it was <em>emergent structure</em> that no single injection contained.</p>
+
+    <h3 class="reveal">Session Roadmap</h3>
+    <table class="reveal" style="width:100%;border-collapse:collapse;margin:1.5rem 0">
+    <thead><tr style="border-bottom:2px solid var(--accent-dim)">
+    <th style="text-align:left;padding:0.4rem 0.8rem">Wave</th>
+    <th style="text-align:left;padding:0.4rem 0.8rem">Patterns</th>
+    <th style="text-align:left;padding:0.4rem 0.8rem">Cycles</th>
+    <th style="text-align:right;padding:0.4rem 0.8rem">C</th>
+    <th style="text-align:left;padding:0.4rem 0.8rem">Key Event</th>
+    </tr></thead>
+    <tbody>
+    <tr><td style="padding:0.3rem 0.8rem">1. Review</td><td>p001&ndash;p006</td><td>1&ndash;3</td><td style="text-align:right"><strong>0.71</strong></td><td><code>defensive_quality</code> attractor</td></tr>
+    <tr><td style="padding:0.3rem 0.8rem">2. Breadth</td><td>p007&ndash;p014</td><td>4&ndash;8</td><td style="text-align:right"><strong>0.79</strong></td><td><code>holistic_quality</code> attractor</td></tr>
+    <tr><td style="padding:0.3rem 0.8rem">3. Refactoring</td><td>p015&ndash;p022</td><td>9&ndash;11</td><td style="text-align:right"><strong>0.80</strong></td><td>Attractor &rarr; MATURE; R=0.94 bond</td></tr>
+    <tr><td style="padding:0.3rem 0.8rem">4. Testing</td><td>p023&ndash;p031</td><td>12&ndash;18</td><td style="text-align:right"><strong>0.91</strong></td><td>Functor F discovered; mass saturation</td></tr>
+    <tr><td style="padding:0.3rem 0.8rem">5. OOP/SOLID</td><td>p032&ndash;p040</td><td>19&ndash;30</td><td style="text-align:right"><strong>0.955</strong></td><td>3 absorptions; SOLID Decagon</td></tr>
+    <tr style="color:var(--accent-warm)"><td style="padding:0.3rem 0.8rem">&mdash; Singleton &mdash;</td><td>p044</td><td>30</td><td style="text-align:right"><strong>0.941</strong></td><td>Immune response; 4 inhibitors</td></tr>
+    <tr><td style="padding:0.3rem 0.8rem">6. GoF</td><td>p046&ndash;p055</td><td>34&ndash;43</td><td style="text-align:right"><strong>0.984</strong></td><td>Great Convergence; Golden Pair</td></tr>
+    <tr><td style="padding:0.3rem 0.8rem">7. Reuse</td><td>p056&ndash;p062</td><td>44&ndash;49</td><td style="text-align:right"><strong>0.990</strong></td><td>4 self-referential absorptions</td></tr>
+    <tr style="border-top:1px solid var(--accent-dim)"><td style="padding:0.3rem 0.8rem"><strong>Collapse</strong></td><td>&mdash;</td><td>50&ndash;52</td><td style="text-align:right"><strong>0.993</strong></td><td>Singleton expelled; ground state</td></tr>
+    </tbody>
+    </table>
+
+    <!-- THE SETUP -->
+    <h3 class="reveal">The Setup: Creating the Field</h3>
+    <p class="reveal">The session begins by creating a field and tuning its cognitive personality. Each parameter change from defaults has a specific rationale:</p>
+
+    <table class="reveal">
+      <thead><tr><th>Parameter</th><th>Default</th><th>Tuned</th><th>Rationale</th></tr></thead>
+      <tbody>
+        <tr><td>&lambda; (decay)</td><td>0.05</td><td style="color:var(--cyan)">0.04</td><td>Slower decay &mdash; patterns persist longer</td></tr>
+        <tr><td>&alpha; (amplification)</td><td>0.30</td><td style="color:var(--cyan)">0.35</td><td>Stronger resonance &mdash; faster convergence</td></tr>
+        <tr><td>&tau; (threshold)</td><td>0.40</td><td style="color:var(--cyan)">0.35</td><td>Lower barrier &mdash; inclusive activation</td></tr>
+        <tr><td>&sigma; (bandwidth)</td><td>0.50</td><td style="color:var(--cyan)">0.40</td><td>Tighter coupling &mdash; selective resonance</td></tr>
+      </tbody>
+    </table>
+
+    <p class="reveal">This creates a <strong>retentive, strongly resonant, inclusive, selective</strong> field &mdash; ideal for discovering which patterns genuinely cohere.</p>
+
+    <!-- WAVE 1 EXPANDED -->
+    <h3 class="reveal">Wave 1: Defensive Quality Emerges (p001&ndash;p006)</h3>
+    <p class="reveal">Six code-review patterns are injected. The field computes all 15 pairwise resonances. The peak coupling is R&nbsp;=&nbsp;0.91 between <code>@security_no_injection</code> and <code>@input_validation</code>. Three cycles transform raw signals into structure:</p>
+
+    <table class="reveal">
+      <thead><tr><th>Cycle</th><th>Coherence</th><th>Mean R</th><th>Event</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td style="color:var(--cyan)">0.42</td><td>0.72</td><td>All 6 amplified, no isolation</td></tr>
+        <tr><td>2</td><td style="color:var(--purple)">0.58</td><td>0.75</td><td>Cross-cluster links forming</td></tr>
+        <tr><td>3</td><td style="color:var(--green)">0.71</td><td>0.78</td><td><strong>Attractor &ldquo;defensive_quality&rdquo; emerged</strong></td></tr>
+      </tbody>
+    </table>
+
+    <p class="reveal">Two clusters formed: a <strong>security cluster</strong> (@security, @input_validation, @no_leaked_secrets with R=0.79&ndash;0.91) and a <strong>logic cluster</strong> (@correctness, @edge_case_handling, @error_handling with R=0.72&ndash;0.85) &mdash; connected by bridge nodes. In only 3 cycles, the field reached HIGH coherence from 6 patterns.</p>
+
+    <h3 class="reveal">Waves 3&ndash;4: Refactoring &amp; The Testing Mirror</h3>
+    <p class="reveal">Wave 3 (p015&ndash;p022) introduced refactoring patterns. The strongest bond in the entire session emerged: <code>@behavior_preservation</code> &harr; <code>@tests_before_refactoring</code> at R=0.94. Wave 4 (p023&ndash;p031) injected nine testing patterns, triggering a <strong>mass saturation event</strong> at cycle 14 &mdash; seven patterns crossing ceiling simultaneously. Five production&harr;testing echoes seeded the functor F. Coherence: 0.62 &rarr; <strong>0.91</strong>.</p>
+
+    <h3 class="reveal">Wave 5: OOP &amp; First Absorptions</h3>
+    <p class="reveal">The OOP wave (p032&ndash;p040) triggered the first three absorptions: SRP absorbed into <code>@single_responsibility</code> (R=0.98), ISP into <code>@api_minimal</code> (R=0.96), and the Law of Demeter decomposed across three existing patterns. S, I, and D had been <em>rediscovered before SOLID was named</em>.</p>
+
+    <!-- SOLID REDISCOVERY -->
+    <h3 class="reveal">SOLID Rediscovery: From Patterns to Principles</h3>
+    <p class="reveal">During Waves 2&ndash;3 (p007&ndash;p030), an <strong>architecture quartet</strong> emerged spontaneously <em>before</em> the SOLID principles were explicitly injected. The field rediscovered SOLID from first principles. Once SOLID was injected, each principle paired with a GoF technique partner, forming the <strong>SOLID Decagon</strong> with field constant R<sub>pt</sub>&nbsp;=&nbsp;0.88:</p>
+
+    <!-- Verification Functor -->
+    <h3 class="reveal">The Verification Functor</h3>
+    <p class="reveal">One of the session&rsquo;s deepest discoveries: every production-code discipline has a testing reflection. The field discovered a <strong>functor F: PRODUCTION &rarr; TESTING</strong> with 16 morphisms and &eta;&nbsp;=&nbsp;dependency_injection as the natural transformation between them.</p>
+
+    <div class="terminal reveal" role="region" aria-label="Verification Functor">
+      <div class="terminal-bar"><span class="terminal-dot"></span><span class="terminal-dot"></span><span class="terminal-dot"></span><span style="color:#666;font-size:0.8rem;margin-left:auto">functor F</span></div>
+      <div class="terminal-body">
+<span class="out"><span class="hl">F: PRODUCTION &rarr; TESTING</span></span>
+<span class="out"></span>
+<span class="out">  F(behavior_preservation)  = test_behavior_not_impl</span>
+<span class="out">  F(edge_case_handling)     = edge_cases_boundaries</span>
+<span class="out">  F(single_responsibility)  = one_assertion_per_concept</span>
+<span class="out">  F(error_handling)         = readable_failures</span>
+<span class="out">  ... <span class="val">16 morphisms</span> total</span>
+<span class="out"></span>
+<span class="out">  Transport: &eta; = <span class="hl">dependency_injection</span></span>
+<span class="out">  Keystone:  @test_behavior = F(stable_interfaces)</span>
+      </div>
+    </div>
+
+    <p class="reveal">Testing is not a separate discipline bolted onto production code &mdash; it is the <em>categorical mirror</em> of production, connected by dependency injection as the natural transformation.</p>
 
     <!-- Eigenvector Bar Chart -->
     <h3 class="reveal">Five Eigenvectors of Software Quality</h3>
@@ -1164,7 +1249,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <p class="reveal">This is not a table someone wrote. It is a table the field <em>discovered</em> through resonance dynamics. The pairings are not obvious &mdash; but they are deeply correct. SRP naturally resonates with Strategy because both are about isolating a single axis of variation. OCP resonates with Decorator because both extend behavior without modifying the original. These mappings crystallized spontaneously through 52 cycles of dynamics.</p>
 
     <h3 class="reveal">The Singleton Expulsion</h3>
-    <p class="reveal">At cycle 30, Singleton was injected at 0.65 &mdash; the lowest initial activation in field history. For the first time, the field exhibited <strong>lateral inhibition</strong>: four patterns actively suppressing the newcomer.</p>
+    <p class="reveal">At cycle 31, Singleton was injected at 0.65 &mdash; the lowest initial activation in field history. For the first time, the field exhibited <strong>lateral inhibition</strong>: four patterns actively suppressing the newcomer, each from a different quality dimension.</p>
 
     <div class="terminal reveal" role="region" aria-label="Singleton injection transcript">
       <div class="terminal-bar"><span class="terminal-dot"></span><span class="terminal-dot"></span><span class="terminal-dot"></span><span style="color:#666;font-size:0.8rem;margin-left:auto">cycle 30</span></div>
@@ -1185,6 +1270,16 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       </div>
     </div>
 
+    <p class="reveal"><strong>The four indictments:</strong> <code>@test_isolation</code> (verification: &ldquo;global state makes tests non-deterministic&rdquo;), <code>@determinism</code> (reliability: &ldquo;shared state introduces execution-order dependence&rdquo;), <code>@dependency_direction</code> (architecture: &ldquo;high-level modules must not depend on global access points&rdquo;), and <code>@favor_composition</code> (philosophy: &ldquo;composition over global state&rdquo;). Singleton&rsquo;s only allies: <code>@no_unnecessary_allocations</code> and <code>@factory_method</code> &mdash; both OPTIMIZE cluster outsiders. Controversial patterns find refuge only among other outsiders.</p>
+
+    <p class="reveal">The dynamics forecast: &Sigma; lateral inhibition = &minus;0.023/cycle, natural decay = &minus;0.004/cycle, weak positive coupling = +0.013/cycle, <strong>net force: &minus;0.014/cycle</strong>. Projected expulsion: cycles 51&ndash;52.</p>
+
+    <h3 class="reveal">Wave 6: The Great Convergence (cycles 34&ndash;43)</h3>
+    <p class="reveal">Ten GoF patterns produced the session&rsquo;s most dramatic event: <strong>14 patterns reaching ceiling in 10 cycles</strong>. <code>@strategy</code> and <code>@decorator</code> &mdash; the &ldquo;Golden Pair&rdquo; &mdash; converged simultaneously, each resonating with all five SOLID principles. Coherence: 0.962 &rarr; <strong>0.984</strong>.</p>
+
+    <h3 class="reveal">Wave 7: Reuse &amp; Final Absorptions (cycles 44&ndash;49)</h3>
+    <p class="reveal">The final wave triggered four <em>self-referential</em> absorptions &mdash; the field applying its own principles. The climactic moment: absorption #7, where DIP was applied to itself. The field held the abstraction (<code>@dependency_inversion</code>) and rejected the concretion. Coherence: &rarr; <strong>0.990</strong>.</p>
+
     <p class="reveal">Over 21 cycles of sustained lateral inhibition, Singleton decayed steadily toward threshold:</p>
 
     <div class="terminal reveal" role="region" aria-label="Singleton expulsion transcript">
@@ -1201,8 +1296,25 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       </div>
     </div>
 
-    <h3 class="reveal">Self-Referential Absorption</h3>
-    <p class="reveal">Four of the seven absorptions (57%) were <em>self-referential</em>: the field applied the very principle it was absorbing. The most striking was absorption #7 &mdash; DIP applied to itself:</p>
+    <h3 class="reveal">Seven Absorptions: The Field Governs Itself</h3>
+    <p class="reveal">As the session progressed, redundant or composite patterns were absorbed into existing ones. Seven absorptions occurred &mdash; four (57%) were <em>self-referential</em>: the field applied its own principles during the absorption.</p>
+
+    <table class="reveal">
+      <thead><tr><th>#</th><th>Attempted Pattern</th><th>Absorbed Into</th><th>Type</th><th>Self-Ref</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>SRP principle</td><td>@single_responsibility</td><td>Exact duplicate</td><td>&mdash;</td></tr>
+        <tr><td>2</td><td>ISP principle</td><td>@api_minimal</td><td>Equivalent</td><td>&mdash;</td></tr>
+        <tr><td>3</td><td>Law of Demeter</td><td>@encaps &cap; @api &cap; @dep_dir</td><td>Compound</td><td>&mdash;</td></tr>
+        <tr><td>4</td><td>reuse_thru_composition</td><td>@favor_composition</td><td>Same intent</td><td style="color:var(--gold)">&starf;</td></tr>
+        <tr><td>5</td><td>shared_intent</td><td>@reduce_dup_shared_intent</td><td>Complement</td><td style="color:var(--gold)">&starf;</td></tr>
+        <tr><td>6</td><td>avoid_premature</td><td>@rule_of_three &cap; @dont_force</td><td>Compound</td><td style="color:var(--gold)">&starf;</td></tr>
+        <tr><td>7</td><td>coupling_to_abstraction</td><td>@dependency_inversion</td><td>Equivalent</td><td style="color:var(--gold)">&starf;</td></tr>
+      </tbody>
+    </table>
+
+    <p class="reveal">The absorption rate <strong>accelerates</strong> as the field matures: 5.0% (patterns 1&ndash;20), 10.0% (21&ndash;40), 13.3% (41&ndash;55), 14.3% (56&ndash;69). The field&rsquo;s semantic space is <em>saturating</em> &mdash; new patterns increasingly express content already present.</p>
+
+    <p class="reveal">The most striking was absorption #7 &mdash; DIP applied to itself:</p>
 
     <div class="terminal reveal" role="region" aria-label="Self-referential absorption transcript">
       <div class="terminal-bar"><span class="terminal-dot"></span><span class="terminal-dot"></span><span class="terminal-dot"></span><span style="color:#666;font-size:0.8rem;margin-left:auto">absorption #7</span></div>
