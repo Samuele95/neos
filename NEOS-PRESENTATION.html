@@ -475,13 +475,13 @@ svg text { font-family: var(--font); }
   <div class="terminal" id="shell-terminal">
     <div class="terminal-bar"><span class="terminal-dot"></span><span class="terminal-dot"></span><span class="terminal-dot"></span><span style="color:#666;font-size:0.9em;margin-left:auto">neos-shell</span></div>
     <div class="terminal-body" id="typing-target">
-      <div class="term-line fragment fade-up" data-fragment-index="1"><span class="prompt">$</span> <span class="cmd">nf inject "sql_query_construction" 0.9</span><br><span class="out">[INJECT] sql_query_construction (s: <span class="val">0.90</span>)</span></div>
-      <div class="term-line fragment fade-up" data-fragment-index="2"><span class="prompt">$</span> <span class="cmd">nf inject "user_input_handling" 0.85</span><br><span class="out">[INJECT] user_input_handling (s: <span class="val">0.85</span>)</span><br><span class="out">  <span class="hl">[RESONANCE]</span> ↔ @sql_query: R = <span class="val">0.72</span></span></div>
-      <div class="term-line fragment fade-up" data-fragment-index="3"><span class="prompt">$</span> <span class="cmd">nf cycle 3 --trace</span><br><span class="out">[CYCLE 2] <span class="hl">[ATTRACTOR-EMERGED]</span> "sql_injection_vulnerability"</span><br><span class="out">  Coherence: <span class="val">0.82</span></span></div>
-      <div class="term-line fragment fade-up" data-fragment-index="4"><span class="prompt">$</span> <span class="cmd">nf collapse --strategy attractor</span><br><span class="out"><span class="warn">FINDING: SQL Injection Vulnerability</span></span><br><span class="out">  Confidence: <span class="hl">HIGH (0.82)</span></span></div>
+      <div class="term-line fragment fade-up" data-fragment-index="1"><span class="prompt">$</span> <span class="cmd">nf inject "correctness" 0.90</span><br><span class="out">[INJECT] correctness (s: <span class="val">0.90</span>) — p001</span></div>
+      <div class="term-line fragment fade-up" data-fragment-index="2"><span class="prompt">$</span> <span class="cmd">nf inject "edge_case_handling" 0.85</span><br><span class="out">[INJECT] edge_case_handling (s: <span class="val">0.85</span>)</span><br><span class="out">  <span class="hl">[RESONANCE]</span> ↔ @correctness: R = <span class="val">0.82</span> STRONG</span></div>
+      <div class="term-line fragment fade-up" data-fragment-index="3"><span class="prompt">$</span> <span class="cmd">nf cycle 3 --trace</span><br><span class="out">[CYCLE 3] <span class="hl">[ATTRACTOR-EMERGED]</span> "defensive_quality"</span><br><span class="out">  Coherence: <span class="val">0.71</span> | 6 patterns</span></div>
+      <div class="term-line fragment fade-up" data-fragment-index="4"><span class="prompt">$</span> <span class="cmd">nf inject "singleton" 0.65</span><br><span class="out"><span class="warn">⚠ LOWEST ACTIVATION IN HISTORY | 0 STRONG resonances</span></span><br><span class="out">  Lateral inhibition: <span class="hl">4 patterns suppressing</span></span></div>
     </div>
   </div>
-  <aside class="notes">Walk through each command. inject seeds meaning, cycle runs dynamics, collapse extracts insight. The system DISCOVERED SQL injection without being told to look for it.</aside>
+  <aside class="notes">Walk through each command. inject seeds meaning, cycle runs dynamics, attractors emerge. Then inject Singleton — the field's immune system rejects it. Four patterns suppress it through lateral inhibition. The dynamics DISCOVERED the anti-pattern.</aside>
 </section>
 
 <!-- ═══════════════════════════════════════════ -->

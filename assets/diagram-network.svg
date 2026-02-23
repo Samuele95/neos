@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 300">
   <defs>
     <!-- Glow filter for node circles -->
-    <filter id="glow-red" x="-30%" y="-30%" width="160%" height="160%">
+    <filter id="glow-cyan" x="-30%" y="-30%" width="160%" height="160%">
       <feGaussianBlur stdDeviation="2.5" result="blur"/>
       <feMerge>
         <feMergeNode in="blur"/>
@@ -22,106 +22,130 @@
   <rect width="500" height="300" fill="#07070c"/>
 
   <!-- ===== Attractor boundary ===== -->
-  <ellipse cx="250" cy="165" rx="190" ry="120"
-           fill="none" stroke="rgba(255,107,107,0.15)" stroke-width="1"
+  <ellipse cx="250" cy="155" rx="210" ry="130"
+           fill="none" stroke="rgba(0,212,255,0.15)" stroke-width="1"
            stroke-dasharray="6,4" filter="url(#glow-boundary)"/>
   <!-- Attractor label -->
   <text x="250" y="14" text-anchor="middle"
-        fill="#ff6b6b" font-family="monospace" font-size="10"
-        letter-spacing="0.02em" opacity="0.85">sql_injection_vulnerability &#183; C=0.82</text>
+        fill="#0af" font-family="monospace" font-size="10"
+        letter-spacing="0.02em" opacity="0.85">defensive_quality &#183; C=0.71</text>
 
   <!-- ===== Resonance edges (drawn first, behind nodes) ===== -->
 
-  <!-- sql_query <-> string_concat  R=0.85  (thickest) -->
-  <line x1="250" y1="80" x2="380" y2="170"
-        stroke="rgba(255,107,107,0.35)" stroke-width="2.8"/>
-  <text x="326" y="118" text-anchor="middle"
+  <!-- security <-> input_validation  R=0.91  (thickest) -->
+  <line x1="250" y1="70" x2="120" y2="155"
+        stroke="rgba(0,212,255,0.40)" stroke-width="3.0"/>
+  <text x="174" y="105" text-anchor="middle"
         fill="#888" font-family="monospace" font-size="8"
-        transform="rotate(34,326,118)">R=0.85</text>
+        transform="rotate(-33,174,105)">R=0.91</text>
 
-  <!-- user_input <-> no_validation  R=0.82 -->
-  <line x1="120" y1="170" x2="250" y2="250"
-        stroke="rgba(255,107,107,0.30)" stroke-width="2.4"/>
-  <text x="176" y="218" text-anchor="middle"
+  <!-- edge_case <-> error_handling  R=0.85 -->
+  <line x1="380" y1="155" x2="250" y2="250"
+        stroke="rgba(0,212,255,0.35)" stroke-width="2.8"/>
+  <text x="326" y="210" text-anchor="middle"
         fill="#888" font-family="monospace" font-size="8"
-        transform="rotate(31,176,218)">R=0.82</text>
+        transform="rotate(36,326,210)">R=0.85</text>
 
-  <!-- sql_query <-> user_input  R=0.72 -->
-  <line x1="250" y1="80" x2="120" y2="170"
-        stroke="rgba(255,107,107,0.25)" stroke-width="2.0"/>
-  <text x="174" y="118" text-anchor="middle"
+  <!-- correctness <-> edge_case  R=0.82 -->
+  <line x1="120" y1="155" x2="380" y2="155"
+        stroke="rgba(0,212,255,0.30)" stroke-width="2.4"/>
+  <text x="250" y="147" text-anchor="middle"
+        fill="#888" font-family="monospace" font-size="8">R=0.82</text>
+
+  <!-- security <-> no_leaked_secrets  R=0.79 -->
+  <line x1="250" y1="70" x2="380" y2="155"
+        stroke="rgba(0,180,220,0.25)" stroke-width="2.0"/>
+  <text x="326" y="105" text-anchor="middle"
         fill="#888" font-family="monospace" font-size="8"
-        transform="rotate(-34,174,118)">R=0.72</text>
+        transform="rotate(33,326,105)">R=0.79</text>
 
-  <!-- sql_query <-> no_validation  R=0.68 -->
-  <line x1="250" y1="80" x2="250" y2="250"
-        stroke="rgba(231,76,60,0.22)" stroke-width="1.6"/>
-  <text x="263" y="168" text-anchor="start"
-        fill="#888" font-family="monospace" font-size="8">R=0.68</text>
+  <!-- security <-> edge_case  R=0.74 -->
+  <line x1="250" y1="70" x2="250" y2="250"
+        stroke="rgba(0,180,220,0.22)" stroke-width="1.6"/>
+  <text x="263" y="162" text-anchor="start"
+        fill="#888" font-family="monospace" font-size="8">R=0.74</text>
 
-  <!-- user_input <-> string_concat  R=0.55  (thinnest) -->
-  <line x1="120" y1="170" x2="380" y2="170"
-        stroke="rgba(231,76,60,0.16)" stroke-width="1.0"/>
-  <text x="250" y="182" text-anchor="middle"
-        fill="#888" font-family="monospace" font-size="8">R=0.55</text>
+  <!-- correctness <-> error_handling  R=0.72 -->
+  <line x1="120" y1="155" x2="250" y2="250"
+        stroke="rgba(0,180,220,0.18)" stroke-width="1.2"/>
 
   <!-- ===== Pattern nodes ===== -->
 
-  <!-- sql_query  (top, largest, r=28) -->
-  <circle cx="250" cy="80" r="28"
-          fill="rgba(255,107,107,0.2)" stroke="#ff6b6b" stroke-width="1.2"
-          filter="url(#glow-red)"/>
-  <text x="250" y="77" text-anchor="middle"
-        fill="#ff6b6b" font-family="monospace" font-size="8.5"
-        font-weight="600">sql_query</text>
-  <text x="250" y="89" text-anchor="middle"
-        fill="#ff6b6b" font-family="monospace" font-size="10"
+  <!-- security_no_injection  (top, largest, r=28) -->
+  <circle cx="250" cy="70" r="28"
+          fill="rgba(0,212,255,0.2)" stroke="#0af" stroke-width="1.2"
+          filter="url(#glow-cyan)"/>
+  <text x="250" y="67" text-anchor="middle"
+        fill="#0af" font-family="monospace" font-size="7.5"
+        font-weight="600">security</text>
+  <text x="250" y="79" text-anchor="middle"
+        fill="#0af" font-family="monospace" font-size="10"
         font-weight="700" opacity="0.9">0.95</text>
 
-  <!-- user_input  (left, r=24) -->
-  <circle cx="120" cy="170" r="24"
-          fill="rgba(255,107,107,0.2)" stroke="#ff6b6b" stroke-width="1.2"
-          filter="url(#glow-red)"/>
-  <text x="120" y="167" text-anchor="middle"
-        fill="#ff6b6b" font-family="monospace" font-size="8"
-        font-weight="600">user_input</text>
-  <text x="120" y="179" text-anchor="middle"
-        fill="#ff6b6b" font-family="monospace" font-size="10"
-        font-weight="700" opacity="0.9">0.91</text>
+  <!-- correctness  (left, r=24) -->
+  <circle cx="120" cy="155" r="24"
+          fill="rgba(0,212,255,0.2)" stroke="#0af" stroke-width="1.2"
+          filter="url(#glow-cyan)"/>
+  <text x="120" y="152" text-anchor="middle"
+        fill="#0af" font-family="monospace" font-size="7.5"
+        font-weight="600">correctness</text>
+  <text x="120" y="164" text-anchor="middle"
+        fill="#0af" font-family="monospace" font-size="10"
+        font-weight="700" opacity="0.9">0.90</text>
 
-  <!-- string_concat  (right, r=20) -->
-  <circle cx="380" cy="170" r="20"
-          fill="rgba(231,76,60,0.2)" stroke="#e74c3c" stroke-width="1.2"
-          filter="url(#glow-red)"/>
-  <text x="380" y="167" text-anchor="middle"
-        fill="#e74c3c" font-family="monospace" font-size="7"
-        font-weight="600">str_concat</text>
-  <text x="380" y="179" text-anchor="middle"
-        fill="#e74c3c" font-family="monospace" font-size="10"
-        font-weight="700" opacity="0.9">0.87</text>
+  <!-- edge_case_handling  (right, r=22) -->
+  <circle cx="380" cy="155" r="22"
+          fill="rgba(0,180,220,0.2)" stroke="#0ad" stroke-width="1.2"
+          filter="url(#glow-cyan)"/>
+  <text x="380" y="152" text-anchor="middle"
+        fill="#0ad" font-family="monospace" font-size="7"
+        font-weight="600">edge_case</text>
+  <text x="380" y="164" text-anchor="middle"
+        fill="#0ad" font-family="monospace" font-size="10"
+        font-weight="700" opacity="0.9">0.85</text>
 
-  <!-- no_validation  (bottom, smallest, r=18) -->
-  <circle cx="250" cy="250" r="18"
-          fill="rgba(231,76,60,0.2)" stroke="#e74c3c" stroke-width="1.2"
-          filter="url(#glow-red)"/>
+  <!-- input_validation  (top-left, r=22) -->
+  <circle cx="100" cy="70" r="22"
+          fill="rgba(0,180,220,0.2)" stroke="#0ad" stroke-width="1.2"
+          filter="url(#glow-cyan)"/>
+  <text x="100" y="67" text-anchor="middle"
+        fill="#0ad" font-family="monospace" font-size="7"
+        font-weight="600">validation</text>
+  <text x="100" y="79" text-anchor="middle"
+        fill="#0ad" font-family="monospace" font-size="10"
+        font-weight="700" opacity="0.9">0.90</text>
+
+  <!-- no_leaked_secrets  (top-right, r=20) -->
+  <circle cx="400" cy="70" r="20"
+          fill="rgba(0,160,200,0.18)" stroke="#09b" stroke-width="1.0"/>
+  <text x="400" y="67" text-anchor="middle"
+        fill="#09b" font-family="monospace" font-size="7"
+        font-weight="600">no_leaks</text>
+  <text x="400" y="79" text-anchor="middle"
+        fill="#09b" font-family="monospace" font-size="10"
+        font-weight="700" opacity="0.9">0.88</text>
+
+  <!-- error_handling  (bottom, r=20) -->
+  <circle cx="250" cy="250" r="20"
+          fill="rgba(0,160,200,0.18)" stroke="#09b" stroke-width="1.0"/>
   <text x="250" y="247" text-anchor="middle"
-        fill="#e74c3c" font-family="monospace" font-size="7"
-        font-weight="600">no_valid</text>
+        fill="#09b" font-family="monospace" font-size="7"
+        font-weight="600">err_handle</text>
   <text x="250" y="258" text-anchor="middle"
-        fill="#e74c3c" font-family="monospace" font-size="9.5"
-        font-weight="700" opacity="0.9">0.82</text>
+        fill="#09b" font-family="monospace" font-size="10"
+        font-weight="700" opacity="0.9">0.85</text>
 
   <!-- ===== Node external labels ===== -->
-  <text x="250" y="46" text-anchor="middle"
+  <text x="250" y="36" text-anchor="middle"
         fill="#556" font-family="monospace" font-size="8"
-        letter-spacing="0.02em">sql_query</text>
-  <text x="64" y="170" text-anchor="middle"
+        letter-spacing="0.02em">security_no_injection</text>
+  <text x="55" y="155" text-anchor="middle"
         fill="#556" font-family="monospace" font-size="8"
-        letter-spacing="0.02em">user_input</text>
-  <text x="380" y="146" text-anchor="middle"
+        letter-spacing="0.02em">correctness</text>
+  <text x="380" y="132" text-anchor="middle"
         fill="#556" font-family="monospace" font-size="8"
-        letter-spacing="0.02em">string_concat</text>
-  <text x="250" y="280" text-anchor="middle"
+        letter-spacing="0.02em">edge_case_handling</text>
+  <text x="250" y="282" text-anchor="middle"
         fill="#556" font-family="monospace" font-size="8"
-        letter-spacing="0.02em">no_validation</text>
+        letter-spacing="0.02em">error_handling</text>
 </svg>

@@ -1,0 +1,249 @@
+\documentclass[10pt, letterpaper]{article}
+
+% ── Fonts & encoding ─────────────────────────────────────────────
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{mathptmx}            % Times for text and math
+\usepackage[protrusion=true, expansion=true]{microtype}
+
+% ── Layout ────────────────────────────────────────────────────────
+\usepackage[letterpaper, left=1in, right=1in, top=1.25in, bottom=1in,
+            headheight=14pt]{geometry}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{tabularx}
+
+% ── Colors ────────────────────────────────────────────────────────
+% Toned-down academic palette drawn from the NEOS HTML identity.
+\usepackage[table]{xcolor}
+
+% Primary accents (desaturated academic palette)
+\definecolor{neosblue}{RGB}{45,100,150}
+\definecolor{neosviolet}{RGB}{90,75,140}
+
+% Secondary accents
+\definecolor{neosteal}{RGB}{50,115,105}
+\definecolor{neosorange}{RGB}{170,110,45}
+\definecolor{neosgreen}{RGB}{50,120,75}
+\definecolor{neosred}{RGB}{155,60,70}
+
+% Derived tints
+\definecolor{neoscyanbg}{RGB}{244,248,251}
+\definecolor{neospurplebg}{RGB}{246,244,251}
+
+% Code listing colors (dark terminal)
+\definecolor{codebg}{RGB}{18,20,28}
+\definecolor{codefg}{RGB}{220,222,230}
+\definecolor{codecyan}{RGB}{80,195,235}
+\definecolor{codegreen}{RGB}{100,210,120}
+\definecolor{codegold}{RGB}{220,190,70}
+\definecolor{codepink}{RGB}{220,110,150}
+\definecolor{codegray}{RGB}{120,125,140}
+\definecolor{codelineno}{RGB}{70,74,90}
+
+% ── Additional packages ─────────────────────────────────────────
+\usepackage{eso-pic}
+\usepackage{tikzpagenodes}
+
+% ── TikZ and pgfplots ───────────────────────────────────────────
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usetikzlibrary{
+  arrows.meta,
+  positioning,
+  shapes.geometric,
+  calc,
+  backgrounds,
+  decorations.pathreplacing,
+  patterns,
+  fit,
+  shadows
+}
+
+% ── Code listings ────────────────────────────────────────────────
+\usepackage{listings}
+
+\lstdefinestyle{neosshell}{
+  backgroundcolor=\color{codebg},
+  basicstyle=\ttfamily\small\color{codefg},
+  breaklines=true,
+  frame=none,
+  framesep=8pt,
+  xleftmargin=14pt,
+  xrightmargin=6pt,
+  aboveskip=0pt,
+  belowskip=0pt,
+  columns=fullflexible,
+  keepspaces=true,
+  numbers=left,
+  numberstyle=\tiny\color{codelineno},
+  numbersep=8pt,
+  moredelim=[is][\color{codecyan}]{\$}{\$},
+  literate={→}{$\rightarrow$}1 {↔}{$\leftrightarrow$}1,
+  commentstyle=\color{codegray},
+  keywordstyle=\color{codecyan}\bfseries,
+  stringstyle=\color{codegreen},
+}
+
+% ── Callout boxes ────────────────────────────────────────────────
+\usepackage[most]{tcolorbox}
+
+\newtcolorbox{calloutbox}{
+  enhanced, breakable,
+  colback=white,
+  colframe=white,
+  borderline west={1.5pt}{0pt}{black!35},
+  arc=0pt, boxrule=0pt,
+  left=12pt, right=12pt, top=8pt, bottom=8pt,
+  fontupper=\itshape,
+  before upper={\setlength{\parindent}{0pt}},
+}
+
+% ── Equation highlight boxes ────────────────────────────────────
+\newtcolorbox{eqbox}{
+  blanker,
+  breakable,
+  left=6pt, right=6pt, top=6pt, bottom=6pt,
+}
+
+% ── Terminal/code listing wrapper ───────────────────────────────
+\newtcolorbox{terminalbox}[1][]{
+  enhanced,
+  colback=codebg,
+  colframe=codebg!60!black,
+  coltitle=codefg,
+  fonttitle=\small\bfseries,
+  title={#1},
+  arc=0pt,
+  boxrule=0.4pt,
+  top=2pt, bottom=2pt, left=0pt, right=0pt,
+  attach boxed title to top left={yshift=-1mm, xshift=3mm},
+  boxed title style={arc=0pt, boxrule=0pt, colback=codebg!60!black},
+}
+
+% ── Table header styling ────────────────────────────────────────
+\newcommand{\thead}[1]{{\bfseries #1}}
+
+% ── Section headings ─────────────────────────────────────────────
+\usepackage{titlesec}
+
+\titleformat{\section}
+  {\normalfont\large\bfseries\scshape}{\thesection}{1em}{}
+\titleformat{name=\section,numberless}
+  {\normalfont\large\bfseries\scshape}{}{0em}{}
+\titleformat{\subsection}
+  {\normalfont\normalsize\bfseries\scshape}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}
+  {\normalfont\normalsize\itshape}{\thesubsubsection}{1em}{}
+
+\titlespacing*{\section}{0pt}{3.5ex plus 1ex minus .2ex}{2.3ex plus .2ex}
+\titlespacing*{\subsection}{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+\titlespacing*{\subsubsection}{0pt}{2.5ex plus .8ex minus .2ex}{1ex plus .2ex}
+
+% ── Running headers ─────────────────────────────────────────────
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\itshape NEOS: The Neural Field Operating System for Machine Intelligence}
+\renewcommand{\headrulewidth}{0.5pt}
+\fancyfoot[C]{\thepage}
+\fancypagestyle{plain}{%
+  \fancyhf{}
+  \renewcommand{\headrulewidth}{0pt}%
+  \fancyfoot[C]{\thepage}%
+}
+
+% ── Captions ─────────────────────────────────────────────────────
+\usepackage[font={small}, labelfont={bf}, labelsep=colon]{caption}
+
+% ── Table styling ────────────────────────────────────────────────
+% Standard booktabs rules, no colored rows
+
+
+% ── Hyperref (load late) ─────────────────────────────────────────
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=black,
+  citecolor=black,
+  urlcolor=black,
+  pdfauthor={Samuele Stronati},
+  pdftitle={NEOS: The Neural Field Operating System for Machine Intelligence},
+  pdfsubject={Neural Fields, LLM, Operating Systems, Cognitive Computing},
+}
+
+% ── Bibliography ─────────────────────────────────────────────────
+\usepackage[numbers]{natbib}
+
+% ── Abstract styling ─────────────────────────────────────────────
+\renewenvironment{abstract}{%
+  \vspace{1em}%
+  \centerline{\normalfont\normalsize\bfseries\textsc{Abstract}}%
+  \vspace{0.5ex}%
+  \begin{list}{}{\setlength{\leftmargin}{4.5em}\setlength{\rightmargin}{4.5em}}%
+  \item\relax\small
+}{%
+  \end{list}\vspace{1em}%
+}
+
+% ── Page control ──────────────────────────────────────────────────
+\raggedbottom                     % prevent vertical stretching
+\widowpenalty=10000               % no widow lines
+\clubpenalty=10000                % no orphan lines
+
+% ══════════════════════════════════════════════════════════════════
+\begin{document}
+
+% ── Title page ───────────────────────────────────────────────────
+\thispagestyle{plain}
+
+\begin{center}
+  \vspace*{0.25cm}
+  {\fontsize{17}{20}\selectfont\bfseries\textsc{Neos: The Neural Field Operating System\\ for Machine Intelligence}\par}
+\end{center}
+
+\vspace{0.8em}
+\hspace{4.5em}%
+\begin{minipage}{\dimexpr\textwidth-9em}
+  \raggedright
+  {\normalsize\bfseries Samuele Stronati\par}
+  {\normalsize Independent Researcher\par}
+  {\small smlstr095@gmail.com\par}
+\end{minipage}
+
+\input{sections/00-abstract}
+
+\input{sections/01-introduction}
+
+\input{sections/02-architecture}
+
+\input{sections/03-analogy}
+
+\input{sections/04-system}
+
+\input{sections/05-evidence}
+
+\input{sections/06-advanced}
+
+\input{sections/07-math}
+
+\input{sections/08-discussion}
+
+\input{sections/09-related}
+
+\section*{Acknowledgements}
+
+The author gratefully acknowledges David Kimai's
+\emph{Context-Engineering} handbook~\cite{kimai2025context}, whose
+first-principles exploration of context design, orchestration, and the
+biological progression from atoms to neural fields provided key
+inspiration for the NEOS framework.
+
+\bibliographystyle{plainnat}
+\bibliography{bibliography}
+
+\end{document}

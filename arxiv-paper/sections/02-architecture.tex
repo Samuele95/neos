@@ -1,0 +1,337 @@
+\section{Architecture and Foundations}\label{sec:architecture}
+
+NEOS v1.0 is a \textbf{specification}---37 markdown files that define
+an interactive runtime environment running \emph{on} an LLM.  The LLM
+is the virtual machine.  NEOS is the operating system.  Neural fields
+are the computational substrate.
+
+This section presents the governing dynamics and the three
+foundational pillars on which the entire system rests.
+
+%% ════════════════════════════════════════════════════════════════════
+\subsection{The Master Equation}\label{sec:master-equation}
+
+All dynamics in NEOS are governed by a single partial differential
+equation:
+
+\begin{eqbox}
+\begin{equation}\label{eq:master-pde}
+\frac{\partial A}{\partial t}
+  = \underbrace{-\lambda\, A(x)}_{\text{Decay}}
+  + \underbrace{\alpha \int K(x,y)\, A(y)\, dy}_{\text{Resonance}}
+  + \underbrace{\iota(x,t)}_{\text{Injection}}
+\end{equation}
+\end{eqbox}
+
+\noindent
+This equation belongs to the family of neural field
+equations introduced by Amari~\cite{amari1977dynamics} and
+Wilson--Cowan~\cite{wilson1972excitatory}, adapted here for a semantic
+rather than neural substrate.  Each term plays a distinct cognitive
+role:
+
+\begin{description}[leftmargin=2.2cm, labelwidth=2cm, style=nextline]
+
+\item[\boldmath$-\lambda\, A(x)$\unboldmath\quad Decay.]
+  Unreinforced ideas fade exponentially.  This is not a defect but a
+  design principle: \emph{forgetting is a feature, not a bug}.  In the
+  absence of resonance support, every pattern loses activation at rate
+  $\lambda$, ensuring that the field does not accumulate noise
+  indefinitely.  After the decay phase of each cycle, the activation
+  update is $A \leftarrow A \times (1 - \lambda)$.
+
+\item[\boldmath$\alpha \int K(x,y)\, A(y)\, dy$\unboldmath\quad Resonance.]
+  Related ideas strengthen each other.  The resonance kernel
+  $K(x,y)$ quantifies the semantic, logical, and contextual affinity
+  between patterns located at positions $x$ and $y$ in the field.
+  When two patterns resonate, each contributes to the other's
+  activation proportionally to their affinity and their current
+  strength.  The amplification factor $\alpha$ controls how aggressively
+  mutual reinforcement operates.  This integral is the ``hearing''
+  mechanism: a pattern survives not because it is loud, but because it
+  is \emph{heard} by others.
+
+\item[\boldmath$\iota(x,t)$\unboldmath\quad Injection.]
+  The user adds new ideas at any time via the \texttt{nf inject}
+  command.  Each injection introduces a fresh signal---a pattern with
+  an initial activation strength---into the field at position $x$ and
+  time $t$.  The injected pattern immediately begins interacting with
+  all existing patterns through the resonance integral.
+
+\end{description}
+
+\noindent
+From this single equation, \emph{all} of NEOS emerges: attractor
+formation, coherence dynamics, collapse, versioning, and multi-field
+orchestration.
+
+\paragraph{Parameters.}
+Four scalar parameters define the \textbf{cognitive style} of a field.
+A security analysis benefits from low $\lambda$ (do not forget
+threats), high $\alpha$ (cluster related threats fast), and high $\tau$
+(only credible concerns survive).  A creative brainstorm benefits from
+high $\lambda$ (rapid turnover), moderate $\alpha$, and low $\tau$
+(let weak ideas live).  Same engine; different cognitive personality;
+tuned with four numbers.
+
+\begin{table}[htbp]
+\centering
+\caption{Master-equation parameters and their effects on field
+  dynamics.}
+\label{tab:parameters}
+\small
+\begin{tabular}{@{}cllcl@{}}
+\toprule
+\thead{Symbol} & \thead{Name} & \thead{Default}
+  & \thead{Range} & \thead{Effect} \\
+\midrule
+$\lambda$ & Decay rate     & 0.05 & $[0,\,1]$
+  & Higher $=$ faster forgetting \\
+$\alpha$  & Amplification  & 0.30 & $[0,\,1]$
+  & Higher $=$ stronger resonance \\
+$\tau$    & Threshold      & 0.40 & $[0,\,1]$
+  & Below this, patterns marked dormant \\
+$\sigma$  & Bandwidth      & 0.50 & $[0,\,\infty)$
+  & Semantic reach of each pattern \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+%% ════════════════════════════════════════════════════════════════════
+\subsection{Neural Fields --- The Substrate}\label{sec:pillar-fields}
+
+Classical prompt engineering represents information as a linear
+sequence of tokens with a hard context-window boundary.  NEOS replaces
+this with \textbf{continuous activation landscapes}---neural fields in
+which information is encoded not as discrete tokens but as spatially
+extended activation patterns~\cite{amari1977dynamics}.
+
+Five principles govern the substrate:
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=2em]
+\item \textbf{Continuity.}  Activation is a continuous function over a
+  semantic space, not a discrete list.  Nearby meanings have nearby
+  activations.
+
+\item \textbf{Resonance.}  Patterns influence one another through the
+  kernel $K(x,y)$.  If two ideas are semantically proximate, injecting
+  one raises the activation of the other.
+
+\item \textbf{Persistence.}  Information persists through resonance
+  support, not through explicit inclusion in a prompt.  A pattern
+  endures as long as the field sustains it.
+
+\item \textbf{Entropy.}  The field tracks its own information-theoretic
+  entropy, $H = -\sum p_i \log_2 p_i$, providing a scalar measure of
+  how concentrated or diffuse the current state is.
+
+\item \textbf{Boundary Dynamics.}  Patterns near the activation
+  threshold $\tau$ are in a critical zone: small resonance boosts can
+  save them, small decays can extinguish them.  This boundary behaviour
+  produces the field's sensitivity to context.
+\end{enumerate}
+
+\paragraph{Why fields beat prompts.}
+In a prompt, information persists only if explicitly included.  Context
+window overflow silently destroys old information.  In a neural field,
+information persists through \emph{resonance}---if a pattern connects
+to others that keep it alive, it endures.  Relationships emerge
+naturally from semantic proximity.  New input interacts with the
+\emph{entire} field, not just recent tokens.
+
+%% ════════════════════════════════════════════════════════════════════
+\subsection{Symbolic Reasoning --- The Structure}\label{sec:pillar-symbolic}
+
+Without structure, fields are beautiful but unusable---like having a
+piano with no keys.  The \texttt{nf} command set provides the
+\textbf{opcodes of cognitive computing}: a symbolic language for field
+manipulation that is both human-readable and algebraically precise.
+
+Core operations include:
+\texttt{inject} (add a pattern),
+\texttt{amplify} (increase activation),
+\texttt{attenuate} (decrease activation),
+\texttt{cycle} (advance dynamics),
+\texttt{collapse} (resolve superposition), and
+\texttt{commit} (snapshot state).
+Each command has a precise mathematical meaning in terms of the master
+equation~\eqref{eq:master-pde}.
+
+Two reference conventions provide the symbolic glue:
+
+\begin{itemize}[leftmargin=1.5em]
+\item \textbf{Pattern references} (\texttt{@name}) select an
+  individual pattern in the field.
+\item \textbf{Field references} (\texttt{\$field}) select an entire
+  named field in multi-field configurations.
+\end{itemize}
+
+\noindent
+Operations compose algebraically.  For example, applying
+\texttt{amplify(@a, 1.5)} followed by \texttt{attenuate(@a, 0.5)}
+returns the pattern to a well-defined intermediate activation
+that can be computed from the field state alone.
+
+%% ════════════════════════════════════════════════════════════════════
+\subsection{Quantum Semantics --- The Interpretation}%
+\label{sec:pillar-quantum}
+
+Before collapse, meaning exists in
+\textbf{superposition}~\cite{busemeyer2012quantum}.  The field holds
+multiple possible interpretations simultaneously, each weighted by
+activation strength.  This is not a loose metaphor: the mathematical
+structure of NEOS's collapse operation mirrors key features of quantum
+measurement~\cite{pothos2013can}.  We adopt the term ``quantum
+semantics'' from the quantum cognition literature; the formalism draws
+on quantum probability theory as a model of cognitive phenomena, not on
+quantum physics.
+
+\paragraph{Non-commutativity.}
+Injecting pattern $A$ and then pattern $B$ is \emph{not} the same as
+injecting $B$ and then $A$.  Each injection alters the field that
+receives the next one.  Formally, if $I_A$ and $I_B$ denote the
+injection operators, then in general $I_A \circ I_B \neq I_B \circ
+I_A$ because the resonance integral couples each new pattern to the
+full existing field state.  Order of inquiry shapes the space of
+possible conclusions.
+
+\paragraph{Observer-dependent collapse.}
+When the operator issues \texttt{nf collapse}, the superposition
+resolves into a definite output---but the result depends on the
+chosen strategy:
+
+\begin{itemize}[leftmargin=1.5em]
+\item \textbf{Attractor}: select the dominant attractor basin.
+\item \textbf{Threshold}: retain all patterns above a specified
+  activation.
+\item \textbf{Weighted}: blend all patterns proportionally to their
+  activation.
+\item \textbf{Sample}: probabilistically sample from the activation
+  distribution.
+\end{itemize}
+
+\noindent
+The observer matters.  The strategy you choose shapes the output you
+get.  The same field can collapse differently under different
+strategies, just as the same quantum state yields different
+measurement outcomes under different observables.
+
+%% ════════════════════════════════════════════════════════════════════
+\subsection{The Three Pillars in Concert}\label{sec:pillars-unified}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+    >=Stealth
+  ]
+
+  %% --- Three pillars ---
+  \node[draw=neosteal!60, fill=neosteal!6, minimum width=4.3cm, minimum height=2.4cm, align=center, font=\small, rounded corners=6pt] (nf) at (-5,0)
+    {\textbf{Neural Fields}\\[4pt]
+     {\footnotesize THE SUBSTRATE}\\[2pt]
+     {\scriptsize Continuous activation}\\
+     {\scriptsize landscapes}};
+
+  \node[draw=neosviolet!60, fill=neosviolet!6, minimum width=4.3cm, minimum height=2.4cm, align=center, font=\small, rounded corners=6pt] (sr) at (0,0)
+    {\textbf{Symbolic Reasoning}\\[4pt]
+     {\footnotesize THE STRUCTURE}\\[2pt]
+     {\scriptsize Composable command}\\
+     {\scriptsize algebra (\texttt{nf})}};
+
+  \node[draw=neosorange!60, fill=neosorange!6, minimum width=4.3cm, minimum height=2.4cm, align=center, font=\small, rounded corners=6pt] (qs) at (5,0)
+    {\textbf{Quantum Semantics}\\[4pt]
+     {\footnotesize THE INTERPRETATION}\\[2pt]
+     {\scriptsize Superposition \&}\\
+     {\scriptsize observer collapse}};
+
+  %% --- Unification bar ---
+  \node[rectangle, rounded corners=3pt, draw=neosblue!60, fill=neosblue!12,
+        minimum width=14.8cm, minimum height=0.7cm,
+        font=\small\bfseries, text=neosblue!70!black]
+    (bar) at (0,-2.2) {NEOS: The Unification};
+
+  %% --- Connections ---
+  \draw[thick, neosblue!40] (nf.south)  -- (bar.north -| nf.south);
+  \draw[thick, neosblue!40] (sr.south)  -- (bar.north);
+  \draw[thick, neosblue!40] (qs.south)  -- (bar.north -| qs.south);
+\end{tikzpicture}
+\caption{The three pillars of NEOS.  Neural fields provide the
+  computational substrate; symbolic reasoning provides the structural
+  language; quantum semantics provides the interpretive framework.
+  NEOS unifies all three into a single coherent system.}
+\label{fig:three-pillars}
+\end{figure}
+
+Each pillar is necessary; together they make cognitive computing
+possible.  Remove neural fields and the system cannot \emph{represent}
+meaning.  Remove symbolic reasoning and it cannot \emph{manipulate}
+meaning.  Remove quantum semantics and it cannot \emph{interpret}
+meaning.  Figure~\ref{fig:three-pillars} shows the relationship.
+
+\paragraph{Collapse visualised.}
+Figure~\ref{fig:quantum-collapse} illustrates the collapse operation.
+Before collapse, the field contains multiple patterns in superposition,
+each with a distinct activation level.  After the operator issues
+\texttt{nf collapse}, the superposition resolves into structured
+output---the dominant interpretation crystallised from the full field
+state.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[>=Stealth]
+
+  %% ===== BEFORE (left panel) =====
+  \node[font=\small\bfseries, text=gray!60!black] at (-3.8,2.6)
+    {Before collapse};
+
+  \draw[gray!30, rounded corners=6pt]
+    (-6.2,-1.8) rectangle (-1.4,2.2);
+
+  % Multiple patterns (circles of varying size/shade)
+  \fill[neosblue!25]   (-5.0, 1.2) circle (0.45);
+  \fill[neosblue!50]   (-3.6, 1.5) circle (0.55);
+  \fill[neosblue!15]   (-2.4, 0.8) circle (0.30);
+  \fill[neosblue!40]   (-4.8,-0.2) circle (0.50);
+  \fill[neosblue!60]   (-3.2, 0.0) circle (0.65);
+  \fill[neosblue!10]   (-2.2,-0.5) circle (0.25);
+  \fill[neosblue!35]   (-4.0,-1.0) circle (0.40);
+  \fill[neosblue!20]   (-2.6,-1.2) circle (0.35);
+
+  % Labels
+  \node[font=\tiny, text=gray] at (-5.0, 1.2) {@a};
+  \node[font=\tiny, text=white] at (-3.6, 1.5) {@b};
+  \node[font=\tiny, text=gray] at (-2.4, 0.8) {@c};
+  \node[font=\tiny, text=gray] at (-4.8,-0.2) {@d};
+  \node[font=\tiny, text=white] at (-3.2, 0.0) {@e};
+  \node[font=\tiny, text=gray] at (-4.0,-1.0) {@f};
+
+  %% ===== ARROW =====
+  \draw[->, ultra thick, neosblue!50] (-0.9,0.2) -- (0.9,0.2)
+    node[midway, above, font=\small\bfseries, text=neosblue!60!black]
+      {\texttt{nf collapse}};
+
+  %% ===== AFTER (right panel) =====
+  \node[font=\small\bfseries, text=gray!60!black] at (3.8,2.6)
+    {After collapse};
+
+  \draw[gray!30, rounded corners=6pt]
+    (1.4,-1.8) rectangle (6.2,2.2);
+
+  % Single dominant circle
+  \fill[neosblue!65] (3.8,0.2) circle (1.2);
+  \node[font=\small\bfseries, text=white, align=center] at (3.8,0.2)
+    {Structured\\Output};
+
+  % Faint remnants
+  \fill[neosblue!8] (5.4, 1.4) circle (0.15);
+  \fill[neosblue!8] (5.6, 0.0) circle (0.12);
+  \fill[neosblue!8] (5.2,-1.0) circle (0.10);
+
+\end{tikzpicture}
+\caption{Field collapse (quantum-inspired semantics).  \textbf{Left:} the field in
+  superposition---multiple patterns with varying activation levels.
+  \textbf{Right:} after \texttt{nf collapse}, the dominant
+  interpretation crystallises into structured output.  Residual
+  patterns fade to near-zero activation.}
+\label{fig:quantum-collapse}
+\end{figure}

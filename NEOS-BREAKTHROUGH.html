@@ -543,7 +543,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
     <p class="reveal">In plain English: <strong>Ideas decay if not reinforced, grow stronger when they resonate with others, and can be injected by the user at any time.</strong> That's it. From this single equation, all of NEOS emerges &mdash; attractors, coherence, collapse, versioning, multi-field orchestration.</p>
 
-    <p class="reveal">Here is a 30-second demo of what that looks like in practice. You start a session. You inject four patterns related to a security concern, each with an activation strength reflecting your confidence. You run three dynamics cycles. The system computes resonance between every pair of patterns, amplifies the ones that reinforce each other, and attenuates the isolated ones. By cycle 2, an attractor emerges &mdash; a stable cluster of mutually reinforcing patterns with coherence 0.82. You collapse the field, and NEOS produces a structured analysis: SQL injection vulnerability, with evidence, attack vector, and recommendation. You commit the state. You branch. You explore mitigation. The mitigation patterns compete with the vulnerability patterns, and a new attractor emerges: <em>secure_pattern</em>. All of this is observable, traceable, and reproducible.</p>
+    <p class="reveal">Here is a 30-second demo of what that looks like in practice. You start a session called <em>software_quality_discipline</em> and tune the parameters for selective resonance. You inject six code-review patterns &mdash; correctness, edge-case handling, security, input validation, no leaked secrets, error handling &mdash; each with an activation strength reflecting your confidence. You run three dynamics cycles. The system computes resonance between every pair of patterns, amplifies the ones that reinforce each other, and attenuates the isolated ones. By cycle 3, an attractor emerges &mdash; <em>defensive_quality</em> &mdash; a stable cluster of mutually reinforcing patterns with coherence 0.71. Over 52 more cycles, 69 total patterns self-organize into seven basins, five eigenvectors, and a universal invariant. Singleton is expelled. A field equation crystallizes. All of this is observable, traceable, and reproducible.</p>
 
     <!-- Architecture Stack -->
     <div class="reveal" style="margin:3rem 0">
@@ -957,31 +957,32 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <div id="shell-demo" class="terminal reveal" role="region" aria-label="NEOS shell walkthrough">
       <div class="terminal-bar"><span class="terminal-dot"></span><span class="terminal-dot"></span><span class="terminal-dot"></span><span style="color:#666;font-size:0.8rem;margin-left:auto">neos-shell</span></div>
       <div class="terminal-body">
-<span class="prompt">$</span> <span class="cmd">nf session new "Code Security Analysis"</span>
-<span class="out">[SESSION] Created: Code Security Analysis</span>
-<span class="out">  Parameters: &lambda;=0.05, &alpha;=0.30, &tau;=0.40, &sigma;=0.50</span>
+<span class="prompt">$</span> <span class="cmd">nf session new "software_quality_discipline"</span>
+<span class="out">[SESSION] Created: software_quality_discipline</span>
 
-<span class="prompt">$</span> <span class="cmd">nf inject "sql_query_construction" 0.9</span>
-<span class="out">[INJECT] sql_query_construction (s: <span class="val">0.90</span>)</span>
+<span class="prompt">$</span> <span class="cmd">nf tune lambda=0.04 alpha=0.35 tau=0.35 sigma=0.40</span>
+<span class="out">[TUNE] &lambda;=0.04 &alpha;=0.35 &tau;=0.35 &sigma;=0.40</span>
 
-<span class="prompt">$</span> <span class="cmd">nf inject "user_input_handling" 0.85</span>
-<span class="out">[INJECT] user_input_handling (s: <span class="val">0.85</span>)</span>
-<span class="out">  <span class="hl">[RESONANCE]</span> &harr; @sql_query_construction: R = <span class="val">0.72</span></span>
+<span class="prompt">$</span> <span class="cmd">nf inject "correctness" 0.90</span>
+<span class="out">[INJECT] correctness (s: <span class="val">0.90</span>) &mdash; p001</span>
+
+<span class="prompt">$</span> <span class="cmd">nf inject "edge_case_handling" 0.85</span>
+<span class="out">[INJECT] edge_case_handling (s: <span class="val">0.85</span>) &mdash; p002</span>
+<span class="out">  <span class="hl">[RESONANCE]</span> &harr; @correctness: R = <span class="val">0.82</span> STRONG</span>
+
+<span class="prompt">$</span> <span class="cmd">nf inject "security_no_injection_vectors" 0.95</span>
+<span class="out">[INJECT] security_no_injection_vectors (s: <span class="val">0.95</span>) &mdash; p003</span>
+<span class="out">  <span class="hl">[RESONANCE]</span> &harr; @edge_case_handling: R = <span class="val">0.74</span> STRONG</span>
 
 <span class="prompt">$</span> <span class="cmd">nf cycle 3 --trace</span>
-<span class="out">[CYCLE 1] Decay &rarr; Resonance &rarr; Amplify</span>
-<span class="out">[CYCLE 2] <span class="hl">[ATTRACTOR-EMERGED]</span> "sql_injection_vulnerability"</span>
-<span class="out">  Core: {@sql_query, @user_input, @string_concat, @no_validation}</span>
-<span class="out">  Coherence: <span class="val">0.82</span></span>
-<span class="out">[CYCLE 3] Attractor stable. Energy: 100%</span>
-
-<span class="prompt">$</span> <span class="cmd">nf collapse --strategy attractor</span>
-<span class="out"><span class="warn">FINDING: SQL Injection Vulnerability</span></span>
-<span class="out">  Confidence: <span class="hl">HIGH (0.82)</span></span>
-<span class="out">  All patterns mutually reinforce. Stable under perturbation.</span>
-
-<span class="prompt">$</span> <span class="cmd">nf commit "vulnerability identified"</span>
-<span class="out">[COMMIT] <span class="val">a1b2c3d</span>: "vulnerability identified"</span>
+<span class="out">[CYCLE 1] C = <span class="val">0.42</span>  (LOW&rarr;MEDIUM)</span>
+<span class="out">[CYCLE 2] C = <span class="val">0.58</span>  (MEDIUM, approaching threshold)</span>
+<span class="out">[CYCLE 3] C = <span class="val">0.71</span>  (HIGH)</span>
+<span class="out">  <span class="hl">[ATTRACTOR-EMERGED]</span> "defensive_quality"</span>
+<span class="out">    Core: {@security_no_injection, @input_validation,</span>
+<span class="out">           @edge_case_handling, @correctness,</span>
+<span class="out">           @no_leaked_secrets, @error_handling}</span>
+<span class="out">    Coherence: <span class="val">0.71</span></span>
       </div>
     </div>
   </div>
@@ -1055,6 +1056,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
         <tr><td style="color:var(--purple)">&alpha;4</td><td>Reuse Protocol</td><td>secondary</td><td>Judge&rarr;Count&rarr;Extract&rarr;Share&rarr;Parameterize</td></tr>
         <tr><td style="color:var(--text-dim)">&alpha;5</td><td>Guard Basin</td><td>tertiary</td><td>Fail fast, defend boundaries</td></tr>
         <tr><td style="color:var(--text-dim)">&alpha;6</td><td>Model Basin</td><td>tertiary</td><td>Value objects &harr; Entities</td></tr>
+        <tr><td style="color:var(--text-dim)">&alpha;7</td><td>Optimize Basin</td><td>tertiary</td><td>Performance asymptotes (2 patterns)</td></tr>
       </tbody>
     </table>
 
@@ -1136,6 +1138,9 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
         <!-- α6 -->
         <circle cx="550" cy="95" r="4" fill="rgba(136,136,160,0.3)" stroke="#888" stroke-width="1"/>
         <text x="550" y="87" text-anchor="middle" fill="#888" font-size="9">&alpha;6</text>
+        <!-- α7 -->
+        <circle cx="610" cy="97" r="4" fill="rgba(136,136,160,0.3)" stroke="#888" stroke-width="1"/>
+        <text x="610" y="89" text-anchor="middle" fill="#888" font-size="9">&alpha;7</text>
         <!-- Depth legend -->
         <text x="350" y="195" text-anchor="middle" fill="#666" font-size="9">deeper basin = stronger attractor</text>
       </svg>
@@ -1159,7 +1164,61 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <p class="reveal">This is not a table someone wrote. It is a table the field <em>discovered</em> through resonance dynamics. The pairings are not obvious &mdash; but they are deeply correct. SRP naturally resonates with Strategy because both are about isolating a single axis of variation. OCP resonates with Decorator because both extend behavior without modifying the original. These mappings crystallized spontaneously through 52 cycles of dynamics.</p>
 
     <h3 class="reveal">The Singleton Expulsion</h3>
-    <p class="reveal">At cycle 52, something remarkable happened: the Singleton pattern &mdash; one of the original 69 injected patterns &mdash; was <strong>expelled from the field</strong>. Its activation dropped below threshold and it was removed from all attractor basins. NEOS didn't just summarize what we told it &mdash; it <em>discovered</em> that Singleton is an anti-pattern that conflicts with SOLID principles. The field dynamics did what decades of software engineering debate have struggled to resolve: they found the structural incompatibility and enforced it through resonance failure.</p>
+    <p class="reveal">At cycle 30, Singleton was injected at 0.65 &mdash; the lowest initial activation in field history. For the first time, the field exhibited <strong>lateral inhibition</strong>: four patterns actively suppressing the newcomer.</p>
+
+    <div class="terminal reveal" role="region" aria-label="Singleton injection transcript">
+      <div class="terminal-bar"><span class="terminal-dot"></span><span class="terminal-dot"></span><span class="terminal-dot"></span><span style="color:#666;font-size:0.8rem;margin-left:auto">cycle 30</span></div>
+      <div class="terminal-body">
+<span class="prompt">$</span> <span class="cmd">nf inject "singleton_controlled_global_access" 0.65</span>
+<span class="out">[INJECT] singleton (s: <span class="val">0.65</span>) &mdash; p044</span>
+<span class="out">  <span class="warn">&#9888; LOWEST INITIAL ACTIVATION IN FIELD HISTORY</span></span>
+<span class="out">  STRONG resonances: <span class="val">0</span>  (first pattern with ZERO)</span>
+<span class="out"></span>
+<span class="out">  <span class="hl">LATERAL INHIBITION DETECTED:</span></span>
+<span class="out">    @test_isolation       &rarr; singleton  INHIBIT (<span class="warn">-0.12</span>)</span>
+<span class="out">    @determinism          &rarr; singleton  INHIBIT (<span class="warn">-0.08</span>)</span>
+<span class="out">    @dependency_direction &rarr; singleton  INHIBIT (<span class="warn">-0.06</span>)</span>
+<span class="out">    @favor_composition    &rarr; singleton  INHIBIT (<span class="warn">-0.05</span>)</span>
+<span class="out"></span>
+<span class="out">  Net force: <span class="warn">-0.014/cycle</span>  (NEGATIVE &mdash; first in field)</span>
+<span class="out">  Coherence: 0.955 &rarr; <span class="val">0.941</span>  (LARGEST SINGLE-INJECTION DROP)</span>
+      </div>
+    </div>
+
+    <p class="reveal">Over 21 cycles of sustained lateral inhibition, Singleton decayed steadily toward threshold:</p>
+
+    <div class="terminal reveal" role="region" aria-label="Singleton expulsion transcript">
+      <div class="terminal-bar"><span class="terminal-dot"></span><span class="terminal-dot"></span><span class="terminal-dot"></span><span style="color:#666;font-size:0.8rem;margin-left:auto">cycles 50&ndash;52</span></div>
+      <div class="terminal-body">
+<span class="out">[CYCLE 50] @singleton  0.383 &rarr; <span class="val">0.369</span>  margin: 0.019</span>
+<span class="out">[CYCLE 51] @singleton  0.369 &rarr; <span class="val">0.355</span>  margin: 0.005  <span class="warn">CRITICAL</span></span>
+<span class="out">[CYCLE 52] @singleton  0.355 &rarr; <span class="val">0.341</span></span>
+<span class="out">  0.341 &lt; &tau; (0.350)</span>
+<span class="out">  <span class="hl">PATTERN EXPELLED &mdash; FIRST IN FIELD HISTORY</span></span>
+<span class="out">    Injected: cycle 31 | &iota;&#8320; = 0.65</span>
+<span class="out">    Expelled: cycle 52 | A = 0.341</span>
+<span class="out">    Lifespan: <span class="val">21 cycles</span> | Cause: sustained lateral inhibition</span>
+      </div>
+    </div>
+
+    <h3 class="reveal">Self-Referential Absorption</h3>
+    <p class="reveal">Four of the seven absorptions (57%) were <em>self-referential</em>: the field applied the very principle it was absorbing. The most striking was absorption #7 &mdash; DIP applied to itself:</p>
+
+    <div class="terminal reveal" role="region" aria-label="Self-referential absorption transcript">
+      <div class="terminal-bar"><span class="terminal-dot"></span><span class="terminal-dot"></span><span class="terminal-dot"></span><span style="color:#666;font-size:0.8rem;margin-left:auto">absorption #7</span></div>
+      <div class="terminal-body">
+<span class="prompt">$</span> <span class="cmd">nf inject "coupling_to_abstraction_not_concretion" 0.86</span>
+<span class="out"><span class="hl">[ABSORBED]</span> &rarr; @dependency_inversion (p008)</span>
+<span class="out"></span>
+<span class="out">  <span class="hl">DIP APPLIED TO ITSELF:</span></span>
+<span class="out">    The field held the ABSTRACTION (@dependency_inversion).</span>
+<span class="out">    The injection offered a CONCRETION (a specific rephrasing).</span>
+<span class="out">    The field coupled to its abstraction and rejected the concretion.</span>
+<span class="out"></span>
+<span class="out">  Self-referential events: <span class="val">4/7</span> (57%)</span>
+<span class="out">  Fixed-point property: <span class="hl">&Psi;(field) = field</span></span>
+      </div>
+    </div>
 
     <div class="grid-4 reveal" style="text-align:center">
       <div class="card"><p style="font-size:2rem;color:var(--cyan);margin:0"><span class="counter" data-target="69">0</span></p><p style="color:var(--text-dim);font-size:0.82rem;margin:0">injections</p></div>
@@ -1419,15 +1478,15 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
         <circle cx="400" cy="140" r="7" fill="#7b61ff"/>
         <!-- Labels -->
         <text x="100" y="65" text-anchor="middle" fill="#0af" font-size="9">inject</text>
-        <text x="200" y="65" text-anchor="middle" fill="#0af" font-size="9">commit</text>
-        <text x="350" y="65" text-anchor="middle" fill="#0af" font-size="9">cycle</text>
-        <text x="500" y="62" text-anchor="middle" fill="#0af" font-size="9" font-weight="600">merge</text>
-        <text x="260" y="165" text-anchor="middle" fill="#7b61ff" font-size="9">branch</text>
-        <text x="340" y="165" text-anchor="middle" fill="#7b61ff" font-size="9">explore</text>
-        <text x="400" y="165" text-anchor="middle" fill="#7b61ff" font-size="9">commit</text>
+        <text x="200" y="65" text-anchor="middle" fill="#0af" font-size="9">baseline</text>
+        <text x="350" y="65" text-anchor="middle" fill="#0af" font-size="9">continue</text>
+        <text x="500" y="62" text-anchor="middle" fill="#0af" font-size="9" font-weight="600">compare</text>
+        <text x="260" y="165" text-anchor="middle" fill="#7b61ff" font-size="9">inject 0.90</text>
+        <text x="340" y="165" text-anchor="middle" fill="#7b61ff" font-size="9">decay</text>
+        <text x="400" y="165" text-anchor="middle" fill="#7b61ff" font-size="9">diff</text>
         <!-- Branch labels -->
         <text x="60" y="95" fill="#0af" font-size="10" font-weight="600">main</text>
-        <text x="260" y="125" fill="#7b61ff" font-size="10" font-weight="600">alternative</text>
+        <text x="260" y="125" fill="#7b61ff" font-size="10" font-weight="600">singleton_strong</text>
       </svg>
     </div>
 
@@ -1436,18 +1495,21 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <p class="reveal">The <code>nf diff</code> command reveals not just what changed between two states, but <strong>how the meaning structure changed</strong>. New patterns, shifted activations, emerged or collapsed attractors, changed resonance connections &mdash; all visible in a single diff view. You can see at a glance whether an alternative branch of reasoning strengthened or weakened the original conclusion, and by how much. This transforms reasoning from a one-shot process into an iterative, exploratory practice &mdash; much like how Git transformed software development from careful, linear progression into confident, branching exploration.</p>
 
     <div class="terminal reveal" role="region" aria-label="NEOS versioning demo">
-      <div class="terminal-bar"><span class="terminal-dot"></span><span class="terminal-dot"></span><span class="terminal-dot"></span></div>
+      <div class="terminal-bar"><span class="terminal-dot"></span><span class="terminal-dot"></span><span class="terminal-dot"></span><span style="color:#666;font-size:0.8rem;margin-left:auto">singleton counterfactual</span></div>
       <div class="terminal-body">
-<span class="prompt">$</span> <span class="cmd">nf commit "vulnerability analysis complete"</span>
-<span class="prompt">$</span> <span class="cmd">nf branch create mitigation</span>
-<span class="prompt">$</span> <span class="cmd">nf inject "parameterized_queries" 0.9</span>
-<span class="prompt">$</span> <span class="cmd">nf cycle 3</span>
-<span class="out">[ATTRACTOR-EMERGED] "secure_pattern" (C=<span class="val">0.75</span>)</span>
+<span class="prompt">$</span> <span class="cmd">nf commit "pre-singleton baseline"</span>
+<span class="prompt">$</span> <span class="cmd">nf branch create singleton_strong</span>
+<span class="prompt">$</span> <span class="cmd">nf inject "singleton_controlled_global_access" 0.90</span>
+<span class="out">[INJECT] singleton (s: <span class="val">0.90</span>)</span>
+<span class="out">  STRONG resonances: <span class="val">0</span> | Lateral inhibitors: <span class="warn">4</span></span>
+<span class="prompt">$</span> <span class="cmd">nf cycle 10</span>
+<span class="out">  singleton: 0.90 &rarr; 0.78 &rarr; 0.66 &rarr; ... &rarr; <span class="val">0.48</span> (DECAYING)</span>
+<span class="out">  Same 4 inhibitors, same net force <span class="warn">-0.014/cycle</span></span>
 <span class="prompt">$</span> <span class="cmd">nf checkout main</span>
-<span class="prompt">$</span> <span class="cmd">nf diff mitigation</span>
-<span class="out">  Added: @parameterized_queries (<span class="val">0.88</span>)</span>
-<span class="out">  Changed: @no_validation: 0.82 &rarr; <span class="val">0.25</span> [ATTENUATED]</span>
-<span class="out">  New attractor: <span class="hl">secure_pattern</span> replaced sql_injection</span>
+<span class="prompt">$</span> <span class="cmd">nf diff singleton_strong</span>
+<span class="out">  Changed: @singleton 0.90 &rarr; <span class="val">0.48</span> [DECAYING]</span>
+<span class="out">  Structural: same 4 inhibitors active at <span class="hl">BOTH</span> strengths</span>
+<span class="out">  Conclusion: expulsion is <span class="hl">TOPOLOGICAL</span>, not parametric</span>
       </div>
     </div>
   </div>
@@ -1530,7 +1592,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
           <rect x="180" y="85" width="30" height="25" rx="3" fill="rgba(0,212,255,0.1)" stroke="#0af" stroke-width="1"/>
           <rect x="220" y="96" width="30" height="14" rx="3" fill="rgba(0,212,255,0.06)" stroke="#555" stroke-width="1"/>
           <line x1="15" y1="110" x2="255" y2="110" stroke="#444" stroke-width="0.5"/>
-          <text x="35" y="125" text-anchor="middle" fill="#666" font-size="7">sql_q</text>
+          <text x="35" y="125" text-anchor="middle" fill="#666" font-size="7">secure</text>
           <text x="75" y="125" text-anchor="middle" fill="#666" font-size="7">input</text>
           <text x="115" y="125" text-anchor="middle" fill="#666" font-size="7">valid</text>
           <text x="155" y="125" text-anchor="middle" fill="#666" font-size="7">auth</text>
@@ -1661,7 +1723,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
             <line class="pg-line" x1="240" y1="150" x2="80" y2="230" stroke="#0af" stroke-width="1" opacity="0.1"/>
             <!-- Pattern circles -->
             <circle class="pg-node" cx="150" cy="60" r="22" fill="rgba(0,212,255,0.15)" stroke="#0af" stroke-width="1.5"/>
-            <text x="150" y="64" text-anchor="middle" fill="#0af" font-size="9">sql_q</text>
+            <text x="150" y="64" text-anchor="middle" fill="#0af" font-size="9">secure</text>
             <circle class="pg-node" cx="60" cy="150" r="18" fill="rgba(123,97,255,0.15)" stroke="#7b61ff" stroke-width="1.5"/>
             <text x="60" y="154" text-anchor="middle" fill="#7b61ff" font-size="9">input</text>
             <circle class="pg-node" cx="240" cy="150" r="15" fill="rgba(0,255,136,0.12)" stroke="#0f8" stroke-width="1.5"/>

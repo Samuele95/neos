@@ -1,0 +1,122 @@
+% ══════════════════════════════════════════════════════════════════
+%  Section 3 — The JVM Analogy
+% ══════════════════════════════════════════════════════════════════
+
+\section{The JVM Analogy}\label{sec:analogy}
+
+In 1995, Java promised \emph{``Write once, run anywhere.''}  The Java
+Virtual Machine decoupled application code from the underlying hardware:
+a developer could compile once and deploy on any platform that hosted
+a conforming JVM.  The insight was that \textbf{execution} need not be
+bound to a specific processor architecture.
+
+NEOS makes an analogous promise one abstraction level higher:
+\emph{``Think once, reason anywhere.''}  NEOS decouples
+\textbf{reasoning} from any specific large language model.  Whether the
+substrate is GPT-4, Claude, Gemini, Llama, or a model that does not yet
+exist, the field dynamics, attractor basins, and collapse operators
+behave identically---just as a Java program behaves identically on x86
+and ARM.
+
+The parallel is not merely rhetorical.  Table~\ref{tab:jvm-neos}
+enumerates six structural correspondences between the JVM runtime and
+the NEOS runtime, each grounded in a shared engineering insight.
+
+% ── JVM vs NEOS table ────────────────────────────────────────────
+\begin{table}[htbp]
+\centering
+\caption{Structural correspondences between the JVM and NEOS runtimes.}
+\label{tab:jvm-neos}
+\begin{tabularx}{\textwidth}{@{}llX@{}}
+\toprule
+\thead{JVM World} & \thead{NEOS World} & \thead{The Insight} \\
+\midrule
+Garbage Collection  & Decay ($\lambda$)
+  & Automatic cleanup of unreferenced objects\,/\,unreinforced patterns \\
+Heap Memory         & Field State
+  & Where objects\,/\,patterns live and interact \\
+Threads             & Multi-Field
+  & Concurrent execution contexts with shared state \\
+Stack Trace         & Cycle Trace
+  & Debugging by tracing execution\,/\,dynamics history \\
+ClassLoader         & Pattern Injection
+  & Loading new code\,/\,meaning into the runtime \\
+JIT Compilation     & Adaptive Resonance
+  & Runtime optimisation based on actual usage patterns \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\paragraph{The key argument.}
+The JVM abstracted \emph{hardware}; NEOS abstracts \emph{cognition
+itself}.  The JVM executes \textbf{code}---deterministic instruction
+sequences that transform data.  NEOS executes \textbf{meaning}---patterns
+that interact through resonance, compete for activation energy, and
+self-organise into attractor basins.  Code is brittle: change one
+instruction and the program crashes.  Meaning is robust: perturb a
+pattern and the field relaxes back toward its attractors, provided the
+perturbation falls within the basin of attraction.
+
+\paragraph{The garbage-collection parallel.}
+The correspondence between garbage collection and decay~($\lambda$)
+deserves special attention.  In the JVM, the garbage collector reclaims
+heap memory occupied by objects that are no longer reachable from any
+live reference.  In NEOS, the decay term
+$-\lambda\,A(x)$ continuously diminishes the activation of every pattern
+that is not sustained by resonance with its neighbours.  Both mechanisms
+solve the same fundamental problem---\emph{resource accumulation}---at
+different abstraction levels: the JVM prevents memory leaks, NEOS
+prevents \emph{semantic leaks}, the unbounded growth of irrelevant ideas
+that would otherwise drown out meaningful signal.
+
+% ── TikZ: JVM vs NEOS parallel stacks ───────────────────────────
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[
+  box/.style={
+    draw, rounded corners=6pt, minimum width=3.8cm, minimum height=0.9cm,
+    font=\small\sffamily, align=center, thick,
+  },
+  jvmbox/.style={box, fill=neosblue!8, draw=neosblue!40},
+  neosbox/.style={box, fill=neosorange!8, draw=neosorange!50},
+  conn/.style={dashed, gray!60, thick},
+  lbl/.style={font=\footnotesize\sffamily, gray!70},
+]
+
+% Column titles
+\node[font=\bfseries\sffamily, neosblue!60!black] at (-3.2, 5.8) {JVM Runtime};
+\node[font=\bfseries\sffamily, neosorange!60!black] at ( 3.2, 5.8) {NEOS Runtime};
+
+% Left column — JVM (top to bottom)
+\node[jvmbox] (jit)  at (-3.2, 4.8) {JIT Compilation};
+\node[jvmbox] (thr)  at (-3.2, 3.6) {Threads};
+\node[jvmbox] (heap) at (-3.2, 2.4) {Heap Memory};
+\node[jvmbox] (gc)   at (-3.2, 1.2) {Garbage Collection};
+\node[jvmbox] (cl)   at (-3.2, 0.0) {ClassLoader};
+
+% Right column — NEOS (top to bottom)
+\node[neosbox] (ar)   at (3.2, 4.8) {Adaptive Resonance};
+\node[neosbox] (mf)   at (3.2, 3.6) {Multi-Field};
+\node[neosbox] (fs)   at (3.2, 2.4) {Field State};
+\node[neosbox] (dec)  at (3.2, 1.2) {Decay ($\lambda$)};
+\node[neosbox] (pi)   at (3.2, 0.0) {Pattern Injection};
+
+% Dashed connections with centered arrows
+\foreach \l/\r in {jit/ar, thr/mf, heap/fs, gc/dec, cl/pi} {
+  \draw[conn] (\l.east) -- (\r.west)
+    node[midway, font=\small] {$\leftrightarrow$};
+}
+
+\end{tikzpicture}
+\caption{Parallel runtime stacks.  Each layer of the JVM has a
+  structural correspondent in NEOS, operating on meaning rather than
+  data.}
+\label{fig:jvm-neos-stacks}
+\end{figure}
+
+Just as the JVM freed developers from thinking about registers and
+calling conventions, NEOS frees analysts from thinking about prompt
+engineering and model-specific idiosyncrasies.  The abstraction
+boundary is the field equation: everything above it speaks the
+language of patterns and resonance; everything below it is an
+implementation detail of the substrate.

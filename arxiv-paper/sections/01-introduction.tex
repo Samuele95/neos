@@ -1,0 +1,254 @@
+\section{Introduction}\label{sec:introduction}
+
+The next operating system may not manage files.  It may manage meaning.
+
+Every previous generation of operating systems arose in response to a
+specific bottleneck.  As that bottleneck shifted, the entire computing
+stack reorganised around a new abstraction layer.  We argue that the
+same shift is happening now---and that its consequences are more
+profound than either of the two that preceded it.
+
+%% ────────────────────────────────────────────────────────────────────
+\subsection{The Three Ages of Computing}\label{sec:three-ages}
+
+Computing history divides naturally into three eras, each defined by a
+dominant bottleneck, a characteristic abstraction, and a corresponding
+operating-system paradigm~\cite{silberschatz2018operating}.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[
+    era/.style={
+      rectangle, rounded corners=6pt, draw=neosblue!60, fill=neosblue!6,
+      minimum width=4.2cm, minimum height=2.6cm, align=center,
+      font=\small,
+    },
+    label/.style={font=\footnotesize\itshape, text=gray!70!black},
+    >=Stealth
+  ]
+
+  %% --- timeline ---
+  \draw[gray!50, very thick] (-6.5,0) -- (6.5,0);
+  \foreach \x/\yr in {-4.5/1950s, 0/1980s, 4.5/2025} {
+    \fill[neosblue!50] (\x,0) circle (3pt);
+    \node[below=4pt, font=\footnotesize\bfseries] at (\x,0) {\yr};
+  }
+
+  %% --- era boxes ---
+  \node[era] (hw) at (-4.5,2.4)
+    {\textbf{Hardware Age}\\[3pt]
+     Bottleneck: \emph{the machine}\\
+     OS shares CPU \& memory};
+
+  \node[era] (sw) at (0,2.4)
+    {\textbf{Software Age}\\[3pt]
+     Bottleneck: \emph{complexity}\\
+     OS organises programs};
+
+  \node[era, draw=neosblue!80, fill=neosblue!12] (ia) at (4.5,2.4)
+    {\textbf{Intelligence Age}\\[3pt]
+     Bottleneck: \emph{meaning}\\
+     OS organises thinking};
+
+  %% --- interface labels ---
+  \node[label, below=6pt] at (hw.south) {Punch cards, CLI};
+  \node[label, below=6pt] at (sw.south) {GUI, IDEs, Apps};
+  \node[label, below=6pt] at (ia.south) {Natural language, NEOS Shell};
+
+  %% --- arrows ---
+  \draw[->, thick, gray!60] (hw.east) -- (sw.west);
+  \draw[->, thick, gray!60] (sw.east) -- (ia.west);
+\end{tikzpicture}
+\caption{The three ages of computing.  Each era is defined by a
+  dominant bottleneck and a corresponding OS paradigm.  The Intelligence
+  Age shifts the bottleneck from hardware or software to meaning
+  itself.}
+\label{fig:three-ages}
+\end{figure}
+
+In the \textbf{Hardware Age} (1950s--1980s), the CPU was the scarcest
+resource.  Operating systems were born to answer a single question:
+\emph{How do we share this machine?}  Every cycle was a resource to be
+scheduled; every byte was territory to be managed.  Batch processing,
+time-sharing, and virtual memory were all answers to the hardware
+bottleneck.
+
+In the \textbf{Software Age} (1980s--2020s), hardware became abundant,
+but complexity became the enemy.  C, Java, Python---humans learned
+programming languages to organise millions of lines of code.  Operating
+systems evolved to answer: \emph{How do we organise these programs?}
+Graphical user interfaces, multitasking, and application ecosystems
+arose to tame software complexity.
+
+Now the bottleneck has moved again.  The challenge is no longer
+computing faster or organising more code---it is organising
+\textbf{thinking itself}.  How do you represent an idea so that it can
+interact with other ideas?  How do you track which interpretations are
+gaining strength?  How do you merge two lines of reasoning?  How do you
+\emph{debug a thought}?  These are the questions that an OS for the
+Intelligence Age must answer.  They are precisely the questions NEOS was
+designed to address.
+
+\begin{calloutbox}
+The central thesis of this paper is that the next abstraction layer
+will not manage code---it will manage \textbf{reasoning} as a
+first-class computational primitive.
+\end{calloutbox}
+
+%% ────────────────────────────────────────────────────────────────────
+\subsection{The Vision: LLM as Universal OS}\label{sec:vision}
+
+Today, large language models are \emph{applications} that run on an
+operating system---Windows, Linux, macOS~\cite{brown2020language}.
+They are apps.  Useful apps, even transformative apps.  But still:
+apps.
+
+\textbf{Tomorrow, the LLM \emph{is} the operating system.}  Every
+interaction with a computer will pass through language understanding.
+This is not speculation---it is the trajectory we are already on.  And
+NEOS is the first specification for what that world looks like.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[
+    ibox/.style={
+      rectangle, rounded corners=6pt, draw=#1!60, fill=#1!8,
+      minimum width=2.2cm, minimum height=0.7cm,
+      align=center, font=\small
+    },
+    ibox/.default=gray,
+    arr/.style={-Stealth, thick, neosblue!40},
+  ]
+  %% --- Interface evolution ---
+  \node[ibox=gray]   (cli)  at (0,0)   {\textbf{CLI}\\[-1pt]\tiny 1970s};
+  \node[ibox=gray]   (gui)  at (3,0)   {\textbf{GUI}\\[-1pt]\tiny 1984};
+  \node[ibox=gray]   (nui)  at (6,0)   {\textbf{NUI}\\[-1pt]\tiny 2007};
+  \node[rectangle, rounded corners=6pt, draw=neosblue!60, fill=neosblue!8, minimum width=2.2cm, minimum height=0.7cm, align=center, font=\small]   (neos) at (9.5,0) {\textbf{NEOS Shell}\\[-1pt]\tiny 2025};
+
+  \draw[arr] (cli)  -- (gui);
+  \draw[arr] (gui)  -- (nui);
+  \draw[arr] (nui)  -- (neos);
+
+  \node[below=3pt, font=\tiny\itshape, text=gray] at (cli.south)
+    {Text commands};
+  \node[below=3pt, font=\tiny\itshape, text=gray] at (gui.south)
+    {Point \& click};
+  \node[below=3pt, font=\tiny\itshape, text=gray] at (nui.south)
+    {Touch \& gesture};
+  \node[below=3pt, font=\tiny\itshape, text=gray] at (neos.south)
+    {Meaning \& resonance};
+\end{tikzpicture}
+\caption{Interface evolution from command-line to meaning-based
+  interaction.  Each transition raises the level of abstraction at which
+  humans communicate with machines.}
+\label{fig:interface-evolution}
+\end{figure}
+
+Consider what this inversion means in concrete terms:
+
+\begin{center}
+\small
+\begin{tabular}{@{}ll@{}}
+\toprule
+\thead{Old World} & \thead{New World} \\
+\midrule
+File systems organise by path
+  & Semantic fields organise by meaning \\
+Compiled binaries execute instructions
+  & Field configurations execute reasoning \\
+Separate applications for each task
+  & Task definitions compose into workflows \\
+GUIs mediate human--machine interaction
+  & Natural language + shell for precision \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[
+    layer/.style={
+      rectangle, rounded corners=6pt, draw=#1!60, fill=#1!8,
+      minimum width=5cm, minimum height=1.1cm,
+      align=center, font=\small
+    },
+    layer/.default=gray,
+    lbl/.style={font=\small\bfseries, text=gray!60!black},
+    >=Stealth
+  ]
+
+  %% ===== TODAY stack (left) =====
+  \node[lbl] at (-3.5,4.6) {TODAY};
+
+  \node[layer=gray] (thw)  at (-3.5,0)   {Hardware};
+  \node[layer=gray] (tos)  at (-3.5,1.4) {Operating System};
+  \node[layer=gray] (tapp) at (-3.5,2.8) {Applications};
+
+  %% Small LLM box inside Applications
+  \node[rectangle, rounded corners=2pt, draw=neosblue!50, fill=neosblue!10,
+        minimum width=1.6cm, minimum height=0.45cm,
+        font=\tiny\bfseries, text=neosblue!70!black]
+    (llmbox) at (-3.5,2.8) {LLM App};
+
+  %% ===== TOMORROW stack (right) =====
+  \node[lbl] at (3.5,4.6) {TOMORROW};
+
+  \node[rectangle, rounded corners=6pt, draw=neosblue!50, fill=neosblue!8,
+        minimum width=5cm, minimum height=1.1cm, align=center, font=\small]
+    (nfound) at (3.5,0) {\textbf{LLM} (Foundation Model)};
+  \node[rectangle, rounded corners=6pt, draw=neosblue!60, fill=neosblue!8,
+        minimum width=5cm, minimum height=1.1cm, align=center, font=\small] (nneos) at (3.5,1.4)
+    {\textbf{NEOS} (Operating System)};
+  \node[rectangle, rounded corners=6pt, draw=neosgreen!50!black, fill=neosgreen!5,
+        minimum width=5cm, minimum height=1.1cm, align=center, font=\small]
+    (nhum) at (3.5,2.8) {\textbf{Human} (Operator)};
+
+  %% --- Arrow between stacks ---
+  \draw[->, ultra thick, neosblue!30] (0.3,1.4) -- (0.8,1.4);
+
+  %% ===== REPL Cycle below =====
+  \node[font=\footnotesize\bfseries, text=neosblue!60!black]
+    at (0, -1.5) {The NEOS REPL Cycle};
+
+  \node[rectangle, rounded corners=6pt, draw=neosblue!40, fill=neosblue!4,
+        minimum width=2.1cm, minimum height=0.65cm,
+        font=\scriptsize, align=center] (r1) at (-4.2,-2.8) {Inject\\Meaning};
+  \node[rectangle, rounded corners=6pt, draw=neosblue!40, fill=neosblue!4,
+        minimum width=2.1cm, minimum height=0.65cm,
+        font=\scriptsize, align=center] (r2) at (-1.4,-2.8) {Run\\Dynamics};
+  \node[rectangle, rounded corners=6pt, draw=neosblue!40, fill=neosblue!4,
+        minimum width=2.1cm, minimum height=0.65cm,
+        font=\scriptsize, align=center] (r3) at (1.4,-2.8) {Observe\\Emergence};
+  \node[rectangle, rounded corners=6pt, draw=neosblue!40, fill=neosblue!4,
+        minimum width=2.1cm, minimum height=0.65cm,
+        font=\scriptsize, align=center] (r4) at (4.2,-2.8) {Collapse to\\Insight};
+
+  \draw[->, thick, neosblue!50] (r1) -- (r2);
+  \draw[->, thick, neosblue!50] (r2) -- (r3);
+  \draw[->, thick, neosblue!50] (r3) -- (r4);
+  \draw[->, thick, neosblue!50, rounded corners=8pt]
+    (r4.south) -- ++(0,-0.55) -| (r1.south);
+\end{tikzpicture}
+\caption{The architecture inversion.  \textbf{Left:} today's stack,
+  where the LLM is an application running on a traditional OS.
+  \textbf{Right:} the NEOS stack, where the LLM \emph{is} the
+  substrate and NEOS provides the operating-system layer.
+  \textbf{Bottom:} the NEOS REPL cycle---inject meaning, run dynamics,
+  observe emergence, collapse to insight---with a feedback loop through
+  save, fork, and share.}
+\label{fig:architecture-inversion}
+\end{figure}
+
+The NEOS shell---\texttt{nf}---is the \textbf{REPL of cognitive
+computing}.  The operator does not write code; instead, they inject
+meaning, run dynamics, observe emergence, and collapse to insight
+(Figure~\ref{fig:architecture-inversion}).  Chain-of-thought
+reasoning~\cite{wei2022chain} demonstrated that LLMs can decompose
+complex problems step by step; NEOS generalises this insight into a
+full dynamical framework where reasoning steps are not linear chains
+but interacting fields that self-organise through resonance.
+
+``Programs'' in NEOS are not instruction sequences.  They are
+\textbf{field configurations}---patterns with activation strengths,
+resonance relationships, and tuneable parameters.  A program is a
+thought, formalised.

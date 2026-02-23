@@ -1,0 +1,102 @@
+\section{Discussion and Future Work}\label{sec:discussion}
+
+\subsection{Scope and Limitations}\label{sec:scope}
+
+Honesty builds credibility. We state clearly what NEOS does \emph{not} claim to be.
+
+\textbf{NEOS is not executable code.} It is a specification---37 markdown files that define how an interactive runtime should behave. There is no compiler, no binary, no package to install. The execution environment is an LLM following the specification. Implementation is the next step.
+
+\textbf{NEOS is not AGI.} It does not think independently, set its own goals, or possess consciousness. It is a structured environment for human-directed reasoning---a tool that makes LLM interaction more powerful, observable, and reproducible.
+
+\textbf{NEOS requires a capable LLM.} The specification assumes a model that can maintain context, reason about abstract structures, and follow complex protocols. Smaller or less capable models will implement it partially or not at all. NEOS is only as good as the virtual machine it runs on.
+
+\textbf{NEOS is not a prompt engineering toolkit.} It does not help craft better prompts. It replaces the paradigm of prompting entirely with a paradigm of field dynamics, resonance, and collapse. If prompts are assembly language, NEOS is the high-level language---they operate at different levels of abstraction.
+
+\begin{figure}[ht]
+\centering
+\begin{tikzpicture}
+  % Prompt Engineering circle
+  \draw[dashed, gray] (0,0) circle (1.8cm);
+  \node[gray, font=\small\bfseries] at (-0.5,0.3) {Prompt};
+  \node[gray, font=\small\bfseries] at (-0.5,-0.1) {Engineering};
+  \node[gray!70, font=\scriptsize] at (-0.6,-0.6) {Better wording};
+
+  % NEOS circle
+  \draw[neosblue!60!black, thick] (2.2,0) circle (2.0cm);
+  \node[neosblue!60!black, font=\bfseries] at (2.5,0.6) {NEOS};
+  \node[neosblue!60!black, font=\scriptsize] at (2.5,0.1) {Field dynamics};
+  \node[neosblue!60!black, font=\scriptsize] at (2.5,-0.3) {Observable reasoning};
+  \node[neosblue!60!black, font=\scriptsize] at (2.5,-0.7) {Versioned thinking};
+
+  % AGI circle
+  \draw[dashed, red!60!black] (5.0,0) circle (1.6cm);
+  \node[red!60!black, font=\small\bfseries] at (5.3,0.2) {AGI};
+  \node[red!50!black, font=\scriptsize] at (5.3,-0.3) {Self-directed goals};
+  \node[red!50!black, font=\scriptsize] at (5.3,-0.7) {Consciousness};
+
+  % Overlap label
+  \node[gray!60, font=\scriptsize] at (1.0,-1.3) {LLM interface};
+  % No overlap
+  \node[gray!40, font=\scriptsize] at (3.8,-1.5) {no overlap};
+\end{tikzpicture}
+\caption{NEOS occupies a distinct space between prompt engineering and AGI. It shares the LLM interface layer with prompt engineering but operates at a fundamentally higher level of abstraction. It does not overlap with AGI.}
+\label{fig:scope}
+\end{figure}
+
+These limitations are design choices. NEOS is a specification rather than an implementation because the best implementation strategy depends on the rapidly evolving LLM ecosystem. It is not AGI because we are building a \emph{tool}, not an entity.
+
+\subsection{Roadmap}\label{sec:roadmap}
+
+NEOS is a beginning, not an endpoint. The roadmap spans three horizons.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+  % Outer ring
+  \draw[neosred!40, thick] (0,0) ellipse (4.5cm and 2.8cm);
+  \node[neosred!50!black, font=\small\bfseries] at (0,2.5) {Long-term: The Post-Code World};
+
+  % Middle ring
+  \draw[neosviolet!50, thick] (0,0) ellipse (3.2cm and 1.9cm);
+  \node[neosviolet!70!black, font=\small\bfseries] at (0,1.6) {Medium-term: Ecosystem Growth};
+
+  % Inner ring
+  \draw[neosblue!50, thick, fill=neosblue!3] (0,0) ellipse (1.8cm and 1.0cm);
+  \node[neosblue!60!black, font=\small\bfseries] at (0,0.35) {Near-term};
+  \node[neosblue!50!black, font=\scriptsize] at (0,-0.05) {Reference implementations};
+  \node[neosblue!50!black, font=\scriptsize] at (0,-0.4) {Developer tooling};
+
+  % Medium items
+  \node[neosviolet!60!black, font=\scriptsize] at (-2.2,0) {\begin{tabular}{c}NEOS-optimized\\models\end{tabular}};
+  \node[neosviolet!60!black, font=\scriptsize] at (2.2,0) {\begin{tabular}{c}Visual IDE for\\field design\end{tabular}};
+
+  % Long-term items
+  \node[neosred!40!black, font=\scriptsize] at (-3.2,-1.5) {\begin{tabular}{c}Agent\\ecosystems\end{tabular}};
+  \node[neosred!40!black, font=\scriptsize] at (3.2,-1.5) {\begin{tabular}{c}Collective\\intelligence\end{tabular}};
+  \node[neosred!40!black, font=\scriptsize] at (0,-2.3) {Programming becomes field design};
+\end{tikzpicture}
+\caption{Three-horizon roadmap for NEOS development, from specification to ecosystem to paradigm.}
+\label{fig:roadmap}
+\end{figure}
+
+\textbf{Near-term.} Reference implementations that run on major LLM providers. Developer tooling---IDE extensions, interactive playgrounds, tutorials. Community adoption through open specification and permissive licensing.
+
+\textbf{Medium-term.} Models specifically fine-tuned for NEOS operation---faster dynamics computation, more faithful state maintenance, better resonance detection. A visual IDE for field design where users can drag and drop patterns, draw coupling connections, and watch dynamics in real time. A composable task marketplace where field configurations can be shared, forked, and remixed.
+
+\textbf{Long-term.} \textbf{The post-code world.} Humans express intent in language, the NEOS shell formalizes it into field operations, LLMs execute it, and the output is meaning, not bytes. ``Programming'' becomes \emph{field design}---a creative act more like architecture than engineering. Agent ecosystems built on NEOS, where agents share reasoning states, fork each other's thinking, merge insights, and operate as a collective intelligence. The ``developer'' of the future is a field architect---someone who understands resonance dynamics, coupling stability, and collapse strategies.
+
+\subsection{Concluding Remarks}
+
+If the approach presented here proves viable, it may represent a transition as significant as the introduction of the operating system. The Hardware Age gave us the ability to compute. The Software Age gave us the ability to organize. The Intelligence Age will give us the ability to \textbf{reason}---systematically, observably, reproducibly.
+
+NEOS is the first step. Not the last. The specification is open. The mathematics is grounded in decades of neural field theory~\cite{amari1977dynamics, wilson1972excitatory, coombes2005waves}. The proof-of-concept works. What remains is to build the community, iterate the specification, and push toward implementation---turning 37 markdown files into the foundation of a new computing paradigm.
+
+\begin{calloutbox}
+The last operating system will not run on silicon. It will run on \textbf{understanding}.
+\end{calloutbox}
+
+\begin{calloutbox}
+If field dynamics prove to be the right abstraction for cognitive
+computing, the long-term consequence is an operating system whose
+primary resource is not memory or cycles, but \textbf{meaning}.
+\end{calloutbox}

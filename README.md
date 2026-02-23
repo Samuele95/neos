@@ -203,112 +203,135 @@ The shell grammar is built on **imperative verbs** operating on **semantic objec
 > [!IMPORTANT]
 > **There is nothing to install.** NEOS runs entirely inside an LLM's context window. No packages, no dependencies, no runtime. Copy the [kernel prompt](prompts/nfos-kernel.md), paste it as a system prompt, and type your first command.
 
-### Step 1 — Start a session and inject patterns
+The walkthrough below follows the real **software_quality_discipline** session — the same one reported in [Section 08](#08--proof-the-software-quality-session). Every number is from the actual transcript.
 
-You've reviewed some code and noticed security concerns. Inject each one as a named pattern:
+### Step 1 — Inject code-review patterns
+
+You're building a quality discipline. Inject each code-review concern as a named pattern, tuning the field for selective resonance:
 
 ```bash
-> nf session new "Code Security Analysis"
+> nf session new "software_quality_discipline"
 ╔═══════════════════════════════════════════════════════════╗
 ║            NEURAL FIELD OPERATING SYSTEM v1.0             ║
 ╚═══════════════════════════════════════════════════════════╝
-[SESSION] Created: Code Security Analysis
-  Parameters: λ=0.05, α=0.30, τ=0.40, σ=0.50
+[SESSION] Created: software_quality_discipline
 
-> nf inject "sql_query_construction" 0.9
-[INJECT] sql_query_construction (s: 0.90)
+> nf tune lambda=0.04 alpha=0.35 tau=0.35 sigma=0.40
+[TUNE] λ=0.04 (slow decay) α=0.35 (strong resonance)
+       τ=0.35 (inclusive) σ=0.40 (selective coupling)
 
-> nf inject "user_input_handling" 0.85
-[INJECT] user_input_handling (s: 0.85)
-  [IMMEDIATE RESONANCE] ↔ @sql_query_construction: R = 0.72
+> nf inject "correctness" 0.90
+[INJECT] correctness (s: 0.90) — p001
 
-> nf inject "string_concatenation" 0.8
-> nf inject "no_input_validation" 0.75
+> nf inject "edge_case_handling" 0.85
+[INJECT] edge_case_handling (s: 0.85) — p002
+  [RESONANCE] ↔ @correctness: R = 0.82 STRONG
+
+> nf inject "security_no_injection_vectors" 0.95
+[INJECT] security_no_injection_vectors (s: 0.95) — p003
+  [RESONANCE] ↔ @correctness:        R = 0.68 MODERATE
+  [RESONANCE] ↔ @edge_case_handling:  R = 0.74 STRONG
+
+> nf inject "input_validation" 0.90
+[INJECT] input_validation (s: 0.90) — p004
+  [RESONANCE] ↔ @security_no_injection: R = 0.91 STRONG
 ```
 
 > [!TIP]
 > Strength reflects your confidence. Use 0.9 for strong signals, 0.5–0.7 for hunches. The dynamics will sort out what matters — weak patterns decay unless reinforced.
 
-### Step 2 — Run dynamics and watch attractors emerge
+### Step 2 — Run dynamics, watch structure emerge
 
-Each cycle applies decay, computes resonance, amplifies reinforcing patterns, and checks for emergence:
+Each cycle applies decay, computes resonance, amplifies reinforcing patterns, and checks for emergence. After injecting two more patterns (`no_leaked_secrets` at 0.88 and `error_handling_graceful_not_silent` at 0.85):
 
 ```bash
 > nf cycle 3 --trace
-[CYCLE 1]
-  DECAY: Applied λ=0.05
-  RESONANCE: @sql_query ↔ @string_concat: R = 0.85 [STRONG]
-  AMPLIFY: @sql_query: 0.86 → 0.94 (resonance boost)
-  COHERENCE: 0.72 [HIGH]
+[CYCLE 1] C = 0.42  (LOW→MEDIUM)
+  RESONANCE: @security ↔ @input_validation: R = 0.91 STRONG
+  RESONANCE: @edge_case ↔ @error_handling:  R = 0.85 STRONG
+  All 6 patterns amplified — no isolation
 
-[CYCLE 2]
-  [ATTRACTOR-EMERGED] "sql_injection_vulnerability"
-    Core: {@sql_query, @user_input, @string_concat, @no_validation}
-    Coherence: 0.82
+[CYCLE 2] C = 0.58  (MEDIUM, approaching threshold)
+  All resonances tightening, cross-cluster links forming
 
-[CYCLE 3]
-  [ATTRACTOR] sql_injection_vulnerability — stable
+[CYCLE 3] C = 0.71  (HIGH)
+  [ATTRACTOR-EMERGED] "defensive_quality"
+    Core: {@security_no_injection, @input_validation,
+           @edge_case_handling, @correctness,
+           @no_leaked_secrets, @error_handling}
+    Coherence: 0.71
 ```
 
-**What just happened?** Patterns that resonate strongly cluster together. When a cluster crosses coherence and stability thresholds, it becomes an **attractor** — a stable conclusion the field has converged on. This wasn't programmed. It emerged.
+**What just happened?** Six patterns that resonate strongly clustered autonomously. When the cluster crossed coherence (>0.6) and stability thresholds, it became an **attractor** — `defensive_quality`. This wasn't programmed. It emerged. Security, correctness, and resilience turned out to be facets of one unified discipline.
 
-### Step 3 — Visualize the resonance network
+### Step 3 — Adversarial injection: Singleton
+
+At cycle 30, with 43 patterns established, inject a controversial pattern — the Singleton:
 
 ```bash
-> nf plot network
+> nf inject "singleton_controlled_global_access" 0.65
+[INJECT] singleton (s: 0.65) — p044
+  ⚠ LOWEST INITIAL ACTIVATION IN FIELD HISTORY
+  STRONG resonances: 0  (first pattern with ZERO)
+
+  LATERAL INHIBITION DETECTED:
+    @test_isolation       → singleton  INHIBIT (-0.12)
+    @determinism          → singleton  INHIBIT (-0.08)
+    @dependency_direction → singleton  INHIBIT (-0.06)
+    @favor_composition    → singleton  INHIBIT (-0.05)
+
+  Net force: -0.014/cycle  (NEGATIVE — first in field)
+  Coherence: 0.955 → 0.941  (LARGEST SINGLE-INJECTION DROP)
 ```
 
-<div align="center">
-<img src="assets/diagram-network.svg" alt="Resonance Network — SQL Injection Vulnerability Attractor" width="100%"/>
-</div>
+> [!NOTE]
+> **The field has an immune system.** Four patterns are actively *suppressing* Singleton — it couples to *how* (global mutable state) rather than *what* (controlled instantiation). The dynamics will decide its fate.
 
-### Step 4 — Collapse to structured output
+### Step 4 — Collapse to the field equation
+
+Over cycles 31–52, Singleton decays under sustained lateral inhibition. At cycle 52, it is expelled — the first pattern in field history to fall below threshold:
 
 ```bash
 > nf collapse --strategy attractor
-[COLLAPSE] Strategy: attractor
-  Dominant attractor: sql_injection_vulnerability (0.82)
+[COLLAPSE] 52 cycles | 61 surviving patterns | 7 basins
 
-OUTPUT:
-  FINDING: SQL Injection Vulnerability
+[CYCLE 52] @singleton: 0.355 → 0.341 < τ (0.350)
+  PATTERN EXPELLED — FIRST IN FIELD HISTORY
+  Lifespan: 21 cycles | Cause: sustained lateral inhibition
 
-  EVIDENCE:
-    • SQL queries constructed dynamically (A=0.95)
-    • User input incorporated into queries (A=0.91)
-    • String concatenation used for query building (A=0.87)
-    • Input validation absent (A=0.82)
+FIELD EQUATION:
+  Q(x) = Ψ · [0.342·SOLID + 0.227·F + 0.181·Protocol
+              + 0.143·Simplex + 0.107·Scale](x)
 
-  RECOMMENDATION:
-    1. Use parameterized queries or prepared statements
-    2. Implement input validation and sanitization
-    3. Apply principle of least privilege for database access
-
-  CONFIDENCE: HIGH (0.82)
+  Ψ: "What something MEANS persists; how it WORKS changes."
+  5 eigenvectors | 7 attractor basins | coherence: 0.993
 ```
 
-### Step 5 — Branch and explore alternatives
+### Step 5 — Branch and explore a counterfactual
+
+What if Singleton had been injected at full strength? Branch to find out:
 
 ```bash
-> nf commit "SQL injection vulnerability identified"
-[COMMIT] a1b2c3d
+> nf commit "pre-singleton baseline"
+> nf branch create singleton_strong
+> nf inject "singleton_controlled_global_access" 0.90
 
-> nf branch create mitigation_analysis
-> nf inject "parameterized_queries" 0.9 --tags mitigation
-> nf inject "input_validation" 0.85 --tags mitigation
-> nf cycle 3 --compact
-  1: C=0.55, 6 patterns (competition)
-  2: C=0.48, 5 patterns (no_input_validation decaying)
-  3: C=0.72, 5 patterns [NEW ATTRACTOR: secure_pattern]
+[INJECT] singleton (s: 0.90)
+  STRONG resonances: 0 | Same 4 lateral inhibitors
+
+> nf cycle 10
+  singleton: 0.90 → 0.78 → 0.66 → ... → 0.48 (DECAYING)
+  Same net force, higher starting point, same trajectory
 
 > nf checkout main
-> nf diff mitigation_analysis
-[DIFF] main..mitigation_analysis
-  Added:   +@parameterized_queries (0.88), +@input_validation (0.85)
-  Changed: @no_input_validation 0.82 → 0.25 [ATTENUATED]
-  Attractors: sql_injection_vulnerability → secure_pattern
+> nf diff singleton_strong
+[DIFF] main..singleton_strong
+  Changed: @singleton 0.90 → 0.48 [DECAYING]
+  Structural: same 4 inhibitors active at BOTH strengths
+  Conclusion: expulsion is TOPOLOGICAL, not parametric
 ```
 
-> Branching lets you explore "what if" scenarios without losing your original analysis. This is version control for *reasoning*, not files.
+> The field's verdict on Singleton is **structural** — no amount of initial confidence changes the outcome. The same four principles that suppress it at 0.65 suppress it at 0.90. This is version control for *reasoning*, not files.
 
 ---
 

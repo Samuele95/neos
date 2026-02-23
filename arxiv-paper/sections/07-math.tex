@@ -1,0 +1,66 @@
+\section{Mathematical Specification}\label{sec:math}
+
+NEOS is governed by four fundamental parameters. Each controls a different aspect of field behavior, and each has an intuitive real-world metaphor. Together, they define a \emph{cognitive style}---a tunable personality for the reasoning process.
+
+\paragraph{$\lambda$ --- Decay Rate.}
+Default: $0.05$, Range: $[0,1]$.
+Controls how fast unreinforced ideas fade from the field. Higher values produce a more selective field with faster forgetting---only strongly reinforced patterns survive. A knowledge base uses low $\lambda$ (ideas persist indefinitely), while a creative brainstorm uses high $\lambda$ (rapid turnover, survival of the fittest).
+
+\paragraph{$\alpha$ --- Amplification.}
+Default: $0.30$, Range: $[0,1]$.
+Governs how strongly resonance boosts pattern activation. Higher values drive faster convergence and stronger snowballing of related ideas. Low $\alpha$ yields gentle, gradual reinforcement; high $\alpha$ produces aggressive clustering.
+
+\paragraph{$\tau$ --- Threshold.}
+Default: $0.40$, Range: $[0,1]$.
+The minimum activation required for a pattern to remain active. Patterns falling below $\tau$ are marked dormant---they stop participating in dynamics but are not deleted. High $\tau$ means only credible, well-supported ideas survive; low $\tau$ allows weak hunches to persist.
+
+\paragraph{$\sigma$ --- Bandwidth.}
+Default: $0.50$, Range: $[0,\infty)$.
+The semantic reach of each pattern's influence in the resonance kernel $K(x,y)$. Narrow $\sigma$ focuses resonance on closely related concepts. Broad $\sigma$ enables connections between distant ideas, promoting cross-domain insight at the cost of specificity.
+
+\subsection{Cognitive Style Profiles}
+
+The power lies in the \textbf{combinations}. Table~\ref{tab:cognitive-styles} shows two contrasting profiles:
+
+\begin{table}[ht]
+\centering
+\caption{Example cognitive style profiles defined by parameter tuning.}
+\label{tab:cognitive-styles}
+\small
+\begin{tabularx}{\textwidth}{@{}lccccX@{}}
+\toprule
+\thead{Profile} & \thead{$\lambda$} & \thead{$\alpha$} & \thead{$\tau$} & \thead{$\sigma$} & \thead{Character} \\
+\midrule
+Security Analysis & 0.03 & 0.35 & 0.50 & 0.40 & Persistent, aggressive clustering, selective \\
+Creative Brainstorm & 0.08 & 0.25 & 0.30 & 0.70 & Rapid turnover, gentle, permissive, broad \\
+Knowledge Base & 0.01 & 0.15 & 0.20 & 0.80 & Long memory, slow build, inclusive, wide \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The same engine with different parameter profiles produces fundamentally different cognitive behaviors---like an audio engineer tuning a mixing board for different genres.
+
+\subsection{Stability Conditions}
+
+For multi-field systems with coupling matrix $\Gamma$, stability requires that the spectral radius satisfies:
+\begin{equation}\label{eq:stability}
+\rho(\Gamma) < \frac{\lambda_{\min}}{\alpha_{\max}}
+\end{equation}
+where $\lambda_{\min}$ is the minimum decay rate across all fields and $\alpha_{\max}$ is the maximum amplification. This prevents oscillatory divergence in coupled field dynamics. NEOS checks this condition automatically upon coupling.
+
+\subsection{Coherence Metric}
+
+Field-wide coherence is measured as:
+\begin{equation}\label{eq:coherence}
+C = \frac{\mu_R}{1 + \sigma_R^2}
+\end{equation}
+where $\mu_R$ is the mean pairwise resonance across all active patterns and $\sigma_R^2$ is its variance. High coherence ($C > 0.8$) indicates a field with strong, consistent resonance---meaning has crystallized. Low coherence signals competing interpretations or insufficient dynamics cycles.
+
+\subsection{Attractor Detection}
+
+An attractor is declared when three conditions hold simultaneously:
+\begin{enumerate}
+    \item \textbf{Coherence threshold}: $C > 0.6$ within the candidate cluster.
+    \item \textbf{Energy concentration}: more than 70\% of field energy is captured by the cluster.
+    \item \textbf{Perturbation stability}: the cluster recovers from small perturbations---removing one pattern and running a cycle does not dissolve the cluster.
+\end{enumerate}

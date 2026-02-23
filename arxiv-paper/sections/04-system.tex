@@ -1,0 +1,299 @@
+% ══════════════════════════════════════════════════════════════════
+%  Section 4 — System Design
+% ══════════════════════════════════════════════════════════════════
+
+\section{System Design}\label{sec:system}
+
+This section describes the four principal subsystems of NEOS---the
+command interface, the field dynamics engine, the multi-field
+orchestrator, and the interface layer---followed by a walkthrough of the
+interactive shell.
+
+% ─────────────────────────────────────────────────────────────────
+\subsection{Command Interface}\label{sec:command-interface}
+
+Every interaction with NEOS follows a single syntactic template:
+
+\medskip
+\begin{center}
+\texttt{nf <command> [subcommand] [arguments] [-{}-flags]}
+\end{center}
+\medskip
+
+\noindent
+Patterns are referenced with the \texttt{@name} sigil; fields with
+\texttt{\$field}.  The design is deliberately Unix-flavoured:
+\emph{imperative verbs acting on semantic objects}.  Commands are
+organised into six categories:
+
+\begin{enumerate}[nosep]
+  \item \textbf{Operations} --- create, inject, remove, and transform
+        patterns.
+  \item \textbf{Dynamics} --- advance the field through cycles, control
+        decay and resonance parameters.
+  \item \textbf{Measurement} --- query activation, coherence, energy,
+        and attractor membership.
+  \item \textbf{Visualisation} --- render field state as landscapes,
+        graphs, and heatmaps.
+  \item \textbf{Versioning} --- commit, branch, and diff field states.
+  \item \textbf{Autonomy} --- define tasks that run to a convergence
+        criterion without user intervention.
+\end{enumerate}
+
+% ── TikZ: Command pipeline ──────────────────────────────────────
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[
+  stage/.style={
+    draw, rounded corners=6pt, fill=neosblue!6, draw=neosblue!35,
+    minimum width=2.4cm, minimum height=0.9cm,
+    font=\small\sffamily, align=center, thick
+  },
+  arr/.style={-{Stealth[length=5pt]}, thick, neosblue!40},
+]
+
+\node[stage] (inp)    at (0,0)    {User Input};
+\node[stage] (parse)  at (3.2,0)  {Parser};
+\node[stage] (ast)    at (6.4,0)  {Canonical\\[-2pt]AST};
+\node[stage] (eng)    at (9.6,0)  {Field\\[-2pt]Engine};
+\node[stage] (out)    at (12.8,0) {State Update\\[-2pt]\& Output};
+
+\draw[arr] (inp)   -- (parse);
+\draw[arr] (parse) -- (ast);
+\draw[arr] (ast)   -- (eng);
+\draw[arr] (eng)   -- (out);
+
+\end{tikzpicture}
+\caption{Command pipeline.  Every interaction, regardless of input
+  modality, is parsed into the same Canonical AST before reaching the
+  field engine.}
+\label{fig:command-pipeline}
+\end{figure}
+
+% ─────────────────────────────────────────────────────────────────
+\subsection{Field Dynamics}\label{sec:field-dynamics}
+
+Each invocation of \texttt{nf cycle} advances the field through six
+sequential phases:
+
+\begin{enumerate}[nosep]
+  \item \textbf{Decay.}\quad $A \leftarrow A \times (1 - \lambda)$.
+        Every pattern loses a fixed fraction of its activation, ensuring
+        that unreinforced ideas fade.
+  \item \textbf{Resonate.}\quad Pairwise resonance is computed across
+        semantic, logical, and contextual dimensions.
+  \item \textbf{Amplify.}\quad
+        $A \leftarrow A + \alpha \sum (R \cdot A)$.
+        Patterns that resonate strongly with their neighbours gain
+        activation energy.
+  \item \textbf{Threshold.}\quad $A < \tau \;\Rightarrow\;
+        \text{mark dormant}$.  Patterns whose activation has fallen
+        below a critical value are flagged as dormant and excluded from
+        further resonance computation.
+  \item \textbf{Coherence.}\quad
+        $C = \mu_R\, / \,(1 + \sigma^{2}_R)$.
+        A scalar summary of how tightly the surviving patterns agree.
+  \item \textbf{Attractor.}\quad Emergence is declared when three
+        conditions hold simultaneously:
+        coherence $> 0.6$, energy $> 70\%$ of maximum, and
+        perturbation-stability under small noise.
+\end{enumerate}
+
+% ── TikZ: Six-phase dynamics ring ────────────────────────────────
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[
+  phase/.style={
+    draw, circle, minimum size=2.0cm, thick,
+    font=\scriptsize\sffamily, align=center, inner sep=2pt
+  },
+  arr/.style={-{Stealth[length=5pt]}, thick, gray!60},
+]
+
+% Place six nodes in a hexagonal ring (starting from top, clockwise)
+\def\R{2.8}
+\node[phase, fill=neosred!8,    draw=neosred!40]
+  (p1) at (90:\R)  {Decay\\$A(1{-}\lambda)$};
+\node[phase, fill=neosorange!10, draw=neosorange!50]
+  (p2) at (30:\R)  {Resonate\\$R(x,y)$};
+\node[phase, fill=neosgreen!8,  draw=neosgreen!40]
+  (p3) at (-30:\R) {Amplify\\$A{+}\alpha\Sigma$};
+\node[phase, fill=neosblue!8,   draw=neosblue!35]
+  (p4) at (-90:\R) {Threshold\\$A<\tau$};
+\node[phase, fill=neosviolet!8, draw=neosviolet!40]
+  (p5) at (210:\R) {Coherence\\$\mu_R/(1{+}\sigma^2)$};
+\node[phase, fill=neosorange!8, draw=neosorange!45]
+  (p6) at (150:\R) {Attractor\\$C{>}0.6$};
+
+% Clockwise arrows
+\draw[arr] (p1.east)  to[bend left=15] (p2.north);
+\draw[arr] (p2.south) to[bend left=15] (p3.north east);
+\draw[arr] (p3.south west) to[bend left=15] (p4.east);
+\draw[arr] (p4.west)  to[bend left=15] (p5.south);
+\draw[arr] (p5.north) to[bend left=15] (p6.south west);
+\draw[arr] (p6.north east) to[bend left=15] (p1.west);
+
+\end{tikzpicture}
+\caption{The six-phase dynamics ring executed during each
+  \texttt{nf cycle} invocation.  Arrows indicate the fixed evaluation
+  order.}
+\label{fig:dynamics-ring}
+\end{figure}
+
+% ─────────────────────────────────────────────────────────────────
+\subsection{Multi-Field Orchestration}\label{sec:multi-field}
+
+A single field captures one perspective.  Real problems demand several.
+NEOS supports multiple coupled fields---for instance, a
+\emph{Technical} field, a \emph{Business} field, and a \emph{User}
+field---each evolving under its own dynamics but linked through a
+coupling matrix~$\Gamma$.
+
+Stability requires that the spectral radius of~$\Gamma$ remain bounded:
+\begin{equation}\label{eq:coupling-stability}
+  \rho(\Gamma) \;<\; \frac{\lambda_{\min}}{\alpha_{\max}}\,,
+\end{equation}
+where $\lambda_{\min}$ is the smallest decay rate across fields and
+$\alpha_{\max}$ is the largest amplification factor.  When
+\eqref{eq:coupling-stability} is satisfied, cross-field influence is
+strong enough to exchange information yet too weak to destabilise any
+individual field.
+
+Two orchestration modes are provided:
+
+\begin{itemize}[nosep]
+  \item \textbf{Pipeline} --- fields execute sequentially, each seeding
+        the next with its collapsed output.
+  \item \textbf{Parallel} --- fields execute simultaneously, exchanging
+        activation through~$\Gamma$ at every cycle.
+\end{itemize}
+
+% ── TikZ: Multi-field orchestration ──────────────────────────────
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[
+  field/.style={
+    draw, rounded corners=6pt, minimum width=2.6cm,
+    minimum height=1.0cm, thick, font=\small\sffamily,
+    align=center
+  },
+  synth/.style={
+    draw, rounded corners=6pt, minimum width=3.0cm,
+    minimum height=1.0cm, thick, font=\small\sffamily\bfseries,
+    fill=neosgreen!8, draw=neosgreen!40, align=center
+  },
+  arr/.style={-{Stealth[length=5pt]}, thick, gray!60},
+]
+
+\node[field, fill=neosblue!8,   draw=neosblue!35]   (tech) at (-3.4, 2) {Technical\\Field};
+\node[field, fill=neosorange!8, draw=neosorange!45]  (biz)  at ( 0.0, 2) {Business\\Field};
+\node[field, fill=neosviolet!8, draw=neosviolet!40]  (usr)  at ( 3.4, 2) {User\\Field};
+
+\node[synth] (syn) at (0, -0.4) {Synthesis};
+
+\draw[arr] (tech.south) -- (syn.north west);
+\draw[arr] (biz.south)  -- (syn.north);
+\draw[arr] (usr.south)  -- (syn.north east);
+
+% Coupling arcs between fields
+\draw[dashed, gray!50, thick, <->]
+  (tech.east) -- (biz.west)
+  node[midway, above, font=\scriptsize\sffamily] {$\Gamma$};
+\draw[dashed, gray!50, thick, <->]
+  (biz.east) -- (usr.west)
+  node[midway, above, font=\scriptsize\sffamily] {$\Gamma$};
+
+\end{tikzpicture}
+\caption{Multi-field orchestration.  Three perspective fields are
+  coupled through~$\Gamma$ and converge into a single synthesis node.}
+\label{fig:multi-field}
+\end{figure}
+
+% ─────────────────────────────────────────────────────────────────
+\subsection{Interface Modes}\label{sec:interfaces}
+
+NEOS exposes three input modalities, all of which compile to the same
+Canonical AST:
+
+\begin{enumerate}[nosep]
+  \item \textbf{Semantic interface} --- natural-language statements
+        parsed into field operations
+        (e.g., \emph{``inject security with strength 0.9''}).
+  \item \textbf{Algebraic interface} --- formal mathematical notation:
+        $\iota(\text{``security''},\, 0.9)$.
+  \item \textbf{Shell interface} --- the command line:
+        \texttt{nf inject "security" 0.9}.
+\end{enumerate}
+
+\noindent
+The three modalities are isomorphic: every expression in one can be
+mechanically translated to the other two.  This triple interface ensures
+that NEOS is equally accessible to domain experts (semantic), theorists
+(algebraic), and engineers (shell).
+
+% ─────────────────────────────────────────────────────────────────
+\subsection{The NEOS Shell}\label{sec:shell}
+
+The NEOS shell is a read-eval-print loop (REPL) for cognitive
+computing---what \texttt{bash} is to Unix, the NEOS shell is to the
+neural field.  A typical session proceeds through three phases:
+
+\begin{description}[nosep, leftmargin=2em, labelwidth=1.8em, style=nextline]
+  \item[\textnormal{\textsc{Create}}]
+    Inject patterns into the field
+    (\texttt{nf inject}).
+  \item[\textnormal{\textsc{Compile}}]
+    Collapse the superposition into a definite output
+    (\texttt{nf collapse}).
+  \item[\textnormal{\textsc{Run}}]
+    Execute an autonomous task against a convergence criterion
+    (\texttt{nf task}).
+\end{description}
+
+\noindent
+Debugging a thought proceeds exactly as debugging a program: set
+checkpoints (\texttt{nf checkpoint}), enter step mode
+(\texttt{nf cycle 1 -{}-trace}), and inspect the cycle trace to
+understand why a pattern gained or lost activation.
+
+The following transcript demonstrates a session from the
+\emph{software\_quality\_discipline} case study~(\S\ref{sec:evidence}).
+Six code-review patterns are injected; resonance is detected
+immediately; an attractor emerges within three cycles.
+
+\begin{terminalbox}[Software Quality Session --- Wave 1]
+\begin{lstlisting}[style=neosshell]
+nf session new "software_quality_discipline"
+[SESSION] Created: software_quality_discipline
+nf tune lambda=0.04 alpha=0.35 tau=0.35 sigma=0.40
+
+nf inject "correctness" 0.90
+[INJECT] correctness (s: 0.90)
+
+nf inject "edge_case_handling" 0.85
+[INJECT] edge_case_handling (s: 0.85)
+  [RESONANCE] <-> @correctness: R = 0.82 STRONG
+
+nf inject "security_no_injection_vectors" 0.95
+[INJECT] security_no_injection_vectors (s: 0.95)
+  [RESONANCE] <-> @correctness:        R = 0.68 MODERATE
+  [RESONANCE] <-> @edge_case_handling:  R = 0.74 STRONG
+
+nf cycle 3 --trace
+[CYCLE 1] C = 0.42   (LOW->MEDIUM)
+[CYCLE 2] C = 0.58   (MEDIUM, approaching threshold)
+[CYCLE 3] C = 0.71   (HIGH)
+  [ATTRACTOR-EMERGED] "defensive_quality"
+    Core: {@security_no_injection, @input_validation,
+           @edge_case_handling, @correctness,
+           @no_leaked_secrets, @error_handling}
+    Coherence: 0.71
+\end{lstlisting}
+\end{terminalbox}
+
+\noindent
+Six patterns were injected; pairwise resonance was detected on
+injection, and the field dynamics autonomously clustered them into the
+\texttt{defensive\_quality} attractor within three cycles---all without
+explicit rules stating these concepts belong together.  The full
+session continues for 69~injections and 52~cycles~(\S\ref{sec:evidence}).

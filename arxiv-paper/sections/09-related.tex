@@ -1,0 +1,98 @@
+\section{Related Work}\label{sec:related}
+
+NEOS draws on and extends several established research traditions. This section surveys the key areas and positions NEOS within the broader landscape.
+
+\subsection{Neural Field Theory}
+
+Neural field equations have been studied in computational neuroscience for over fifty years. Amari~\cite{amari1977dynamics} pioneered the study of pattern formation in lateral-inhibition type neural fields, establishing the mathematical framework of continuous activation dynamics that NEOS adopts as its computational substrate. Wilson and Cowan~\cite{wilson1972excitatory} developed foundational models of excitatory and inhibitory interactions in neural populations, providing the theoretical basis for the resonance and decay dynamics central to NEOS.
+
+Coombes~\cite{coombes2005waves} provided a comprehensive review of waves, bumps, and patterns in neural field theories, demonstrating the rich dynamical repertoire available in continuous neural systems. Bressloff~\cite{bressloff2012spatiotemporal} extended these analyses to spatiotemporal dynamics in continuum neural fields. Sch\"{o}ner et al.~\cite{schoner2016dynamic} developed Dynamic Field Theory as a framework connecting neural dynamics to cognition and behavior, providing perhaps the closest precedent for NEOS's use of field dynamics for cognitive processing.
+
+NEOS extends these frameworks from biological neural modeling to \emph{semantic} computing, replacing spatial coordinates with positions in meaning space and firing rates with pattern activation strengths.
+
+\subsection{Large Language Models and Agent Frameworks}
+
+The transformer architecture~\cite{vaswani2017attention} enabled the development of large language models with unprecedented capabilities. Brown et al.~\cite{brown2020language} demonstrated that GPT-3 could perform few-shot learning across diverse tasks, establishing LLMs as general-purpose reasoning engines. Wei et al.~\cite{wei2022chain} showed that chain-of-thought prompting elicits multi-step reasoning, revealing that LLMs can maintain and manipulate complex cognitive state.
+
+These capabilities motivated the development of LLM-based agent frameworks. Park et al.~\cite{park2023generative} created generative agents---LLM-powered autonomous agents with memory, planning, and social interaction. Yao et al.~\cite{yao2023tree} introduced Tree of Thoughts, enabling deliberate problem solving through structured exploration of reasoning paths.
+
+Current agent frameworks---AutoGPT, CrewAI, LangGraph, LlamaIndex---each independently reinvent state management, multi-agent coordination, and memory primitives. NEOS proposes a unifying specification that formalises the primitives these frameworks implement ad hoc.
+
+Table~\ref{tab:agent-comparison} compares the primitives provided by
+prominent agent frameworks.  AutoGPT~\cite{autogpt2023} introduced
+autonomous goal decomposition and persistent memory.
+CrewAI~\cite{crewai2024} added role-based multi-agent coordination.
+LangGraph~\cite{langgraph2024} provides stateful, graph-structured
+agent workflows.  LlamaIndex~\cite{llamaindex2023} specialises in
+retrieval-augmented generation with structured data connectors.  Each
+framework addresses a subset of the operating-system primitives
+(memory, scheduling, multi-agent coordination) that NEOS aims to
+unify; none provides observable dynamics, attractor detection, or
+formal stability conditions such as
+Equation~\eqref{eq:coupling-stability-multi}.
+
+\begin{table}[htbp]
+\centering
+\caption{Primitive comparison across agent frameworks.  \checkmark\
+  = natively supported; $\circ$ = partial or plugin-based; --- = absent.}
+\label{tab:agent-comparison}
+\small
+\begin{tabular}{@{}lccccc@{}}
+\toprule
+\thead{Primitive} & \thead{AutoGPT} & \thead{CrewAI} & \thead{LangGraph}
+  & \thead{LlamaIndex} & \thead{NEOS} \\
+\midrule
+Persistent memory       & \checkmark & $\circ$ & \checkmark & \checkmark & \checkmark \\
+Multi-agent coordination & ---       & \checkmark & \checkmark & $\circ$ & \checkmark \\
+Tool use                & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark \\
+Observable dynamics     & ---        & ---     & ---        & ---        & \checkmark \\
+Attractor detection     & ---        & ---     & ---        & ---        & \checkmark \\
+Formal stability        & ---        & ---     & ---        & ---        & \checkmark \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Context and Prompt Engineering}
+
+Reynolds and McDonell~\cite{reynolds2021prompt} characterized prompt programming as a new paradigm for interacting with language models, exploring strategies beyond few-shot prompting. While this work recognized the importance of structured interaction with LLMs, it remained within the paradigm of text-based prompting.
+
+More recently, Kimai~\cite{kimai2025context} framed \emph{context engineering} as the broader discipline that subsumes prompt engineering, defining context as the complete information payload provided to an LLM at inference time.  That work organises the progression from single prompts (atoms) through persistent memory (cells) and multi-step orchestration (organs) to neural fields and protocol shells---a hierarchy that closely mirrors the evolution hierarchy presented in Section~\ref{sec:evolution}.  NEOS builds on this vision by providing the formal substrate---field dynamics, attractor detection, and collapse operators---that turns the context-engineering progression from a pedagogical metaphor into an executable specification.
+
+NEOS argues that prompts are the assembly language of the Intelligence Age. Field dynamics, with their mathematical precision, observable state, and composable operations, constitute the high-level language. The transition from prompt engineering to field dynamics parallels the historical transition from assembly language to structured programming~\cite{silberschatz2018operating}.
+
+\subsection{Operating System Abstraction History}
+
+The classical operating systems literature~\cite{silberschatz2018operating} documents a consistent trajectory: each generation of OS abstracts away the bottleneck of its era. Early operating systems managed hardware resources (CPU scheduling, memory allocation). Later systems managed software complexity (processes, threads, virtual memory, file systems). NEOS continues this trajectory into the Intelligence Age, where the bottleneck is \emph{meaning}---and the OS must manage semantic fields, resonance relationships, and cognitive state.
+
+The analogy between NEOS and the Java Virtual Machine (Section~\ref{sec:analogy}) extends the OS abstraction principle: just as the JVM decoupled code from hardware, NEOS decouples reasoning from any specific LLM.
+
+\subsection{Quantum Cognition}
+
+Busemeyer and Bruza~\cite{busemeyer2012quantum} developed quantum models of cognition and decision, demonstrating that quantum probability theory can capture phenomena---such as order effects, interference, and entanglement---that classical probability cannot. Pothos and Busemeyer~\cite{pothos2013can} argued that quantum probability provides a genuinely new direction for cognitive modeling, not merely a mathematical convenience.
+
+NEOS's quantum semantics pillar draws directly from this tradition. Superposition (multiple interpretations coexisting before collapse), non-commutativity (injection order affecting outcomes), and observer-dependent collapse (strategy choice shaping results) are not loose metaphors in NEOS---they are operational design principles inspired by quantum probability theory, implemented via the field equation rather than via Hilbert-space operators with precise mathematical definitions in terms of the field equation. The connection between neural field dynamics and quantum-inspired cognition that NEOS establishes appears to be novel.
+
+\subsection{Cognitive Architectures}
+
+Classical cognitive architectures provide structured frameworks for
+modeling human cognition.  ACT-R~\cite{anderson2007how} decomposes
+cognition into declarative memory, procedural rules, and a
+production-matching cycle that governs behavior.
+Soar~\cite{laird2012soar} models cognition as a problem-space search
+augmented by chunking (automatic rule formation) and episodic memory.
+CLARION~\cite{sun2006clarion} uniquely combines explicit rule-based
+and implicit connectionist subsystems, capturing the dual-process
+nature of human cognition.
+
+These architectures share with NEOS the commitment to making cognitive
+processing structured and inspectable.  However, they were designed for
+rule-based or symbolic substrates, not for LLMs.  NEOS can be viewed as
+extending the cognitive-architecture tradition to LLM-based systems:
+replacing production rules with field dynamics, working memory with
+activation landscapes, and goal stacks with attractor basins.
+
+\subsection{Attractor Dynamics}
+
+Hopfield~\cite{hopfield1982neural} demonstrated that neural networks with symmetric connections exhibit attractor dynamics, where the network converges to stable states that function as associative memories. Khona and Fiete~\cite{khona2022attractor} reviewed the role of attractor and integrator networks in the brain, connecting theoretical models to empirical neuroscience.
+
+NEOS's attractor detection mechanism extends this tradition from fixed-point dynamics in discrete networks to emergent structure in continuous semantic fields. The seven attractor basins discovered in the software quality session (Section~\ref{sec:evidence}) demonstrate that Hopfield-style attractor dynamics generalize naturally to the domain of meaning and reasoning.

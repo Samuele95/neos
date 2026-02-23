@@ -1,0 +1,511 @@
+% ======================================================================
+%  Section 6 --- Advanced Capabilities
+% ======================================================================
+
+\section{Advanced Capabilities}\label{sec:advanced}
+
+The preceding sections described NEOS as it operates on a single field
+with a single operator.  This section lifts that restriction and
+explores the seven capabilities that move NEOS from a reasoning tool
+to a reasoning \emph{platform}: evolutionary depth, unification of
+its three pillars, the historical moment that makes it buildable,
+multi-agent orchestration, versioned thinking, adjustable autonomy,
+and observable reasoning.
+
+%% ─────────────────────────────────────────────────────────────────────
+\subsection{Evolution Hierarchy}\label{sec:evolution}
+
+NEOS does not emerge from nowhere.  It sits atop a progression that
+mirrors the deepest organisational principle in nature: each level
+encapsulates and transcends the one below.
+
+\begin{center}
+\small
+\begin{tabular}{@{}rll@{}}
+\toprule
+\thead{Level} & \thead{Unit} & \thead{Organising Principle} \\
+\midrule
+1 & Atoms       & Physical forces \\
+2 & Molecules   & Chemical bonds \\
+3 & Cells       & Biochemical signalling \\
+4 & Organs      & Tissue-level coordination \\
+5 & Neuro Systems & Discrete neural circuits \\
+6 & Neural Fields & Continuous functional landscapes \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The leap from Level~5 to Level~6 recapitulates the leap from Level~3
+to Level~4.  Cells are discrete processing units; organs are
+continuous functional landscapes.  Individual neurons are discrete
+processing units; neural fields are continuous functional landscapes.
+In both cases, the transition is marked by the same qualitative
+change: the system's behaviour can no longer be understood as a sum of
+its parts.  Emergent dynamics---attractors, resonance, phase
+transitions---become the primary explanatory vocabulary.
+
+NEOS lives at Level~6.  It does not simulate individual neurons or
+individual prompt--response pairs.  It operates on the continuous
+semantic manifold that \emph{arises from} those discrete interactions,
+just as a magnetic field arises from---but is not reducible to---the
+individual spins of iron atoms.
+
+%% ─────────────────────────────────────────────────────────────────────
+\subsection{The Unified Field}\label{sec:unified}
+
+Throughout this paper we have described three pillars: neural field
+dynamics, symbolic reasoning, and quantum semantics.  These are not
+three independent modules bolted together.  They are three perspectives
+on a single underlying reality---much as wave mechanics, matrix
+mechanics, and path integrals are all quantum mechanics.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+    vtx/.style={
+      rectangle, rounded corners=6pt, draw=neosblue!60, fill=neosblue!8,
+      minimum width=3.2cm, minimum height=1cm,
+      align=center, font=\small\bfseries
+    },
+    edgelbl/.style={
+      font=\scriptsize\itshape, text=gray!70!black,
+      fill=white, inner sep=2pt
+    },
+    >=Stealth
+  ]
+
+  %% Equilateral triangle vertices
+  \coordinate (A) at (90:3.2);   % top
+  \coordinate (B) at (210:3.2);  % bottom-left
+  \coordinate (C) at (330:3.2);  % bottom-right
+
+  %% Vertex boxes
+  \node[vtx] (nf) at (A)  {Neural Fields};
+  \node[vtx] (sr) at (B)  {Symbolic\\Reasoning};
+  \node[vtx] (qs) at (C)  {Quantum\\Semantics};
+
+  %% Edges
+  \draw[thick, neosblue!40] (nf.south west) -- (sr.north east);
+  \draw[thick, neosblue!40] (sr.east) -- (qs.west);
+  \draw[thick, neosblue!40] (qs.north west) -- (nf.south east);
+
+  %% Edge labels
+  \node[edgelbl, rotate=60]  at ($(A)!0.5!(B) + (-0.3,0)$)
+    {Activation is programmable};
+  \node[edgelbl]             at ($(B)!0.5!(C) + (0,-0.35)$)
+    {Operations are non-commutative};
+  \node[edgelbl, rotate=-60] at ($(C)!0.5!(A) + (0.3,0)$)
+    {Collapse is measurement};
+
+  %% Centre: Universal Invariant
+  \node[circle, draw=neosblue!80, fill=neosblue!15,
+        minimum size=1.3cm, font=\large\bfseries,
+        text=neosblue!80!black] (psi) at (0,0) {$\Psi$};
+  \node[font=\tiny\itshape, text=gray, below=2pt of psi]
+    {Universal Invariant};
+
+\end{tikzpicture}
+\caption{The unified field triangle.  Neural fields, symbolic
+  reasoning, and quantum semantics are three views of one underlying
+  reality.  The Universal Invariant~$\Psi$ sits at the centre: the
+  ground state every session approaches.}
+\label{fig:unified-triangle}
+\end{figure}
+
+The unifying principle is \textbf{non-commutativity}.  In neural field
+dynamics, the order of pattern injection matters because resonance
+cascades depend on existing activation.  In symbolic reasoning, rule
+application order determines derivation.  In quantum semantics,
+observing \emph{A} before \emph{B} yields a different collapsed state
+than observing \emph{B} before \emph{A}.  Non-commutativity is what
+makes meaning \emph{contextual}---and contextuality is what
+distinguishes cognition from computation.
+
+At the centre of the triangle sits $\Psi$---the Universal Invariant.
+$\Psi$ encodes the deepest insight of the NEOS framework: \emph{what
+something means persists; how it works changes}.  Every session, every
+field, every reasoning trajectory tends toward $\Psi$ as its ground
+state.  $\Psi$ is not a specific pattern; it is the structural
+property that all stable attractors share.
+
+%% ─────────────────────────────────────────────────────────────────────
+\subsection{Why Now}\label{sec:why-now}
+
+NEOS is not an idea ahead of its time.  Five convergences make it
+buildable today and impractical even two years ago.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[
+    conv/.style={
+      rectangle, rounded corners=3pt, draw=#1!60, fill=#1!8,
+      minimum width=3.5cm, minimum height=0.8cm,
+      align=center, font=\small
+    },
+    conv/.default=blue,
+    >=Stealth
+  ]
+
+  %% Centre node
+  \node[circle, draw=neosblue!80, fill=neosblue!15,
+        minimum size=1.5cm, font=\bfseries,
+        text=neosblue!80!black] (neos) at (0,0) {NEOS};
+
+  %% Four main convergences
+  \node[draw=neosteal!60, fill=neosteal!8, minimum width=3.5cm, minimum height=0.8cm, align=center, font=\small, rounded corners=3pt]    (c1) at (0,3)    {LLM Capability Threshold};
+  \node[draw=neosviolet!60, fill=neosviolet!8, minimum width=3.5cm, minimum height=0.8cm, align=center, font=\small, rounded corners=3pt]  (c2) at (4,0)    {Agent Fragmentation};
+  \node[draw=neosorange!60, fill=neosorange!8, minimum width=3.5cm, minimum height=0.8cm, align=center, font=\small, rounded corners=3pt]  (c3) at (0,-3)   {Prompt Engineering Ceiling};
+  \node[draw=neosgreen!60, fill=neosgreen!8, minimum width=3.5cm, minimum height=0.8cm, align=center, font=\small, rounded corners=3pt] (c4) at (-4,0)   {Open-Weight Models};
+
+  %% Fifth convergence
+  \node[draw=neosred!60, fill=neosred!8, minimum width=3.5cm, minimum height=0.8cm, align=center, font=\small, rounded corners=3pt] (c5) at (3.1,2.3) {Debugging Opacity};
+
+  \draw[->, thick, neosteal!60]       (c1) -- (neos);
+  \draw[->, thick, neosviolet!60]     (c2) -- (neos);
+  \draw[->, thick, neosorange!60]     (c3) -- (neos);
+  \draw[->, thick, neosgreen!60]      (c4) -- (neos);
+  \draw[->, thick, neosred!50]        (c5) -- (neos);
+
+\end{tikzpicture}
+\caption{Five convergences making NEOS buildable today.  Each arrow
+  represents a necessary condition that has only recently been met.}
+\label{fig:convergences}
+\end{figure}
+
+\begin{enumerate}[leftmargin=*, label=\textbf{\arabic*.}]
+\item \textbf{LLM Capability Threshold.}
+  Models such as GPT-4, Claude, and Gemini can now maintain complex
+  state across long conversations, follow intricate protocols, and
+  reason abstractly about abstract structures.  Before 2023, no model
+  could reliably serve as a NEOS substrate.
+
+\item \textbf{Agent Fragmentation.}
+  AutoGPT, CrewAI, LangGraph, and dozens of similar frameworks are
+  each reinventing operating-system primitives---memory, scheduling,
+  state management---from scratch, without a unifying specification.
+  NEOS provides the common foundation they converge toward.
+
+\item \textbf{Prompt Engineering Ceiling.}
+  Prompt engineering is the assembly language of the Intelligence
+  Age~\cite{reynolds2021prompt}.  It is powerful, brittle, and
+  unscalable.  NEOS replaces prompts with field dynamics---the
+  high-level language that prompt engineering cannot become.
+
+\item \textbf{Open-Weight Models.}
+  Llama, Mistral, and their successors make NEOS portable.  A
+  specification tied to a single proprietary model is a product, not
+  an operating system.  Open weights guarantee that NEOS can run on
+  any conforming substrate.
+
+\item \textbf{Debugging Opacity.}
+  The fifth convergence is a \emph{problem}, not a solution: debugging
+  autonomous agents is currently impossible.  There are no stack
+  traces, no breakpoints, no diff tools for reasoning.  NEOS fills
+  this gap with observable dynamics (Section~\ref{sec:observable}).
+\end{enumerate}
+
+%% ─────────────────────────────────────────────────────────────────────
+\subsection{Multi-Agent Orchestration}\label{sec:multi-agent}
+
+A single neural field is one hemisphere.  Multi-field orchestration
+enables \emph{multi-perspective analysis}---the cognitive equivalent of
+stereo vision.
+
+The operator creates specialised fields, each tuned for a different
+cognitive task:
+
+\begin{itemize}[leftmargin=*]
+\item \texttt{\$technical} --- low decay ($\lambda=0.02$), high
+  threshold ($\tau=0.5$): persistent, selective.
+\item \texttt{\$creative} --- high decay ($\lambda=0.10$), broad
+  bandwidth ($\sigma=0.8$): rapid turnover, wide associations.
+\item \texttt{\$evaluation} --- strict threshold ($\tau=0.6$),
+  moderate amplification ($\alpha=0.3$): rigorous filtering.
+\end{itemize}
+
+Fields can be composed in two modes:
+\begin{description}[leftmargin=*]
+\item[Pipeline (sequential).]  Output of one field feeds into the next,
+  analogous to Unix pipes.  The creative field generates candidates;
+  the evaluation field filters them; the technical field implements
+  survivors.
+\item[Parallel.]  All fields run simultaneously on the same input.
+  Results are fused using a \textbf{resonance-weighted merge}: patterns
+  that appear in multiple fields receive amplification proportional to
+  their mean activation across fields.
+\end{description}
+
+The coupling between fields is governed by a matrix $\Gamma$, where
+$\Gamma_{ij}$ quantifies how strongly field~$j$ influences field~$i$.
+Stability requires that the spectral radius of the coupling matrix
+remain bounded:
+\begin{equation}\label{eq:coupling-stability-multi}
+  \rho(\Gamma) < \frac{\lambda_{\min}}{\alpha_{\max}}
+\end{equation}
+where $\lambda_{\min}$ is the smallest decay rate across all coupled
+fields and $\alpha_{\max}$ is the largest amplification factor.
+Violating this condition produces runaway feedback---the multi-agent
+equivalent of a microphone screech.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[font=\small]
+  \def\s{1.2} % cell size
+  % Helper to draw one cell: \cell{col}{row}{value}{opacity}
+  \newcommand{\cell}[4]{%
+    \fill[neosblue!#4] (#1*\s, -#2*\s) rectangle ++({\s},{\s});
+    \draw[gray!40] (#1*\s, -#2*\s) rectangle ++({\s},{\s});
+    \node at (#1*\s+0.5*\s, -#2*\s+0.5*\s) {#3};
+  }
+  % Row 0: Tech
+  \cell{0}{0}{1.0}{80}  \cell{1}{0}{0.3}{24}  \cell{2}{0}{0.2}{16}  \cell{3}{0}{0.4}{32}
+  % Row 1: User
+  \cell{0}{1}{0.3}{24}  \cell{1}{1}{1.0}{80}  \cell{2}{1}{0.5}{40}  \cell{3}{1}{0.3}{24}
+  % Row 2: Biz
+  \cell{0}{2}{0.2}{16}  \cell{1}{2}{0.5}{40}  \cell{2}{2}{1.0}{80}  \cell{3}{2}{0.3}{24}
+  % Row 3: Synth
+  \cell{0}{3}{0.4}{32}  \cell{1}{3}{0.3}{24}  \cell{2}{3}{0.3}{24}  \cell{3}{3}{1.0}{80}
+  % Row labels
+  \node[anchor=east] at (-0.15, 0.5*\s) {Tech};
+  \node[anchor=east] at (-0.15, -0.5*\s) {User};
+  \node[anchor=east] at (-0.15, -1.5*\s) {Biz};
+  \node[anchor=east] at (-0.15, -2.5*\s) {Synth};
+  % Column labels
+  \node[anchor=south, rotate=45] at (0.5*\s, \s+0.15) {Tech};
+  \node[anchor=south, rotate=45] at (1.5*\s, \s+0.15) {User};
+  \node[anchor=south, rotate=45] at (2.5*\s, \s+0.15) {Biz};
+  \node[anchor=south, rotate=45] at (3.5*\s, \s+0.15) {Synth};
+  % Title
+  \node[font=\bfseries, anchor=south] at (2*\s, \s+1.2) {Coupling Matrix $\Gamma$};
+\end{tikzpicture}
+\caption{Coupling matrix heatmap for a four-field orchestration.
+  Diagonal entries (self-coupling) are~$1.0$; off-diagonal entries
+  encode cross-field influence.  Darker cells indicate stronger
+  coupling.}
+\label{fig:coupling-matrix}
+\end{figure}
+
+%% ─────────────────────────────────────────────────────────────────────
+\subsection{Versioned Thinking}\label{sec:versioning}
+
+Git revolutionised software engineering by making every change to
+source code \emph{committable, branchable, diffable, and mergeable}.
+NEOS brings the same discipline to reasoning itself.
+
+Every field state is a snapshot: the full set of patterns, their
+activations, resonance links, and attractor basins.  These snapshots
+support the same operations that developers rely on daily---commit,
+branch, checkout, diff, merge---but applied to \emph{meaning
+structures} rather than text files.
+
+The critical addition is \textbf{resonance-weighted merge}.  When two
+reasoning branches are merged, patterns do not simply concatenate.
+They \emph{interact}: shared patterns reinforce, contradictory
+patterns compete, and new attractors may emerge from the combination
+that existed in neither branch alone.
+
+\begin{terminalbox}[Versioned Reasoning --- Singleton Counterfactual]
+\begin{lstlisting}[style=neosshell, caption={Versioned reasoning: branching to test a counterfactual.}, label={lst:versioning}]
+$ nf commit "pre-singleton baseline"
+$ nf branch create singleton_strong
+$ nf inject "singleton_controlled_global_access" 0.90
+[INJECT] singleton (s: 0.90)
+  STRONG resonances: 0 | Lateral inhibitors: 4
+$ nf cycle 10
+  singleton: 0.90 -> 0.78 -> 0.66 -> ... -> 0.48 (DECAYING)
+  Same 4 inhibitors, same net force -0.014/cycle
+$ nf checkout main
+$ nf diff singleton_strong
+  Changed: @singleton 0.90 -> 0.48 [DECAYING]
+  Structural: same 4 inhibitors active at both strengths
+  Conclusion: expulsion is TOPOLOGICAL, not parametric
+\end{lstlisting}
+\end{terminalbox}
+
+The \texttt{nf diff} reveals that Singleton's fate is structural, not
+parametric.  Even at maximum injection strength ($\iota_0 = 0.90$), the
+same four lateral inhibitors---\texttt{@test\_isolation},
+\texttt{@determinism}, \texttt{@dependency\_direction}, and
+\texttt{@favor\_composition}---suppress it with the same net force.
+Higher injection merely delays the inevitable: the field's topology
+determines the outcome.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[
+    commit/.style={circle, draw=neosblue!60, fill=neosblue!15,
+                   minimum size=8pt, inner sep=0pt},
+    branchcommit/.style={circle, draw=neosorange!60, fill=neosorange!15,
+                         minimum size=8pt, inner sep=0pt},
+    >=Stealth, thick
+  ]
+
+  %% Main branch
+  \node[commit] (m1) at (0,0) {};
+  \node[commit] (m2) at (1.8,0) {};
+  \node[commit] (m3) at (3.6,0) {};
+  \node[commit] (m4) at (7.2,0) {};
+  \node[commit] (m5) at (9.0,0) {};
+
+  \draw[neosblue!50] (m1) -- (m2) -- (m3);
+  \draw[neosblue!50] (m4) -- (m5);
+
+  %% Branch
+  \node[branchcommit] (b1) at (4.5,1.2) {};
+  \node[branchcommit] (b2) at (6.0,1.2) {};
+
+  \draw[neosorange!50] (m3) -- (b1) -- (b2);
+  \draw[dashed, neosorange!50] (b2) -- (m4);
+
+  %% Labels
+  \node[below=4pt, font=\scriptsize\sffamily] at (m1) {init};
+  \node[below=4pt, font=\scriptsize\sffamily] at (m2) {inject};
+  \node[below=4pt, font=\scriptsize\sffamily] at (m3) {baseline};
+  \node[below=4pt, font=\scriptsize\sffamily] at (m4) {compare};
+  \node[below=4pt, font=\scriptsize\sffamily] at (m5) {continue};
+  \node[above=4pt, font=\scriptsize\sffamily, neosorange!70!black]
+    at (b1) {inject 0.90};
+  \node[above=4pt, font=\scriptsize\sffamily, neosorange!70!black]
+    at (b2) {decay};
+
+  %% Branch labels
+  \node[font=\footnotesize\bfseries, neosblue!60!black, anchor=east]
+    at (-0.4,0) {main};
+  \node[font=\footnotesize\bfseries, neosorange!60!black, anchor=east]
+    at (3.9,1.2) {singleton\_strong};
+
+\end{tikzpicture}
+\caption{Git-style branch graph for versioned reasoning.
+  A~\texttt{singleton\_strong} branch diverges from \texttt{main} to
+  test a counterfactual injection, then the two states are compared
+  via \texttt{nf diff} (dashed line).}
+\label{fig:branch-graph}
+\end{figure}
+
+%% ─────────────────────────────────────────────────────────────────────
+\subsection{The Autonomy Dial}\label{sec:autonomy}
+
+Autonomy in NEOS is not binary.  It is a continuously adjustable
+spectrum with three named positions:
+
+\begin{description}[leftmargin=*]
+\item[Step.]  The field pauses after every atomic operation.  The
+  operator inspects each injection, each resonance update, each decay
+  pass.  This mode is ideal for \emph{learning} and \emph{debugging}.
+\item[Checkpoint.]  The field runs until a specified condition is
+  met---an attractor emerges, coherence exceeds a threshold, or a
+  pattern crosses activation~$\tau$.  This is the natural mode for
+  \emph{interactive analysis}.
+\item[Auto.]  The field runs to completion without human
+  intervention.  Suitable for \emph{batch processing} and trusted
+  pipelines.
+\end{description}
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[font=\small]
+
+  %% Semicircle arc segments
+  %% Step: -180 to -120 (teal)
+  \fill[neosteal!20] (0,0) -- (-180:2.8) arc (-180:-120:2.8) -- cycle;
+  %% Checkpoint: -120 to -60 (violet)
+  \fill[neosviolet!20] (0,0) -- (-120:2.8) arc (-120:-60:2.8) -- cycle;
+  %% Auto: -60 to 0 (green)
+  \fill[neosgreen!20] (0,0) -- (-60:2.8) arc (-60:0:2.8) -- cycle;
+
+  %% Arc outline
+  \draw[thick, gray!60] (-180:2.8) arc (-180:0:2.8);
+
+  %% Segment boundaries
+  \draw[gray!40] (0,0) -- (-120:2.8);
+  \draw[gray!40] (0,0) -- (-60:2.8);
+
+  %% Segment labels
+  \node[font=\small\bfseries, neosteal!60!black]
+    at (-150:2.0) {Step};
+  \node[font=\small\bfseries, neosviolet!60!black]
+    at (-90:2.0) {Checkpoint};
+  \node[font=\small\bfseries, neosgreen!60!black]
+    at (-30:2.0) {Auto};
+
+  %% Needle pointing to Checkpoint (~-90 degrees)
+  \draw[ultra thick, neosred!70!black, -Stealth]
+    (0,0) -- (-90:2.2);
+  \fill[neosred!70!black] (0,0) circle (3pt);
+
+  %% Sub-labels
+  \node[font=\tiny\itshape, text=gray, anchor=north]
+    at (-150:3.3) {pause after};
+  \node[font=\tiny\itshape, text=gray, anchor=north]
+    at (-150:3.6) {every operation};
+
+  \node[font=\tiny\itshape, text=gray, anchor=north]
+    at (-90:3.3) {run until};
+  \node[font=\tiny\itshape, text=gray, anchor=north]
+    at (-90:3.6) {condition met};
+
+  \node[font=\tiny\itshape, text=gray, anchor=north]
+    at (-30:3.3) {run to};
+  \node[font=\tiny\itshape, text=gray, anchor=north]
+    at (-30:3.6) {completion};
+
+\end{tikzpicture}
+\caption{The autonomy gauge.  The operator can adjust the autonomy
+  level at any time, even mid-operation.  The needle points to the
+  current setting (here, Checkpoint).}
+\label{fig:autonomy-gauge}
+\end{figure}
+
+Crucially, the operator can switch modes \emph{mid-operation}.  A
+session might begin in Step mode for careful setup, shift to
+Checkpoint for exploratory analysis, and finish in Auto for a final
+batch consolidation.  This supports a \textbf{progressive trust model}:
+as the operator gains confidence in the field's behaviour, they
+gradually release control.
+
+%% ─────────────────────────────────────────────────────────────────────
+\subsection{Observable Reasoning}\label{sec:observable}
+
+The most dangerous property of current AI systems is their
+\textbf{opacity}.  A language model produces an answer; you cannot see
+\emph{why}.  There are no activation traces, no resonance maps, no
+attractor landscapes to inspect.  NEOS treats this as a first-class
+engineering requirement: reasoning must be observable, or it cannot be
+trusted.
+
+NEOS provides four visualisation types:
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Field plot} --- horizontal activation bars for every
+  pattern, coloured by category.  The simplest view: which ideas are
+  strong, which are fading?
+\item \textbf{Network graph} --- nodes are patterns, edges are
+  resonance links weighted by strength.  Clusters reveal conceptual
+  groupings; isolated nodes reveal orphan ideas.
+\item \textbf{Topology map} --- a two-dimensional attractor landscape.
+  Peaks are attractors, valleys are repellers, and the gradient shows
+  the ``pull'' each attractor exerts on nearby patterns.
+\item \textbf{Dynamics animation} --- the field evolving over time.
+  Each frame is one cycle; the operator watches ideas compete, merge,
+  and stabilise.
+\end{enumerate}
+
+All four views can be output in four formats: ASCII (terminal),
+SVG (web), Mermaid (documentation), and JSON (programmatic access).
+
+The practical implications are immediate:
+\begin{itemize}[leftmargin=*]
+\item \textbf{Teams} can watch a field evolve on a shared screen
+  during a strategy session.
+\item \textbf{Teachers} can show students how ideas interact,
+  compete, and combine.
+\item \textbf{Researchers} can compare reasoning branches
+  side-by-side, identifying where two analyses diverge.
+\item \textbf{Auditors} can replay an entire reasoning trace to
+  verify that conclusions follow from evidence.
+\end{itemize}
+
+\begin{calloutbox}
+Observable reasoning is a design requirement, not a feature.  If a
+system's reasoning process cannot be inspected, replayed, and
+compared, it cannot be \textbf{trusted}.
+\end{calloutbox}
