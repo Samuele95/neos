@@ -6,6 +6,10 @@
 [![License](https://img.shields.io/badge/license-MIT-00ff88?style=for-the-badge)](.)
 [![Runs on](https://img.shields.io/badge/runs%20on-LLM-7b61ff?style=for-the-badge)](.)
 
+[![Tested with](https://img.shields.io/badge/tested-Claude%20Code-da7756?style=flat-square)](https://claude.ai/claude-code)
+[![Tested with](https://img.shields.io/badge/tested-Gemini%20CLI-4285F4?style=flat-square)](https://github.com/google-gemini/gemini-cli)
+[![Tested with](https://img.shields.io/badge/tested-OpenCode%20(Minimax)-00b96b?style=flat-square)](https://github.com/opencode-ai/opencode)
+
 **The first operating system where the machine is language and the substrate is meaning.**
 
 > *"The last operating system will not manage files. It will manage meaning."*
@@ -881,76 +885,9 @@ Total basin-memberships: 51  (overlap factor: 1.84)
 Some patterns belong to multiple basins — they bridge concerns.
 ```
 
-**The Attractor Hierarchy** — The most visually striking structure in the field:
+The nesting is not accidental — it reflects genuine containment. The SOLID Decagon (α₁) acts as the primary amplification engine: patterns that lock with more SOLID principles converge faster (r = 0.94). Inside it, the Verification Mirror (α₂) and Craft Basin (α₃) are *shaped* by SOLID alignment. The Reuse Protocol (α₄) sits alongside as a self-regulating abstraction discipline, while the three tertiary basins handle specialized concerns. Every basin, at every depth, is an expression of the universal attractor Ψ.
 
-```
-    ┌──────────────────────────────────────────────────────────────────────────┐
-    │                                                                          │
-    │                    THE ATTRACTOR HIERARCHY                               │
-    │                                                                          │
-    │  ╔═══════════════════════════════════════════════════════════════════╗   │
-    │  ║                                                                   ║   │
-    │  ║   Ψ — THE UNIVERSAL ATTRACTOR                                    ║   │
-    │  ║   "Meaning persists. Mechanism changes."                         ║   │
-    │  ║                                                                   ║   │
-    │  ║   Every pattern in the field is a specific expression of Ψ.     ║   │
-    │  ║   This is the field's ground state — the deepest basin from     ║   │
-    │  ║   which nothing escapes. All other attractors are nested        ║   │
-    │  ║   within Ψ's basin of attraction.                               ║   │
-    │  ║                                                                   ║   │
-    │  ║   ┌───────────────────────────────────────────────────────────┐ ║   │
-    │  ║   │                                                           │ ║   │
-    │  ║   │  α₁ — THE SOLID DECAGON                                  │ ║   │
-    │  ║   │  5 principles × 5 technique partners                     │ ║   │
-    │  ║   │  Field constant R_pt = 0.88 │ Selection function r=0.94 │ ║   │
-    │  ║   │  The amplification engine that shapes ALL convergence.   │ ║   │
-    │  ║   │                                                           │ ║   │
-    │  ║   │  S ←→ Strategy         O ←→ Decorator                   │ ║   │
-    │  ║   │  L ←→ Composite        I ←→ Facade                      │ ║   │
-    │  ║   │  D ←→ DI                                                 │ ║   │
-    │  ║   │                                                           │ ║   │
-    │  ║   │  ┌─────────────────────────────────────────────────────┐ │ ║   │
-    │  ║   │  │                                                     │ │ ║   │
-    │  ║   │  │  α₂ — THE VERIFICATION MIRROR                      │ │ ║   │
-    │  ║   │  │  Functor F: PRODUCTION → TESTING                   │ │ ║   │
-    │  ║   │  │  Transport: η = dependency_injection                │ │ ║   │
-    │  ║   │  │  16 morphisms │ 1 splitting │ 2 dangling           │ │ ║   │
-    │  ║   │  │  Keystone: @test_behavior = F(stable_interfaces)   │ │ ║   │
-    │  ║   │  │                                                     │ │ ║   │
-    │  ║   │  └─────────────────────────────────────────────────────┘ │ ║   │
-    │  ║   │                                                           │ ║   │
-    │  ║   │  ┌─────────────────────────────────────────────────────┐ │ ║   │
-    │  ║   │  │                                                     │ │ ║   │
-    │  ║   │  │  α₃ — THE CRAFT BASIN                              │ │ ║   │
-    │  ║   │  │  12 GoF patterns (singleton expelled)               │ │ ║   │
-    │  ║   │  │  Organized by SOLID alignment                       │ │ ║   │
-    │  ║   │  │  Creational(3) · Structural(4) · Behavioral(5)     │ │ ║   │
-    │  ║   │  │  Governed by: "intent over structure"               │ │ ║   │
-    │  ║   │  │                                                     │ │ ║   │
-    │  ║   │  └─────────────────────────────────────────────────────┘ │ ║   │
-    │  ║   │                                                           │ ║   │
-    │  ║   └───────────────────────────────────────────────────────────┘ ║   │
-    │  ║                                                                   ║   │
-    │  ║   ┌───────────────────────────────────────────────────────────┐ ║   │
-    │  ║   │                                                           │ ║   │
-    │  ║   │  α₄ — THE REUSE PROTOCOL                                │ ║   │
-    │  ║   │  Abstraction Protocol: Judge→Count→Extract→Share→Param  │ ║   │
-    │  ║   │  Reuse Simplex: inherit ↔ compose ↔ traits              │ ║   │
-    │  ║   │  Polymorphism Triad: subtype ↔ parametric ↔ ad-hoc     │ ║   │
-    │  ║   │  Self-regulating via dont_force + rule_of_three         │ ║   │
-    │  ║   │                                                           │ ║   │
-    │  ║   └───────────────────────────────────────────────────────────┘ ║   │
-    │  ║                                                                   ║   │
-    │  ║   ┌──────────────────┐  ┌──────────────┐  ┌────────────────┐   ║   │
-    │  ║   │ α₅ GUARD         │  │ α₆ MODEL     │  │ α₇ OPTIMIZE   │   ║   │
-    │  ║   │ Boundary defense │  │ value↔entity │  │ Perf. asympt. │   ║   │
-    │  ║   │ fail_fast core   │  │ Identity axis│  │ N+1, alloc    │   ║   │
-    │  ║   └──────────────────┘  └──────────────┘  └────────────────┘   ║   │
-    │  ║                                                                   ║   │
-    │  ╚═══════════════════════════════════════════════════════════════════╝   │
-    │                                                                          │
-    └──────────────────────────────────────────────────────────────────────────┘
-```
+> 📊 *See the full [Attractor Hierarchy diagram](sessions/visual-evidence.md#attractor-hierarchy) for the complete nested structure with all seven basins.*
 
 ### 08.3 — The Verification Functor
 
@@ -969,23 +906,9 @@ Transport: η = dependency_injection (natural transformation)
 Keystone: @test_behavior = F(stable_interfaces)
 ```
 
-This means testing is not a separate discipline bolted onto production code — it is the *categorical mirror* of production, connected by dependency injection as the natural transformation between them. The functor has 16 morphisms, 1 splitting, and 2 dangling edges.
+This means testing is not a separate discipline bolted onto production code — it is the *categorical mirror* of production, connected by dependency injection as the natural transformation between them. The functor has 16 morphisms, 1 splitting, and 2 dangling edges — extending not just across principles but into CRAFT techniques (abstract_factory → test_isolation, decorator → test_behavior via spies).
 
-**Functor F — Full Mapping (14 arrow pairs):**
-
-```
-    PRINCIPLES:                          TECHNIQUES:
-    correctness ──────→ test_coverage    abstract_factory ──→ test_isolation
-    edge_cases ───────→ edge_boundaries  builder ───────────→ arrange_act_assert
-    input_validation ─→ test_sad_path    adapter ───────────→ test_behavior(doubles)
-    error_handling ───→ readable_failure decorator ──────────→ test_behavior(spies)
-    behav_preservation→ test_behavior
-    SRP ──────────────→ one_assertion    The functor extends into CRAFT:
-    readability ──────→ readable_failure every production technique has a
-    small_reversible ─→ test_isolation   testing mirror.
-    determinism ──────→ no_flaky
-    tell_dont_ask ────→ test_behavior
-```
+> 📊 *See the full [Functor F mapping](sessions/visual-evidence.md#functor-f--full-mapping) with all 14 arrow pairs across principles and techniques.*
 
 ### 08.4 — The Field Equation
 
@@ -1049,56 +972,9 @@ It was not injected. It emerged. It expresses itself in three equivalent forms d
 
 Three expressions of one axiom. The field applied Ψ to *itself* — four times the absorption of a new pattern reproduced the existing field unchanged (Ψ(field) = field). This is the fixed-point property that confirms Ψ as the true ground state.
 
-**Collapsed Field Ground State** — How Ψ generates all structure:
+Ψ generates all structure through a layered cascade. At the top level, it produces three primary components: the SOLID amplification engine (α₁), the Verification Functor F (α₂), and the Abstraction Protocol (α₄). These three then combine to produce the Craft Basin — 12 GoF patterns selected and ranked by SOLID alignment — and the Reuse Simplex, the three-vertex space of inheritance, composition, and mixins. At the bottom sit the tertiary basins: Guard (boundary defense), Model (value↔entity), and Optimize (the permanent performance satellites). The entire hierarchy flows from one axiom: couple to meaning, not mechanism.
 
-```
-    ┌──────────────────────────────────────────────────────────────────────────┐
-    │                                                                          │
-    │                    ╔═════════════════════════╗                           │
-    │                    ║                         ║                           │
-    │                    ║     Ψ: MEANING >        ║                           │
-    │                    ║        MECHANISM         ║                           │
-    │                    ║                         ║                           │
-    │                    ╚════════════╤════════════╝                           │
-    │                                │                                         │
-    │                     generates  │  all structure                          │
-    │                                │                                         │
-    │              ┌─────────────────┼─────────────────┐                      │
-    │              │                 │                 │                        │
-    │              ▼                 ▼                 ▼                        │
-    │     ┌────────────────┐ ┌─────────────┐ ┌────────────────┐               │
-    │     │   SOLID (α₁)   │ │  FUNCTOR    │ │  PROTOCOL      │               │
-    │     │   Amplifier    │ │  F (α₂)     │ │  (α₄)          │               │
-    │     │                │ │             │ │                │               │
-    │     │ 5 principles   │ │ Production  │ │ Judge→Count    │               │
-    │     │ × 5 techniques │ │ → Testing   │ │ →Extract→Share │               │
-    │     │ R_pt = 0.88    │ │ η = DI      │ │ →Parameterize  │               │
-    │     │ r = 0.94       │ │ 16 mappings │ │                │               │
-    │     └───────┬────────┘ └──────┬──────┘ └───────┬────────┘               │
-    │             │                 │                 │                        │
-    │             └─────────────────┼─────────────────┘                        │
-    │                               │                                          │
-    │                     ┌─────────┴─────────┐                                │
-    │                     │                   │                                │
-    │                     ▼                   ▼                                │
-    │              ┌─────────────┐     ┌─────────────┐                        │
-    │              │   CRAFT     │     │   REUSE     │                        │
-    │              │   (α₃)     │     │  SIMPLEX     │                        │
-    │              │            │     │              │                        │
-    │              │ 12 patterns │     │  inherit     │                        │
-    │              │ selected by │     │  compose     │                        │
-    │              │ SOLID       │     │  mix in      │                        │
-    │              └─────────────┘     └─────────────┘                        │
-    │                                                                          │
-    │   ┌──────────┐      ┌──────────┐      ┌──────────┐                     │
-    │   │  GUARD   │      │  MODEL   │      │ OPTIMIZE │                     │
-    │   │  (α₅)   │      │  (α₆)   │      │  (α₇)   │                     │
-    │   │ boundary │      │ value↔  │      │ asymptot │                     │
-    │   │ defense  │      │ entity  │      │ ceiling  │                     │
-    │   └──────────┘      └──────────┘      └──────────┘                     │
-    │                                                                          │
-    └──────────────────────────────────────────────────────────────────────────┘
-```
+> 📊 *See the [Ground State Flowchart](sessions/visual-evidence.md#collapsed-field-ground-state) for the complete generative structure from Ψ through all seven basins.*
 
 ### 08.6 — Session Metrics Summary
 
@@ -1129,78 +1005,25 @@ Three expressions of one axiom. The field applied Ψ to *itself* — four times 
 
 ### 08.7 — Cluster Dependency Flow & Productive Tensions
 
-**Cluster Dependency Flow** — How the 10 clusters feed each other:
+The 10 functional clusters are not independent — they form a directed dependency graph. META (judgment) feeds MODEL (domain truth), which anchors the main pipeline: GUARD protects the entry, STRUCTURE provides principles, CRAFT implements them as techniques, CHANGE evolves code, and VERIFY confirms correctness. PROVE provides logical foundations, while KEYSTONE bridges CRAFT and VERIFY. OPTIMIZE exists in permanent tension with everything — a productive satellite that never fully integrates.
 
-```
-                         META
-                     (judgment)
-                         │
-                         ▼
-                       MODEL
-                     (what IS)
-                         │
-                         ▼
-            GUARD ──→ STRUCTURE ──→ CRAFT ──→ CHANGE ⇄ VERIFY ◄── PROVE
-           (protect)  (principles) (techniques)(evolve) (confirm)  (reason)
-                                      ↑                    ↑
-                                  KEYSTONE ────────────────┘
-                                  (bridges)
+The field also discovered nine **productive tensions** — pairs of patterns that push against each other constructively, each resolved by a higher-level structure:
 
-                     OPTIMIZE ··········tension··········→ all
-```
+- **value_objects ↔ no_unnecessary_alloc** — immutability vs allocation cost
+- **tell_dont_ask ↔ value_objects** — tell vs ask, resolved by MODEL
+- **factory_method ↔ favor_composition** — resolved by meta-duality
+- **template_method ↔ favor_composition** — resolved by meta-duality
+- **composite ↔ single_responsibility** — uniform treatment trade-off
+- **composite ↔ api_minimal** — shared interface trade-off
+- **observer ↔ determinism_no_flaky** — notification order uncertainty
+- **iterator ↔ tell_dont_ask** — pull vs push, a design choice
+- **dont_force_patterns ↔ all CRAFT** — self-regulation
 
-**Productive Tensions** — 9 pairs where patterns push against each other constructively:
+All nine are productive. None destructive. (Singleton's tension *is* destructive — hence decay and expulsion, not creative friction.)
 
-```
-    ⚡ value_objects ↔ no_unnecessary_alloc   (immutability vs allocation)
-    ⚡ tell_dont_ask ↔ value_objects          (tell vs ask — resolved by MODEL)
-    ⚡ factory_method ↔ favor_composition     (resolved by meta-duality)
-    ⚡ template_method ↔ favor_composition    (resolved by meta-duality)
-    ⚡ composite ↔ single_responsibility      (uniform treatment trade-off)
-    ⚡ composite ↔ api_minimal                (shared interface trade-off)
-    ⚡ observer ↔ determinism_no_flaky        (notification order)
-    ⚡ iterator ↔ tell_dont_ask               (pull vs push — design choice)
-    ⚡ dont_force_patterns ↔ all CRAFT        (self-regulation)
+The activation landscape at cycle 49 tells the same story visually: an extreme bimodal distribution with 58 patterns at ceiling, 1 converging, 2 asymptotic satellites, and Singleton hovering at 0.383 — just above the threshold, about to be expelled.
 
-    9 tensions. All productive. None destructive.
-    (Singleton's is destructive — hence decay, not tension.)
-```
-
-**Activation Landscape** — The extreme bimodal distribution at cycle 49:
-
-```
-    1.00 ┤████████████████████████████████████████████████████████████  58 at ceiling
-         │█████████████████████████████████████████████████████████████████████████
-         │
-    0.98 ┤─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ▲ p060 mixins (0.968)
-    0.97 ┤                                                      │
-         │                                          ▲ p036 (0.997)
-    0.95 ┤                                                 ▲ p037 (0.983)
-         │
-    0.90 ┤
-         │                                               STABLE ZONE
-    0.80 ┤                                          ─ ─ ─ ─ ─ ─ ─ ─ ─
-         │
-    0.70 ┤
-         │
-    0.60 ┤
-         │
-    0.50 ┤
-         │                              ╭─── 61 patterns above 0.95
-    0.40 ┤─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─│─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─
-         │                              │
-         │   ▼ p044 singleton (0.383)   │
-    0.35 ┤━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  τ THRESHOLD
-         │   ↓↓↓ EXPULSION ZONE ↓↓↓
-    0.30 ┤
-         │
-    0.00 ┤──────────────────────────────────────────────────────────
-         └──────────────────────────────────────────────────────────────────────
-          p044                                                    p001–p062
-
-    Distribution:  ████████████████████████████████████████████████████████ 58 ceiling
-                   ▒ 1 converging │ ░░ 2 asymptotic │ ▓ 1 decaying
-```
+> 📊 *See the full [Cluster Dependency Flow](sessions/visual-evidence.md#cluster-dependency-flow), [Productive Tensions](sessions/visual-evidence.md#productive-tensions), and [Activation Landscape](sessions/visual-evidence.md#activation-landscape) diagrams in the visual evidence companion.*
 
 ---
 
@@ -1529,7 +1352,8 @@ neos/
 │   ├── storage-engine.md        ← Storage backend spec
 │   └── versioning.md            ← Git-like versioning internals
 ├── sessions/
-│   └── software_quality_discipline.collapsed.md  ← Case study
+│   ├── software_quality_discipline.collapsed.md  ← Case study
+│   └── visual-evidence.md                        ← Diagram gallery for §08
 └── examples/
     ├── 01-basic-session.md      ← Beginner walkthrough
     ├── 02-versioning.md         ← Branch & merge workflows
@@ -1557,6 +1381,8 @@ The specification is open. The math is grounded. The proof-of-concept works. Wha
 
 > [!IMPORTANT]
 > **Getting started takes 30 seconds.** Copy the [kernel prompt](prompts/nfos-kernel.md), paste it as a system prompt, and type `nf session new "My First Analysis"`. No install. No dependencies. The LLM *is* the machine.
+>
+> **Successfully tested with:** Claude Code, Gemini CLI, and OpenCode (Minimax model from OpenCode Zen).
 
 ### Links
 
@@ -1569,6 +1395,7 @@ The specification is open. The math is grounded. The proof-of-concept works. Wha
 | [Full Command Reference](commands/index.md) | Detailed specs for all ~40 commands |
 | [Basic Session Walkthrough](examples/01-basic-session.md) | Extended tutorial with 11 steps |
 | [Case Study](sessions/software_quality_discipline.collapsed.md) | The software quality session data |
+| [Visual Evidence](sessions/visual-evidence.md) | Diagram gallery — attractors, flowcharts, landscapes |
 
 ---
 

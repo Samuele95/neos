@@ -35,7 +35,7 @@
   --mono: "JetBrains Mono", "SF Mono", "Fira Code", Consolas, monospace;
 }
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; font-size: 16px; }
+html { scroll-behavior: smooth; font-size: 16px; overflow-x: hidden; }
 body { background: #07070c; color: var(--text); font-family: var(--font); line-height: 1.7; overflow-x: hidden; }
 ::selection { background: var(--cyan); color: var(--bg); }
 
@@ -76,37 +76,135 @@ section:nth-child(even) { background: var(--bg2); }
   .grid-4 { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 768px) {
-  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+  /* Grids → single column */
+  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; gap: 1.5rem; }
   section { padding: 4rem 0; }
   .container { padding: 0 1.2rem; }
   #param-playground .grid-2 { grid-template-columns: 1fr; }
-  .diagram { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-  .diagram svg { min-width: 500px; }
+
+  /* DIAGRAMS — clip overflow globally, scrollable variant for extreme-ratio SVGs */
+  .diagram { overflow: hidden; }
+  .diagram svg { min-width: 0; width: 100%; height: auto; }
+  .diagram--scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .diagram--scroll svg { min-width: 500px; width: 500px; }
+
+  /* Hide decorative shapes that bleed outside viewport */
+  #cta .shape { display: none; }
+
+  /* Footer — wrap links on tablets */
+  .footer-links { flex-wrap: wrap; }
+
+  /* Tables — scrollable within container */
   table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
   th, td { white-space: nowrap; font-size: 0.85rem; padding: 0.5rem 0.7rem; }
+
+  /* Hero — respect dynamic viewport height */
+  #hero { min-height: 80vh; min-height: 80dvh; }
+
+  /* Tabs — horizontal scroll instead of bad wrapping */
+  .tabs { overflow-x: auto; flex-wrap: nowrap; scrollbar-width: none; -ms-overflow-style: none; }
+  .tabs::-webkit-scrollbar { display: none; }
+  .tab-btn { white-space: nowrap; min-height: 44px; flex-shrink: 0; }
+
+  /* Disable hover transforms on touch devices */
+  .card:hover { transform: none; }
+  .cta-card:hover { transform: none; }
 }
 @media (max-width: 480px) {
   section { padding: 3rem 0; }
+  .container { padding: 0 1rem; }
+
+  /* Typography */
   h1 { font-size: 2rem; }
   h2 { font-size: 1.5rem; }
-  .terminal-body { font-size: 0.75rem; padding: 0.8rem 1rem; }
-  .equation { font-size: 0.75rem; padding: 1rem; white-space: pre-wrap; word-break: break-word; }
-  .grid-2 { gap: 1rem; }
-  .grid-3 { gap: 1rem; }
-  .sec-num { font-size: 0.7rem; }
-  .callout { padding: 1.2rem; font-size: 1rem; }
-  #back-to-top { bottom: 1rem; right: 1rem; width: 38px; height: 38px; }
-  .container { padding: 0 1rem; }
+
+  /* Hero — content-driven height, not viewport-driven */
+  #hero { min-height: auto; padding: 4rem 1rem 3rem; }
   .hero-diagram { margin-bottom: 1rem; }
-  .hero-diagram svg { min-width: 350px; }
-  .tab-btn { padding: 0.6rem 0.8rem; font-size: 0.8rem; }
+  .hero-diagram svg { min-width: 0; width: 100%; }
+  .hero-cta { display: block; width: 100%; text-align: center; padding: 1rem; }
+
+  /* Terminal — wrap long lines instead of scroll */
+  .terminal-body { font-size: 0.72rem; padding: 0.7rem 0.8rem; white-space: pre-wrap; overflow-wrap: anywhere; }
+
+  /* Equation */
+  .equation { font-size: 0.72rem; padding: 0.8rem 1rem; white-space: pre-wrap; word-break: break-word; }
+
+  /* Grids */
+  .grid-2, .grid-3 { gap: 1rem; }
+
+  /* Section number badge */
+  .sec-num { font-size: 0.7rem; }
+
+  /* Callout */
+  .callout { padding: 1rem; font-size: 1rem; }
+
+  /* Back to top */
+  #back-to-top { bottom: 1rem; right: 1rem; width: 38px; height: 38px; }
+
+  /* Cards */
   .card { padding: 1.2rem; }
   .cta-card { padding: 1.5rem 1.2rem; }
+
+  /* Footer — touch-friendly links */
   .footer-links { flex-wrap: wrap; gap: 1rem; }
+  .footer-links a { min-height: 44px; display: flex; align-items: center; }
+
+  /* Tabs */
+  .tab-btn { padding: 0.6rem 0.8rem; font-size: 0.8rem; }
+
+  /* Tables — allow cell wrapping on small screens */
+  th, td { white-space: normal; font-size: 0.78rem; padding: 0.4rem 0.5rem; }
+
+  /* Touch-friendly interactive elements */
+  #dynamics-play { padding: 0.7rem 1.2rem; min-height: 44px; }
+  #param-playground input[type="range"] { height: 36px; }
+
+  /* Stack layers */
+  .stack-layer { padding: 0.7rem 1rem; font-size: 0.88rem; }
+
+  /* Diagram spacing */
+  .diagram { margin: 1.5rem 0; }
+}
+@media (max-width: 390px) {
+  .container { padding: 0 0.75rem; }
+  section { padding: 2.5rem 0; }
+
+  h1 { font-size: 1.75rem; }
+  h2 { font-size: 1.3rem; margin-bottom: 1rem; }
+  h3 { font-size: 1rem; }
+
+  #hero { padding: 3rem 0.75rem 2.5rem; }
+  .hero-tagline { font-size: 0.95rem; }
+
+  .card { padding: 1rem; border-radius: 12px; }
+  .cta-card { padding: 1rem 0.8rem; }
+
+  .terminal-body { font-size: 0.65rem; padding: 0.5rem 0.6rem; }
+  .terminal-dot { width: 8px; height: 8px; }
+  .terminal-bar { padding: 0.4rem 0.6rem; }
+
+  .equation { font-size: 0.62rem; padding: 0.6rem 0.7rem; border-left-width: 2px; }
+
+  table { font-size: 0.72rem; }
+  th, td { padding: 0.25rem 0.35rem; }
+
+  .grid-2, .grid-3, .grid-4 { gap: 0.75rem; }
+  .diagram { margin: 1rem 0; }
+
+  .sec-num { font-size: 0.65rem; }
+  .callout { padding: 0.8rem; font-size: 0.9rem; border-radius: 8px; }
+
+  .footer-brand { font-size: 1.4rem; }
+  .footer-links { gap: 0.6rem; }
+  .footer-copy { font-size: 0.7rem; }
+
+  #back-to-top { bottom: 0.75rem; right: 0.75rem; width: 36px; height: 36px; font-size: 1rem; }
+  #toc-toggle { top: 0.5rem; right: 0.5rem; }
 }
 
 /* SVG diagrams */
-.diagram { width: 100%; margin: 2.5rem 0; overflow: visible; }
+.diagram { width: 100%; margin: 2.5rem 0; overflow: hidden; }
 .diagram svg { width: 100%; height: auto; display: block; }
 svg text { font-family: var(--font); }
 
@@ -251,6 +349,11 @@ tr:hover td { background: rgba(0,212,255,0.03); }
   #toc-list a { font-size: 0.82rem; padding: 0.4rem 1rem; }
   #toc-toggle { display: flex; align-items: center; justify-content: center; }
 }
+@media (max-width: 768px) {
+  #toc { width: 100%; border-left: none; padding: 4rem 1.5rem 2rem; }
+  #toc-list a { font-size: 1rem; padding: 0.75rem 1rem; min-height: 44px; display: flex; align-items: center; white-space: normal; }
+  #toc-toggle { width: 44px; height: 44px; }
+}
 
 /* Terminal typing animation */
 .terminal-body.typing-ready > span { opacity: 0; display: block; transition: opacity 0.3s; }
@@ -368,7 +471,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <p class="reveal">Computing has undergone two fundamental transitions. Each changed not just what we could do with machines, but how we <em>thought</em> about them. The first gave us the ability to calculate. The second gave us the ability to organize. Now we are entering the third &mdash; and it will be the most profound of all, because this time the transition changes the nature of the interface itself. We are moving from <em>instructing</em> machines to <em>conversing</em> with them.</p>
 
     <!-- Timeline SVG -->
-    <div class="diagram reveal">
+    <div class="diagram diagram--scroll reveal">
       <svg viewBox="0 0 900 220" role="img" aria-label="Timeline showing three ages of computing">
         <title>Three Ages Timeline</title>
         <!-- Timeline line -->
@@ -423,7 +526,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     </div>
 
     <!-- Interface Evolution -->
-    <div class="diagram reveal">
+    <div class="diagram diagram--scroll reveal">
       <svg viewBox="0 0 800 80" role="img" aria-label="Interface evolution from CLI to NEOS Shell">
         <title>Interface Evolution</title>
         <rect x="10" y="20" width="140" height="40" rx="6" fill="none" stroke="#555" stroke-width="1"/>
@@ -562,7 +665,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
         </div>
         <div class="stack-arrow">&darr;</div>
         <div class="stack-layer" style="background:rgba(255,255,255,0.02);border-radius:0 0 8px 8px">
-          <strong style="color:#888">LLM (Virtual Machine)</strong><br><span style="color:var(--text-dim);font-size:0.85rem">GPT-4, Claude, Gemini, Llama, Mistral, ...</span>
+          <strong style="color:#888">LLM (Virtual Machine)</strong><br><span style="color:var(--text-dim);font-size:0.85rem">GPT-4, Claude, Gemini, Llama, Mistral, ...</span><br><span style="color:var(--cyan);font-size:0.75rem;font-weight:600">Tested: Claude Code &middot; Gemini CLI &middot; OpenCode (Minimax)</span>
         </div>
       </div>
     </div>
@@ -654,7 +757,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <p class="reveal">When you run <code>nf collapse</code>, you force the superposition to resolve into a concrete output &mdash; like quantum measurement. The same field can collapse differently depending on the strategy: <code>attractor</code> (follow the strongest basin), <code>threshold</code> (take everything above a cutoff), <code>weighted</code> (blend all activations), <code>sample</code> (probabilistic selection). The observer matters. The strategy you choose shapes the output you get.</p>
 
     <!-- Quantum Collapse Analogy -->
-    <div class="diagram reveal">
+    <div class="diagram diagram--scroll reveal">
       <svg viewBox="0 0 700 150" role="img" aria-label="Before and after collapse: superposition to concrete output">
         <title>Quantum Collapse Analogy</title>
         <!-- Before -->
@@ -787,7 +890,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
         <div class="card"><h3 style="font-size:1rem">Versioning</h3><p style="color:var(--text-dim);font-size:0.82rem"><code>commit</code> <code>branch</code> <code>checkout</code> <code>diff</code> <code>merge</code></p></div>
         <div class="card"><h3 style="font-size:1rem">Autonomy</h3><p style="color:var(--text-dim);font-size:0.82rem"><code>mode</code> <code>checkpoint</code> <code>proceed</code> <code>task</code></p></div>
       </div>
-      <div class="diagram" style="margin-top:2rem">
+      <div class="diagram diagram--scroll" style="margin-top:2rem">
         <svg viewBox="0 0 800 100" role="img" aria-label="Command execution flow from user input to output">
           <title>Command Execution Pipeline</title>
           <rect x="10" y="25" width="110" height="50" rx="8" fill="rgba(0,212,255,0.08)" stroke="#0af" stroke-width="1.5"/>
@@ -1106,7 +1209,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       </svg>
     </div>
 
-    <p class="reveal"><strong>LLMs crossed the capability threshold.</strong> Models like GPT-4, Claude, and Gemini can now maintain complex state across long interactions, reason about abstract structures, and generate formal outputs reliably enough to serve as a computational substrate.</p>
+    <p class="reveal"><strong>LLMs crossed the capability threshold.</strong> Models like GPT-4, Claude, and Gemini can now maintain complex state across long interactions, reason about abstract structures, and generate formal outputs reliably enough to serve as a computational substrate. NEOS has been successfully tested on <strong style="color:var(--cyan)">Claude Code</strong>, <strong style="color:var(--cyan)">Gemini CLI</strong>, and <strong style="color:var(--cyan)">OpenCode</strong> (Minimax model from OpenCode Zen), confirming the specification works across diverse LLM platforms.</p>
 
     <p class="reveal"><strong>Agent frameworks proliferate and fragment.</strong> AutoGPT, CrewAI, LangGraph, LlamaIndex &mdash; dozens of frameworks, each reinventing the same primitives: state management, multi-agent coordination, output structuring, memory. They're all building pieces of an operating system without knowing it. NEOS is the unifying specification they're independently converging toward.</p>
 
@@ -2558,12 +2661,14 @@ if (motionOK && typeof gsap !== 'undefined') {
   if (heroDots) {
     gsap.to(heroDots, { y: -80, scrollTrigger: { trigger: '#hero', scrub: 1 } });
   }
-  document.querySelectorAll('.diagram svg').forEach(svgEl => {
-    gsap.to(svgEl, {
-      y: -30,
-      scrollTrigger: { trigger: svgEl, start: 'top bottom', end: 'bottom top', scrub: 1 }
+  if (window.innerWidth > 768) {
+    document.querySelectorAll('.diagram svg').forEach(svgEl => {
+      gsap.to(svgEl, {
+        y: -30,
+        scrollTrigger: { trigger: svgEl, start: 'top bottom', end: 'bottom top', scrub: 1 }
+      });
     });
-  });
+  }
 }
 
 // Coherence graph path-draw on scroll
