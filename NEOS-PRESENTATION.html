@@ -289,10 +289,10 @@ svg text { font-family: var(--font); }
 <!-- SLIDE — NAVIGATION GUIDE (uncounted)       -->
 <!-- ═══════════════════════════════════════════ -->
 <section data-visibility="uncounted" data-transition="fade">
-  <h2 style="font-size:1.4rem;margin-bottom:0.8em"><span class="grad-text">Navigation</span></h2>
-  <div class="grid-2" style="gap:1.5rem;max-width:90%;margin:0 auto">
-    <div class="card" style="padding:1rem">
-      <h3 style="font-size:0.8em;margin-bottom:0.6em">Movement</h3>
+  <h2 style="font-size:1.4rem;margin-bottom:0.6em"><span class="grad-text">Keyboard &amp; Navigation</span></h2>
+  <div class="grid-3" style="gap:1rem;max-width:95%;margin:0 auto">
+    <div class="card" style="padding:0.8rem 1rem">
+      <h3 style="font-size:0.75em;margin-bottom:0.5em">Movement</h3>
       <div class="key-grid">
         <kbd>&larr; &rarr;</kbd> <span>Previous / next section</span>
         <kbd>&darr; &uarr;</kbd> <span>Dive into / exit sub-slides</span>
@@ -300,25 +300,40 @@ svg text { font-family: var(--font); }
         <kbd>Shift+Space</kbd> <span>Previous step</span>
         <kbd>Home</kbd> <span>First slide</span>
         <kbd>End</kbd> <span>Last slide</span>
+        <kbd>N / P</kbd> <span>Next / previous slide</span>
       </div>
     </div>
-    <div class="card" style="padding:1rem">
-      <h3 style="font-size:0.8em;margin-bottom:0.6em;color:var(--purple)">Tools</h3>
+    <div class="card" style="padding:0.8rem 1rem">
+      <h3 style="font-size:0.75em;margin-bottom:0.5em;color:var(--purple)">Views &amp; Display</h3>
       <div class="key-grid">
-        <kbd>O</kbd> <span>Overview — bird's-eye grid of all slides</span>
-        <kbd>S</kbd> <span>Speaker view — notes &amp; timer in new window</span>
+        <kbd>O</kbd> <span>Overview — bird's-eye grid</span>
+        <kbd>S</kbd> <span>Speaker view — notes &amp; timer</span>
         <kbd>F</kbd> <span>Fullscreen toggle</span>
+        <kbd>Esc</kbd> <span>Exit overview / zoom / fullscreen</span>
         <kbd>B</kbd> <span>Blackout screen (pause)</span>
+        <kbd>.</kbd> <span>Blackout screen (alternate)</span>
+        <kbd>V</kbd> <span>Pause / resume presentation</span>
+      </div>
+    </div>
+    <div class="card" style="padding:0.8rem 1rem">
+      <h3 style="font-size:0.75em;margin-bottom:0.5em;color:var(--green)">Tools &amp; Interaction</h3>
+      <div class="key-grid">
         <kbd>Alt+click</kbd> <span>Zoom into any element</span>
         <kbd>Ctrl+Shift+F</kbd> <span>Search across all slides</span>
+        <kbd>?</kbd> <span>Show built-in help overlay</span>
+        <kbd>G</kbd> <span>Jump to slide by number</span>
+        <kbd>A</kbd> <span>Toggle auto-slide timer</span>
+        <kbd>C</kbd> <span>Toggle cursor visibility</span>
+        <kbd>R</kbd> <span>Reset auto-slide timer</span>
       </div>
     </div>
   </div>
-  <div style="margin-top:1rem;text-align:center">
-    <div class="card" style="display:inline-block;padding:0.6rem 1.2rem;border-color:rgba(0,212,255,0.15)">
-      <p style="font-size:0.55em;margin:0;max-width:none;color:var(--text-dim)">
-        <span style="color:var(--cyan)">▼ arrows</span> on slides indicate sub-slides below &nbsp;&middot;&nbsp;
-        Press <kbd style="background:var(--bg3);border:1px solid rgba(0,212,255,0.15);border-radius:3px;padding:0.1em 0.4em;font-family:var(--mono);font-size:0.85em;color:var(--cyan)">?</kbd> anytime for the full shortcut reference
+  <div style="margin-top:0.8rem;text-align:center">
+    <div class="card" style="display:inline-block;padding:0.5rem 1.2rem;border-color:rgba(0,212,255,0.12)">
+      <p style="font-size:0.5em;margin:0;max-width:none;color:var(--text-dim)">
+        <span style="color:var(--cyan)">▼</span> on slides = sub-slides below &nbsp;&middot;&nbsp;
+        Touch: swipe to navigate &nbsp;&middot;&nbsp;
+        <kbd style="background:var(--bg3);border:1px solid rgba(0,212,255,0.15);border-radius:3px;padding:0.1em 0.35em;font-family:var(--mono);font-size:0.85em;color:var(--cyan)">?</kbd> opens the full reference anytime
       </p>
     </div>
   </div>
