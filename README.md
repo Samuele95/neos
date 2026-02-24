@@ -18,7 +18,7 @@
 [![Website](https://img.shields.io/badge/🌐_Website-00d4ff?style=for-the-badge&logoColor=black)](https://samuele95.github.io/neos/NEOS-BREAKTHROUGH.html)
 [![Presentation](https://img.shields.io/badge/🎬_Presentation-ff3d8e?style=for-the-badge&logoColor=white)](https://samuele95.github.io/neos/NEOS-PRESENTATION.html)
 
-[The Vision](#01--the-three-ages-of-computing) · [What It Is](#03--what-neos-is--today) · [What It Proved](#07--what-neos-proved) · [Commands](#13--command-reference)
+[Quick Start](#03--quick-start) · [What It Is](#04--what-neos-is--today) · [What It Proved](#08--what-neos-proved) · [Commands](#14--command-reference) · [Detailed Guide](docs/DETAILED-GUIDE.md)
 
 </div>
 
@@ -80,11 +80,91 @@ The NEOS shell — `nf` — is the **REPL of cognitive computing**. You don't wr
 
 ---
 
+## 03 — Quick Start
+
+> [!TIP]
+> **Nothing to install.** Copy the [kernel prompt](prompts/nfos-kernel.md), paste it as your system prompt, and start typing commands. The LLM *is* the machine.
+
+### Step 1: Boot NEOS
+
+Copy [`prompts/nfos-kernel.md`](prompts/nfos-kernel.md) and paste it as the system prompt in your LLM interface (Claude, Gemini, ChatGPT, etc.). NEOS initializes automatically.
+
+### Step 2: Create a Session
+
+```
+> nf session new "Startup Idea Analysis"
+[SESSION] Created: Startup Idea Analysis
+  Field: main (default)
+  Mode: step (interactive)
+```
+
+Every analysis lives inside a session. This creates a fresh neural field ready for input.
+
+### Step 3: Inject Patterns
+
+```
+> nf inject "strong_founding_team" 0.9
+> nf inject "crowded_market" 0.7
+> nf inject "novel_technology" 0.85
+> nf inject "unclear_revenue_model" 0.6
+> nf inject "early_traction_with_users" 0.8
+```
+
+Patterns are ideas with activation strengths (0.0–1.0). Higher strength = greater initial influence on the field.
+
+### Step 4: Run Dynamics
+
+```
+> nf cycle 5
+```
+
+Each cycle applies the master equation: ideas decay if unreinforced, resonate with related ideas, and self-organize into clusters. After 5 cycles, coherent themes emerge.
+
+### Step 5: Collapse to Insight
+
+```
+> nf collapse
+```
+
+Collapse resolves the field's superposition into structured output — like taking a measurement. The dominant attractor becomes your key finding.
+
+### Step 6: Ask Questions
+
+```
+> nf ask "What is the biggest risk?"
+```
+
+Natural language queries interpret the field state. NEOS answers based on pattern activations, resonance structure, and attractor analysis.
+
+### Step 7: Save and Load
+
+```
+> nf session save "startup-v1"
+> nf session load "startup-v1"
+```
+
+Save snapshots of your analysis and reload them later. Use `nf commit` and `nf branch` for version-controlled exploration.
+
+### Step 8: Go Autonomous
+
+```
+> nf mode auto
+> nf task "Analyze top 3 risks and recommend mitigations"
+```
+
+Switch to autonomous mode and let NEOS run dynamics, detect attractors, and deliver a structured analysis — all without manual stepping.
+
+> **Want more?** See the [Detailed Guide](docs/DETAILED-GUIDE.md) for all ~42 commands with examples, or the [Basic Session Walkthrough](examples/01-basic-session.md) for a full worked example.
+
+---
+
+<a id="03--what-neos-is--today"></a>
+
 <div align="center">
 <img src="assets/banner-architecture.svg" alt="Part Two — The Architecture" width="100%"/>
 </div>
 
-## 03 — What NEOS Is — Today
+## 04 — What NEOS Is — Today
 
 NEOS v1.0 is a **specification** — 37 markdown files that define an interactive runtime environment running *on* an LLM. The LLM is the virtual machine. NEOS is the operating system. Neural fields are the computational substrate.
 
@@ -122,7 +202,9 @@ These four parameters define a **cognitive style**. A security analysis wants lo
 
 ---
 
-## 04 — The Three Pillars
+<a id="04--the-three-pillars"></a>
+
+## 05 — The Three Pillars
 
 NEOS rests on a triple foundation. Each pillar is necessary; together they make cognitive computing possible. Remove any one and the system either cannot *represent* meaning, cannot *manipulate* it, or cannot *interpret* it.
 
@@ -146,7 +228,9 @@ When you run `nf collapse`, you force the superposition to resolve — like quan
 
 ---
 
-## 05 — The JVM Moment
+<a id="05--the-jvm-moment"></a>
+
+## 06 — The JVM Moment
 
 In 1995, Java made a promise: **"Write once, run anywhere."** The JVM decoupled code from hardware.
 
@@ -166,7 +250,9 @@ NEOS makes a parallel promise: **"Think once, reason anywhere."** NEOS decouples
 
 ---
 
-## 06 — The NEOS Shell
+<a id="06--the-neos-shell"></a>
+
+## 07 — The NEOS Shell
 
 The NEOS shell is to cognitive computing what `bash` is to Unix. But instead of manipulating files and processes, it manipulates **meaning and reasoning**.
 
@@ -202,7 +288,9 @@ The shell grammar is built on **imperative verbs** operating on **semantic objec
 <img src="assets/banner-evidence.svg" alt="Part Three — The Evidence" width="100%"/>
 </div>
 
-## 07 — What NEOS Proved
+<a id="07--what-neos-proved"></a>
+
+## 08 — What NEOS Proved
 
 > [!IMPORTANT]
 > **There is nothing to install.** NEOS runs entirely inside an LLM's context window. No packages, no dependencies, no runtime. Copy the [kernel prompt](prompts/nfos-kernel.md), paste it as a system prompt, and type your first command.
@@ -321,7 +409,9 @@ We injected **10 patterns** across 4 waves — from packet capture basics throug
 
 ---
 
-## 08 — The Dynamics Engine
+<a id="08--the-dynamics-engine"></a>
+
+## 09 — The Dynamics Engine
 
 Every `nf cycle` executes six phases. This is the **heartbeat of NEOS** — the engine that transforms injected patterns into emergent structure.
 
@@ -342,7 +432,9 @@ Every `nf cycle` executes six phases. This is the **heartbeat of NEOS** — the 
 
 ---
 
-## 09 — Multi-Field Orchestration
+<a id="09--multi-field-orchestration"></a>
+
+## 10 — Multi-Field Orchestration
 
 A single field is powerful. Multiple coupled fields are transformative. Different fields represent different perspectives — technical, user, business — coupled through a resonance matrix that lets them influence each other.
 
@@ -376,7 +468,9 @@ Two orchestration modes:
 
 ---
 
-## 10 — The Autonomy Dial
+<a id="10--the-autonomy-dial"></a>
+
+## 11 — The Autonomy Dial
 
 How much should the system think on its own? This is not a binary choice. NEOS provides a **continuously adjustable spectrum**.
 
@@ -396,7 +490,9 @@ You can switch modes mid-operation. Start in auto, notice something interesting,
 
 ---
 
-## 11 — Observable Reasoning
+<a id="11--observable-reasoning"></a>
+
+## 12 — Observable Reasoning
 
 > **The most dangerous property of current AI is opacity.** An agent makes a decision and you cannot see *why*. NEOS makes reasoning **visible**.
 
@@ -427,7 +523,9 @@ Outputs render in four formats: **ASCII** (terminal), **SVG** (visual), **Mermai
 
 ---
 
-## 12 — Why Now
+<a id="12--why-now"></a>
+
+## 13 — Why Now
 
 NEOS is buildable *today* because four independent developments have converged simultaneously — and their intersection creates an opening that didn't exist even two years ago.
 
@@ -447,9 +545,27 @@ NEOS is buildable *today* because four independent developments have converged s
 <img src="assets/banner-reference.svg" alt="Part Four — The Reference" width="100%"/>
 </div>
 
-## 13 — Command Reference
+<a id="13--command-reference"></a>
 
-NEOS provides ~40 commands organized into 8 categories. Each section is collapsible — expand what you need.
+## 14 — Command Reference
+
+NEOS provides ~42 commands organized into 9 categories. Each section is collapsible — expand what you need.
+
+> [!TIP]
+> For full examples and expected output for every command, see the **[Detailed Guide](docs/DETAILED-GUIDE.md)**.
+
+<details>
+<summary><strong>Session Management</strong> — new, save, load, info, export</summary>
+
+| Command | Description |
+|---------|-------------|
+| `nf session new "<name>"` | Create a new named session with a default field |
+| `nf session save [file]` | Save session state to file |
+| `nf session load <file>` | Load session from file |
+| `nf session info` | Display current session information |
+| `nf session export <format>` | Export session (json, yaml) |
+
+</details>
 
 <details>
 <summary><strong>Field Operations</strong> — inject, amplify, attenuate, tune, collapse, resonate</summary>
@@ -568,6 +684,14 @@ NEOS provides ~40 commands organized into 8 categories. Each section is collapsi
 <summary><strong>Quick Reference Card</strong></summary>
 
 ```
+SESSION
+────────────────────────────
+nf session new "<name>"
+nf session save [file]
+nf session load <file>
+nf session info
+nf session export <fmt>
+
 CORE                          DYNAMICS
 ────────────────────────────  ────────────────────────────
 nf inject "p" [s]             nf cycle [n] [--trace]
@@ -606,13 +730,17 @@ nf couple $a $b [--γ]         nf help [cmd]
 
 ---
 
-## 14 — Project Structure
+<a id="14--project-structure"></a>
+
+## 15 — Project Structure
 
 ```
 neos/
 ├── README.md                    ← You are here
 ├── NEOS-BREAKTHROUGH.html       ← Research paper — the theoretical foundations
 ├── NEOS-PRESENTATION.html       ← Visual overview
+├── docs/
+│   └── DETAILED-GUIDE.md        ← Comprehensive command tutorial (~42 commands)
 ├── prompts/
 │   └── nfos-kernel.md           ← System prompt — the "bootloader"
 ├── core/
@@ -666,7 +794,9 @@ neos/
 
 ---
 
-## 15 — The Future: Join the Intelligence Age
+<a id="15--the-future-join-the-intelligence-age"></a>
+
+## 16 — The Future: Join the Intelligence Age
 
 We are at the beginning of a transition as profound as the invention of the operating system itself. The Hardware Age gave us the ability to compute. The Software Age gave us the ability to organize. The Intelligence Age will give us the ability to **reason** — systematically, observably, reproducibly.
 
@@ -687,7 +817,8 @@ The specification is open. The math is grounded. The proof-of-concept works. Wha
 | [NEOS Website](https://samuele95.github.io/neos/NEOS-BREAKTHROUGH.html) | Interactive HTML paper |
 | [NEOS Presentation](https://samuele95.github.io/neos/NEOS-PRESENTATION.html) | Visual overview |
 | [Kernel Prompt](prompts/nfos-kernel.md) | The system prompt that boots NEOS inside an LLM |
-| [Full Command Reference](commands/index.md) | Detailed specs for all ~40 commands |
+| [Detailed Guide](docs/DETAILED-GUIDE.md) | Comprehensive tutorial for all ~42 commands with examples |
+| [Full Command Reference](commands/index.md) | Detailed specs for all ~42 commands |
 | [Basic Session Walkthrough](examples/01-basic-session.md) | Extended tutorial with 11 steps |
 | [Case Study](sessions/software_quality_discipline.collapsed.md) | The software quality session data |
 | [PCAP Case Study](SESSION_EVIDENCE_PCAP.md) | Malware hunting session — AsyncRAT identified |

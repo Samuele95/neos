@@ -256,44 +256,119 @@ checkpoints (\texttt{nf checkpoint}), enter step mode
 (\texttt{nf cycle 1 -{}-trace}), and inspect the cycle trace to
 understand why a pattern gained or lost activation.
 
-The following transcript demonstrates a session from the
-\emph{software\_quality\_discipline} case study~(\S\ref{sec:evidence}).
-Six code-review patterns are injected; resonance is detected
-immediately; an attractor emerges within three cycles.
+% ─────────────────────────────────────────────────────────────────
+\subsection{Getting Started: A Walkthrough}\label{sec:tutorial}
 
-\begin{terminalbox}[Software Quality Session --- Wave 1]
+Using NEOS requires no installation.  The operator copies the kernel
+prompt (\texttt{prompts/nfos-kernel.md}) and pastes it as the system
+prompt in any LLM interface that supports one.  The LLM becomes the
+NEOS runtime.  The following walkthrough demonstrates the complete
+analysis cycle using a startup-idea evaluation as the domain.
+
+\paragraph*{Step~1: Create a Session.}
+
+\begin{terminalbox}[Startup Analysis --- Session Creation]
 \begin{lstlisting}[style=neosshell]
-nf session new "software_quality_discipline"
-[SESSION] Created: software_quality_discipline
-nf tune lambda=0.04 alpha=0.35 tau=0.35 sigma=0.40
-
-nf inject "correctness" 0.90
-[INJECT] correctness (s: 0.90)
-
-nf inject "edge_case_handling" 0.85
-[INJECT] edge_case_handling (s: 0.85)
-  [RESONANCE] <-> @correctness: R = 0.82 STRONG
-
-nf inject "security_no_injection_vectors" 0.95
-[INJECT] security_no_injection_vectors (s: 0.95)
-  [RESONANCE] <-> @correctness:        R = 0.68 MODERATE
-  [RESONANCE] <-> @edge_case_handling:  R = 0.74 STRONG
-
-nf cycle 3 --trace
-[CYCLE 1] C = 0.42   (LOW->MEDIUM)
-[CYCLE 2] C = 0.58   (MEDIUM, approaching threshold)
-[CYCLE 3] C = 0.71   (HIGH)
-  [ATTRACTOR-EMERGED] "defensive_quality"
-    Core: {@security_no_injection, @input_validation,
-           @edge_case_handling, @correctness,
-           @no_leaked_secrets, @error_handling}
-    Coherence: 0.71
+nf session new "Startup Idea Analysis"
+[SESSION] Created: Startup Idea Analysis
+  Field: main (default)
+  Parameters: l=0.05  a=0.30  t=0.40  s=0.50
+  Mode: step (interactive)
 \end{lstlisting}
 \end{terminalbox}
 
 \noindent
-Six patterns were injected; pairwise resonance was detected on
-injection, and the field dynamics autonomously clustered them into the
-\texttt{defensive\_quality} attractor within three cycles---all without
-explicit rules stating these concepts belong together.  The full
-session continues for 69~injections and 52~cycles~(\S\ref{sec:evidence}).
+A session initialises a default field with standard
+parameters.  The operator can tune parameters at any time with
+\texttt{nf tune}.
+
+\paragraph*{Step~2: Inject Patterns.}
+
+\begin{terminalbox}[Startup Analysis --- Pattern Injection]
+\begin{lstlisting}[style=neosshell]
+nf inject "strong_founding_team" 0.9
+[INJECT] strong_founding_team (s: 0.90)
+
+nf inject "crowded_market" 0.7
+[INJECT] crowded_market (s: 0.70)
+  [RESONANCE] <-> @strong_founding_team: R = 0.42 MODERATE
+
+nf inject "novel_technology" 0.85
+[INJECT] novel_technology (s: 0.85)
+
+nf inject "unclear_revenue_model" 0.6
+[INJECT] unclear_revenue_model (s: 0.60)
+
+nf inject "early_traction_with_users" 0.8
+[INJECT] early_traction_with_users (s: 0.80)
+  [RESONANCE] <-> @strong_founding_team: R = 0.78 STRONG
+\end{lstlisting}
+\end{terminalbox}
+
+\noindent
+Each pattern is an observation with an activation strength
+(0.0--1.0).  Higher strength indicates greater initial confidence.
+Resonance is computed automatically at injection time.
+
+\paragraph*{Step~3: Run Dynamics.}
+
+\begin{terminalbox}[Startup Analysis --- Five Cycles]
+\begin{lstlisting}[style=neosshell]
+nf cycle 5 --trace
+[CYCLE 1] C = 0.38
+  @strong_founding_team: 0.90 -> 0.94  (resonance boost)
+  @crowded_market:       0.70 -> 0.67  (decay, low resonance)
+[CYCLE 2] C = 0.52
+  Cluster forming: {team, traction, technology}
+[CYCLE 3] C = 0.64
+  [ATTRACTOR-EMERGED] "strong_fundamentals"
+    Core: {@strong_founding_team, @early_traction,
+           @novel_technology}
+    Coherence: 0.64
+[CYCLE 4] C = 0.71
+[CYCLE 5] C = 0.76
+  @unclear_revenue_model: 0.52 (weakening, low resonance)
+  @crowded_market: 0.48 (near threshold)
+\end{lstlisting}
+\end{terminalbox}
+
+\noindent
+Each cycle applies the master equation: decay erodes unreinforced
+patterns, resonance amplifies related ones.  The positive factors
+(team, technology, traction) cluster into an attractor; risks
+(crowded market, unclear revenue) weaken due to low mutual resonance.
+
+\paragraph*{Step~4: Collapse to Insight.}
+
+\begin{terminalbox}[Startup Analysis --- Collapse]
+\begin{lstlisting}[style=neosshell]
+nf collapse --strategy attractor
+[COLLAPSE] Strategy: attractor
+  Dominant: strong_fundamentals (C=0.76)
+
+OUTPUT:
+  The field identifies strong technical and team fundamentals
+  with early market validation.  Primary risks are an unclear
+  revenue model and a crowded market---both weakening under
+  dynamics, suggesting they are less structurally connected to
+  the core thesis than the positive signals.
+
+  Confidence: HIGH (0.76)
+\end{lstlisting}
+\end{terminalbox}
+
+\noindent
+Collapse resolves the field's superposition into structured output.
+The operator can also query the field in natural language
+(\texttt{nf ask "What is the biggest risk?"}), save the state
+(\texttt{nf commit}), branch to explore alternatives
+(\texttt{nf branch create}), or switch to autonomous mode
+(\texttt{nf mode auto}) for hands-free analysis.
+
+\medskip
+\noindent
+This four-step cycle---inject, run dynamics, observe, collapse---is the
+fundamental workflow of NEOS.  The empirical
+evidence~(\S\ref{sec:evidence}) demonstrates the same cycle operating
+at scale: 69~patterns over 52~cycles in software quality, and
+10~patterns over 12~cycles in network forensics.

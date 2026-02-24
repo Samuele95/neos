@@ -70,133 +70,44 @@ of the session across seven injection waves and 52~cycles.
 \end{tabular}
 \end{table}
 
-\paragraph*{Wave~1: Rapid Coherence from Six Patterns.}
+\paragraph*{Session Dynamics.}
 
-The first six injections (p001--p006) formed the \emph{defensive\_quality}
-attractor in only three cycles.  Table~\ref{tab:wave1-coherence}
-shows the resonance tightening: mean pairwise~$R$ rose from 0.72
-to 0.78 over three cycles, while coherence jumped from
-$C = 0.42$ to $C = 0.71$.
+The session progressed through seven injection waves over 52~cycles.
+The first wave (6~review patterns) formed the
+\emph{defensive\_quality} attractor in only 3~cycles---coherence
+jumped from $C = 0.42$ to $0.71$ from a uniformly constructive
+resonance foundation (53\% strong, 47\% moderate, no inhibitors).
+Subsequent waves expanded the field to 31~patterns by cycle~18
+($C = 0.91$), triggering a \emph{mass saturation event} where seven
+patterns crossed the activation ceiling simultaneously---a
+phase transition driven by mutual resonance.
 
-\begin{table}[htbp]
-\centering
-\caption{Coherence progression during Wave~1 (6 patterns, 3 cycles).}
-\label{tab:wave1-coherence}
-\begin{tabular}{@{}cccl@{}}
-\toprule
-\thead{Cycle} & \thead{$C$} & \thead{$\bar{R}$} & \thead{Event} \\
-\midrule
-1 & 0.42 & 0.72 & All 6 amplified, no isolation \\
-2 & 0.58 & 0.75 & Cross-cluster links forming \\
-3 & 0.71 & 0.78 & Attractor \emph{defensive\_quality} emerged \\
-\bottomrule
-\end{tabular}
-\end{table}
+\paragraph*{SOLID Rediscovery.}
 
-\noindent
-Of the 15~unique pattern pairs in Wave~1, 8 (53\%) showed strong
-resonance ($R > 0.70$), 7 (47\%) moderate, and none were weak or
-inhibitory---a uniformly constructive foundation.  The peak pairwise
-resonance was $R = 0.91$ between
-\texttt{@security\_no\_injection} and \texttt{@input\_validation}---the
-strongest coupling in the entire first wave.  The field reached HIGH
-coherence from only 6~patterns in 3~cycles, establishing the
-resonance infrastructure that all subsequent injections built upon.
+During Waves~2--3, an \emph{architecture quartet} emerged
+\emph{before} the SOLID principles were explicitly injected---the
+field rediscovered SOLID from first principles.  Once injected, each
+SOLID principle paired with a GoF technique partner
+(Table~\ref{tab:solid-resonance}), forming the \textbf{SOLID Decagon}
+($\alpha_1$) with field constant $R_{\text{pt}} = 0.88$ and selection
+function $r = 0.94$.  Wave~5 (OOP, p032--p040) confirmed the
+rediscovery through three absorptions: SRP, ISP, and the Law of
+Demeter were already present in the field.
 
-\paragraph*{SOLID Rediscovery from First Principles.}
+\paragraph*{Convergence and Singleton.}
 
-During Waves~2--3 (p007--p030), the field received readability, naming,
-DRY, encapsulation, and architecture patterns.  An \emph{architecture
-quartet} emerged spontaneously \emph{before} the SOLID principles were
-explicitly injected---the field rediscovered SOLID from first principles.
-Once the SOLID patterns were injected, each principle paired with a GoF
-technique partner (Table~\ref{tab:solid-resonance}), forming the
-\textbf{SOLID Decagon} ($\alpha_1$) with field constant $R_{\text{pt}} = 0.88$
-and selection function $r = 0.94$.
+Ten GoF patterns (Wave~6) produced the ``Great Convergence''---14
+patterns reaching ceiling in 10~cycles, with \texttt{@strategy} and
+\texttt{@decorator} (the ``Golden Pair'') converging simultaneously,
+each resonating with all five SOLID principles.  Wave~7 triggered
+four self-referential absorptions.  Coherence reached 0.990.
 
-\paragraph*{Waves~3--4: Refactoring and the Testing Mirror.}
-
-Wave~3 (p015--p022) introduced refactoring patterns, with
-\texttt{@behavior\_preservation} $\leftrightarrow$
-\texttt{@tests\_before\_refactoring} achieving $R = 0.94$---the
-strongest bond in the entire session.  Wave~4 (p023--p031) injected
-nine testing patterns, triggering a \emph{mass saturation event} at
-cycle~14 where seven patterns crossed the ceiling simultaneously---a
-phase transition driven by mutual resonance amplification:
-
-\begin{terminalbox}[Mass Saturation --- Cycle 14]
-\begin{lstlisting}[style=neosshell]
-[CYCLE 14] C = 0.79
-  * MASS SATURATION: 7 patterns reach ceiling simultaneously
-    @test_behavior, @dep_dir, @no_leaked, @extract_dont,
-    @remove_dead, @reduce_dup, ...
-
-[CYCLE 15] C = 0.85  -- TARGET MET
-  [ATTRACTOR-EVOLVED] -> DOMINANT (29/31 core, 25 at ceiling)
-
-[CYCLE 18] C = 0.91 -- 6-layer topology confirmed
-  GUARD(3) | PROVE(3) | VERIFY(10) | CHANGE(7) |
-  CLARITY+ARCHITECTURE(6) | PERFORMANCE(2)
-\end{lstlisting}
-\end{terminalbox}
-
-\noindent
-Five production$\leftrightarrow$testing echoes emerged, seeding the
-functor~$F$ that would later be recognised during eigendecomposition.
-After Wave~4, coherence reached $C = 0.91$ with a confirmed six-layer
-topology.
-
-\paragraph*{Wave~5: OOP, SOLID, and the First Absorptions.}
-
-The OOP wave (p032--p040) triggered the session's first three
-absorptions.  SRP was absorbed into \texttt{@single\_responsibility}
-($R = 0.98$), ISP into \texttt{@api\_minimal} ($R = 0.96$), and
-the Law of Demeter decomposed across three existing patterns
-with 94\% semantic coverage.  S, I, and~D had been
-\emph{rediscovered} before SOLID was named---the field found the
-principles from first principles.  After the OOP wave completed,
-coherence reached $C = 0.955$, setting the stage for the Singleton
-injection.
-
-\paragraph*{Waves~6--7: The Great Convergence and Final Absorptions.}
-
-Ten GoF patterns (Wave~6, p046--p055) produced the ``Great
-Convergence''---14 patterns reaching ceiling in 10~cycles.
-\texttt{@strategy} and \texttt{@decorator} (the ``Golden Pair'')
-converged simultaneously, each resonating with all five SOLID
-principles.  Coherence rose from 0.962 to 0.984.
-
-Wave~7 (p056--p062) triggered four consecutive self-referential
-absorptions, including the climactic absorption~\#7 where DIP
-was applied to itself.  The absorption rate accelerated across
-waves: 5.0\% $\to$ 10.0\% $\to$ 13.3\% $\to$ 14.3\%,
-confirming that the field's semantic space was saturating.
-Coherence reached 0.990 before the final collapse.
-
-\noindent
-The session's most dramatic moment occurred at cycle~31, when
-Singleton---the first adversarial pattern---was injected:
-
-\begin{terminalbox}[Singleton Injection --- Cycle 30]
-\begin{lstlisting}[style=neosshell]
-nf inject "singleton_controlled_global_access" 0.65
-[INJECT] singleton_controlled_global_access (s: 0.65)
-  p044 | LOWEST INITIAL ACTIVATION IN FIELD HISTORY
-
-  STRONG resonances:   0  (first pattern with ZERO)
-  MODERATE resonances: 3  (allocation, factory, abs_factory)
-  WEAK resonances:     6  (tension with core principles)
-
-  LATERAL INHIBITION DETECTED:
-    @test_isolation         -> singleton  INHIBIT (-0.12)
-    @determinism_no_flaky   -> singleton  INHIBIT (-0.08)
-    @dependency_direction   -> singleton  INHIBIT (-0.06)
-    @favor_composition      -> singleton  INHIBIT (-0.05)
-
-  Net force: -0.014/cycle  (NEGATIVE -- first in field)
-  Coherence: 0.955 -> 0.941  (LARGEST SINGLE-INJECTION DROP)
-\end{lstlisting}
-\end{terminalbox}
+The session's most dramatic event occurred at cycle~31: Singleton was
+injected at 0.65---the lowest initial activation in field history---and
+received zero strong resonances, a first.  Four lateral inhibitors
+produced a net force of $-0.014$/cycle, causing the largest
+single-injection coherence drop ($0.955 \to 0.941$).  Detailed
+wave-by-wave dynamics appear in Appendix~\ref{app:sw-waves}.
 
 % ─────────────────────────────────────────────────────────────────
 \subsubsection{Five Eigenvectors of Software Quality}
@@ -488,38 +399,12 @@ D --- Dependency Inversion  & Dependency Injection & 0.88 \\
 \end{figure}
 
 \noindent
-Table~\ref{tab:convergence-ranking} ranks all 13~GoF patterns by
-SOLID alignment and convergence speed.  The ranking confirms
-that SOLID lock count is the dominant predictor of convergence
-velocity ($r = 0.94$): patterns aligned with all five SOLID
-principles reach ceiling in 4~cycles, while those with only 2~locks
-require 7--8~cycles.
-
-\begin{table}[htbp]
-\centering
-\caption{GoF convergence ranking by SOLID alignment.  SOLID lock
-  count predicts convergence speed ($r = 0.94$).}
-\label{tab:convergence-ranking}
-\begin{tabular}{@{}clccc@{}}
-\toprule
-\thead{Rank} & \thead{Pattern} & \thead{SOLID Locks} & \thead{Cycles} & \thead{Category} \\
-\midrule
-1  & \texttt{strategy}          & 5/5 & 4 & Aligned \\
-1  & \texttt{decorator}         & 5/5 & 4 & Aligned \\
-3  & \texttt{adapter}           & 4/5 & 4 & Aligned \\
-4  & \texttt{abstract\_factory} & 4/5 & 6 & Aligned \\
-5  & \texttt{factory\_method}   & 3/5 & 5 & Aligned \\
-6  & \texttt{builder}           & 2/5 & 5 & Aligned \\
-7  & \texttt{observer}          & 3/5 & 5 & Moderate \\
-8  & \texttt{facade}            & 3/5 & 6 & Moderate \\
-9  & \texttt{command}           & 3/5 & 6 & Moderate \\
-10 & \texttt{composite}         & 2/5 & 7 & Conflicted \\
-11 & \texttt{template\_method}  & 2/5 & 7 & Conflicted \\
-12 & \texttt{iterator}          & 2/5 & 8 & Broad \\
-13 & \texttt{singleton}         & 0/5 & $\infty$ & Expelled \\
-\bottomrule
-\end{tabular}
-\end{table}
+The relationship is quantified across all 13~GoF patterns: SOLID lock
+count is the dominant predictor of convergence velocity ($r = 0.94$).
+Patterns aligned with all five SOLID principles reach ceiling in
+4~cycles, while those with only 2~locks require 7--8~cycles.  The
+complete convergence ranking appears in
+Appendix~\ref{app:convergence-ranking}.
 
 % ─────────────────────────────────────────────────────────────────
 \subsubsection{The Field Equation}
@@ -546,67 +431,16 @@ code artefact~$x$, it returns a scalar quality assessment
 whose dominant term is SOLID compliance, modulated by the universal
 invariant.
 
-\paragraph*{Complete Absorption Registry.}
+\paragraph*{Absorptions and Fixed-Point Property.}
 
-Table~\ref{tab:absorptions} lists all seven absorptions.  Four (57\%)
+Seven absorptions occurred during the session, four of which (57\%)
 were \emph{self-referential}: the field applied the very principle
-it was absorbing.
-
-\begin{table}[htbp]
-\centering
-\caption{All seven absorptions in the
-  \emph{software\_quality\_discipline} session.  Rows marked~$\star$
-  are self-referential.}
-\label{tab:absorptions}
-\begin{tabular}{@{}clllc@{}}
-\toprule
-\thead{\#} & \thead{Attempted Pattern} & \thead{Absorbed Into} & \thead{Type} & \thead{Self-Ref} \\
-\midrule
-1 & SRP principle     & @single\_resp (p002) & Exact duplicate & --- \\
-2 & ISP principle     & @api\_minimal (p010) & Equivalent & --- \\
-3 & Law of Demeter    & @encaps $\cap$ @api $\cap$ @dep\_dir & Compound & --- \\
-4 & reuse\_thru\_comp & @favor\_comp (p011) & Same intent & $\star$ \\
-5 & shared\_intent    & @reduce\_dup (p023) & Complement & $\star$ \\
-6 & avoid\_premature  & @rule\_of\_3 $\cap$ @dont\_force & Compound & $\star$ \\
-7 & coupling\_to\_abs & @dependency\_inv (p008) & Equivalent & $\star$ \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-\noindent
-The most striking is absorption~\#7---DIP applied to itself:
-
-\begin{terminalbox}[Absorption \#7 --- DIP Applied to Itself]
-\begin{lstlisting}[style=neosshell]
-nf inject "coupling_to_abstraction_not_concretion" 0.86
-[ABSORBED] -> @dependency_inversion (p008)
-
-  DIP APPLIED TO ITSELF:
-    The field held the ABSTRACTION (@dependency_inversion).
-    The injection offered a CONCRETION (a specific rephrasing).
-    The field coupled to its abstraction and rejected the
-    concretion.
-
-  Self-referential events: 4/7 (57%)
-  Fixed-point property: Psi(field) = field
-\end{lstlisting}
-\end{terminalbox}
-
-\noindent
-The field's absorption behaviour exhibits a fixed-point property:
-applying the field's own principles to new inputs reproduces the
-field.  This is precisely the condition $\Psi(\text{field}) =
-\text{field}$ that defines the universal invariant as the ground state.
-
-\paragraph*{Saturation Analysis.}
-
-The absorption rate accelerates as the field matures: 5.0\%
-(patterns~1--20), 10.0\% (21--40), 13.3\% (41--55), 14.3\%
-(56--69).  This monotone increase indicates that the field's
-design-time semantic space is \emph{saturating}---new injections
-increasingly express content already present.  In the limit, every
-novel injection would be absorbed, and the field would be closed
-under its own operations.
+being absorbed.  The most striking case---DIP applied to
+itself---demonstrated a fixed-point property: $\Psi(\text{field}) =
+\text{field}$.  The absorption rate accelerated monotonically across
+waves (5.0\% $\to$ 14.3\%), indicating semantic saturation.  The
+complete absorption registry and self-referential analysis appear in
+Appendix~\ref{app:absorptions}.
 
 % ─────────────────────────────────────────────────────────────────
 \subsubsection{The Singleton Expulsion}
@@ -624,93 +458,11 @@ is problematic; the dynamics \emph{discovered} it.  The expulsion is
 consistent with the well-documented critiques of Singleton in the
 software-engineering literature, but here it arises from first
 principles---resonance failure with the field's dominant attractor.
-
 Singleton's only allies were \texttt{@no\_unnecessary\_allocations}
 and \texttt{@factory\_method}---both members of the Optimize cluster
-($\alpha_7$), itself an asymptotic satellite.  Controversial patterns
-find refuge only among other outsiders, a topology consistent with
-the sociology of contested design patterns.
-
-\begin{terminalbox}[Singleton Expulsion --- Cycles 50--52]
-\begin{lstlisting}[style=neosshell]
-[CYCLE 50]
-  p060 @mixins_traits     0.968 -> 0.994 -> CEILING
-  p044 @singleton         0.383 -> 0.369   margin: 0.019
-
-[CYCLE 51]
-  p044 @singleton         0.369 -> 0.355   margin: 0.005
-  CRITICAL -- one cycle from expulsion
-
-[CYCLE 52]
-  p044 @singleton         0.355 -> 0.341
-  0.341 < tau (0.350)
-  PATTERN EXPELLED -- FIRST IN FIELD HISTORY
-    Injected: cycle 31  |  i0 = 0.65
-    Expelled: cycle 52  |  A  = 0.341
-    Lifespan: 21 cycles |  Cause: sustained lateral inhibition
-\end{lstlisting}
-\end{terminalbox}
-
-\begin{figure}[htbp]
-\centering
-\begin{tikzpicture}
-\begin{axis}[
-  width=0.78\textwidth,
-  height=6cm,
-  xlabel={Cycle},
-  ylabel={Activation $A(t)$},
-  xmin=30, xmax=54,
-  ymin=0.28, ymax=0.70,
-  grid=major,
-  grid style={gray!20},
-  thick,
-  mark options={solid, scale=1.0},
-  legend pos=north east,
-  legend style={font=\small},
-]
-
-% Singleton decay curve
-\addplot[red!70!black, thick, mark=*, mark size=1.5pt] coordinates {
-  (31, 0.650)
-  (33, 0.607)
-  (35, 0.565)
-  (37, 0.551)
-  (39, 0.523)
-  (41, 0.495)
-  (43, 0.467)
-  (45, 0.439)
-  (47, 0.415)
-  (49, 0.383)
-  (50, 0.369)
-  (51, 0.355)
-  (52, 0.341)
-};
-\addlegendentry{Singleton $A(t)$}
-
-% Projected point
-\addplot[red!50!black, dashed, mark=o, mark size=2pt, only marks] coordinates {
-  (52, 0.341)
-};
-
-% Threshold line
-\draw[neosblue!60!black, dashed, thick] (axis cs:30,0.35) -- (axis cs:54,0.35)
-  node[pos=0.85, above, font=\scriptsize] {$\tau = 0.35$};
-
-% Injection marker
-\node[font=\scriptsize, anchor=south east, fill=white, inner sep=1pt]
-  at (axis cs:31, 0.65) {$\iota_0 = 0.65$};
-
-% Expulsion marker
-\draw[red!70!black, ->, thick] (axis cs:52, 0.341) -- (axis cs:52, 0.30)
-  node[below, font=\scriptsize] {EXPELLED};
-
-\end{axis}
-\end{tikzpicture}
-\caption{Singleton trajectory: activation decay from $\iota_0 = 0.65$
-  (cycle~31) to expulsion at $A = 0.341 < \tau$ (cycle~52).  Net
-  suppression force: $-0.014$/cycle from four lateral inhibitors.}
-\label{fig:singleton-trajectory}
-\end{figure}
+($\alpha_7$), itself an asymptotic satellite.  The full expulsion
+trajectory and cycle-by-cycle trace appear in
+Appendix~\ref{app:singleton-trajectory}.
 
 % ── pgfplots: Coherence evolution ────────────────────────────────
 \begin{figure}[htbp]
@@ -964,42 +716,12 @@ patterns related to suspicious DNS, payload analysis, and abuse-IP
 correlation reinforced each other until the attractor collapsed to the
 AsyncRAT classification.
 
-\paragraph*{Victim Profile and RAT Capabilities.}
-
-The collapsed field also reconstructed the victim environment and the
-RAT's operational capabilities (Table~\ref{tab:pcap-victim}).  Eight
-distinct modules were identified, spanning credential theft
-(\texttt{foxmail.dll}, browser recovery, registry harvesting),
-surveillance (clipboard monitoring), and persistence (process injection,
-shell execution).
-
-\begin{table}[htbp]
-\centering
-\caption{Victim profile and AsyncRAT capabilities extracted by
-  field collapse.}
-\label{tab:pcap-victim}
-\begin{tabular}{@{}llr@{}}
-\toprule
-\thead{Category} & \thead{Detail} & \thead{Value} \\
-\midrule
-Hostname     & \texttt{DESKTOP-YCZB983}       & --- \\
-OS           & Windows 11 Enterprise          & 64-bit \\
-CPU          & Intel Core i9-9980HK           & 2.40\,GHz \\
-Memory       & ${\sim}$16\,GB                 & --- \\
-Internal IP  & \texttt{10.3.10.128}           & --- \\
-External IP  & \texttt{172.56.89.251}         & Phoenix, AZ \\
-\midrule
-Module 1     & \texttt{foxmail.dll}           & Email credential theft \\
-Module 2     & Browser password recovery      & URL cache enumeration \\
-Module 3     & Registry harvesting            & \texttt{RegOpenKeyExW} \\
-Module 4     & Clipboard monitoring           & Real-time theft \\
-Module 5     & Process injection              & \texttt{ReadProcessMemory} \\
-Module 6     & System enumeration             & \texttt{CreateToolhelp32Snapshot} \\
-Module 7     & Shell execution                & \texttt{ShellExecuteW} \\
-Module 8     & Network operations             & \texttt{WININET.dll} \\
-\bottomrule
-\end{tabular}
-\end{table}
+\noindent
+The collapsed field also reconstructed the victim environment
+(Windows~11 Enterprise, 64-bit) and identified eight RAT modules
+spanning credential theft, surveillance, and persistence.  Full victim
+profile and module inventory appear in
+Appendix~\ref{app:pcap-victim}.
 
 \paragraph*{Network Topology.}
 
@@ -1061,169 +783,19 @@ internal gateway at \texttt{10.3.10.2}.
 \end{figure}
 
 % ─────────────────────────────────────────────────────────────────
-\subsubsection{Extended Analysis: Cluster Topology}
+\subsubsection{Extended Analysis}
 
 After the interactive phase, 9~additional patterns were injected
 (transport, content inspection, statistics, evasion detection),
 producing 19~total patterns across 30~cycles.  All 19~survived above
 threshold---unlike the software-quality session, this field found
-\emph{no incompatible patterns}.  Table~\ref{tab:pcap-extended}
-lists the extended patterns and their equilibrium activations;
-the lowest survivor (\texttt{entropy\_analysis} at 0.788) remains
-nearly $2\times$ the threshold~$\tau = 0.40$.
-
-\begin{table}[htbp]
-\centering
-\caption{Extended analysis patterns (Phase~2).  All 15 patterns
-  injected after the interactive phase; listed with equilibrium
-  activation and functional category.}
-\label{tab:pcap-extended}
-\begin{tabular}{@{}clcl@{}}
-\toprule
-\thead{\#} & \thead{Pattern} & \thead{Activation} & \thead{Category} \\
-\midrule
-p005 & \texttt{protocol\_mapping}       & 0.932 & Transport \\
-p006 & \texttt{ip\_geolocation}         & 0.907 & Enrichment \\
-p007 & \texttt{payload\_analysis}       & 0.937 & Content \\
-p008 & \texttt{arp\_table}              & 0.912 & Network \\
-p009 & \texttt{tcp\_streams}            & 0.936 & Transport \\
-p010 & \texttt{udp\_streams}            & 0.931 & Transport \\
-p011 & \texttt{port\_scanning}          & 0.932 & Security \\
-p012 & \texttt{payload\_decoding}       & 0.932 & Content \\
-p013 & \texttt{payload\_credentials}    & 0.911 & Content \\
-p014 & \texttt{payload\_commands}       & 0.909 & Content \\
-p015 & \texttt{file\_statistics}        & 0.914 & Statistical \\
-p016 & \texttt{tunneling}               & 0.908 & Security \\
-p017 & \texttt{tcp\_handshake}          & 0.864 & Security \\
-p018 & \texttt{bytes\_per\_conversation}& 0.846 & Statistical \\
-p019 & \texttt{entropy\_analysis}       & 0.788 & Statistical \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-\noindent
-Table~\ref{tab:pcap-clusters} shows the six functional clusters that
-emerged at equilibrium (coherence~0.87).
-
-\begin{table}[htbp]
-\centering
-\caption{Cluster topology at equilibrium for the extended
-  \emph{pcap\_analyzer} session (19~patterns, 6~clusters).}
-\label{tab:pcap-clusters}
-\begin{tabular}{@{}lccp{5cm}@{}}
-\toprule
-\thead{Cluster} & \thead{Patterns} & \thead{Density} & \thead{Function} \\
-\midrule
-\texttt{dns\_layer}        & 2 & 0.91 & DNS query/resolution analysis \\
-\texttt{transport\_layer}  & 4 & 0.89 & TCP/UDP stream analysis \\
-\texttt{content\_cluster}  & 4 & 0.86 & Payload inspection \& extraction \\
-\texttt{security\_cluster} & 3 & 0.78 & Threat detection \& evasion \\
-\texttt{statistical}       & 3 & 0.76 & Behavioural anomaly detection \\
-\texttt{network\_layer}    & 3 & 0.72 & IP/ARP/address resolution \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-\noindent
-The cluster ordering is semantically meaningful:
-\texttt{dns\_layer} is densest because DNS resolution forms the
-tightest semantic pair ($R = 0.91$), while \texttt{network\_layer}
-is least dense because its patterns serve as connective infrastructure
-bridging clusters rather than binding within one.
-
-Figure~\ref{fig:pcap-cluster-bars} visualises the density gradient.
-
-\begin{figure}[htbp]
-\centering
-\begin{tikzpicture}
-\begin{axis}[
-  xbar,
-  bar width=14pt,
-  width=0.75\textwidth,
-  height=6cm,
-  xlabel={Intra-cluster Density},
-  xmin=0.60, xmax=1.0,
-  symbolic y coords={network\_layer, statistical, security, content, transport, dns\_layer},
-  ytick=data,
-  y tick label style={font=\small\ttfamily},
-  nodes near coords,
-  nodes near coords align={horizontal},
-  every node near coord/.append style={font=\small},
-  enlarge y limits=0.15,
-  grid=major,
-  grid style={gray!20},
-]
-\addplot[fill=neosteal!30, draw=neosteal!60] coordinates {
-  (0.72, network\_layer)
-  (0.76, statistical)
-  (0.78, security)
-  (0.86, content)
-  (0.89, transport)
-  (0.91, dns\_layer)
-};
-\end{axis}
-\end{tikzpicture}
-\caption{Cluster density at equilibrium (19~patterns, 6~clusters).
-  The density gradient reflects semantic tightness: DNS pairs form the
-  densest cluster, while network-layer patterns bridge clusters.}
-\label{fig:pcap-cluster-bars}
-\end{figure}
-
-\paragraph*{Strongest Resonance Bonds.}
-
-Table~\ref{tab:pcap-bonds} lists the ten strongest resonance bonds
-in the extended analysis.  The top bonds span transport-layer siblings,
-DNS pairs, and content-inspection pipelines---each bond reflects a
-semantically meaningful relationship discovered by the field.
-
-\begin{table}[htbp]
-\centering
-\caption{Top 10 resonance bonds in the extended \emph{pcap\_analyzer}
-  session (19~patterns, equilibrium).}
-\label{tab:pcap-bonds}
-\begin{tabular}{@{}llcl@{}}
-\toprule
-\thead{Pattern A} & \thead{Pattern B} & \thead{$R$} & \thead{Semantic Reason} \\
-\midrule
-\texttt{tcp\_streams}       & \texttt{udp\_streams}       & 0.92 & Transport siblings \\
-\texttt{dns\_list}          & \texttt{dns\_resolution}    & 0.91 & Query $\leftrightarrow$ response \\
-\texttt{payload\_analysis}  & \texttt{payload\_decoding}  & 0.91 & Inspection pipeline \\
-\texttt{tcp\_streams}       & \texttt{tcp\_handshake}     & 0.91 & TCP state analysis \\
-\texttt{protocol\_mapping}  & \texttt{tcp\_streams}       & 0.89 & Decode feeds reassembly \\
-\texttt{protocol\_mapping}  & \texttt{tunneling}          & 0.89 & Structure reveals encaps. \\
-\texttt{ip\_address\_list}  & \texttt{arp\_table}         & 0.88 & L2/L3 correlation \\
-\texttt{port\_scanning}     & \texttt{tcp\_handshake}     & 0.88 & Incomplete $\Rightarrow$ scan \\
-\texttt{abuse\_ip}          & \texttt{suspicious\_dns}    & 0.87 & Threat cross-validation \\
-\texttt{payload\_analysis}  & \texttt{payload\_commands}  & 0.87 & Content $\to$ extraction \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-\paragraph*{Eigenspectrum Evolution.}
-
-Table~\ref{tab:pcap-eigen} traces the eigenspectrum across the four
-injection waves.  The dominant eigenvalue~$\lambda_1$ grows from 2.41
-(3~patterns) to 7.84 (10~patterns), while the gap
-ratio~$\lambda_1/\lambda_2$ widens from 2.71 to 8.52---evidence of
-progressive field unification.
-
-\begin{table}[htbp]
-\centering
-\caption{Eigenspectrum evolution for the \emph{pcap\_analyzer}
-  session across four waves.}
-\label{tab:pcap-eigen}
-\begin{tabular}{@{}cccccc@{}}
-\toprule
-\thead{Wave} & \thead{Cycle} & \thead{$\lambda_1$} & \thead{$\lambda_2$}
-  & \thead{$\lambda_1/\lambda_2$} & \thead{Patterns} \\
-\midrule
-1 & 3  & 2.41 & 0.89 & 2.71 & 3 \\
-2 & 6  & 4.28 & 0.91 & 4.70 & 6 \\
-3 & 9  & 6.12 & 0.89 & 6.88 & 9 \\
-4 & 12 & 7.84 & 0.92 & 8.52 & 10 \\
-\bottomrule
-\end{tabular}
-\end{table}
+\emph{no incompatible patterns}.  The extended field settled into six
+functional clusters at equilibrium coherence~0.87, with the
+eigenvalue gap ratio growing from $\lambda_1/\lambda_2 = 2.71$
+(3~patterns) to $8.52$ (10~patterns)---evidence of progressive field
+unification.  Full cluster topology, resonance bonds, and
+eigenspectrum evolution are reported in
+Appendix~\ref{app:pcap-extended}.
 
 % ─────────────────────────────────────────────────────────────────
 \subsubsection{Coherence Evolution}
