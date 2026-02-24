@@ -290,6 +290,35 @@ The field applied Ψ to *itself* — four times the absorption of a new pattern 
 
 > 📊 *Full analysis: **[The Session: Complete Evidence](SESSION_EVIDENCE.md)** · [Visual Evidence](sessions/visual-evidence.md)*
 
+### A Second Domain: Network Forensics
+
+To prove NEOS is not specific to abstract reasoning, we ran a second session — `pcap_analyzer` — on a completely different domain: **network forensics and malware hunting**. The question: *if you feed a neural field raw packet capture data, can it identify active malware?*
+
+We injected **10 patterns** across 4 waves — from packet capture basics through IP enrichment, security inspection, and malware classification. Over **12 cycles** of resonance dynamics with **default parameters** (no tuning), the field self-organized into a triple-hub architecture and correctly identified an active **AsyncRAT v6.1.0 Pro** infection with confirmed C2 infrastructure.
+
+| Wave | Patterns | Cycles | Coherence | Key Event |
+|------|----------|--------|-----------|-----------|
+| 1. Network Core | p001–p003 | 1–3 | 0.00 → **0.71** | `network_analysis_core` attractor |
+| 2. IP Enrichment | p004–p006 | 4–6 | 0.56 → **0.82** | Hub migration, weak pattern rescued |
+| 3. Security | p007–p009 | 7–9 | 0.69 → **0.89** | Dual-hub, eigenvalues appear |
+| 4. Threat | p010 | 10–12 | 0.85 → **0.93** | Triple-hub, AsyncRAT identified |
+
+**The discovery:** AsyncRAT C2 at `hftook7lmaroutsg1.duckdns.org` → `206.123.152.51:3980`, including victim profile, RAT configuration, persistence mechanism, and delivered credential-stealing modules. An extended session (19 patterns, 30 cycles) confirmed 6 functional clusters at equilibrium.
+
+```
+    Patterns:     10 interactive + 9 extended (19 total, 0 expelled)
+    Coherence:    0.93 (interactive) → 0.87 (equilibrium)
+    Parameters:   DEFAULT — no tuning
+    Hubs:         3 (@abuse_ip, @protocol_mapping, @ip_lookup)
+    Eigenvalue gap: λ₁/λ₂ = 8.52
+    Result:       AsyncRAT v6.1.0 Pro — C2 confirmed
+    Session:      pcap_analyzer │ Status: COLLAPSED
+```
+
+**Why this matters:** The same engine, same equation, same dynamics — with *zero parameter tuning* — produced meaningful structure in both abstract reasoning (software quality) and concrete forensics (malware hunting). NEOS is domain-agnostic. The domain lives in the patterns, not the engine.
+
+> 📊 *Full analysis: **[PCAP Case Study: Complete Evidence](SESSION_EVIDENCE_PCAP.md)***
+
 ---
 
 ## 08 — The Dynamics Engine
@@ -618,6 +647,7 @@ neos/
 │   └── versioning.md            ← Git-like versioning internals
 ├── sessions/
 │   ├── software_quality_discipline.collapsed.md  ← Case study
+│   ├── pcap_analyzer.collapsed.md                ← PCAP case study
 │   └── visual-evidence.md                        ← Diagram gallery for §07
 └── examples/
     ├── 01-basic-session.md      ← Beginner walkthrough
@@ -660,6 +690,7 @@ The specification is open. The math is grounded. The proof-of-concept works. Wha
 | [Full Command Reference](commands/index.md) | Detailed specs for all ~40 commands |
 | [Basic Session Walkthrough](examples/01-basic-session.md) | Extended tutorial with 11 steps |
 | [Case Study](sessions/software_quality_discipline.collapsed.md) | The software quality session data |
+| [PCAP Case Study](SESSION_EVIDENCE_PCAP.md) | Malware hunting session — AsyncRAT identified |
 | [Visual Evidence](sessions/visual-evidence.md) | Diagram gallery — attractors, flowcharts, landscapes |
 
 ---
