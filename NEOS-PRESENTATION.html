@@ -44,15 +44,15 @@ html, body { background: var(--bg) !important; margin: 0; padding: 0; }
 .reveal .slides section .fragment { color: var(--text); }
 .reveal { font-family: var(--font); font-size: 28px; background: transparent !important; }
 .reveal .slides { text-align: left; }
-.reveal .slides section { background: rgba(7,7,12,0.72); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-radius: 18px; padding: 2.5rem 3rem; border: 1px solid rgba(0,212,255,0.06); }
+.reveal .slides section { background: transparent; backdrop-filter: none; -webkit-backdrop-filter: none; border-radius: 18px; padding: 2.5rem 3rem; border: none; }
 .reveal .slides section h1,
 .reveal .slides section h2,
 .reveal .slides section h3,
-.reveal .slides section h4 { font-family: var(--font-display); font-weight: 700; letter-spacing: -0.02em; line-height: 1.2; color: var(--text); text-transform: none; text-shadow: none; }
+.reveal .slides section h4 { font-family: var(--font-display); font-weight: 700; letter-spacing: -0.02em; line-height: 1.2; color: var(--text); text-transform: none; text-shadow: 0 2px 12px rgba(7,7,12,0.9); }
 .reveal .slides section h1 { font-size: 3.5rem; font-weight: 800; }
 .reveal .slides section h2 { font-size: 2rem; margin-bottom: 0.6em; }
 .reveal .slides section h3 { font-size: 1.15rem; color: var(--cyan); margin-bottom: 0.4em; }
-.reveal .slides section p { line-height: 1.55; max-width: 60ch; font-size: 0.7em; color: var(--text-dim); margin-bottom: 0.6em; }
+.reveal .slides section p { line-height: 1.55; max-width: 60ch; font-size: 0.7em; color: var(--text-dim); margin-bottom: 0.6em; text-shadow: 0 1px 8px rgba(7,7,12,0.8); }
 .reveal .slides section strong { color: #fff; }
 .reveal .slides section em { color: var(--cyan); font-style: italic; }
 .reveal .slides section code { font-family: var(--mono); font-size: 0.85em; background: var(--bg3); padding: 0.12em 0.35em; border-radius: 4px; color: var(--cyan); }
@@ -64,7 +64,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--cyan); outline-
 /* Slide backgrounds */
 .reveal .slide-background,
 .reveal .slide-background-content { background: transparent !important; }
-.reveal .slides section.title-slide { text-align: center; background: rgba(7,7,12,0.5); border: none; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.reveal .slides section.title-slide { text-align: center; background: transparent; border: none; display: flex; flex-direction: column; align-items: center; justify-content: center; }
 .reveal .slides section.center-slide { text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; }
 
 /* Gradient text */
@@ -176,6 +176,49 @@ svg text { font-family: var(--font); }
 /* Keyboard hint overlay */
 .reveal .slide-menu-button { color: var(--cyan) !important; }
 
+/* Persistent hint badge */
+#nav-hint {
+  position: fixed;
+  bottom: 1.2rem;
+  left: 1.2rem;
+  z-index: 100;
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  color: var(--text-dim);
+  opacity: 0.5;
+  transition: opacity 0.4s;
+  pointer-events: none;
+}
+#nav-hint kbd {
+  display: inline-block;
+  background: var(--bg3);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 3px;
+  padding: 0.1em 0.4em;
+  font-family: var(--mono);
+  font-size: 0.95em;
+  color: var(--cyan);
+  margin: 0 0.1em;
+}
+.reveal.has-vertical-slides .controls .navigate-down { animation: float 2s ease-in-out infinite; }
+
+/* Guide slide key grid */
+.key-grid { display: grid; grid-template-columns: auto 1fr; gap: 0.3rem 1rem; align-items: center; font-size: 0.6em; }
+.key-grid kbd {
+  display: inline-block;
+  background: var(--bg3);
+  border: 1px solid rgba(0,212,255,0.15);
+  border-radius: 4px;
+  padding: 0.15em 0.5em;
+  font-family: var(--mono);
+  font-size: 0.9em;
+  color: var(--cyan);
+  text-align: center;
+  min-width: 2.5em;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.06);
+}
+.key-grid span { color: var(--text-dim); }
+
 /* Title chars for GSAP cascade */
 .hero-char { display: inline-block; }
 
@@ -221,6 +264,8 @@ svg text { font-family: var(--font); }
   </defs>
 </svg>
 
+<div id="nav-hint"><kbd>?</kbd> help &nbsp; <kbd>O</kbd> overview &nbsp; <kbd>S</kbd> speaker</div>
+
 <div class="reveal">
 <div class="slides">
 
@@ -238,6 +283,46 @@ svg text { font-family: var(--font); }
     <a href="https://samuele95.github.io/neos/" target="_blank" rel="noopener" style="color:var(--text-dim);text-decoration:none">samuele95.github.io/neos</a>
   </p>
   <aside class="notes">Open with impact. Pause on the tagline — let it land. This is the thesis of the entire presentation.</aside>
+</section>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- SLIDE — NAVIGATION GUIDE (uncounted)       -->
+<!-- ═══════════════════════════════════════════ -->
+<section data-visibility="uncounted" data-transition="fade">
+  <h2 style="font-size:1.4rem;margin-bottom:0.8em"><span class="grad-text">Navigation</span></h2>
+  <div class="grid-2" style="gap:1.5rem;max-width:90%;margin:0 auto">
+    <div class="card" style="padding:1rem">
+      <h3 style="font-size:0.8em;margin-bottom:0.6em">Movement</h3>
+      <div class="key-grid">
+        <kbd>&larr; &rarr;</kbd> <span>Previous / next section</span>
+        <kbd>&darr; &uarr;</kbd> <span>Dive into / exit sub-slides</span>
+        <kbd>Space</kbd> <span>Next step (fragments &amp; slides)</span>
+        <kbd>Shift+Space</kbd> <span>Previous step</span>
+        <kbd>Home</kbd> <span>First slide</span>
+        <kbd>End</kbd> <span>Last slide</span>
+      </div>
+    </div>
+    <div class="card" style="padding:1rem">
+      <h3 style="font-size:0.8em;margin-bottom:0.6em;color:var(--purple)">Tools</h3>
+      <div class="key-grid">
+        <kbd>O</kbd> <span>Overview — bird's-eye grid of all slides</span>
+        <kbd>S</kbd> <span>Speaker view — notes &amp; timer in new window</span>
+        <kbd>F</kbd> <span>Fullscreen toggle</span>
+        <kbd>B</kbd> <span>Blackout screen (pause)</span>
+        <kbd>Alt+click</kbd> <span>Zoom into any element</span>
+        <kbd>Ctrl+Shift+F</kbd> <span>Search across all slides</span>
+      </div>
+    </div>
+  </div>
+  <div style="margin-top:1rem;text-align:center">
+    <div class="card" style="display:inline-block;padding:0.6rem 1.2rem;border-color:rgba(0,212,255,0.15)">
+      <p style="font-size:0.55em;margin:0;max-width:none;color:var(--text-dim)">
+        <span style="color:var(--cyan)">▼ arrows</span> on slides indicate sub-slides below &nbsp;&middot;&nbsp;
+        Press <kbd style="background:var(--bg3);border:1px solid rgba(0,212,255,0.15);border-radius:3px;padding:0.1em 0.4em;font-family:var(--mono);font-size:0.85em;color:var(--cyan)">?</kbd> anytime for the full shortcut reference
+      </p>
+    </div>
+  </div>
+  <aside class="notes">Navigation guide slide — not counted in progress. Show this briefly then move on.</aside>
 </section>
 
 <!-- ═══════════════════════════════════════════ -->
@@ -2000,8 +2085,16 @@ document.addEventListener('DOMContentLoaded', function() {
     heroText.dataset.animated = '1';
   }
 
-  // Trigger animations on slide change
+  // Fade out persistent hint after leaving the first few slides
+  var navHint = document.getElementById('nav-hint');
   Reveal.on('slidechanged', function(event) {
+    // Hide hint once past slide 3
+    if (navHint && event.indexh > 2) {
+      navHint.style.opacity = '0';
+    } else if (navHint && event.indexh <= 2) {
+      navHint.style.opacity = '0.5';
+    }
+
     var slide = event.currentSlide;
     if (slide.querySelector('.counter')) {
       setTimeout(animateCounters, 400);
