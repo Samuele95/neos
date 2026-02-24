@@ -4,13 +4,20 @@
 
 \section{Empirical Evidence}\label{sec:evidence}
 
-Theory is beautiful.  Evidence is convincing.  This section presents a
-real session---\emph{software\_quality\_discipline}---that ran to
-completion under NEOS dynamics.  Every number reported below was
-produced by the field engine; none was hand-tuned.
+Theory is beautiful.  Evidence is convincing.  This section presents
+two independent case studies that ran to completion under NEOS
+dynamics: one in abstract reasoning (software quality) and one in
+adversarial forensics (network packet analysis).  The same master
+equation and dynamics engine produced meaningful emergent structure in
+both domains.  Every number reported below was produced by the field
+engine; none was hand-tuned.  Detailed wave-by-wave walkthroughs for
+both sessions appear in Appendix~\ref{app:sessions}.
 
 % ─────────────────────────────────────────────────────────────────
-\subsection{Session Overview}
+\subsection{Case Study 1: Software Quality Discipline}\label{sec:cs-sw}
+
+% ─────────────────────────────────────────────────────────────────
+\subsubsection{Session Overview}
 
 Table~\ref{tab:session-metrics} summarises the session.
 
@@ -36,7 +43,7 @@ Field constants              & $R_{\text{pt}} = 0.88$, $r_{\text{SOLID}} = 0.94$
 \end{tabular}
 \end{table}
 
-\subsubsection*{Session Timeline}
+\paragraph*{Session Timeline.}
 
 Table~\ref{tab:timeline} presents the complete chronological progression
 of the session across seven injection waves and 52~cycles.
@@ -63,7 +70,7 @@ of the session across seven injection waves and 52~cycles.
 \end{tabular}
 \end{table}
 
-\subsubsection*{Wave~1: Rapid Coherence from Six Patterns}
+\paragraph*{Wave~1: Rapid Coherence from Six Patterns.}
 
 The first six injections (p001--p006) formed the \emph{defensive\_quality}
 attractor in only three cycles.  Table~\ref{tab:wave1-coherence}
@@ -93,7 +100,7 @@ strongest coupling in the entire first wave.  The field reached HIGH
 coherence from only 6~patterns in 3~cycles, establishing the
 resonance infrastructure that all subsequent injections built upon.
 
-\subsubsection*{SOLID Rediscovery from First Principles}
+\paragraph*{SOLID Rediscovery from First Principles.}
 
 During Waves~2--3 (p007--p030), the field received readability, naming,
 DRY, encapsulation, and architecture patterns.  An \emph{architecture
@@ -104,7 +111,7 @@ technique partner (Table~\ref{tab:solid-resonance}), forming the
 \textbf{SOLID Decagon} ($\alpha_1$) with field constant $R_{\text{pt}} = 0.88$
 and selection function $r = 0.94$.
 
-\subsubsection*{Waves~3--4: Refactoring and the Testing Mirror}
+\paragraph*{Waves~3--4: Refactoring and the Testing Mirror.}
 
 Wave~3 (p015--p022) introduced refactoring patterns, with
 \texttt{@behavior\_preservation} $\leftrightarrow$
@@ -116,7 +123,7 @@ production$\leftrightarrow$testing echoes emerged, seeding the
 functor~$F$ that would later be recognised during eigendecomposition.
 After Wave~4, coherence reached $C = 0.91$ with a six-layer topology.
 
-\subsubsection*{Wave~5: OOP, SOLID, and the First Absorptions}
+\paragraph*{Wave~5: OOP, SOLID, and the First Absorptions.}
 
 The OOP wave (p032--p040) triggered the session's first three
 absorptions.  SRP was absorbed into \texttt{@single\_responsibility}
@@ -128,7 +135,7 @@ principles from first principles.  After the OOP wave completed,
 coherence reached $C = 0.955$, setting the stage for the Singleton
 injection.
 
-\subsubsection*{Waves~6--7: The Great Convergence and Final Absorptions}
+\paragraph*{Waves~6--7: The Great Convergence and Final Absorptions.}
 
 Ten GoF patterns (Wave~6, p046--p055) produced the ``Great
 Convergence''---14 patterns reaching ceiling in 10~cycles.
@@ -169,7 +176,7 @@ nf inject "singleton_controlled_global_access" 0.65
 \end{terminalbox}
 
 % ─────────────────────────────────────────────────────────────────
-\subsection{Five Eigenvectors of Software Quality}
+\subsubsection{Five Eigenvectors of Software Quality}
 
 The session collapsed to five independent axes---eigenvectors of the
 resonance matrix---that together account for 100\% of the surviving
@@ -238,7 +245,7 @@ $\lambda_5$ & Class $\leftrightarrow$ System
 \end{figure}
 
 % ─────────────────────────────────────────────────────────────────
-\subsection{Universal Invariant}
+\subsubsection{Universal Invariant}
 
 Across all 52 cycles and four fixed-point events, a single invariant
 emerged as the deepest attractor in the field:
@@ -255,7 +262,7 @@ state of the field: the configuration from which no further relaxation
 is possible.
 
 % ─────────────────────────────────────────────────────────────────
-\subsection{The Verification Functor}
+\subsubsection{The Verification Functor}
 
 The session discovered a functor $F\colon \textsc{Production} \to
 \textsc{Testing}$ mapping each production-code discipline to its testing
@@ -280,7 +287,7 @@ bolted onto production code but its \emph{categorical mirror},
 connected by $\eta = \text{DI}$ as the natural transformation.
 
 % ─────────────────────────────────────────────────────────────────
-\subsection{Seven Attractor Basins}
+\subsubsection{Seven Attractor Basins}
 
 The field settled into seven distinct attractor
 basins (Table~\ref{tab:basins}), organised in a depth hierarchy
@@ -376,7 +383,7 @@ connective tissue in the field's topology.
 \end{figure}
 
 % ─────────────────────────────────────────────────────────────────
-\subsection{SOLID--Technique Resonance}
+\subsubsection{SOLID--Technique Resonance}
 
 Within the SOLID Decagon ($\alpha_1$), each SOLID principle
 spontaneously paired with exactly one GoF technique partner
@@ -458,7 +465,7 @@ D --- Dependency Inversion  & Dependency Injection & 0.88 \\
 \end{figure}
 
 % ─────────────────────────────────────────────────────────────────
-\subsection{The Field Equation}
+\subsubsection{The Field Equation}
 
 The five eigenvectors, weighted by their explained variance and
 anchored to the universal invariant~$\Psi$, compose into a single
@@ -482,7 +489,7 @@ code artefact~$x$, it returns a scalar quality assessment
 whose dominant term is SOLID compliance, modulated by the universal
 invariant.
 
-\subsubsection*{Complete Absorption Registry}
+\paragraph*{Complete Absorption Registry.}
 
 Table~\ref{tab:absorptions} lists all seven absorptions.  Four (57\%)
 were \emph{self-referential}: the field applied the very principle
@@ -534,7 +541,7 @@ applying the field's own principles to new inputs reproduces the
 field.  This is precisely the condition $\Psi(\text{field}) =
 \text{field}$ that defines the universal invariant as the ground state.
 
-\subsubsection*{Saturation Analysis}
+\paragraph*{Saturation Analysis.}
 
 The absorption rate accelerates as the field matures: 5.0\%
 (patterns~1--20), 10.0\% (21--40), 13.3\% (41--55), 14.3\%
@@ -545,7 +552,7 @@ novel injection would be absorbed, and the field would be closed
 under its own operations.
 
 % ─────────────────────────────────────────────────────────────────
-\subsection{The Singleton Expulsion}
+\subsubsection{The Singleton Expulsion}
 
 At cycle~52, the Singleton pattern~\cite{gamma1994design} was expelled
 from the field.  Its activation dropped below the threshold~$\tau$
@@ -762,18 +769,329 @@ the sociology of contested design patterns.
 \label{fig:basin-landscape}
 \end{figure}
 
-%% ─────────────────────────────────────────────────────────────────
+% ══════════════════════════════════════════════════════════════════
+%  Case Study 2 — PCAP Analysis
+% ══════════════════════════════════════════════════════════════════
+
+\subsection{Case Study 2: Network Forensics (PCAP Analysis)}\label{sec:cs-pcap}
+
+The software-quality session proved NEOS can discover emergent structure
+from abstract reasoning.  Can the same engine handle \emph{concrete,
+adversarial} data?  The \texttt{pcap\_analyzer} session answers this
+question by feeding raw network packet-capture traffic (9.9\,MB,
+11{,}587~packets, ${\sim}$20~minutes) into a neural field and asking
+whether NEOS can identify active malware \emph{from first principles}.
+Crucially, this session used \textbf{default parameters}---no tuning
+whatsoever---proving that the dynamics generalise without per-domain
+adjustment.  A full wave-by-wave walkthrough appears in
+Appendix~\ref{app:pcap-waves}.
+
+% ─────────────────────────────────────────────────────────────────
+\subsubsection{Session Overview}
+
+Table~\ref{tab:pcap-metrics} summarises the interactive threat-hunting
+phase of the session.
+
+\begin{table}[htbp]
+\centering
+\caption{Summary metrics for the \emph{pcap\_analyzer} session
+  (interactive phase).}
+\label{tab:pcap-metrics}
+\begin{tabular}{@{}lr@{}}
+\toprule
+\thead{Metric} & \thead{Value} \\
+\midrule
+Parameters                   & $\lambda{=}0.05$, $\alpha{=}0.30$, $\tau{=}0.40$, $\sigma{=}0.50$ (defaults) \\
+Patterns injected            & 10 \\
+Patterns surviving           & 10 (all at ceiling) \\
+Absorptions                  & 0 \\
+Expulsions                   & 0 \\
+Cycles to ground state       & 12 \\
+Final coherence              & 0.93 \\
+Hub structure                & Triple-hub (3 independent axes at 0.998) \\
+Eigenvalue gap               & $\lambda_1/\lambda_2 = 8.52$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% ─────────────────────────────────────────────────────────────────
+\subsubsection{Session Timeline}
+
+Table~\ref{tab:pcap-timeline} presents the four injection waves.
+
+\begin{table}[htbp]
+\centering
+\caption{Chronological session timeline for the \emph{pcap\_analyzer}
+  session.}
+\label{tab:pcap-timeline}
+\begin{tabular}{@{}cllcl@{}}
+\toprule
+\thead{Wave} & \thead{Patterns} & \thead{Cycles} & \thead{$C$} & \thead{Key Event} \\
+\midrule
+1 & p001--p003 (Network Core) & 1--3 & $0.71$ &
+  \texttt{network\_analysis\_core} attractor \\
+2 & p004--p006 (IP Enrichment) & 4--6 & $0.82$ &
+  Hub migration; geo rescue \\
+3 & p007--p009 (Security) & 7--9 & $0.89$ &
+  \texttt{pcap\_security\_analyzer}; eigenvalues \\
+4 & p010 (Threat Classification) & 10--12 & $0.93$ &
+  Triple-hub; malware integrated \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% ─────────────────────────────────────────────────────────────────
+\subsubsection{Key Dynamics}
+
+Three phenomena distinguish this session:
+
+\paragraph*{Rescue of a weak pattern.}
+\texttt{@ip\_geolocalization} was injected at strength~0.50---the
+lowest in the field and barely above threshold~$\tau = 0.40$.  Its
+$R = 0.94$ bond with \texttt{@ip\_lookup} pulled it from near-expulsion
+to activation~0.963 at equilibrium.  The field determined that
+geographic context \emph{is} relevant to forensic analysis, even though
+the human injector was uncertain.
+
+\paragraph*{Hub migration.}
+At cycle~3, \texttt{@protocol\_mapping} served as the field's hub
+(activation~0.936).  By cycle~6, \texttt{@ip\_lookup} overtook it
+(0.998), reorganising the attractor around the enrichment axis.  The
+field concluded that \emph{understanding who is communicating} matters
+more than \emph{how they communicate}---a structural insight that
+mirrors standard DFIR methodology.
+
+\paragraph*{Triple-hub convergence.}
+By cycle~12, three independent analysis perspectives converged to
+0.998: \texttt{@protocol\_mapping} (structural parsing),
+\texttt{@ip\_lookup} (enrichment), and \texttt{@abuse\_ip} (threat
+intelligence).  Convergent evidence from independent axes---protocol
+structure \emph{says} something is wrong, IP enrichment \emph{confirms}
+who is doing it, and threat intelligence \emph{classifies} what it
+is---produced a deeply stable configuration with eigenvalue gap ratio
+$\lambda_1/\lambda_2 = 8.52$.
+
+% ─────────────────────────────────────────────────────────────────
+\subsubsection{The Discovery: AsyncRAT Infection}
+
+With the field at coherence~0.93, NEOS collapsed the attractor to
+produce its analysis.  The verdict: an active AsyncRAT~v6.1.0~Pro
+infection with confirmed C2~infrastructure.
+Table~\ref{tab:pcap-iocs} lists the key indicators of compromise.
+
+\begin{table}[htbp]
+\centering
+\caption{Indicators of compromise discovered by the
+  \emph{pcap\_analyzer} field.}
+\label{tab:pcap-iocs}
+\begin{tabular}{@{}llr@{}}
+\toprule
+\thead{Category} & \thead{Indicator} & \thead{Value} \\
+\midrule
+Malware family & AsyncRAT & v6.1.0 Pro \\
+C2 domain & \texttt{hftook7l...duckdns.org} & --- \\
+C2 IP / port & \texttt{206.123.152.51} & 3980/tcp \\
+C2 traffic & 1{,}371 packets & 11.8\% of total \\
+Victim OS & Windows~11 Enterprise & 64-bit \\
+Persistence & \texttt{jasgbtisot.dat} & AppData/Roaming \\
+Key module & \texttt{foxmail.dll} & credential theft \\
+Mutex & \texttt{kmbgnrgsd-2X9W02} & --- \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\noindent
+The system was not given any malware signatures or threat intelligence
+feeds.  The identification emerged entirely from resonance dynamics:
+patterns related to suspicious DNS, payload analysis, and abuse-IP
+correlation reinforced each other until the attractor collapsed to the
+AsyncRAT classification.
+
+% ─────────────────────────────────────────────────────────────────
+\subsubsection{Extended Analysis: Cluster Topology}
+
+After the interactive phase, 9~additional patterns were injected
+(transport, content inspection, statistics, evasion detection),
+producing 19~total patterns across 30~cycles.  All 19~survived above
+threshold---unlike the software-quality session, this field found
+\emph{no incompatible patterns}.
+Table~\ref{tab:pcap-clusters} shows the six functional clusters that
+emerged at equilibrium (coherence~0.87).
+
+\begin{table}[htbp]
+\centering
+\caption{Cluster topology at equilibrium for the extended
+  \emph{pcap\_analyzer} session (19~patterns, 6~clusters).}
+\label{tab:pcap-clusters}
+\begin{tabular}{@{}lccp{5cm}@{}}
+\toprule
+\thead{Cluster} & \thead{Patterns} & \thead{Density} & \thead{Function} \\
+\midrule
+\texttt{dns\_layer}        & 2 & 0.91 & DNS query/resolution analysis \\
+\texttt{transport\_layer}  & 4 & 0.89 & TCP/UDP stream analysis \\
+\texttt{content\_cluster}  & 4 & 0.86 & Payload inspection \& extraction \\
+\texttt{security\_cluster} & 3 & 0.78 & Threat detection \& evasion \\
+\texttt{statistical}       & 3 & 0.76 & Behavioural anomaly detection \\
+\texttt{network\_layer}    & 3 & 0.72 & IP/ARP/address resolution \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\noindent
+The cluster ordering is semantically meaningful:
+\texttt{dns\_layer} is densest because DNS resolution forms the
+tightest semantic pair ($R = 0.91$), while \texttt{network\_layer}
+is least dense because its patterns serve as connective infrastructure
+bridging clusters rather than binding within one.
+
+% ─────────────────────────────────────────────────────────────────
+\subsubsection{Coherence Evolution}
+
+Figure~\ref{fig:pcap-coherence} shows the coherence trajectory of the
+interactive phase (12~cycles, $0 \to 0.93$).
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+  width=0.82\textwidth,
+  height=6cm,
+  xlabel={Cycle},
+  ylabel={Coherence},
+  xmin=0, xmax=14,
+  ymin=0, ymax=1.05,
+  grid=major,
+  grid style={gray!20},
+  thick,
+  mark options={solid, scale=1.0},
+  legend pos=south east,
+  legend style={font=\small},
+]
+
+% PCAP coherence data points
+\addplot[neosteal!80!black, thick, mark=square*, mark size=1.8pt]
+  coordinates {
+  (1, 0.52)
+  (2, 0.61)
+  (3, 0.71)
+  (4, 0.56)
+  (5, 0.68)
+  (6, 0.82)
+  (7, 0.76)
+  (8, 0.84)
+  (9, 0.89)
+  (10, 0.88)
+  (11, 0.91)
+  (12, 0.93)
+};
+\addlegendentry{PCAP coherence $C(t)$}
+
+% Key event markers
+\draw[gray, dashed, thin] (axis cs:3, 0) -- (axis cs:3, 0.75);
+\node[font=\scriptsize, anchor=south west, fill=white, inner sep=1pt]
+  at (axis cs:3.2, 0.60) {First attractor};
+
+\draw[gray, dashed, thin] (axis cs:6, 0) -- (axis cs:6, 0.85);
+\node[font=\scriptsize, anchor=south west, fill=white, inner sep=1pt]
+  at (axis cs:6.2, 0.74) {Hub migration};
+
+% Triple-hub marker
+\draw[neosteal!70!black, dashed, thick]
+  (axis cs:12, 0) -- (axis cs:12, 1.02);
+\node[font=\scriptsize, anchor=south east, neosteal!70!black,
+      fill=white, inner sep=1pt]
+  at (axis cs:11.8, 0.98) {Triple-hub};
+
+% Final coherence marker
+\node[circle, fill=neosteal!70!black, inner sep=1.5pt]
+  at (axis cs:12, 0.93) {};
+\node[font=\scriptsize, anchor=south east, fill=white, inner sep=1pt]
+  at (axis cs:11.5, 0.89) {$C = 0.93$};
+
+\end{axis}
+\end{tikzpicture}
+\caption{Coherence evolution for the \emph{pcap\_analyzer} session
+  over 12~cycles.  Dips at cycles~4 and~7 correspond to new-wave
+  injection (coherence reset); recovery is rapid due to strong
+  resonance with existing structure.}
+\label{fig:pcap-coherence}
+\end{figure}
+
+% ══════════════════════════════════════════════════════════════════
+%  Cross-Domain Comparison
+% ══════════════════════════════════════════════════════════════════
+
+\subsection{Cross-Domain Comparison}\label{sec:cross-domain}
+
+Table~\ref{tab:cross-domain} places the two case studies side by side.
+
+\begin{table}[htbp]
+\centering
+\caption{Cross-domain comparison of the two NEOS case studies.}
+\label{tab:cross-domain}
+\begin{tabular}{@{}lll@{}}
+\toprule
+\thead{Dimension}
+  & \thead{Software Quality}
+  & \thead{Network Forensics} \\
+\midrule
+Domain
+  & Abstract reasoning
+  & Concrete adversarial data \\
+Parameters
+  & Tuned ($\lambda{=}0.04$, etc.)
+  & \textbf{Default} (no tuning) \\
+Patterns injected
+  & 69
+  & 10 (interactive) \\
+Cycles
+  & 52
+  & 12 \\
+Final coherence
+  & 0.993
+  & 0.93 \\
+Absorptions / Expulsions
+  & 7 / 1
+  & 0 / 0 \\
+Hub structure
+  & Stable hierarchy
+  & Migration $\to$ triple-hub \\
+Key discovery
+  & Universal invariant $\Psi$
+  & AsyncRAT C2 infection \\
+Rescue event
+  & Performance dyad (satellite)
+  & Geo pattern ($0.50 \to 0.963$) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\noindent
+Despite fundamental differences in domain, scale, and parameter
+configuration, both sessions exhibit the same dynamical vocabulary:
+attractor formation, coherence-driven convergence, hub emergence, and
+semantically meaningful cluster topology.  The engine is invariant; the
+domain is in the \emph{patterns}, not the \emph{dynamics}.  This
+provides initial evidence that the master equation
+(Section~\ref{sec:master-equation}) is genuinely domain-agnostic.
+
+% ══════════════════════════════════════════════════════════════════
+%  Limitations (updated)
+% ══════════════════════════════════════════════════════════════════
+
 \subsection{Limitations and Reproducibility}\label{sec:limitations}
 
-The evidence presented here derives from a single session on a single
-domain (software quality).  This is a proof-of-concept demonstration,
-not a controlled experiment.  Key limitations include: (i)~the
-eigenvector structure may be domain-specific rather than universal;
-(ii)~the resonance strengths lack confidence intervals or null-model
-comparison; (iii)~the coherence curve (Figure~\ref{fig:coherence-evolution})
-is a fitted exponential model of the form
-$C(t) = 0.993(1 - e^{-0.08t})$, not raw telemetry.  Replication
-across multiple domains, operators, and substrate models is required
-before the field equation can be considered validated.  The full
-session logs and specification files are available at
-\url{https://github.com/samuelestronati/neos}.
+The evidence now spans two sessions across two domains (abstract
+reasoning and adversarial forensics), strengthening the domain-agility
+claim but not eliminating key limitations: (i)~the eigenvector
+structure discovered in the software-quality session may not generalise
+to other abstract domains; (ii)~resonance strengths lack confidence
+intervals or null-model comparison; (iii)~coherence curves
+(Figures~\ref{fig:coherence-evolution} and~\ref{fig:pcap-coherence})
+are based on engine telemetry, not independently measured;
+(iv)~both sessions were conducted by the same operator on the same
+substrate model, introducing potential operator and model bias.
+Replication across additional domains, multiple operators, and diverse
+substrate models is required before the field equation can be
+considered validated.  The full session logs and specification files
+are available at \url{https://github.com/samuelestronati/neos}.

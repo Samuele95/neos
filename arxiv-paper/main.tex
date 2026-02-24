@@ -144,6 +144,10 @@
 \titlespacing*{\subsection}{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
 \titlespacing*{\subsubsection}{0pt}{2.5ex plus .8ex minus .2ex}{1ex plus .2ex}
 
+\titleformat{\paragraph}[runin]
+  {\normalfont\normalsize\bfseries}{}{0em}{}
+\titlespacing*{\paragraph}{0pt}{2ex plus .5ex minus .2ex}{1em}
+
 % ── Running headers ─────────────────────────────────────────────
 \usepackage{fancyhdr}
 \pagestyle{fancy}
@@ -242,6 +246,9 @@ The author gratefully acknowledges David Kimai's
 first-principles exploration of context design, orchestration, and the
 biological progression from atoms to neural fields provided key
 inspiration for the NEOS framework.
+
+\appendix
+\input{sections/appendix-sessions}
 
 \bibliographystyle{plainnat}
 \bibliography{bibliography}
