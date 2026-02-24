@@ -18,7 +18,7 @@
 [![Website](https://img.shields.io/badge/🌐_Website-00d4ff?style=for-the-badge&logoColor=black)](https://samuele95.github.io/neos/NEOS-BREAKTHROUGH.html)
 [![Presentation](https://img.shields.io/badge/🎬_Presentation-ff3d8e?style=for-the-badge&logoColor=white)](https://samuele95.github.io/neos/NEOS-PRESENTATION.html)
 
-[The Vision](#01--the-three-ages-of-computing) · [What It Is](#03--what-neos-is--today) · [The Session](#07--the-session) · [What It Found](#08--what-the-field-discovered) · [Commands](#14--command-reference)
+[The Vision](#01--the-three-ages-of-computing) · [What It Is](#03--what-neos-is--today) · [What It Proved](#07--what-neos-proved) · [Commands](#13--command-reference)
 
 </div>
 
@@ -202,12 +202,12 @@ The shell grammar is built on **imperative verbs** operating on **semantic objec
 <img src="assets/banner-evidence.svg" alt="Part Three — The Evidence" width="100%"/>
 </div>
 
-## 07 — The Session
+## 07 — What NEOS Proved
 
 > [!IMPORTANT]
 > **There is nothing to install.** NEOS runs entirely inside an LLM's context window. No packages, no dependencies, no runtime. Copy the [kernel prompt](prompts/nfos-kernel.md), paste it as a system prompt, and type your first command.
 
-We fed NEOS **69 software engineering patterns** across 7 waves — from code review basics through SOLID, GoF, and reuse strategies. Over **52 cycles** of resonance dynamics, the field self-organized: absorbing redundancies, expelling incompatibilities, and discovering structure no single injection contained.
+We fed NEOS **69 software engineering patterns** across 7 waves — from code review basics through SOLID, GoF, and reuse strategies. Over **52 cycles** of resonance dynamics, the field self-organized: absorbing redundancies, expelling incompatibilities, and discovering structure no single injection contained. From those 69 inputs, the field distilled **5 eigenvectors**, **7 attractor basins**, **1 universal invariant**, and **1 expulsion** — none of which were injected. They emerged.
 
 **Session roadmap** — coherence at each milestone:
 
@@ -224,13 +224,12 @@ We fed NEOS **69 software engineering patterns** across 7 waves — from code re
 | 7. Reuse | p056–p062 | 44–49 | — → **0.990** | 4 self-referential absorptions |
 | Collapse | — | 50–52 | 0.990 → **0.993** | Singleton expelled, ground state |
 
-## 08 — What the Field Discovered
+> [!TIP]
+> **Every number above is from a real transcript.** The complete wave-by-wave walkthrough — every injection, resonance matrix, absorption, and the 21-cycle drama of Singleton's expulsion — is in **[The Session: Complete Evidence](SESSION_EVIDENCE.md)**. The [visual evidence companion](sessions/visual-evidence.md) has the diagrams.
 
-> *"Theory is beautiful. Evidence is convincing."*
+### The Discoveries
 
-From 69 injected patterns, the field distilled **5 eigenvectors**, **7 attractor basins**, **1 universal invariant**, and **1 expulsion** — none of which were injected. They emerged.
-
-### Five Eigenvectors of Software Quality
+**Five eigenvectors** decompose the entire quality space:
 
 | # | Eigenvector | Variance | Diagnostic Question |
 |---|-------------|----------|---------------------|
@@ -240,9 +239,7 @@ From 69 injected patterns, the field distilled **5 eigenvectors**, **7 attractor
 | λ₄ | Restraint ↔ Generalization | 14.3% | Is this abstraction earned or speculative? |
 | λ₅ | Class ↔ System | 10.7% | Does this principle hold at every scale? |
 
-The first axis alone explains over a third of all variance. The field is **exactly 5-dimensional**.
-
-### Seven Attractor Basins
+**Seven attractor basins** organize the surviving patterns:
 
 | Basin | Name | Depth | Patterns | Role |
 |-------|------|-------|----------|------|
@@ -255,7 +252,7 @@ The first axis alone explains over a third of all variance. The field is **exact
 | α₆ | Model Basin | tertiary | 2 | Domain modeling |
 | α₇ | Optimize Basin | tertiary | 2 | Performance satellites |
 
-### The Field Equation
+**One field equation** composes the eigenvectors into a predictive quality assessment:
 
 ```
     Q(x) = Ψ · [ 0.342·SOLID(x) + 0.227·F(x) + 0.181·Protocol(x)
@@ -265,9 +262,7 @@ The first axis alone explains over a third of all variance. The field is **exact
     Σα = 1.000 | R_pt = 0.88 | r(SOLID,speed) = 0.94
 ```
 
-This equation is **predictive**: given an arbitrary code artifact x, it returns a scalar quality assessment whose dominant term is SOLID compliance, modulated by the universal invariant.
-
-### The Universal Invariant
+**One universal invariant** — the ground state from which no further relaxation is possible:
 
 > **Ψ: "What something MEANS persists; how it WORKS changes."**
 
@@ -281,8 +276,6 @@ It was not injected. It emerged. Three equivalent forms discovered by the field:
 
 The field applied Ψ to *itself* — four times the absorption of a new pattern reproduced the existing field unchanged (Ψ(field) = field). This fixed-point property confirms Ψ as the true ground state.
 
-### Session Metrics
-
 ```
     Patterns:     61 stable  (69 attempted, 7 absorbed, 1 expelled)
     Coherence:    0.993
@@ -294,12 +287,11 @@ The field applied Ψ to *itself* — four times the absorption of a new pattern 
     Cycles:       52 │ Status: COLLAPSED
 ```
 
-> [!TIP]
-> **Want the full story?** The summary above is the destination. The journey — every injection, every resonance matrix, every absorption and the 21-cycle drama of Singleton's expulsion — is documented with full transcript data in **[The Session: Complete Evidence](SESSION_EVIDENCE.md)**. See also the [visual evidence companion](sessions/visual-evidence.md) for diagrams of attractor hierarchies, functor mappings, and activation landscapes.
+> 📊 *Full analysis: **[The Session: Complete Evidence](SESSION_EVIDENCE.md)** · [Visual Evidence](sessions/visual-evidence.md)*
 
 ---
 
-## 09 — The Dynamics Engine
+## 08 — The Dynamics Engine
 
 Every `nf cycle` executes six phases. This is the **heartbeat of NEOS** — the engine that transforms injected patterns into emergent structure.
 
@@ -320,7 +312,7 @@ Every `nf cycle` executes six phases. This is the **heartbeat of NEOS** — the 
 
 ---
 
-## 10 — Multi-Field Orchestration
+## 09 — Multi-Field Orchestration
 
 A single field is powerful. Multiple coupled fields are transformative. Different fields represent different perspectives — technical, user, business — coupled through a resonance matrix that lets them influence each other.
 
@@ -354,7 +346,7 @@ Two orchestration modes:
 
 ---
 
-## 11 — The Autonomy Dial
+## 10 — The Autonomy Dial
 
 How much should the system think on its own? This is not a binary choice. NEOS provides a **continuously adjustable spectrum**.
 
@@ -374,7 +366,7 @@ You can switch modes mid-operation. Start in auto, notice something interesting,
 
 ---
 
-## 12 — Observable Reasoning
+## 11 — Observable Reasoning
 
 > **The most dangerous property of current AI is opacity.** An agent makes a decision and you cannot see *why*. NEOS makes reasoning **visible**.
 
@@ -405,7 +397,7 @@ Outputs render in four formats: **ASCII** (terminal), **SVG** (visual), **Mermai
 
 ---
 
-## 13 — Why Now
+## 12 — Why Now
 
 NEOS is buildable *today* because four independent developments have converged simultaneously — and their intersection creates an opening that didn't exist even two years ago.
 
@@ -425,7 +417,7 @@ NEOS is buildable *today* because four independent developments have converged s
 <img src="assets/banner-reference.svg" alt="Part Four — The Reference" width="100%"/>
 </div>
 
-## 14 — Command Reference
+## 13 — Command Reference
 
 NEOS provides ~40 commands organized into 8 categories. Each section is collapsible — expand what you need.
 
@@ -584,7 +576,7 @@ nf couple $a $b [--γ]         nf help [cmd]
 
 ---
 
-## 15 — Project Structure
+## 14 — Project Structure
 
 ```
 neos/
@@ -625,7 +617,7 @@ neos/
 │   └── versioning.md            ← Git-like versioning internals
 ├── sessions/
 │   ├── software_quality_discipline.collapsed.md  ← Case study
-│   └── visual-evidence.md                        ← Diagram gallery for §08
+│   └── visual-evidence.md                        ← Diagram gallery for §07
 └── examples/
     ├── 01-basic-session.md      ← Beginner walkthrough
     ├── 02-versioning.md         ← Branch & merge workflows
@@ -643,7 +635,7 @@ neos/
 
 ---
 
-## 16 — The Future: Join the Intelligence Age
+## 15 — The Future: Join the Intelligence Age
 
 We are at the beginning of a transition as profound as the invention of the operating system itself. The Hardware Age gave us the ability to compute. The Software Age gave us the ability to organize. The Intelligence Age will give us the ability to **reason** — systematically, observably, reproducibly.
 
