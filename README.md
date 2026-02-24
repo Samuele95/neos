@@ -207,7 +207,11 @@ The shell grammar is built on **imperative verbs** operating on **semantic objec
 > [!IMPORTANT]
 > **There is nothing to install.** NEOS runs entirely inside an LLM's context window. No packages, no dependencies, no runtime. Copy the [kernel prompt](prompts/nfos-kernel.md), paste it as a system prompt, and type your first command.
 
-We fed NEOS **69 software engineering patterns** across 7 waves — from code review basics through SOLID, GoF, and reuse strategies. Over **52 cycles** of resonance dynamics, the field self-organized: absorbing redundancies, expelling incompatibilities, and discovering structure no single injection contained. From those 69 inputs, the field distilled **5 eigenvectors**, **7 attractor basins**, **1 universal invariant**, and **1 expulsion** — none of which were injected. They emerged.
+To test whether NEOS can discover genuine structure from raw material, we ran a session called `software_quality_discipline` — a deliberate stress test. The question: *if you feed a neural field dozens of software engineering patterns, does it find coherent principles, or just echo what you put in?*
+
+We injected **69 patterns** across 7 waves — from code review basics through SOLID, GoF, and reuse strategies. Over **52 cycles** of resonance dynamics, the field self-organized: absorbing redundancies, expelling incompatibilities, and discovering structure no single injection contained. From those 69 inputs, it distilled **5 eigenvectors**, **7 attractor basins**, **1 universal invariant**, and **1 expulsion** — none of which were injected. They emerged.
+
+> 📊 *The complete wave-by-wave walkthrough — every injection, resonance matrix, absorption, and the 21-cycle drama of Singleton's expulsion — is in **[The Session: Complete Evidence](SESSION_EVIDENCE.md)**. The [visual evidence companion](sessions/visual-evidence.md) has the diagrams.*
 
 **Session roadmap** — coherence at each milestone:
 
@@ -223,9 +227,6 @@ We fed NEOS **69 software engineering patterns** across 7 waves — from code re
 | 6. GoF | p046–p055 | 34–43 | 0.962 → **0.984** | Great Convergence, Golden Pair |
 | 7. Reuse | p056–p062 | 44–49 | — → **0.990** | 4 self-referential absorptions |
 | Collapse | — | 50–52 | 0.990 → **0.993** | Singleton expelled, ground state |
-
-> [!TIP]
-> **Every number above is from a real transcript.** The complete wave-by-wave walkthrough — every injection, resonance matrix, absorption, and the 21-cycle drama of Singleton's expulsion — is in **[The Session: Complete Evidence](SESSION_EVIDENCE.md)**. The [visual evidence companion](sessions/visual-evidence.md) has the diagrams.
 
 ### The Discoveries
 
