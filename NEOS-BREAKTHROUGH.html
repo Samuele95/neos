@@ -416,7 +416,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <li><a href="#autonomy">13 Autonomy Dial</a></li>
     <li><a href="#observable">14 Observable</a></li>
     <li><a href="#math">15 The Math</a></li>
-    <li><a href="#proof">16 Proof</a></li>
+    <li><a href="#proof">16 Evidence</a></li>
     <li><a href="#not">17 What NEOS Is Not</a></li>
     <li><a href="#future">18 The Future</a></li>
     <li><a href="#cta">19 Join Us</a></li>
@@ -1619,9 +1619,18 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 <section id="proof">
   <div class="container">
     <span class="sec-num reveal">16 &mdash; Show, Don&rsquo;t Tell</span>
-    <h2 class="reveal">Proof: The Software Quality Session</h2>
+    <h2 class="reveal">Evidence: Two Sessions, One Engine</h2>
 
-    <p class="reveal">Theory is beautiful. Evidence is convincing. What follows is the <strong>complete dissection</strong> of a real session that ran to completion in NEOS &mdash; the <strong>software quality discipline</strong> session. 69 patterns injected. <strong>61 surviving</strong> (7 absorbed, 1 expelled). 52 cycles to convergence. Final coherence: <strong>0.993</strong>. What NEOS discovered was not a summary of inputs &mdash; it was <em>emergent structure</em> that no single injection contained.</p>
+    <p class="reveal">Theory is beautiful. Evidence is convincing. Two independent sessions ran to completion under NEOS dynamics &mdash; one in <strong>abstract reasoning</strong> (software quality), one in <strong>adversarial forensics</strong> (network packet analysis). The same engine, the same master equation, the same dynamics produced meaningful emergent structure in both domains. Choose a case study below.</p>
+
+    <div role="tablist" style="display:flex;gap:0.5rem;margin:1.5rem 0 0;overflow-x:auto;border-bottom:1px solid rgba(255,255,255,0.08);padding-bottom:0">
+      <button class="tab-btn active" data-tab="tab-sw" role="tab" aria-selected="true" aria-controls="tab-sw">&#128300; Software Quality</button>
+      <button class="tab-btn" data-tab="tab-pcap" role="tab" aria-selected="false" aria-controls="tab-pcap" tabindex="-1">&#128274; Network Forensics (PCAP)</button>
+    </div>
+
+    <div class="tab-panel active" id="tab-sw" role="tabpanel">
+
+    <p class="reveal" style="margin-top:1.2rem">What follows is the <strong>complete dissection</strong> of the <strong>software quality discipline</strong> session. 69 patterns injected. <strong>61 surviving</strong> (7 absorbed, 1 expelled). 52 cycles to convergence. Final coherence: <strong>0.993</strong>. What NEOS discovered was not a summary of inputs &mdash; it was <em>emergent structure</em> that no single injection contained.</p>
 
     <h3 class="reveal">Session Roadmap</h3>
     <table class="reveal" style="width:100%;border-collapse:collapse;margin:1.5rem 0">
@@ -2190,6 +2199,334 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       <div class="card"><p style="font-size:2rem;color:var(--green);margin:0"><span class="counter" data-target="0.993">0</span></p><p style="color:var(--text-dim);font-size:0.82rem;margin:0">coherence</p></div>
       <div class="card"><p style="font-size:2rem;color:var(--pink);margin:0"><span class="counter" data-target="1">0</span></p><p style="color:var(--text-dim);font-size:0.82rem;margin:0">expelled</p></div>
     </div>
+
+    </div><!-- end tab-panel SW -->
+
+    <!-- ============================================================ -->
+    <!-- TAB 2: PCAP NETWORK FORENSICS -->
+    <!-- ============================================================ -->
+    <div class="tab-panel" id="tab-pcap" role="tabpanel">
+
+    <p class="reveal" style="margin-top:1.2rem">The software quality session proved NEOS can discover emergent structure from abstract reasoning. Can the same engine handle <strong>concrete, adversarial data</strong>? The <code>pcap_analyzer</code> session answers this by feeding <strong>raw network packet-capture traffic</strong> (9.9&nbsp;MB, 11,587 packets, ~20&nbsp;min) into a neural field. Crucially, this session used <strong>default parameters</strong> &mdash; no tuning whatsoever.</p>
+
+    <h3 class="reveal">Session Roadmap</h3>
+    <table class="reveal" style="width:100%;border-collapse:collapse;margin:1.5rem 0">
+    <thead><tr style="border-bottom:2px solid var(--accent-dim)">
+    <th style="text-align:left;padding:0.4rem 0.8rem">Wave</th>
+    <th style="text-align:left;padding:0.4rem 0.8rem">Patterns</th>
+    <th style="text-align:left;padding:0.4rem 0.8rem">Cycles</th>
+    <th style="text-align:right;padding:0.4rem 0.8rem">C</th>
+    <th style="text-align:left;padding:0.4rem 0.8rem">Key Event</th>
+    </tr></thead>
+    <tbody>
+    <tr><td style="padding:0.3rem 0.8rem">1. Network Core</td><td>p001&ndash;p003</td><td>1&ndash;3</td><td style="text-align:right"><strong>0.71</strong></td><td><code>network_analysis_core</code> attractor</td></tr>
+    <tr><td style="padding:0.3rem 0.8rem">2. IP Enrichment</td><td>p004&ndash;p006</td><td>4&ndash;6</td><td style="text-align:right"><strong>0.82</strong></td><td>Hub migration; geo pattern rescued</td></tr>
+    <tr><td style="padding:0.3rem 0.8rem">3. Security</td><td>p007&ndash;p009</td><td>7&ndash;9</td><td style="text-align:right"><strong>0.89</strong></td><td><code>pcap_security_analyzer</code>; eigenvalues</td></tr>
+    <tr style="border-top:1px solid var(--accent-dim)"><td style="padding:0.3rem 0.8rem"><strong>4. Threat</strong></td><td>p010</td><td>10&ndash;12</td><td style="text-align:right"><strong>0.93</strong></td><td>Triple-hub; AsyncRAT identified</td></tr>
+    </tbody>
+    </table>
+
+    <h3 class="reveal">Parameters: Factory Defaults</h3>
+    <table class="reveal">
+      <thead><tr><th>Parameter</th><th>Value</th><th>Note</th></tr></thead>
+      <tbody>
+        <tr><td>&lambda; (decay)</td><td style="color:var(--text-dim)">0.05</td><td>Default &mdash; no tuning</td></tr>
+        <tr><td>&alpha; (amplification)</td><td style="color:var(--text-dim)">0.30</td><td>Default &mdash; no tuning</td></tr>
+        <tr><td>&tau; (threshold)</td><td style="color:var(--text-dim)">0.40</td><td>Default &mdash; no tuning</td></tr>
+        <tr><td>&sigma; (bandwidth)</td><td style="color:var(--text-dim)">0.50</td><td>Default &mdash; no tuning</td></tr>
+      </tbody>
+    </table>
+    <p class="reveal">Unlike the software quality session (which tuned all four parameters), the PCAP session runs on <strong>factory defaults</strong>. This was deliberate &mdash; proving the engine generalizes without per-domain parameter tuning.</p>
+
+    <!-- WAVE 1 -->
+    <h3 class="reveal">Wave 1: Network Core (p001&ndash;p003)</h3>
+    <p class="reveal">Three foundational patterns seed the field &mdash; raw capture, protocol decode, and DNS resolution. In just 3 cycles, <code>@protocol_mapping</code> emerges as the hub:</p>
+
+    <div class="terminal reveal" role="region" aria-label="PCAP Wave 1 transcript">
+      <div class="terminal-bar"><span class="terminal-dot"></span><span class="terminal-dot"></span><span class="terminal-dot"></span><span style="color:#666;font-size:0.8rem;margin-left:auto">pcap &mdash; wave 1</span></div>
+      <div class="terminal-body">
+<span class="prompt">$</span> <span class="cmd">nf inject "packet_capture" 0.9</span>
+<span class="out">[INJECT] packet_capture (s: <span class="val">0.90</span>) &mdash; p001</span>
+<span class="out"></span>
+<span class="prompt">$</span> <span class="cmd">nf inject "protocol_mapping" 0.9</span>
+<span class="out">[INJECT] protocol_mapping (s: <span class="val">0.90</span>) &mdash; p002</span>
+<span class="out">  [RESONANCE] &harr; @packet_capture: R = <span class="val">0.72</span> STRONG</span>
+<span class="out"></span>
+<span class="prompt">$</span> <span class="cmd">nf inject "dns_resolution" 0.9</span>
+<span class="out">[INJECT] dns_resolution (s: <span class="val">0.90</span>) &mdash; p003</span>
+<span class="out">  Strongest: @protocol_mapping &harr; @dns_resolution (R=<span class="val">0.81</span>)</span>
+<span class="out"></span>
+<span class="prompt">$</span> <span class="cmd">nf cycle 3 --trace</span>
+<span class="out">[CYCLE 1] C = <span class="val">0.52</span>  (MEDIUM)</span>
+<span class="out">[CYCLE 2] C = <span class="val">0.61</span>  Hub forming: @protocol_mapping at 0.919</span>
+<span class="out">[CYCLE 3] C = <span class="val">0.71</span>  (HIGH)</span>
+<span class="out"></span>
+<span class="out">  <span class="hl">[ATTRACTOR-EMERGED] "network_analysis_core"</span></span>
+<span class="out">    Core: {@protocol_mapping, @dns_resolution, @packet_capture}</span>
+<span class="out">    Hub: @protocol_mapping (<span class="val">0.936</span>)</span>
+      </div>
+    </div>
+
+    <!-- WAVE 2 -->
+    <h3 class="reveal">Wave 2: IP Enrichment &amp; The Rescue (p004&ndash;p006)</h3>
+    <p class="reveal">Three enrichment patterns expand the field. <code>@ip_geolocalization</code> arrives at <strong>0.50</strong> &mdash; the weakest pattern ever injected, barely above threshold. Watch the field rescue it:</p>
+
+    <div class="terminal reveal" role="region" aria-label="PCAP Wave 2 transcript">
+      <div class="terminal-bar"><span class="terminal-dot"></span><span class="terminal-dot"></span><span class="terminal-dot"></span><span style="color:#666;font-size:0.8rem;margin-left:auto">pcap &mdash; wave 2</span></div>
+      <div class="terminal-body">
+<span class="prompt">$</span> <span class="cmd">nf inject "ip_geolocalization" 0.5</span>
+<span class="out">[INJECT] ip_geolocalization (s: <span class="val">0.50</span>) &mdash; p006</span>
+<span class="out">  <span class="warn">&#9888; WARNING: Low activation (threshold &tau;=0.40)</span></span>
+<span class="out"></span>
+<span class="out">  <span class="hl">[RESONANCE: @ip_geolocalization]</span></span>
+<span class="out">    &harr; @ip_lookup:      R=<span class="val">0.94</span> [VERY STRONG] &larr; lifeline</span>
+<span class="out">    &harr; @abuse_ip:       R=<span class="val">0.79</span> [STRONG]</span>
+<span class="out">    &harr; @dns_resolution: R=<span class="val">0.61</span> [MODERATE]</span>
+<span class="out"></span>
+<span class="prompt">$</span> <span class="cmd">nf cycle 3 --trace</span>
+<span class="out">[CYCLE 4]</span>
+<span class="out">  @ip_geolocalization: 0.475 &rarr; <span class="hl">0.587</span> (+0.112) <span class="hl">&#9733; rescue</span></span>
+<span class="out">  @ip_lookup: 0.855 &rarr; <span class="val">0.948</span></span>
+<span class="out"></span>
+<span class="out">[CYCLE 5]</span>
+<span class="out">  <span class="warn">&#9733; HUB MIGRATION: @protocol_mapping &rarr; @ip_lookup</span></span>
+<span class="out">  @ip_lookup now highest activation (<span class="val">0.987</span>)</span>
+<span class="out">  @ip_geolocalization: 0.558 &rarr; <span class="hl">0.691</span> (+0.133)</span>
+<span class="out"></span>
+<span class="out">[CYCLE 6] C = <span class="val">0.82</span></span>
+<span class="out">  <span class="hl">[ATTRACTOR-MERGED] "pcap_analysis_engine"</span></span>
+<span class="out">    Hub: @ip_lookup (<span class="val">0.998</span>)</span>
+      </div>
+    </div>
+
+    <p class="reveal"><strong>Two key events:</strong> The field <em>rescued</em> a near-threshold pattern through resonance alone &mdash; deciding that geolocation IS relevant to forensics, even when the human injector was uncertain. And it reorganized around a new hub &mdash; concluding that <em>understanding who is communicating</em> matters more than <em>how they communicate</em>.</p>
+
+    <!-- WAVE 3 -->
+    <h3 class="reveal">Wave 3: Security &amp; Deep Inspection (p007&ndash;p009)</h3>
+    <p class="reveal">Security patterns produce a dual-hub structure and the field&rsquo;s first eigenspectrum. The field spontaneously organizes into four functional layers:</p>
+
+    <table class="reveal">
+      <thead><tr><th>Layer</th><th>Patterns</th><th>Function</th></tr></thead>
+      <tbody>
+        <tr><td style="color:var(--text-dim)">L1 Acquisition</td><td>@packet_capture</td><td>Raw data ingest</td></tr>
+        <tr><td style="color:var(--cyan)">L2 Processing</td><td>@protocol_mapping, @dns_resolution</td><td>Protocol decode</td></tr>
+        <tr><td style="color:var(--purple)">L3 Enrichment</td><td>@ip_lookup, @ip_geo, @abuse_ip</td><td>Metadata correlation</td></tr>
+        <tr><td style="color:var(--pink)">L4 Security</td><td>@suspicious_dns, @unsecure, @payload</td><td>Threat detection</td></tr>
+      </tbody>
+    </table>
+
+    <p class="reveal">This layered architecture was <strong>not injected</strong> &mdash; it emerged from resonance dynamics alone. Coherence: &rarr; <strong>0.89</strong>.</p>
+
+    <!-- WAVE 4 -->
+    <h3 class="reveal">Wave 4: Triple-Hub &amp; The Discovery (p010)</h3>
+    <p class="reveal">A single pattern &mdash; <code>@malware_analysis</code> &mdash; completes the threat hunting pipeline and triggers the session&rsquo;s most dramatic structural event:</p>
+
+    <div class="terminal reveal" role="region" aria-label="PCAP Wave 4 transcript">
+      <div class="terminal-bar"><span class="terminal-dot"></span><span class="terminal-dot"></span><span class="terminal-dot"></span><span style="color:#666;font-size:0.8rem;margin-left:auto">pcap &mdash; wave 4</span></div>
+      <div class="terminal-body">
+<span class="prompt">$</span> <span class="cmd">nf inject "malware_analysis" 0.8</span>
+<span class="out">[INJECT] malware_analysis (s: <span class="val">0.80</span>) &mdash; p010</span>
+<span class="out">  &harr; @payload_analysis: R=<span class="val">0.91</span> [VERY STRONG]</span>
+<span class="out">  &harr; @abuse_ip:         R=<span class="val">0.88</span> [VERY STRONG]</span>
+<span class="out">  &harr; @suspicious_dns:   R=<span class="val">0.86</span> [VERY STRONG]</span>
+<span class="out"></span>
+<span class="prompt">$</span> <span class="cmd">nf cycle 3 --trace</span>
+<span class="out">[CYCLE 10] C = <span class="val">0.88</span></span>
+<span class="out">  @malware_analysis: 0.760 &rarr; <span class="hl">0.882</span> (+0.122) &#9733;&#9733; rapid</span>
+<span class="out">  @abuse_ip rising to <span class="val">0.998</span> &mdash; threat hub forming</span>
+<span class="out"></span>
+<span class="out">[CYCLE 11] C = <span class="val">0.91</span></span>
+<span class="out">  <span class="hl">Triple-hub structure confirmed:</span></span>
+<span class="out">    @protocol_mapping  <span class="val">0.998</span> &mdash; structural/parsing hub</span>
+<span class="out">    @ip_lookup         <span class="val">0.998</span> &mdash; enrichment/metadata hub</span>
+<span class="out">    @abuse_ip          <span class="val">0.998</span> &mdash; threat intelligence hub</span>
+<span class="out"></span>
+<span class="out">[CYCLE 12] C = <span class="hl">0.93</span> [EXCELLENT]</span>
+<span class="out">  Eigenspectrum:</span>
+<span class="out">    &lambda;&#8321; = <span class="val">7.84</span> (dominant unified mode)</span>
+<span class="out">    &lambda;&#8322; = <span class="val">0.92</span> (threat subspace)</span>
+<span class="out">    &lambda;&#8323; = <span class="val">0.71</span> (enrichment subspace)</span>
+<span class="out">    Gap ratio: &lambda;&#8321;/&lambda;&#8322; = <span class="val">8.52</span> (highly stable)</span>
+      </div>
+    </div>
+
+    <p class="reveal"><strong>Triple-hub convergence:</strong> Three independent analysis perspectives &mdash; <strong>structural</strong> parsing, <strong>enrichment</strong> metadata, and <strong>threat</strong> intelligence &mdash; all converge to 0.998. Protocol structure <em>says</em> something is wrong, IP enrichment <em>confirms</em> who is doing it, and threat intelligence <em>classifies</em> what it is.</p>
+
+    <!-- THE DISCOVERY -->
+    <h3 class="reveal">The Discovery: AsyncRAT C2 Infection</h3>
+    <p class="reveal">With the field at 0.93 coherence, NEOS collapsed the attractor. The verdict: <strong>active AsyncRAT v6.1.0 Pro infection</strong> with confirmed C2 infrastructure. The system was given <strong>no malware signatures or threat feeds</strong> &mdash; the identification emerged entirely from resonance dynamics.</p>
+
+    <table class="reveal">
+      <thead><tr><th>Category</th><th>Indicator</th><th>Value</th></tr></thead>
+      <tbody>
+        <tr><td style="color:var(--pink)">Malware</td><td>AsyncRAT</td><td>v6.1.0 Pro</td></tr>
+        <tr><td style="color:var(--pink)">C2 Domain</td><td><code>hftook7l...duckdns.org</code></td><td>&mdash;</td></tr>
+        <tr><td style="color:var(--pink)">C2 IP / Port</td><td><code>206.123.152.51</code></td><td>3980/tcp</td></tr>
+        <tr><td>C2 Traffic</td><td>1,371 packets</td><td>11.8% of total</td></tr>
+        <tr><td>Victim OS</td><td>Windows 11 Enterprise</td><td>64-bit</td></tr>
+        <tr><td>Persistence</td><td><code>jasgbtisot.dat</code></td><td>AppData/Roaming</td></tr>
+        <tr><td style="color:var(--gold)">Key Module</td><td><code>foxmail.dll</code></td><td>credential theft</td></tr>
+        <tr><td>Mutex</td><td><code>kmbgnrgsd-2X9W02</code></td><td>&mdash;</td></tr>
+      </tbody>
+    </table>
+
+    <!-- Network Topology -->
+    <h3 class="reveal">Network Topology</h3>
+    <div class="diagram reveal" style="padding:1.5rem">
+      <svg viewBox="0 0 700 240" role="img" aria-label="Network topology showing infected host, DNS gateway, and C2 server">
+        <title>AsyncRAT Network Topology</title>
+        <!-- Infected Host -->
+        <rect x="40" y="60" width="160" height="70" rx="6" fill="rgba(255,61,142,0.1)" stroke="#ff3d8e" stroke-width="1.5"/>
+        <text x="120" y="85" text-anchor="middle" fill="#ff3d8e" font-size="11" font-weight="600">10.3.10.128</text>
+        <text x="120" y="100" text-anchor="middle" fill="#c93070" font-size="9">INFECTED HOST</text>
+        <text x="120" y="115" text-anchor="middle" fill="#c93070" font-size="8">Windows 11 Enterprise</text>
+        <!-- DNS/Gateway -->
+        <rect x="270" y="60" width="140" height="70" rx="6" fill="rgba(123,97,255,0.1)" stroke="#7b61ff" stroke-width="1"/>
+        <text x="340" y="85" text-anchor="middle" fill="#7b61ff" font-size="11" font-weight="600">10.3.10.2</text>
+        <text x="340" y="100" text-anchor="middle" fill="#5a44cc" font-size="9">DNS / Gateway</text>
+        <text x="340" y="115" text-anchor="middle" fill="#5a44cc" font-size="8">Port 53</text>
+        <!-- C2 Server -->
+        <rect x="480" y="40" width="190" height="90" rx="6" fill="rgba(255,61,142,0.15)" stroke="#ff3d8e" stroke-width="2"/>
+        <text x="575" y="65" text-anchor="middle" fill="#ff3d8e" font-size="11" font-weight="700">206.123.152.51</text>
+        <text x="575" y="82" text-anchor="middle" fill="#c93070" font-size="9">hftook7l...duckdns.org</text>
+        <text x="575" y="100" text-anchor="middle" fill="#c93070" font-size="10" font-weight="600">C2 SERVER</text>
+        <text x="575" y="118" text-anchor="middle" fill="#c93070" font-size="8">AsyncRAT Controller</text>
+        <!-- Arrows -->
+        <line x1="200" y1="95" x2="270" y2="95" stroke="#666" stroke-width="1.5" marker-end="url(#arrow-flow)"/>
+        <text x="235" y="88" text-anchor="middle" fill="#666" font-size="8">DNS</text>
+        <path d="M120,130 L120,180 L575,180 L575,130" fill="none" stroke="#ff3d8e" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrow-flow)"/>
+        <text x="350" y="196" text-anchor="middle" fill="#ff3d8e" font-size="9">Port 3980/tcp &mdash; 1,371 packets (~19 min continuous)</text>
+      </svg>
+    </div>
+
+    <!-- Coherence Evolution Graph -->
+    <h3 class="reveal">Coherence Evolution: 12 Cycles to Convergence</h3>
+    <div class="diagram reveal">
+      <svg viewBox="0 0 700 280" role="img" aria-label="Line chart showing PCAP coherence rising from 0 to 0.93 over 12 cycles">
+        <title>PCAP Coherence Evolution Over 12 Cycles</title>
+        <!-- Axes -->
+        <line x1="70" y1="20" x2="70" y2="230" stroke="#444" stroke-width="1"/>
+        <line x1="70" y1="230" x2="660" y2="230" stroke="#444" stroke-width="1"/>
+        <!-- Y-axis labels -->
+        <text x="60" y="230" text-anchor="end" fill="#666" font-size="10">0.0</text>
+        <text x="60" y="188" text-anchor="end" fill="#666" font-size="10">0.25</text>
+        <text x="60" y="146" text-anchor="end" fill="#666" font-size="10">0.50</text>
+        <text x="60" y="104" text-anchor="end" fill="#666" font-size="10">0.75</text>
+        <text x="60" y="62" text-anchor="end" fill="#666" font-size="10">1.0</text>
+        <text x="30" y="130" text-anchor="middle" fill="#888" font-size="10" transform="rotate(-90,30,130)">Coherence</text>
+        <!-- X-axis labels -->
+        <text x="70" y="248" text-anchor="middle" fill="#666" font-size="10">0</text>
+        <text x="215" y="248" text-anchor="middle" fill="#666" font-size="10">3</text>
+        <text x="360" y="248" text-anchor="middle" fill="#666" font-size="10">6</text>
+        <text x="505" y="248" text-anchor="middle" fill="#666" font-size="10">9</text>
+        <text x="620" y="248" text-anchor="middle" fill="#666" font-size="10">12</text>
+        <text x="365" y="268" text-anchor="middle" fill="#888" font-size="10">Cycles</text>
+        <!-- Grid lines -->
+        <line x1="70" y1="188" x2="660" y2="188" stroke="#222" stroke-width="0.5"/>
+        <line x1="70" y1="146" x2="660" y2="146" stroke="#222" stroke-width="0.5"/>
+        <line x1="70" y1="104" x2="660" y2="104" stroke="#222" stroke-width="0.5"/>
+        <line x1="70" y1="62" x2="660" y2="62" stroke="#222" stroke-width="0.5"/>
+        <!-- Data: cycles 1-12, coherence values mapped to y (0=230, 1.0=20, scale=210) -->
+        <!-- C values: 0.52, 0.61, 0.71, 0.56, 0.68, 0.82, 0.76, 0.84, 0.89, 0.88, 0.91, 0.93 -->
+        <polyline points="119,121 168,102 215,81 264,113 312,87 360,58 408,71 456,54 505,43 554,45 588,39 620,35" fill="none" stroke="#00ff88" stroke-width="2.5" filter="url(#glow-cyan)"/>
+        <!-- Area fill -->
+        <path d="M119,121 L168,102 L215,81 L264,113 L312,87 L360,58 L408,71 L456,54 L505,43 L554,45 L588,39 L620,35 L620,230 L119,230 Z" fill="url(#pcap-coherence-grad)" opacity="0.2"/>
+        <defs><linearGradient id="pcap-coherence-grad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#00ff88" stop-opacity="0.4"/><stop offset="1" stop-color="#00ff88" stop-opacity="0"/></linearGradient></defs>
+        <!-- Key event markers -->
+        <circle cx="215" cy="81" r="5" fill="#7b61ff"/>
+        <text x="225" y="74" fill="#7b61ff" font-size="9">First attractor (0.71)</text>
+        <circle cx="360" cy="58" r="5" fill="#0af"/>
+        <text x="370" y="51" fill="#0af" font-size="9">Hub migration (0.82)</text>
+        <circle cx="620" cy="35" r="6" fill="#00ff88" class="anim-pulse"/>
+        <text x="605" y="27" text-anchor="end" fill="#00ff88" font-size="10" font-weight="600">0.93</text>
+        <!-- Triple-hub annotation -->
+        <line x1="620" y1="230" x2="620" y2="40" stroke="#00ff88" stroke-width="0.5" stroke-dasharray="3,3"/>
+        <text x="610" y="260" text-anchor="end" fill="#00ff88" font-size="9">Triple-hub formed</text>
+        <!-- Dips annotation -->
+        <circle cx="264" cy="113" r="4" fill="#ff3d8e"/>
+        <text x="260" y="130" text-anchor="end" fill="#ff3d8e" font-size="8">Wave 2 reset</text>
+      </svg>
+    </div>
+
+    <!-- Extended Analysis -->
+    <h3 class="reveal">Extended Analysis: 6 Functional Clusters</h3>
+    <p class="reveal">After the interactive phase, 9 additional patterns were injected (transport, content inspection, statistics, evasion detection), producing 19 total patterns across 30 cycles. <strong>All 19 survived above threshold</strong> &mdash; unlike the SW quality session, this field found <em>no incompatible patterns</em>. At equilibrium (coherence 0.87), they organized into 6 functional clusters:</p>
+
+    <table class="reveal">
+      <thead><tr><th>Cluster</th><th>Patterns</th><th>Density</th><th>Function</th></tr></thead>
+      <tbody>
+        <tr><td style="color:var(--cyan)">dns_layer</td><td>2</td><td style="color:var(--green)">0.91</td><td>DNS query/resolution analysis</td></tr>
+        <tr><td style="color:var(--cyan)">transport_layer</td><td>4</td><td style="color:var(--green)">0.89</td><td>TCP/UDP stream analysis</td></tr>
+        <tr><td style="color:var(--purple)">content_cluster</td><td>4</td><td>0.86</td><td>Payload inspection &amp; extraction</td></tr>
+        <tr><td style="color:var(--pink)">security_cluster</td><td>3</td><td>0.78</td><td>Threat detection &amp; evasion</td></tr>
+        <tr><td style="color:var(--gold)">statistical</td><td>3</td><td>0.76</td><td>Behavioral anomaly detection</td></tr>
+        <tr><td style="color:var(--text-dim)">network_layer</td><td>3</td><td>0.72</td><td>IP/ARP/address resolution</td></tr>
+      </tbody>
+    </table>
+
+    <!-- Collapsed field state -->
+    <h3 class="reveal">Collapsed Field: 10 Patterns at Equilibrium</h3>
+    <div class="terminal reveal" role="region" aria-label="PCAP collapsed field state">
+      <div class="terminal-bar"><span class="terminal-dot"></span><span class="terminal-dot"></span><span class="terminal-dot"></span><span style="color:#666;font-size:0.8rem;margin-left:auto">pcap &mdash; final state</span></div>
+      <div class="terminal-body">
+<span class="out"><span class="hl">[ATTRACTOR-REINFORCED] "pcap_security_analyzer"</span></span>
+<span class="out">  Triple-hub unified field (10 patterns)</span>
+<span class="out"></span>
+<span class="out">  @abuse_ip          <span class="val">0.998</span>  &#9670;&#9670; threat intelligence hub</span>
+<span class="out">  @protocol_mapping  <span class="val">0.998</span>  &#9670;&#9670; structural parsing hub</span>
+<span class="out">  @ip_lookup         <span class="val">0.998</span>  &#9670;&#9670; enrichment hub</span>
+<span class="out">  @dns_resolution    <span class="val">0.997</span>  &#9670;  protocol core</span>
+<span class="out">  @packet_capture    <span class="val">0.995</span>  &#9670;  data acquisition</span>
+<span class="out">  @suspicious_dns    <span class="val">0.992</span>  &#9670;  anomaly detection</span>
+<span class="out">  @payload_analysis  <span class="val">0.989</span>  &#9670;  deep packet inspection</span>
+<span class="out">  @unsecure_protos   <span class="val">0.978</span>  &#9670;  vulnerability assessment</span>
+<span class="out">  @ip_geolocalization <span class="val">0.963</span>  &#9670;  geographic context</span>
+<span class="out">  @malware_analysis  <span class="val">0.962</span>  &#9670;  threat classification</span>
+<span class="out"></span>
+<span class="out">  Coherence: <span class="hl">0.93</span>  |  Stability: <span class="hl">EXCELLENT</span></span>
+      </div>
+    </div>
+
+    <!-- Summary stats -->
+    <div class="grid-4 reveal" style="text-align:center">
+      <div class="card"><p style="font-size:2rem;color:var(--green);margin:0">10</p><p style="color:var(--text-dim);font-size:0.82rem;margin:0">injections</p></div>
+      <div class="card"><p style="font-size:2rem;color:var(--green);margin:0">12</p><p style="color:var(--text-dim);font-size:0.82rem;margin:0">cycles</p></div>
+      <div class="card"><p style="font-size:2rem;color:var(--green);margin:0">0.93</p><p style="color:var(--text-dim);font-size:0.82rem;margin:0">coherence</p></div>
+      <div class="card"><p style="font-size:2rem;color:var(--green);margin:0">0</p><p style="color:var(--text-dim);font-size:0.82rem;margin:0">expelled</p></div>
+    </div>
+
+    </div><!-- end tab-panel PCAP -->
+
+    <!-- ============================================================ -->
+    <!-- CROSS-DOMAIN COMPARISON (outside tabs) -->
+    <!-- ============================================================ -->
+    <h3 class="reveal" style="margin-top:2.5rem">Cross-Domain Comparison</h3>
+    <p class="reveal">The same engine. The same equation. Two entirely different domains. Here is the evidence side by side:</p>
+
+    <table class="reveal" style="width:100%;border-collapse:collapse;margin:1.5rem 0">
+    <thead><tr style="border-bottom:2px solid var(--accent-dim)">
+    <th style="text-align:left;padding:0.4rem 0.8rem">Dimension</th>
+    <th style="text-align:left;padding:0.4rem 0.8rem;color:var(--cyan)">Software Quality</th>
+    <th style="text-align:left;padding:0.4rem 0.8rem;color:var(--green)">Network Forensics</th>
+    </tr></thead>
+    <tbody>
+    <tr><td style="padding:0.3rem 0.8rem;color:var(--text-dim)">Domain</td><td>Abstract reasoning</td><td>Concrete adversarial data</td></tr>
+    <tr><td style="padding:0.3rem 0.8rem;color:var(--text-dim)">Parameters</td><td>Tuned (&lambda;=0.04, &alpha;=0.35, &tau;=0.35, &sigma;=0.40)</td><td><strong>Default</strong> (no tuning)</td></tr>
+    <tr><td style="padding:0.3rem 0.8rem;color:var(--text-dim)">Patterns</td><td>69 injected</td><td>10 (interactive phase)</td></tr>
+    <tr><td style="padding:0.3rem 0.8rem;color:var(--text-dim)">Cycles</td><td>52</td><td>12</td></tr>
+    <tr><td style="padding:0.3rem 0.8rem;color:var(--text-dim)">Coherence</td><td style="color:var(--cyan)">0.993</td><td style="color:var(--green)">0.93</td></tr>
+    <tr><td style="padding:0.3rem 0.8rem;color:var(--text-dim)">Absorptions / Expulsions</td><td>7 / 1</td><td>0 / 0</td></tr>
+    <tr><td style="padding:0.3rem 0.8rem;color:var(--text-dim)">Hub structure</td><td>Stable hierarchy</td><td>Migration &rarr; triple-hub</td></tr>
+    <tr><td style="padding:0.3rem 0.8rem;color:var(--text-dim)">Key discovery</td><td>Universal invariant &Psi;</td><td>AsyncRAT C2 infection</td></tr>
+    <tr><td style="padding:0.3rem 0.8rem;color:var(--text-dim)">Rescue event</td><td>Performance dyad (satellite)</td><td>Geo pattern (0.50 &rarr; 0.963)</td></tr>
+    </tbody>
+    </table>
+
+    <div class="callout reveal" style="text-align:center;font-size:1.1rem">
+      <strong>The engine is invariant. The domain is in the <em>patterns</em>, not the <em>dynamics</em>.</strong>
+      <p style="font-size:0.9rem;margin-top:0.8rem;font-style:normal;color:var(--text-dim)">Both sessions exhibit the same dynamical vocabulary: attractor formation, coherence-driven convergence, hub emergence, and semantically meaningful cluster topology.</p>
+    </div>
+
   </div>
 </section>
 
