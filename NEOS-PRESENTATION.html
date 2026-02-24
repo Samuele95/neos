@@ -11,6 +11,9 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/reveal.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/reveal.min.js" defer></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/plugin/zoom/zoom.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/plugin/search/search.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/plugin/notes/notes.min.js" defer></script>
 <style>
 /* ── NEOS CUSTOM THEME ── */
 :root {
@@ -153,6 +156,26 @@ svg text { font-family: var(--font); }
 .reveal .controls { color: var(--cyan); }
 .reveal .controls button { color: var(--cyan); }
 
+/* Vertical slide indicator */
+.reveal .slides section.stack > section:first-child::after {
+  content: '▼';
+  position: absolute;
+  bottom: 0.5rem;
+  right: 1rem;
+  font-size: 0.7em;
+  color: var(--cyan);
+  opacity: 0.5;
+  animation: float 2s ease-in-out infinite;
+}
+
+/* Section divider slide backgrounds */
+.reveal .slides section[data-background-gradient] {
+  background: transparent !important;
+}
+
+/* Keyboard hint overlay */
+.reveal .slide-menu-button { color: var(--cyan) !important; }
+
 /* Title chars for GSAP cascade */
 .hero-char { display: inline-block; }
 
@@ -204,7 +227,7 @@ svg text { font-family: var(--font); }
 <!-- ═══════════════════════════════════════════ -->
 <!-- SLIDE 1 — TITLE                            -->
 <!-- ═══════════════════════════════════════════ -->
-<section class="title-slide" data-transition="fade">
+<section class="title-slide" data-transition="fade" data-background-gradient="radial-gradient(circle at 50% 40%, rgba(0,212,255,0.1) 0%, rgba(123,97,255,0.04) 40%, rgba(7,7,12,1) 75%)">
   <h1 id="hero-title" style="font-size:5rem;margin-bottom:0.2em"><span class="grad-text" id="hero-text">NEOS</span></h1>
   <p style="font-size:0.85em;color:var(--text-dim);max-width:none;margin-bottom:0.3em" class="fragment fade-up">The Operating System for Machine Intelligence</p>
   <p style="font-size:0.7em;font-style:italic;color:var(--text);max-width:none" class="fragment fade-up"><em style="color:var(--text)">"The last operating system will not manage files. It will manage meaning."</em></p>
@@ -265,11 +288,11 @@ svg text { font-family: var(--font); }
   <span class="sec-badge">01 — The Shift</span>
   <h2>Three Bottlenecks, Three Eras</h2>
   <div class="grid-3">
-    <div class="card fragment fade-up" data-fragment-index="1">
+    <div class="card fragment fade-in-then-semi-out" data-fragment-index="1">
       <h3 style="color:#888">Hardware</h3>
       <p style="font-size:0.65em">The CPU was sacred. Every cycle scheduled, every byte managed. OS answer: <strong>"How do we share this machine?"</strong></p>
     </div>
-    <div class="card fragment fade-up" data-fragment-index="2">
+    <div class="card fragment fade-in-then-semi-out" data-fragment-index="2">
       <h3 style="color:#9b8aff">Software</h3>
       <p style="font-size:0.65em">Complexity became the enemy. Files, processes, threads — abstractions for managing code. OS answer: <strong>"How do we organize programs?"</strong></p>
     </div>
@@ -330,15 +353,15 @@ svg text { font-family: var(--font); }
   <span class="sec-badge">02 — The Vision</span>
   <h2>What NEOS Replaces</h2>
   <div class="grid-2" style="max-width:100%">
-    <div class="card fragment fade-up" data-fragment-index="1" style="border-left:3px solid var(--pink)">
+    <div class="card fragment fade-in-then-semi-out" data-fragment-index="1" style="border-left:3px solid var(--pink)">
       <h3 style="color:var(--pink)">No File Systems</h3>
       <p style="font-size:0.6em"><strong>Semantic fields</strong> organize information by meaning. You don't navigate directories — you navigate ideas.</p>
     </div>
-    <div class="card fragment fade-up" data-fragment-index="2" style="border-left:3px solid var(--green)">
+    <div class="card fragment fade-in-then-semi-out" data-fragment-index="2" style="border-left:3px solid var(--green)">
       <h3 style="color:var(--green)">No Compiled Binaries</h3>
       <p style="font-size:0.6em"><strong>Field configurations</strong> execute reasoning. A "program" is a pattern of activated concepts.</p>
     </div>
-    <div class="card fragment fade-up" data-fragment-index="3" style="border-left:3px solid var(--gold)">
+    <div class="card fragment fade-in-then-semi-out" data-fragment-index="3" style="border-left:3px solid var(--gold)">
       <h3 style="color:var(--gold)">No Separate Apps</h3>
       <p style="font-size:0.6em"><strong>Task definitions</strong> compose into workflows. Analysis, creativity, planning — field configurations, not executables.</p>
     </div>
@@ -480,9 +503,9 @@ svg text { font-family: var(--font); }
   <div class="terminal" id="shell-terminal">
     <div class="terminal-bar"><span class="terminal-dot"></span><span class="terminal-dot"></span><span class="terminal-dot"></span><span style="color:#666;font-size:0.9em;margin-left:auto">neos-shell</span></div>
     <div class="terminal-body" id="typing-target">
-      <div class="term-line fragment fade-up" data-fragment-index="1"><span class="prompt">$</span> <span class="cmd">nf inject "correctness" 0.90</span><br><span class="out">[INJECT] correctness (s: <span class="val">0.90</span>) — p001</span></div>
-      <div class="term-line fragment fade-up" data-fragment-index="2"><span class="prompt">$</span> <span class="cmd">nf inject "edge_case_handling" 0.85</span><br><span class="out">[INJECT] edge_case_handling (s: <span class="val">0.85</span>)</span><br><span class="out">  <span class="hl">[RESONANCE]</span> ↔ @correctness: R = <span class="val">0.82</span> STRONG</span></div>
-      <div class="term-line fragment fade-up" data-fragment-index="3"><span class="prompt">$</span> <span class="cmd">nf cycle 3 --trace</span><br><span class="out">[CYCLE 3] <span class="hl">[ATTRACTOR-EMERGED]</span> "defensive_quality"</span><br><span class="out">  Coherence: <span class="val">0.71</span> | 6 patterns</span></div>
+      <div class="term-line fragment fade-in-then-semi-out" data-fragment-index="1"><span class="prompt">$</span> <span class="cmd">nf inject "correctness" 0.90</span><br><span class="out">[INJECT] correctness (s: <span class="val">0.90</span>) — p001</span></div>
+      <div class="term-line fragment fade-in-then-semi-out" data-fragment-index="2"><span class="prompt">$</span> <span class="cmd">nf inject "edge_case_handling" 0.85</span><br><span class="out">[INJECT] edge_case_handling (s: <span class="val">0.85</span>)</span><br><span class="out">  <span class="hl">[RESONANCE]</span> ↔ @correctness: R = <span class="val">0.82</span> STRONG</span></div>
+      <div class="term-line fragment fade-in-then-semi-out" data-fragment-index="3"><span class="prompt">$</span> <span class="cmd">nf cycle 3 --trace</span><br><span class="out">[CYCLE 3] <span class="hl">[ATTRACTOR-EMERGED]</span> "defensive_quality"</span><br><span class="out">  Coherence: <span class="val">0.71</span> | 6 patterns</span></div>
       <div class="term-line fragment fade-up" data-fragment-index="4"><span class="prompt">$</span> <span class="cmd">nf inject "singleton" 0.65</span><br><span class="out"><span class="warn">⚠ LOWEST ACTIVATION IN HISTORY | 0 STRONG resonances</span></span><br><span class="out">  Lateral inhibition: <span class="hl">4 patterns suppressing</span></span></div>
     </div>
   </div>
@@ -496,23 +519,23 @@ svg text { font-family: var(--font); }
   <span class="sec-badge">07 — Commands</span>
   <h2>Six Command Domains</h2>
   <div class="grid-3">
-    <div class="card fragment fade-up" data-fragment-index="1">
+    <div class="card fragment fade-in-then-semi-out" data-fragment-index="1">
       <h3 style="font-size:0.85em">Operations</h3>
       <p style="font-size:0.5em"><code>inject</code> <code>amplify</code> <code>attenuate</code> <code>tune</code> <code>collapse</code> <code>resonate</code></p>
     </div>
-    <div class="card fragment fade-up" data-fragment-index="2">
+    <div class="card fragment fade-in-then-semi-out" data-fragment-index="2">
       <h3 style="font-size:0.85em;color:var(--purple)">Dynamics</h3>
       <p style="font-size:0.5em"><code>cycle</code> <code>evolve</code> <code>step</code> <code>reset</code></p>
     </div>
-    <div class="card fragment fade-up" data-fragment-index="3">
+    <div class="card fragment fade-in-then-semi-out" data-fragment-index="3">
       <h3 style="font-size:0.85em;color:var(--green)">Measurement</h3>
       <p style="font-size:0.5em"><code>measure</code> <code>attractor</code> <code>basin</code> <code>state</code></p>
     </div>
-    <div class="card fragment fade-up" data-fragment-index="4">
+    <div class="card fragment fade-in-then-semi-out" data-fragment-index="4">
       <h3 style="font-size:0.85em;color:var(--gold)">Visualization</h3>
       <p style="font-size:0.5em"><code>plot</code> <code>animate</code> <code>export</code></p>
     </div>
-    <div class="card fragment fade-up" data-fragment-index="5">
+    <div class="card fragment fade-in-then-semi-out" data-fragment-index="5">
       <h3 style="font-size:0.85em;color:var(--pink)">Versioning</h3>
       <p style="font-size:0.5em"><code>commit</code> <code>branch</code> <code>checkout</code> <code>diff</code> <code>merge</code></p>
     </div>
@@ -838,7 +861,7 @@ svg text { font-family: var(--font); }
 <!-- ═══════════════════════════════════════════ -->
 <!-- SLIDE 15 — TWO SESSIONS OVERVIEW           -->
 <!-- ═══════════════════════════════════════════ -->
-<section class="center-slide" data-transition="convex">
+<section class="center-slide" data-transition="convex" data-background-gradient="radial-gradient(circle at 50% 50%, rgba(123,97,255,0.08) 0%, rgba(7,7,12,1) 70%)">
   <span class="sec-badge">08 &mdash; Evidence</span>
   <h2>Two Sessions. One Engine.</h2>
   <p style="font-size:0.65em;max-width:none;text-align:center">The same master equation produced emergent structure in <strong>two entirely different domains</strong>.</p>
@@ -869,9 +892,13 @@ svg text { font-family: var(--font); }
 </section>
 
 <!-- ═══════════════════════════════════════════ -->
-<!-- SLIDE 15-SW — SW QUALITY SECTION TITLE     -->
+<!-- SW QUALITY — VERTICAL STACK                -->
+<!-- Press ▼ to dive into details, → to skip   -->
 <!-- ═══════════════════════════════════════════ -->
-<section class="center-slide" data-transition="convex">
+<section>
+
+<!-- SLIDE 15-SW — SW QUALITY SECTION TITLE     -->
+<section class="center-slide" data-transition="convex" data-background-gradient="radial-gradient(circle at 50% 50%, rgba(0,212,255,0.08) 0%, rgba(7,7,12,1) 70%)">
   <span class="sec-badge">08a &mdash; Case Study 1</span>
   <h2><span class="grad-text">Software Quality Discipline</span></h2>
   <p style="font-size:0.7em;max-width:none;text-align:center">69 patterns &middot; 52 cycles &middot; 7 absorptions &middot; 1 expulsion &middot; 5 eigenvectors</p>
@@ -1095,7 +1122,7 @@ svg text { font-family: var(--font); }
 <!-- ═══════════════════════════════════════════ -->
 <!-- SLIDE 15b-ii — THE IMMUNE RESPONSE         -->
 <!-- ═══════════════════════════════════════════ -->
-<section data-transition="convex">
+<section data-transition="convex" data-background-gradient="radial-gradient(circle at 50% 50%, rgba(255,61,142,0.05) 0%, rgba(7,7,12,1) 70%)">
   <span class="sec-badge">08 — Immunity</span>
   <h2>The Immune Response</h2>
   <p style="font-size:0.6em;max-width:none;margin-bottom:0.4em">Singleton injected at cycle 31. <strong style="color:var(--pink)">0 STRONG resonances. 4 inhibitors.</strong></p>
@@ -1188,7 +1215,7 @@ svg text { font-family: var(--font); }
 <!-- ═══════════════════════════════════════════ -->
 <!-- SLIDE 15b-iv — SINGLETON EXPELLED          -->
 <!-- ═══════════════════════════════════════════ -->
-<section data-transition="convex">
+<section data-transition="convex" data-background-gradient="radial-gradient(circle at 50% 50%, rgba(255,61,142,0.05) 0%, rgba(7,7,12,1) 70%)">
   <span class="sec-badge">08 — Expulsion</span>
   <h2>Singleton Expelled</h2>
   <p style="font-size:0.6em;max-width:none;margin-bottom:0.4em">Cycles 50&ndash;52: The first pattern in field history to fall below threshold.</p>
@@ -1462,10 +1489,16 @@ svg text { font-family: var(--font); }
   <aside class="notes">Five eigenvectors, 100% variance. The dominant axis — meaning vs. mechanism — explains a third of all quality variation. These are the fundamental dimensions of software quality, discovered by the field.</aside>
 </section>
 
+</section><!-- /SW QUALITY VERTICAL STACK -->
+
 <!-- ═══════════════════════════════════════════ -->
+<!-- PCAP — VERTICAL STACK                      -->
+<!-- Press ▼ to dive into details, → to skip   -->
+<!-- ═══════════════════════════════════════════ -->
+<section>
+
 <!-- SLIDE PCAP-TITLE — CASE STUDY 2 TITLE      -->
-<!-- ═══════════════════════════════════════════ -->
-<section class="center-slide" data-transition="convex">
+<section class="center-slide" data-transition="convex" data-background-gradient="radial-gradient(circle at 50% 50%, rgba(0,255,136,0.06) 0%, rgba(7,7,12,1) 70%)">
   <span class="sec-badge">08b &mdash; Case Study 2</span>
   <h2 style="color:var(--green)">Network Forensics (PCAP)</h2>
   <p style="font-size:0.7em;max-width:none;text-align:center">10 patterns &middot; 12 cycles &middot; 0 expulsions &middot; <strong>default parameters</strong></p>
@@ -1550,7 +1583,7 @@ svg text { font-family: var(--font); }
 <!-- ═══════════════════════════════════════════ -->
 <!-- SLIDE PCAP-3 — THE DISCOVERY: AsyncRAT      -->
 <!-- ═══════════════════════════════════════════ -->
-<section class="center-slide" data-transition="convex">
+<section class="center-slide" data-transition="convex" data-background-gradient="radial-gradient(circle at 50% 50%, rgba(255,61,142,0.08) 0%, rgba(7,7,12,1) 70%)">
   <span class="sec-badge">08b &mdash; Discovery</span>
   <h2>The Verdict: <span style="color:var(--pink)">AsyncRAT</span></h2>
   <p style="font-size:0.6em;max-width:none;text-align:center" class="fragment fade-up" data-fragment-index="1">At 0.93 coherence, NEOS collapsed the attractor and identified<br><strong>active malware from raw packet data</strong>.</p>
@@ -1675,6 +1708,8 @@ svg text { font-family: var(--font); }
   <aside class="notes">Coherence climbs from 0 to 0.93 in just 12 cycles. Each wave of new patterns causes a temporary dip — visible as the purple dots — but the field recovers and integrates every time. This is the signature of healthy dynamics: perturbation, integration, higher coherence.</aside>
 </section>
 
+</section><!-- /PCAP VERTICAL STACK -->
+
 <!-- ═══════════════════════════════════════════ -->
 <!-- SLIDE CROSS-DOMAIN — COMPARISON             -->
 <!-- ═══════════════════════════════════════════ -->
@@ -1703,7 +1738,7 @@ svg text { font-family: var(--font); }
 <!-- ═══════════════════════════════════════════ -->
 <!-- SLIDE 21 — THE UNIVERSAL INVARIANT         -->
 <!-- ═══════════════════════════════════════════ -->
-<section class="center-slide" data-transition="convex">
+<section class="center-slide" data-transition="convex" data-background-gradient="radial-gradient(circle at 50% 50%, rgba(255,215,0,0.08) 0%, rgba(7,7,12,1) 70%)">
   <span class="sec-badge">10 — The Ground State</span>
   <h2>The Universal Invariant</h2>
   <div style="margin:1em auto;text-align:center">
@@ -1788,7 +1823,7 @@ svg text { font-family: var(--font); }
 <!-- ═══════════════════════════════════════════ -->
 <!-- SLIDE 24 — CALL TO ACTION                  -->
 <!-- ═══════════════════════════════════════════ -->
-<section class="center-slide" data-transition="convex">
+<section class="center-slide" data-transition="convex" data-background-gradient="radial-gradient(circle at 50% 50%, rgba(0,212,255,0.06) 0%, rgba(123,97,255,0.04) 40%, rgba(7,7,12,1) 75%)">
   <h2 style="margin-bottom:0.6em">Join the Field</h2>
   <div class="grid-3" style="max-width:90%;margin:0 auto">
     <div class="cta-card fragment fade-up" data-fragment-index="1">
@@ -1843,6 +1878,8 @@ document.addEventListener('DOMContentLoaded', function() {
     backgroundTransition: 'fade',
     center: false,
     controls: true,
+    controlsLayout: 'bottom-right',
+    controlsBackArrows: 'faded',
     controlsTutorial: true,
     progress: true,
     history: true,
@@ -1857,8 +1894,10 @@ document.addEventListener('DOMContentLoaded', function() {
     autoPlayMedia: null,
     autoSlide: 0,
     mouseWheel: false,
+    navigationMode: 'grid',
     hideInactiveCursor: true,
-    hideCursorTime: 3000
+    hideCursorTime: 3000,
+    plugins: [RevealZoom, RevealSearch, RevealNotes]
   });
 
   // Flowing wave background canvas
