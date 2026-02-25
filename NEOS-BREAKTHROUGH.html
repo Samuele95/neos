@@ -1118,11 +1118,88 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 </section>
 
 <!-- ============================================================ -->
+<!-- SECTION: QUICK START TUTORIAL -->
+<!-- ============================================================ -->
+<section id="quickstart">
+  <div class="container">
+    <span class="sec-num reveal">08 &mdash; Hands-On</span>
+    <h2 class="reveal">Quick Start: Try It Now</h2>
+
+    <p class="reveal"><strong>Nothing to install.</strong> Copy the <a href="https://github.com/Samuele95/neos/blob/main/prompts/nfos-kernel.md" target="_blank" rel="noopener" style="color:var(--cyan)">kernel prompt</a>, paste it as your system prompt in any LLM (Claude, Gemini, ChatGPT), and start typing commands. The LLM <em>is</em> the machine. Here is a complete first session in eight steps.</p>
+
+    <div class="terminal reveal" role="region" aria-label="Quick start tutorial — complete first session">
+      <div class="terminal-bar"><span class="terminal-dot"></span><span class="terminal-dot"></span><span class="terminal-dot"></span><span style="color:#666;font-size:0.8rem;margin-left:auto">quick-start &mdash; complete first session</span></div>
+      <div class="terminal-body">
+<span class="out" style="color:var(--cyan)">--- Step 1: Create a Session ---</span>
+<span class="prompt">$</span> <span class="cmd">nf session new "Startup Idea Analysis"</span>
+<span class="out">[SESSION] Created: Startup Idea Analysis</span>
+<span class="out">  Field: main (default)</span>
+<span class="out">  Mode: step (interactive)</span>
+
+<span class="out" style="color:var(--cyan)">--- Step 2: Tune Parameters (optional) ---</span>
+<span class="prompt">$</span> <span class="cmd">nf tune lambda=0.04 alpha=0.35</span>
+<span class="out">[TUNE] &lambda;: 0.05 &rarr; 0.04, &alpha;: 0.30 &rarr; 0.35</span>
+
+<span class="out" style="color:var(--cyan)">--- Step 3: Inject Patterns ---</span>
+<span class="prompt">$</span> <span class="cmd">nf inject "strong_founding_team" 0.9</span>
+<span class="out">[INJECT] strong_founding_team (s: <span class="val">0.90</span>)</span>
+<span class="prompt">$</span> <span class="cmd">nf inject "crowded_market" 0.7</span>
+<span class="out">[INJECT] crowded_market (s: <span class="val">0.70</span>)</span>
+<span class="out">  <span class="hl">[RESONANCE]</span> &harr; @strong_founding_team: R = <span class="val">0.35</span> WEAK</span>
+<span class="prompt">$</span> <span class="cmd">nf inject "novel_technology" 0.85</span>
+<span class="prompt">$</span> <span class="cmd">nf inject "unclear_revenue_model" 0.6</span>
+<span class="prompt">$</span> <span class="cmd">nf inject "early_traction_with_users" 0.8</span>
+
+<span class="out" style="color:var(--cyan)">--- Step 4: Run Dynamics ---</span>
+<span class="prompt">$</span> <span class="cmd">nf cycle 5</span>
+<span class="out">[CYCLE 1] C = <span class="val">0.32</span>  (LOW)</span>
+<span class="out">[CYCLE 2] C = <span class="val">0.48</span>  (LOW&rarr;MEDIUM)</span>
+<span class="out">[CYCLE 3] C = <span class="val">0.61</span>  (MEDIUM)</span>
+<span class="out">[CYCLE 4] C = <span class="val">0.72</span>  (HIGH)</span>
+<span class="out">  <span class="hl">[ATTRACTOR-EMERGED]</span> "product_market_fit"</span>
+<span class="out">[CYCLE 5] C = <span class="val">0.78</span>  (HIGH)</span>
+
+<span class="out" style="color:var(--cyan)">--- Step 5: Collapse to Insight ---</span>
+<span class="prompt">$</span> <span class="cmd">nf collapse --strategy attractor</span>
+<span class="out">[COLLAPSE] Dominant: product_market_fit (<span class="val">0.78</span>)</span>
+<span class="out">  Core: {<span class="hl">@novel_technology</span>, <span class="hl">@early_traction</span>, <span class="hl">@strong_team</span>}</span>
+<span class="out">  Key risk: @unclear_revenue_model (<span class="warn">weakening, 0.42</span>)</span>
+
+<span class="out" style="color:var(--cyan)">--- Step 6: Ask Questions ---</span>
+<span class="prompt">$</span> <span class="cmd">nf ask "What is the biggest risk?"</span>
+<span class="out">  The biggest risk is @unclear_revenue_model (<span class="warn">0.42, WEAKENING</span>).</span>
+<span class="out">  Low resonance with the dominant attractor suggests the</span>
+<span class="out">  business model is disconnected from technical strength.</span>
+
+<span class="out" style="color:var(--cyan)">--- Step 7: Save Your Work ---</span>
+<span class="prompt">$</span> <span class="cmd">nf commit "Initial analysis"</span>
+<span class="out">[COMMIT] a1b2c3d: 5 patterns, C=<span class="val">0.78</span></span>
+<span class="prompt">$</span> <span class="cmd">nf session save "startup-v1"</span>
+<span class="out">[SESSION] Saved: startup-v1</span>
+
+<span class="out" style="color:var(--cyan)">--- Step 8: Go Autonomous ---</span>
+<span class="prompt">$</span> <span class="cmd">nf mode auto</span>
+<span class="prompt">$</span> <span class="cmd">nf task "Analyze top 3 risks and recommend mitigations"</span>
+<span class="out">[AUTO] Running inject&rarr;cycle&rarr;collapse pipeline...</span>
+<span class="out">[COMPLETE] 8 cycles, C=<span class="val">0.82</span>, 2 attractors</span>
+<span class="out">  OUTPUT:</span>
+<span class="out">    risks: [revenue_model (<span class="warn">critical</span>), market_competition (<span class="warn">moderate</span>),</span>
+<span class="out">           team_scaling (<span class="val">low</span>)]</span>
+<span class="out">    mitigations: [pilot_pricing, niche_positioning, advisory_board]</span>
+<span class="out">    confidence: <span class="hl">HIGH</span> (<span class="val">0.82</span>)</span>
+      </div>
+    </div>
+
+    <p class="reveal">That is the entire workflow: <strong>inject</strong> meaning, <strong>cycle</strong> dynamics, <strong>collapse</strong> to insight, <strong>ask</strong> questions, <strong>save</strong> your work, <strong>go autonomous</strong>. Every command maps to a precise operation on the field equation. The <a href="#reference" style="color:var(--cyan)">Command Reference</a> below documents all ~42 commands across 10 categories.</p>
+  </div>
+</section>
+
+<!-- ============================================================ -->
 <!-- SECTION 9: THE EVOLUTION LADDER -->
 <!-- ============================================================ -->
 <section id="evolution">
   <div class="container">
-    <span class="sec-num reveal">08 &mdash; The Hierarchy</span>
+    <span class="sec-num reveal">09 &mdash; The Hierarchy</span>
     <h2 class="reveal">The Evolution Ladder</h2>
 
     <p class="reveal">NEOS did not appear from nothing. It sits atop a progression that stretches from the simplest organizational structures in nature to the most complex cognitive systems. Each level encapsulates the one below it, adding new capability without destroying what came before.</p>
@@ -1154,7 +1231,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 <!-- ============================================================ -->
 <section id="unified">
   <div class="container">
-    <span class="sec-num reveal">09 &mdash; Unification</span>
+    <span class="sec-num reveal">10 &mdash; Unification</span>
     <h2 class="reveal">The Unified Field</h2>
 
     <p class="reveal">The three pillars &mdash; neural fields, symbolic reasoning, and quantum semantics &mdash; are not independent theories bolted together. They are three <em>perspectives</em> on a single underlying reality, like how wave mechanics, matrix mechanics, and path integrals are all quantum mechanics.</p>
@@ -1206,7 +1283,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 <!-- ============================================================ -->
 <section id="why-now">
   <div class="container">
-    <span class="sec-num reveal">10 &mdash; The Moment</span>
+    <span class="sec-num reveal">11 &mdash; The Moment</span>
     <h2 class="reveal">Why Now</h2>
 
     <p class="reveal">NEOS is not a fantasy from science fiction. It is buildable <em>today</em> because four independent developments have converged simultaneously &mdash; and their intersection creates an opening that didn't exist even two years ago.</p>
@@ -1252,7 +1329,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 <!-- ============================================================ -->
 <section id="multi-agent">
   <div class="container">
-    <span class="sec-num reveal">11 &mdash; Orchestration</span>
+    <span class="sec-num reveal">12 &mdash; Orchestration</span>
     <h2 class="reveal">Multi-Agent Orchestration</h2>
 
     <p class="reveal">A single neural field is like a single brain hemisphere &mdash; powerful but limited in perspective. NEOS's multi-field architecture enables <strong>multi-perspective analysis</strong> where different fields represent different viewpoints, coupled through a resonance matrix that allows them to influence each other.</p>
@@ -1335,34 +1412,6 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <p class="reveal">Multi-field orchestration is the foundation for <strong>true multi-agent reasoning</strong>. Today's agent frameworks coordinate through message passing &mdash; one agent sends text to another, losing all nuance and intermediate state. In NEOS, agents share <em>resonance</em>. A pattern in the technical field that resonates with a pattern in the business field creates cross-field reinforcement, strengthening both. Conflicts are visible as low cross-field resonance scores. The system quantifies agreement and disagreement, enabling principled arbitration rather than crude majority voting.</p>
 
     <p class="reveal">In a completed multi-field session &mdash; a product feature analysis with technical, user, and business perspectives &mdash; NEOS produced an integrated recommendation at coherence 0.85, with explicit conflict documentation showing where timeline pressure conflicted with security requirements (cross-field R=0.28). The resolution strategy was visible, traceable, and auditable. Try doing that with a chain of prompts.</p>
-
-    <p class="reveal">Here is what that product feature analysis actually looks like in the terminal:</p>
-
-    <div class="terminal reveal" role="region" aria-label="Multi-field product feature analysis">
-      <div class="terminal-bar"><span class="terminal-dot"></span><span class="terminal-dot"></span><span class="terminal-dot"></span><span style="color:#666;font-size:0.8rem;margin-left:auto">multi-field orchestration</span></div>
-      <div class="terminal-body">
-<span class="prompt">$</span> <span class="cmd">nf field create technical --decay 0.02 --threshold 0.30</span>
-<span class="out">[FIELD] Created: technical (&lambda;=0.02, &tau;=0.30)</span>
-<span class="prompt">$</span> <span class="cmd">nf field create user_experience --decay 0.05 --threshold 0.25</span>
-<span class="out">[FIELD] Created: user_experience (&lambda;=0.05, &tau;=0.25)</span>
-<span class="prompt">$</span> <span class="cmd">nf field create business --decay 0.03 --threshold 0.35</span>
-<span class="out">[FIELD] Created: business (&lambda;=0.03, &tau;=0.35)</span>
-
-<span class="prompt">$</span> <span class="cmd">nf couple technical user_experience 0.3</span>
-<span class="out">[COUPLE] technical &harr; user_experience: &Gamma;=<span class="val">0.3</span></span>
-<span class="prompt">$</span> <span class="cmd">nf couple technical business 0.2</span>
-<span class="out">[COUPLE] technical &harr; business: &Gamma;=<span class="val">0.2</span></span>
-<span class="prompt">$</span> <span class="cmd">nf couple user_experience business 0.4</span>
-<span class="out">[COUPLE] user_experience &harr; business: &Gamma;=<span class="val">0.4</span></span>
-
-<span class="prompt">$</span> <span class="cmd">nf parallel --cycles 10 --strategy attractor</span>
-<span class="out">[PARALLEL] Running 3 fields with cross-resonance...</span>
-<span class="out">[CYCLE 10] technical C=<span class="val">0.82</span> | user_experience C=<span class="val">0.78</span> | business C=<span class="val">0.75</span></span>
-<span class="out">  <span class="hl">[CONSENSUS]</span> Cross-field coherence: <span class="val">0.85</span></span>
-<span class="out">  <span class="warn">[CONFLICT]</span> timeline vs security: R=<span class="warn">0.28</span></span>
-<span class="out">  Integrated recommendation ready &mdash; <span class="hl">nf collapse --all</span> to finalize</span>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -1371,7 +1420,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 <!-- ============================================================ -->
 <section id="versioning">
   <div class="container">
-    <span class="sec-num reveal">12 &mdash; Memory</span>
+    <span class="sec-num reveal">13 &mdash; Memory</span>
     <h2 class="reveal">Versioned Thinking</h2>
 
     <p class="reveal">Git revolutionized software development by making code changes <strong>trackable, branchable, and mergeable</strong>. NEOS brings the same revolution to reasoning. Every field state can be committed, branched, diffed, and merged &mdash; with one critical addition that Git doesn't have: <strong>resonance-weighted merge</strong>.</p>
@@ -1428,34 +1477,6 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 <span class="out">  Conclusion: expulsion is <span class="hl">TOPOLOGICAL</span>, not parametric</span>
       </div>
     </div>
-
-    <p class="reveal">The same workflow applies to any decision with competing alternatives. Here, an architecture team compares microservices against a monolith:</p>
-
-    <div class="terminal reveal" role="region" aria-label="Architecture decision branching">
-      <div class="terminal-bar"><span class="terminal-dot"></span><span class="terminal-dot"></span><span class="terminal-dot"></span><span style="color:#666;font-size:0.8rem;margin-left:auto">architecture decision</span></div>
-      <div class="terminal-body">
-<span class="prompt">$</span> <span class="cmd">nf commit "baseline architecture analysis"</span>
-<span class="out">[COMMIT] v3 &mdash; 12 patterns, C=<span class="val">0.74</span></span>
-<span class="prompt">$</span> <span class="cmd">nf branch create microservices</span>
-<span class="prompt">$</span> <span class="cmd">nf inject "service_isolation" 0.85</span>
-<span class="prompt">$</span> <span class="cmd">nf inject "independent_deployment" 0.80</span>
-<span class="prompt">$</span> <span class="cmd">nf cycle 5</span>
-<span class="out">[CYCLE 5] C=<span class="val">0.81</span> &mdash; <span class="hl">[ATTRACTOR]</span> "distributed_architecture"</span>
-
-<span class="prompt">$</span> <span class="cmd">nf checkout main</span>
-<span class="prompt">$</span> <span class="cmd">nf branch create monolith</span>
-<span class="prompt">$</span> <span class="cmd">nf inject "shared_memory_speed" 0.85</span>
-<span class="prompt">$</span> <span class="cmd">nf inject "simple_deployment" 0.80</span>
-<span class="prompt">$</span> <span class="cmd">nf cycle 5</span>
-<span class="out">[CYCLE 5] C=<span class="val">0.79</span> &mdash; <span class="hl">[ATTRACTOR]</span> "unified_architecture"</span>
-
-<span class="prompt">$</span> <span class="cmd">nf diff microservices monolith</span>
-<span class="out">  Shared patterns: <span class="val">8</span> | Divergent: <span class="warn">4</span></span>
-<span class="out">  microservices: +scalability(<span class="val">0.82</span>) +fault_isolation(<span class="val">0.79</span>)</span>
-<span class="out">  monolith: +simplicity(<span class="val">0.84</span>) +latency(<span class="val">0.81</span>)</span>
-<span class="out">  Key trade-off: <span class="hl">operational complexity vs development speed</span></span>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -1464,7 +1485,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 <!-- ============================================================ -->
 <section id="autonomy">
   <div class="container">
-    <span class="sec-num reveal">13 &mdash; Control</span>
+    <span class="sec-num reveal">14 &mdash; Control</span>
     <h2 class="reveal">The Autonomy Dial</h2>
 
     <p class="reveal">How much should the system think on its own? This is not a binary choice between manual and autonomous. NEOS provides a <strong>spectrum</strong> &mdash; three modes that let you dial in the exact level of human oversight you need.</p>
@@ -1510,33 +1531,6 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <p class="reveal">You can switch modes mid-operation. Start in auto, notice something interesting in the progress log, switch to checkpoint to investigate, then step through a few cycles manually before letting it continue. The autonomy dial is always accessible. This is critical because human oversight needs vary by context. Exploring a new domain? Start in step mode to build intuition. Running an established workflow? Use auto. Somewhere in between? Checkpoint mode with <code>nf checkpoint "attractor_emerged"</code> lets the system run freely until something interesting happens.</p>
 
     <p class="reveal">The autonomy spectrum also enables progressive trust. A new user starts in step mode, watching each computation. As they develop confidence in the system's dynamics, they move to checkpoint, then auto. The same field configuration can be operated at any autonomy level without modification. This is the NEOS answer to the "AI alignment" question at the practical level: not a fixed policy, but a <strong>continuously adjustable dial</strong> that the human operator controls at all times.</p>
-
-    <p class="reveal">All three modes in action &mdash; a security code review that starts careful and progressively hands off control:</p>
-
-    <div class="terminal reveal" role="region" aria-label="Autonomy modes demonstration">
-      <div class="terminal-bar"><span class="terminal-dot"></span><span class="terminal-dot"></span><span class="terminal-dot"></span><span style="color:#666;font-size:0.8rem;margin-left:auto">security code review &mdash; autonomy modes</span></div>
-      <div class="terminal-body">
-<span class="out" style="color:var(--cyan)">--- Step Mode: full manual control ---</span>
-<span class="prompt">$</span> <span class="cmd">nf mode step</span>
-<span class="prompt">$</span> <span class="cmd">nf inject "sql_injection_risk" 0.90</span>
-<span class="out">[INJECT] sql_injection_risk (s: <span class="val">0.90</span>) &mdash; <span class="warn">PAUSED</span> (step mode)</span>
-<span class="out">  Press ENTER to continue or <span class="hl">nf state</span> to inspect...</span>
-
-<span class="out" style="color:var(--purple)">--- Checkpoint Mode: supervised autonomy ---</span>
-<span class="prompt">$</span> <span class="cmd">nf mode checkpoint</span>
-<span class="prompt">$</span> <span class="cmd">nf checkpoint "attractor_emerged"</span>
-<span class="prompt">$</span> <span class="cmd">nf cycle 20</span>
-<span class="out">[CYCLE 1..7] Running...</span>
-<span class="out">[CYCLE 8] <span class="hl">[ATTRACTOR-EMERGED]</span> "input_validation_critical"</span>
-<span class="out">  <span class="warn">AUTO-PAUSED</span> &mdash; checkpoint condition met</span>
-
-<span class="out" style="color:var(--green)">--- Auto Mode: full autonomy ---</span>
-<span class="prompt">$</span> <span class="cmd">nf mode auto</span>
-<span class="prompt">$</span> <span class="cmd">nf task "complete security audit" --target coherence=0.85</span>
-<span class="out">[AUTO] Running to target coherence 0.85...</span>
-<span class="out">[COMPLETE] 14 cycles, C=<span class="val">0.87</span>, 3 attractors, 2 warnings</span>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -1545,7 +1539,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 <!-- ============================================================ -->
 <section id="observable">
   <div class="container">
-    <span class="sec-num reveal">14 &mdash; Transparency</span>
+    <span class="sec-num reveal">15 &mdash; Transparency</span>
     <h2 class="reveal">Observable Reasoning</h2>
 
     <p class="reveal">The most dangerous property of current AI systems is their <strong>opacity</strong>. An agent makes a decision and you cannot see <em>why</em>. NEOS makes reasoning <strong>visible</strong>. Every aspect of the cognitive process can be observed, measured, and visualized in real time.</p>
@@ -1643,31 +1637,6 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <p class="reveal">Outputs can be rendered in four formats: ASCII (terminal), SVG (visual), Mermaid (diagramming), and JSON (programmatic). This means NEOS reasoning is not just visible &mdash; it is <strong>exportable, shareable, and integrable</strong>. You can embed an attractor analysis in a report, pipe a resonance network into a visualization tool, or feed JSON state into a downstream system.</p>
 
     <p class="reveal">Consider the practical implications. A team of analysts working on a complex problem can <em>watch the same field evolve</em>, see which ideas are gaining traction, identify when consensus is forming (coherence rising) or when perspectives are diverging (coherence dropping). A teacher can use step mode to show students how ideas interact, compete, and crystallize into understanding. A researcher can compare two branches of reasoning side by side, with quantitative measures of how they differ. This is not a futuristic fantasy &mdash; it is what the specification already defines. The visualization is not a nice-to-have feature. It is the <strong>debugger for cognition</strong>.</p>
-
-    <p class="reveal">Here is what the debugger looks like. An API design session, visualized two ways:</p>
-
-    <div class="terminal reveal" role="region" aria-label="Observable reasoning terminal demo">
-      <div class="terminal-bar"><span class="terminal-dot"></span><span class="terminal-dot"></span><span class="terminal-dot"></span><span style="color:#666;font-size:0.8rem;margin-left:auto">api design &mdash; field visualization</span></div>
-      <div class="terminal-body">
-<span class="prompt">$</span> <span class="cmd">nf plot field --style ascii</span>
-<span class="out">  Field: api_design (12 patterns, C=<span class="val">0.78</span>)</span>
-<span class="out">  rest_conventions    <span class="hl">|========</span>         <span class="val">0.82</span></span>
-<span class="out">  error_handling      <span class="hl">|=======</span>          <span class="val">0.76</span></span>
-<span class="out">  versioning_strategy <span class="hl">|=======</span>          <span class="val">0.74</span></span>
-<span class="out">  rate_limiting       <span class="hl">|======</span>           <span class="val">0.68</span></span>
-<span class="out">  auth_scheme         <span class="hl">|=====</span>            <span class="val">0.61</span></span>
-<span class="out">  pagination          <span style="color:var(--text-dim)">|====</span>             <span style="color:var(--text-dim)">0.45</span></span>
-<span class="out">  caching_headers     <span style="color:var(--text-dim)">|===</span>              <span style="color:var(--text-dim)">0.38</span></span>
-
-<span class="prompt">$</span> <span class="cmd">nf plot network</span>
-<span class="out">  rest_conventions(<span class="val">0.82</span>)---[<span class="hl">0.89</span>]---error_handling(<span class="val">0.76</span>)</span>
-<span class="out">       |                              |</span>
-<span class="out">    [<span class="val">0.71</span>]                         [<span class="val">0.67</span>]</span>
-<span class="out">       |                              |</span>
-<span class="out">  versioning(<span class="val">0.74</span>)------[<span class="val">0.58</span>]------rate_limiting(<span class="val">0.68</span>)</span>
-<span class="out">  <span class="hl">[ATTRACTOR]</span> "api_best_practices" &mdash; core: 4 patterns, basin: 7</span>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -1676,7 +1645,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 <!-- ============================================================ -->
 <section id="math">
   <div class="container">
-    <span class="sec-num reveal">15 &mdash; Parameters</span>
+    <span class="sec-num reveal">16 &mdash; Parameters</span>
     <h2 class="reveal">The Math, Decoded</h2>
 
     <p class="reveal">NEOS has four fundamental parameters. Each controls a different aspect of field behavior, and each has an intuitive real-world metaphor.</p>
@@ -1748,11 +1717,400 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 </section>
 
 <!-- ============================================================ -->
+<!-- SECTION: COMMAND REFERENCE -->
+<!-- ============================================================ -->
+<section id="reference">
+  <div class="container">
+    <span class="sec-num reveal">17 &mdash; The Toolkit</span>
+    <h2 class="reveal">Command Reference</h2>
+
+    <p class="reveal">NEOS provides <strong>~42 commands</strong> organized in 10 categories. Each maps to a precise mathematical operation on the neural field. This section is a comprehensive reference &mdash; click any category to expand its full command set with examples.</p>
+
+    <p class="reveal" style="font-size:0.88rem;color:var(--text-dim)">Syntax conventions: <code>@name</code> = pattern reference, <code>$name</code> = field reference, <code>#hash</code> = commit reference, <code>~n</code> = relative commit. Optional parameters shown in <code>[brackets]</code>.</p>
+
+    <!-- ==================== 1. SESSION MANAGEMENT ==================== -->
+    <details class="reveal" style="margin:1.5rem 0;border:1px solid rgba(255,255,255,0.08);border-radius:8px;overflow:hidden">
+      <summary style="cursor:pointer;padding:1rem 1.5rem;background:rgba(0,212,255,0.04);font-weight:600;font-size:1.05rem;list-style:none;display:flex;align-items:center;gap:0.8rem">
+        <span style="color:var(--cyan);font-family:var(--mono);font-size:0.85rem;min-width:1.2rem">&#9654;</span>
+        <span>1. Session Management</span>
+        <span style="color:var(--text-dim);font-size:0.8rem;margin-left:auto">5 commands</span>
+      </summary>
+      <div style="padding:1rem 1.5rem">
+        <table style="width:100%;border-collapse:collapse;font-size:0.88rem">
+          <thead><tr style="border-bottom:1px solid rgba(255,255,255,0.1)">
+            <th style="text-align:left;padding:0.4rem 0.6rem;color:var(--cyan)">Command</th>
+            <th style="text-align:left;padding:0.4rem 0.6rem;color:var(--text-dim)">Description</th>
+          </tr></thead>
+          <tbody>
+            <tr><td style="padding:0.3rem 0.6rem"><code>nf session new "&lt;name&gt;"</code></td><td style="padding:0.3rem 0.6rem;color:var(--text-dim)">Create a new named session with a default field</td></tr>
+            <tr><td style="padding:0.3rem 0.6rem"><code>nf session save [file]</code></td><td style="padding:0.3rem 0.6rem;color:var(--text-dim)">Persist session state to a named file</td></tr>
+            <tr><td style="padding:0.3rem 0.6rem"><code>nf session load &lt;file&gt;</code></td><td style="padding:0.3rem 0.6rem;color:var(--text-dim)">Restore a previously saved session</td></tr>
+            <tr><td style="padding:0.3rem 0.6rem"><code>nf session info</code></td><td style="padding:0.3rem 0.6rem;color:var(--text-dim)">Display summary: fields, patterns, commits, duration</td></tr>
+            <tr><td style="padding:0.3rem 0.6rem"><code>nf session export &lt;format&gt;</code></td><td style="padding:0.3rem 0.6rem;color:var(--text-dim)">Export full session as JSON or YAML</td></tr>
+          </tbody>
+        </table>
+        <div class="terminal" role="region" aria-label="Session management example" style="margin-top:1rem">
+          <div class="terminal-bar"><span class="terminal-dot"></span><span class="terminal-dot"></span><span class="terminal-dot"></span></div>
+          <div class="terminal-body">
+<span class="prompt">$</span> <span class="cmd">nf session new "Security Analysis"</span>
+<span class="out">[SESSION] Created: Security Analysis</span>
+<span class="out">  Field: main (default)</span>
+<span class="out">  Parameters: &lambda;=0.05, &alpha;=0.30, &tau;=0.40, &sigma;=0.50</span>
+<span class="out">  Mode: step (interactive)</span>
+<span class="prompt">$</span> <span class="cmd">nf session save "security_v1"</span>
+<span class="out">[SESSION] Saved: security_v1 (8 patterns, 3 commits)</span>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- ==================== 2. FIELD OPERATIONS ==================== -->
+    <details class="reveal" style="margin:1.5rem 0;border:1px solid rgba(255,255,255,0.08);border-radius:8px;overflow:hidden">
+      <summary style="cursor:pointer;padding:1rem 1.5rem;background:rgba(0,212,255,0.04);font-weight:600;font-size:1.05rem;list-style:none;display:flex;align-items:center;gap:0.8rem">
+        <span style="color:var(--cyan);font-family:var(--mono);font-size:0.85rem;min-width:1.2rem">&#9654;</span>
+        <span>2. Field Operations</span>
+        <span style="color:var(--text-dim);font-size:0.8rem;margin-left:auto">7 commands</span>
+      </summary>
+      <div style="padding:1rem 1.5rem">
+        <table style="width:100%;border-collapse:collapse;font-size:0.88rem">
+          <thead><tr style="border-bottom:1px solid rgba(255,255,255,0.1)">
+            <th style="text-align:left;padding:0.4rem 0.6rem;color:var(--cyan)">Command</th>
+            <th style="text-align:left;padding:0.4rem 0.6rem;color:var(--text-dim)">Description</th>
+          </tr></thead>
+          <tbody>
+            <tr><td style="padding:0.3rem 0.6rem"><code>nf inject "&lt;pattern&gt;" [strength]</code></td><td style="padding:0.3rem 0.6rem;color:var(--text-dim)">Add a pattern with activation 0.0&ndash;1.0 (default 0.5)</td></tr>
+            <tr><td style="padding:0.3rem 0.6rem"><code>nf amplify @pattern [factor]</code></td><td style="padding:0.3rem 0.6rem;color:var(--text-dim)">Multiply activation by factor (default 1.5). Use <code>--resonance</code> to scale by support</td></tr>
+            <tr><td style="padding:0.3rem 0.6rem"><code>nf attenuate @pattern [factor]</code></td><td style="padding:0.3rem 0.6rem;color:var(--text-dim)">Reduce activation. Below &tau; = dormant</td></tr>
+            <tr><td style="padding:0.3rem 0.6rem"><code>nf remove @pattern</code></td><td style="padding:0.3rem 0.6rem;color:var(--text-dim)">Permanently delete a pattern and its resonance connections</td></tr>
+            <tr><td style="padding:0.3rem 0.6rem"><code>nf tune &lt;param&gt;=&lt;value&gt;</code></td><td style="padding:0.3rem 0.6rem;color:var(--text-dim)">Adjust &lambda;, &alpha;, &tau;, &sigma;. Presets: <code>default</code>, <code>persistent</code>, <code>volatile</code>, <code>focused</code></td></tr>
+            <tr><td style="padding:0.3rem 0.6rem"><code>nf collapse [--strategy &lt;s&gt;]</code></td><td style="padding:0.3rem 0.6rem;color:var(--text-dim)">Resolve superposition: <code>attractor</code> | <code>threshold</code> | <code>weighted</code> | <code>sample</code></td></tr>
+            <tr><td style="padding:0.3rem 0.6rem"><code>nf resonate [@p1 @p2]</code></td><td style="padding:0.3rem 0.6rem;color:var(--text-dim)">Compute resonance between patterns. Use <code>--matrix</code> for all pairs</td></tr>
+          </tbody>
+        </table>
+        <div class="terminal" role="region" aria-label="Field operations example" style="margin-top:1rem">
+          <div class="terminal-bar"><span class="terminal-dot"></span><span class="terminal-dot"></span><span class="terminal-dot"></span></div>
+          <div class="terminal-body">
+<span class="prompt">$</span> <span class="cmd">nf inject "sql_injection_risk" 0.9</span>
+<span class="out">[INJECT] sql_injection_risk (s: <span class="val">0.90</span>)</span>
+<span class="prompt">$</span> <span class="cmd">nf inject "user_input_validation" 0.85 --tags security,boundary</span>
+<span class="out">[INJECT] user_input_validation (s: <span class="val">0.85</span>)</span>
+<span class="out">  <span class="hl">[RESONANCE]</span> &harr; @sql_injection_risk: R = <span class="val">0.78</span> STRONG</span>
+<span class="prompt">$</span> <span class="cmd">nf amplify @sql_injection_risk 1.3</span>
+<span class="out">[AMPLIFY] @sql_injection_risk: 0.86 &rarr; <span class="val">1.00</span> (capped)</span>
+<span class="prompt">$</span> <span class="cmd">nf collapse --strategy attractor</span>
+<span class="out">[COLLAPSE] Dominant: input_security_concern (<span class="val">0.82</span>)</span>
+<span class="out">  Supporting: {<span class="hl">@sql_injection_risk</span>, <span class="hl">@user_input_validation</span>}</span>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- ==================== 3. DYNAMICS CONTROL ==================== -->
+    <details class="reveal" style="margin:1.5rem 0;border:1px solid rgba(255,255,255,0.08);border-radius:8px;overflow:hidden">
+      <summary style="cursor:pointer;padding:1rem 1.5rem;background:rgba(0,212,255,0.04);font-weight:600;font-size:1.05rem;list-style:none;display:flex;align-items:center;gap:0.8rem">
+        <span style="color:var(--cyan);font-family:var(--mono);font-size:0.85rem;min-width:1.2rem">&#9654;</span>
+        <span>3. Dynamics Control</span>
+        <span style="color:var(--text-dim);font-size:0.8rem;margin-left:auto">4 commands</span>
+      </summary>
+      <div style="padding:1rem 1.5rem">
+        <p style="color:var(--text-dim);font-size:0.88rem;margin-top:0">Each cycle executes 6 phases of the master equation: <strong>Decay</strong> &rarr; <strong>Resonance</strong> &rarr; <strong>Amplify</strong> &rarr; <strong>Threshold</strong> &rarr; <strong>Coherence</strong> &rarr; <strong>Attractor Check</strong>.</p>
+        <table style="width:100%;border-collapse:collapse;font-size:0.88rem">
+          <thead><tr style="border-bottom:1px solid rgba(255,255,255,0.1)">
+            <th style="text-align:left;padding:0.4rem 0.6rem;color:var(--cyan)">Command</th>
+            <th style="text-align:left;padding:0.4rem 0.6rem;color:var(--text-dim)">Description</th>
+          </tr></thead>
+          <tbody>
+            <tr><td style="padding:0.3rem 0.6rem"><code>nf cycle [n] [--trace]</code></td><td style="padding:0.3rem 0.6rem;color:var(--text-dim)">Run n complete cycles. <code>--trace</code> shows all 6 phases, <code>--until</code> for stop condition</td></tr>
+            <tr><td style="padding:0.3rem 0.6rem"><code>nf evolve [--target &lt;c&gt;]</code></td><td style="padding:0.3rem 0.6rem;color:var(--text-dim)">Run until target coherence or max cycles. Auto-stop</td></tr>
+            <tr><td style="padding:0.3rem 0.6rem"><code>nf step [n]</code></td><td style="padding:0.3rem 0.6rem;color:var(--text-dim)">Execute single micro-step (one phase). Flags: <code>--phase decay|resonance|amplify</code></td></tr>
+            <tr><td style="padding:0.3rem 0.6rem"><code>nf reset [--preserve @p]</code></td><td style="padding:0.3rem 0.6rem;color:var(--text-dim)">Clear field state. Keep specific patterns with <code>--preserve</code></td></tr>
+          </tbody>
+        </table>
+        <div class="terminal" role="region" aria-label="Dynamics control example" style="margin-top:1rem">
+          <div class="terminal-bar"><span class="terminal-dot"></span><span class="terminal-dot"></span><span class="terminal-dot"></span></div>
+          <div class="terminal-body">
+<span class="prompt">$</span> <span class="cmd">nf cycle 1 --trace</span>
+<span class="out">[CYCLE 1]</span>
+<span class="out">  DECAY: @sql_injection_risk: 0.90 &rarr; <span class="val">0.86</span></span>
+<span class="out">  RESONANCE: @sql_inj &harr; @user_input: R = <span class="val">0.78</span> STRONG</span>
+<span class="out">  AMPLIFY: @sql_injection_risk: 0.86 &rarr; <span class="val">0.92</span></span>
+<span class="out">  THRESHOLD: all above &tau;=0.40</span>
+<span class="out">  COHERENCE: <span class="val">0.78</span> [HIGH]</span>
+<span class="out">  <span class="hl">[ATTRACTOR-EMERGED]</span> "input_security_concern"</span>
+<span class="prompt">$</span> <span class="cmd">nf evolve --target 0.85</span>
+<span class="out">[EVOLVE] Cycle 6: C=<span class="val">0.87</span> [TARGET MET]</span>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- ==================== 4. MEASUREMENT ==================== -->
+    <details class="reveal" style="margin:1.5rem 0;border:1px solid rgba(255,255,255,0.08);border-radius:8px;overflow:hidden">
+      <summary style="cursor:pointer;padding:1rem 1.5rem;background:rgba(0,212,255,0.04);font-weight:600;font-size:1.05rem;list-style:none;display:flex;align-items:center;gap:0.8rem">
+        <span style="color:var(--cyan);font-family:var(--mono);font-size:0.85rem;min-width:1.2rem">&#9654;</span>
+        <span>4. Measurement</span>
+        <span style="color:var(--text-dim);font-size:0.8rem;margin-left:auto">6 commands</span>
+      </summary>
+      <div style="padding:1rem 1.5rem">
+        <table style="width:100%;border-collapse:collapse;font-size:0.88rem">
+          <thead><tr style="border-bottom:1px solid rgba(255,255,255,0.1)">
+            <th style="text-align:left;padding:0.4rem 0.6rem;color:var(--cyan)">Command</th>
+            <th style="text-align:left;padding:0.4rem 0.6rem;color:var(--text-dim)">Description</th>
+          </tr></thead>
+          <tbody>
+            <tr><td style="padding:0.3rem 0.6rem"><code>nf measure coherence</code></td><td style="padding:0.3rem 0.6rem;color:var(--text-dim)">C = mean_R / (1 + var_R). Use <code>--breakdown</code> for per-cluster detail</td></tr>
+            <tr><td style="padding:0.3rem 0.6rem"><code>nf measure energy</code></td><td style="padding:0.3rem 0.6rem;color:var(--text-dim)">E = &Sigma;A(p)&sup2;. Shows concentration and entropy</td></tr>
+            <tr><td style="padding:0.3rem 0.6rem"><code>nf attractor list</code></td><td style="padding:0.3rem 0.6rem;color:var(--text-dim)">List all emerged attractors with coherence and core patterns</td></tr>
+            <tr><td style="padding:0.3rem 0.6rem"><code>nf attractor info &lt;name&gt;</code></td><td style="padding:0.3rem 0.6rem;color:var(--text-dim)">Deep dive: core patterns, resonance structure, basin, stability</td></tr>
+            <tr><td style="padding:0.3rem 0.6rem"><code>nf basin @attractor</code></td><td style="padding:0.3rem 0.6rem;color:var(--text-dim)">Analyze basin of attraction: size, boundary, flow estimates</td></tr>
+            <tr><td style="padding:0.3rem 0.6rem"><code>nf state [--json]</code></td><td style="padding:0.3rem 0.6rem;color:var(--text-dim)">Full field dump: patterns, attractors, resonance cache. <code>--algebraic</code> for matrix form</td></tr>
+          </tbody>
+        </table>
+        <div class="terminal" role="region" aria-label="Measurement example" style="margin-top:1rem">
+          <div class="terminal-bar"><span class="terminal-dot"></span><span class="terminal-dot"></span><span class="terminal-dot"></span></div>
+          <div class="terminal-body">
+<span class="prompt">$</span> <span class="cmd">nf measure coherence --breakdown</span>
+<span class="out">[COHERENCE] <span class="val">0.78</span> [HIGH]</span>
+<span class="out">  Cluster 1 (security): <span class="val">0.85</span></span>
+<span class="out">    @sql_injection_risk, @user_input_validation, @authentication</span>
+<span class="out">  Cluster 2 (logging): <span class="val">0.45</span></span>
+<span class="out">    @audit_log, @error_handling</span>
+<span class="prompt">$</span> <span class="cmd">nf attractor list</span>
+<span class="out">[ATTRACTORS] 2 emerged</span>
+<span class="out">  1. security_focus (C: <span class="val">0.85</span>) &mdash; 72% of field energy</span>
+<span class="out">  2. logging_concern (C: <span class="val">0.62</span>) &mdash; 18% of field energy</span>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- ==================== 5. VISUALIZATION ==================== -->
+    <details class="reveal" style="margin:1.5rem 0;border:1px solid rgba(255,255,255,0.08);border-radius:8px;overflow:hidden">
+      <summary style="cursor:pointer;padding:1rem 1.5rem;background:rgba(0,212,255,0.04);font-weight:600;font-size:1.05rem;list-style:none;display:flex;align-items:center;gap:0.8rem">
+        <span style="color:var(--cyan);font-family:var(--mono);font-size:0.85rem;min-width:1.2rem">&#9654;</span>
+        <span>5. Visualization</span>
+        <span style="color:var(--text-dim);font-size:0.8rem;margin-left:auto">5 commands</span>
+      </summary>
+      <div style="padding:1rem 1.5rem">
+        <table style="width:100%;border-collapse:collapse;font-size:0.88rem">
+          <thead><tr style="border-bottom:1px solid rgba(255,255,255,0.1)">
+            <th style="text-align:left;padding:0.4rem 0.6rem;color:var(--cyan)">Command</th>
+            <th style="text-align:left;padding:0.4rem 0.6rem;color:var(--text-dim)">Description</th>
+          </tr></thead>
+          <tbody>
+            <tr><td style="padding:0.3rem 0.6rem"><code>nf plot field [--style &lt;s&gt;]</code></td><td style="padding:0.3rem 0.6rem;color:var(--text-dim)">Bar chart, heatmap, or pie of pattern activations</td></tr>
+            <tr><td style="padding:0.3rem 0.6rem"><code>nf plot network</code></td><td style="padding:0.3rem 0.6rem;color:var(--text-dim)">Resonance graph &mdash; nodes = patterns, edges = R values</td></tr>
+            <tr><td style="padding:0.3rem 0.6rem"><code>nf plot topology [--3d]</code></td><td style="padding:0.3rem 0.6rem;color:var(--text-dim)">Energy landscape with attractor basins as valleys</td></tr>
+            <tr><td style="padding:0.3rem 0.6rem"><code>nf animate dynamics</code></td><td style="padding:0.3rem 0.6rem;color:var(--text-dim)">Frame-by-frame field evolution across cycles</td></tr>
+            <tr><td style="padding:0.3rem 0.6rem"><code>nf export &lt;format&gt;</code></td><td style="padding:0.3rem 0.6rem;color:var(--text-dim)">SVG, Mermaid, JSON, Plotly, or ASCII export</td></tr>
+          </tbody>
+        </table>
+        <div class="terminal" role="region" aria-label="Visualization example" style="margin-top:1rem">
+          <div class="terminal-bar"><span class="terminal-dot"></span><span class="terminal-dot"></span><span class="terminal-dot"></span></div>
+          <div class="terminal-body">
+<span class="prompt">$</span> <span class="cmd">nf plot field --style bar --sort</span>
+<span class="out">[FIELD] main (Coherence: <span class="val">0.78</span>)</span>
+<span class="out">  sql_injection_risk    <span class="hl">|####################################</span> <span class="val">0.92</span></span>
+<span class="out">  user_input_validation <span class="hl">|#################################</span>  <span class="val">0.88</span></span>
+<span class="out">  authentication       <span class="hl">|############################</span>       <span class="val">0.75</span></span>
+<span class="out">  session_management   <span style="color:var(--text-dim)">|####################</span>               <span style="color:var(--text-dim)">0.52</span></span>
+<span class="out">  logging              <span style="color:var(--text-dim)">|##############</span>                     <span style="color:var(--text-dim)">0.35</span></span>
+<span class="prompt">$</span> <span class="cmd">nf plot network</span>
+<span class="out">  sql_inj(<span class="val">0.92</span>)---[<span class="hl">0.88</span>]---user_inp(<span class="val">0.88</span>)</span>
+<span class="out">       |                        |</span>
+<span class="out">    [<span class="val">0.82</span>]                   [<span class="val">0.78</span>]</span>
+<span class="out">       |                        |</span>
+<span class="out">  auth(<span class="val">0.75</span>)----[<span class="val">0.68</span>]---session(<span style="color:var(--text-dim)">0.52</span>)</span>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- ==================== 6. VERSIONING ==================== -->
+    <details class="reveal" style="margin:1.5rem 0;border:1px solid rgba(255,255,255,0.08);border-radius:8px;overflow:hidden">
+      <summary style="cursor:pointer;padding:1rem 1.5rem;background:rgba(0,212,255,0.04);font-weight:600;font-size:1.05rem;list-style:none;display:flex;align-items:center;gap:0.8rem">
+        <span style="color:var(--cyan);font-family:var(--mono);font-size:0.85rem;min-width:1.2rem">&#9654;</span>
+        <span>6. Versioning</span>
+        <span style="color:var(--text-dim);font-size:0.8rem;margin-left:auto">7 commands</span>
+      </summary>
+      <div style="padding:1rem 1.5rem">
+        <p style="color:var(--text-dim);font-size:0.88rem;margin-top:0">Git-like version control for reasoning. Branch, diff, and merge thinking &mdash; with <strong>resonance-weighted merge</strong> that integrates perspectives through field dynamics.</p>
+        <table style="width:100%;border-collapse:collapse;font-size:0.88rem">
+          <thead><tr style="border-bottom:1px solid rgba(255,255,255,0.1)">
+            <th style="text-align:left;padding:0.4rem 0.6rem;color:var(--cyan)">Command</th>
+            <th style="text-align:left;padding:0.4rem 0.6rem;color:var(--text-dim)">Description</th>
+          </tr></thead>
+          <tbody>
+            <tr><td style="padding:0.3rem 0.6rem"><code>nf commit [message]</code></td><td style="padding:0.3rem 0.6rem;color:var(--text-dim)">Snapshot current field state</td></tr>
+            <tr><td style="padding:0.3rem 0.6rem"><code>nf branch create &lt;name&gt;</code></td><td style="padding:0.3rem 0.6rem;color:var(--text-dim)">Create a branch from current state</td></tr>
+            <tr><td style="padding:0.3rem 0.6rem"><code>nf branch list [--verbose]</code></td><td style="padding:0.3rem 0.6rem;color:var(--text-dim)">List all branches with optional state details</td></tr>
+            <tr><td style="padding:0.3rem 0.6rem"><code>nf checkout &lt;ref&gt;</code></td><td style="padding:0.3rem 0.6rem;color:var(--text-dim)">Switch to branch, commit hash, or relative ref (<code>~n</code>)</td></tr>
+            <tr><td style="padding:0.3rem 0.6rem"><code>nf history [--graph]</code></td><td style="padding:0.3rem 0.6rem;color:var(--text-dim)">Commit log with optional ASCII branch graph</td></tr>
+            <tr><td style="padding:0.3rem 0.6rem"><code>nf diff [ref1] [ref2]</code></td><td style="padding:0.3rem 0.6rem;color:var(--text-dim)">Compare states: pattern changes, attractor shifts, metric deltas</td></tr>
+            <tr><td style="padding:0.3rem 0.6rem"><code>nf merge &lt;branch&gt;</code></td><td style="padding:0.3rem 0.6rem;color:var(--text-dim)">Resonance-weighted merge. Strategies: <code>resonance</code> | <code>ours</code> | <code>theirs</code> | <code>manual</code></td></tr>
+          </tbody>
+        </table>
+        <div class="terminal" role="region" aria-label="Versioning example" style="margin-top:1rem">
+          <div class="terminal-bar"><span class="terminal-dot"></span><span class="terminal-dot"></span><span class="terminal-dot"></span></div>
+          <div class="terminal-body">
+<span class="prompt">$</span> <span class="cmd">nf commit "Baseline security analysis"</span>
+<span class="out">[COMMIT] a1b2c3d: 4 patterns, C=<span class="val">0.82</span></span>
+<span class="prompt">$</span> <span class="cmd">nf branch create mitigation_exploration</span>
+<span class="prompt">$</span> <span class="cmd">nf inject "defense_in_depth" 0.85</span>
+<span class="prompt">$</span> <span class="cmd">nf inject "parameterized_queries" 0.90</span>
+<span class="prompt">$</span> <span class="cmd">nf cycle 3</span>
+<span class="out">[CYCLE 3] C=<span class="val">0.78</span></span>
+<span class="prompt">$</span> <span class="cmd">nf checkout main</span>
+<span class="prompt">$</span> <span class="cmd">nf diff main mitigation_exploration</span>
+<span class="out">  + @defense_in_depth (<span class="val">0.82</span>) [ADDED]</span>
+<span class="out">  + @parameterized_queries (<span class="val">0.88</span>) [ADDED]</span>
+<span class="out">  ~ @sql_injection_risk: 0.92 &rarr; <span class="val">0.78</span> (<span class="warn">-0.14</span>)</span>
+<span class="prompt">$</span> <span class="cmd">nf merge mitigation_exploration</span>
+<span class="out">[MERGE] Strategy: resonance</span>
+<span class="out">  + @defense_in_depth (included, R=<span class="val">0.72</span>)</span>
+<span class="out">  + @parameterized_queries (included, R=<span class="val">0.85</span>)</span>
+<span class="out">  Result: 6 patterns, C=<span class="val">0.80</span></span>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- ==================== 7. MULTI-FIELD ORCHESTRATION ==================== -->
+    <details class="reveal" style="margin:1.5rem 0;border:1px solid rgba(255,255,255,0.08);border-radius:8px;overflow:hidden">
+      <summary style="cursor:pointer;padding:1rem 1.5rem;background:rgba(0,212,255,0.04);font-weight:600;font-size:1.05rem;list-style:none;display:flex;align-items:center;gap:0.8rem">
+        <span style="color:var(--cyan);font-family:var(--mono);font-size:0.85rem;min-width:1.2rem">&#9654;</span>
+        <span>7. Multi-Field Orchestration</span>
+        <span style="color:var(--text-dim);font-size:0.8rem;margin-left:auto">6 commands</span>
+      </summary>
+      <div style="padding:1rem 1.5rem">
+        <p style="color:var(--text-dim);font-size:0.88rem;margin-top:0">Multiple independent fields coupled through a resonance matrix &Gamma;. Pipeline chains fields sequentially; parallel runs them simultaneously.</p>
+        <table style="width:100%;border-collapse:collapse;font-size:0.88rem">
+          <thead><tr style="border-bottom:1px solid rgba(255,255,255,0.1)">
+            <th style="text-align:left;padding:0.4rem 0.6rem;color:var(--cyan)">Command</th>
+            <th style="text-align:left;padding:0.4rem 0.6rem;color:var(--text-dim)">Description</th>
+          </tr></thead>
+          <tbody>
+            <tr><td style="padding:0.3rem 0.6rem"><code>nf field create &lt;name&gt; [--params]</code></td><td style="padding:0.3rem 0.6rem;color:var(--text-dim)">Create field with custom parameters. Roles: reasoning, knowledge, creative, evaluation</td></tr>
+            <tr><td style="padding:0.3rem 0.6rem"><code>nf field list [--verbose]</code></td><td style="padding:0.3rem 0.6rem;color:var(--text-dim)">List all fields with role, patterns, coherence, status</td></tr>
+            <tr><td style="padding:0.3rem 0.6rem"><code>nf field activate $field</code></td><td style="padding:0.3rem 0.6rem;color:var(--text-dim)">Switch active field for subsequent commands</td></tr>
+            <tr><td style="padding:0.3rem 0.6rem"><code>nf field delete $field</code></td><td style="padding:0.3rem 0.6rem;color:var(--text-dim)">Delete field and its couplings</td></tr>
+            <tr><td style="padding:0.3rem 0.6rem"><code>nf route $src $dest</code></td><td style="padding:0.3rem 0.6rem;color:var(--text-dim)">Directional information flow. <code>--filter</code> for conditional transfer</td></tr>
+            <tr><td style="padding:0.3rem 0.6rem"><code>nf couple $f1 $f2 [--gamma g]</code></td><td style="padding:0.3rem 0.6rem;color:var(--text-dim)">Bidirectional resonance coupling. Types: excitatory, inhibitory, competitive</td></tr>
+          </tbody>
+        </table>
+        <div class="terminal" role="region" aria-label="Multi-field example" style="margin-top:1rem">
+          <div class="terminal-bar"><span class="terminal-dot"></span><span class="terminal-dot"></span><span class="terminal-dot"></span></div>
+          <div class="terminal-body">
+<span class="prompt">$</span> <span class="cmd">nf field create technical --params "lambda=0.05 tau=0.50"</span>
+<span class="out">[FIELD] Created: technical (&lambda;=0.05, &tau;=0.50)</span>
+<span class="prompt">$</span> <span class="cmd">nf field create business --params "lambda=0.08 tau=0.40"</span>
+<span class="out">[FIELD] Created: business (&lambda;=0.08, &tau;=0.40)</span>
+<span class="prompt">$</span> <span class="cmd">nf couple $technical $business --gamma 0.3</span>
+<span class="out">[COUPLE] technical &harr; business: &Gamma;=<span class="val">0.3</span></span>
+<span class="prompt">$</span> <span class="cmd">nf inject "scalability" 0.85 --into $technical</span>
+<span class="prompt">$</span> <span class="cmd">nf inject "cost_analysis" 0.80 --into $business</span>
+<span class="prompt">$</span> <span class="cmd">nf cycle 3</span>
+<span class="out">[CYCLE 3] (multi-field)</span>
+<span class="out">  technical: C=<span class="val">0.68</span> | business: C=<span class="val">0.65</span></span>
+<span class="out">  Cross-field resonance: <span class="val">0.61</span></span>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- ==================== 8. AUTONOMY & TASKS ==================== -->
+    <details class="reveal" style="margin:1.5rem 0;border:1px solid rgba(255,255,255,0.08);border-radius:8px;overflow:hidden">
+      <summary style="cursor:pointer;padding:1rem 1.5rem;background:rgba(0,212,255,0.04);font-weight:600;font-size:1.05rem;list-style:none;display:flex;align-items:center;gap:0.8rem">
+        <span style="color:var(--cyan);font-family:var(--mono);font-size:0.85rem;min-width:1.2rem">&#9654;</span>
+        <span>8. Autonomy &amp; Tasks</span>
+        <span style="color:var(--text-dim);font-size:0.8rem;margin-left:auto">7 commands</span>
+      </summary>
+      <div style="padding:1rem 1.5rem">
+        <p style="color:var(--text-dim);font-size:0.88rem;margin-top:0">Three modes on a continuum: <strong style="color:var(--cyan)">step</strong> (full control) &rarr; <strong style="color:var(--purple)">checkpoint</strong> (supervised) &rarr; <strong style="color:var(--green)">auto</strong> (autonomous). Switch at any time.</p>
+        <table style="width:100%;border-collapse:collapse;font-size:0.88rem">
+          <thead><tr style="border-bottom:1px solid rgba(255,255,255,0.1)">
+            <th style="text-align:left;padding:0.4rem 0.6rem;color:var(--cyan)">Command</th>
+            <th style="text-align:left;padding:0.4rem 0.6rem;color:var(--text-dim)">Description</th>
+          </tr></thead>
+          <tbody>
+            <tr><td style="padding:0.3rem 0.6rem"><code>nf mode step|checkpoint|auto</code></td><td style="padding:0.3rem 0.6rem;color:var(--text-dim)">Set autonomy level</td></tr>
+            <tr><td style="padding:0.3rem 0.6rem"><code>nf checkpoint add "&lt;condition&gt;"</code></td><td style="padding:0.3rem 0.6rem;color:var(--text-dim)">Pause/log when condition met. Supports coherence, attractor, cycles, energy</td></tr>
+            <tr><td style="padding:0.3rem 0.6rem"><code>nf checkpoint list</code></td><td style="padding:0.3rem 0.6rem;color:var(--text-dim)">Show all active checkpoint conditions</td></tr>
+            <tr><td style="padding:0.3rem 0.6rem"><code>nf checkpoint clear</code></td><td style="padding:0.3rem 0.6rem;color:var(--text-dim)">Remove all user-defined checkpoints</td></tr>
+            <tr><td style="padding:0.3rem 0.6rem"><code>nf proceed [n]</code></td><td style="padding:0.3rem 0.6rem;color:var(--text-dim)">Continue after pause. <code>--to "&lt;condition&gt;"</code> for targeted advance</td></tr>
+            <tr><td style="padding:0.3rem 0.6rem"><code>nf task "&lt;description&gt;"</code></td><td style="padding:0.3rem 0.6rem;color:var(--text-dim)">Run a full inject&rarr;cycle&rarr;collapse pipeline autonomously</td></tr>
+          </tbody>
+        </table>
+        <div class="terminal" role="region" aria-label="Autonomy example" style="margin-top:1rem">
+          <div class="terminal-bar"><span class="terminal-dot"></span><span class="terminal-dot"></span><span class="terminal-dot"></span></div>
+          <div class="terminal-body">
+<span class="out" style="color:var(--cyan)">--- Step Mode ---</span>
+<span class="prompt">$</span> <span class="cmd">nf mode step</span>
+<span class="prompt">$</span> <span class="cmd">nf inject "market_disruption" 0.85</span>
+<span class="out">[INJECT] market_disruption (s: <span class="val">0.85</span>) &mdash; <span class="warn">PAUSED</span></span>
+<span class="out" style="color:var(--purple)">--- Checkpoint Mode ---</span>
+<span class="prompt">$</span> <span class="cmd">nf mode checkpoint</span>
+<span class="prompt">$</span> <span class="cmd">nf checkpoint add "coherence &gt; 0.7"</span>
+<span class="prompt">$</span> <span class="cmd">nf cycle 10</span>
+<span class="out">[CYCLE 5] C=<span class="val">0.73</span> &mdash; <span class="warn">AUTO-PAUSED</span></span>
+<span class="out" style="color:var(--green)">--- Auto Mode ---</span>
+<span class="prompt">$</span> <span class="cmd">nf mode auto</span>
+<span class="prompt">$</span> <span class="cmd">nf task "Complete market analysis"</span>
+<span class="out">[COMPLETE] 8 cycles, C=<span class="val">0.85</span>, 2 attractors</span>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- ==================== 9. INTERFACE & CONFIGURATION ==================== -->
+    <details class="reveal" style="margin:1.5rem 0;border:1px solid rgba(255,255,255,0.08);border-radius:8px;overflow:hidden">
+      <summary style="cursor:pointer;padding:1rem 1.5rem;background:rgba(0,212,255,0.04);font-weight:600;font-size:1.05rem;list-style:none;display:flex;align-items:center;gap:0.8rem">
+        <span style="color:var(--cyan);font-family:var(--mono);font-size:0.85rem;min-width:1.2rem">&#9654;</span>
+        <span>9. Interface &amp; Configuration</span>
+        <span style="color:var(--text-dim);font-size:0.8rem;margin-left:auto">5 commands</span>
+      </summary>
+      <div style="padding:1rem 1.5rem">
+        <p style="color:var(--text-dim);font-size:0.88rem;margin-top:0">Three output modes: <strong>semantic</strong> (natural language), <strong>algebraic</strong> (matrices and eigenstructure), <strong>geometric</strong> (topological descriptions).</p>
+        <table style="width:100%;border-collapse:collapse;font-size:0.88rem">
+          <thead><tr style="border-bottom:1px solid rgba(255,255,255,0.1)">
+            <th style="text-align:left;padding:0.4rem 0.6rem;color:var(--cyan)">Command</th>
+            <th style="text-align:left;padding:0.4rem 0.6rem;color:var(--text-dim)">Description</th>
+          </tr></thead>
+          <tbody>
+            <tr><td style="padding:0.3rem 0.6rem"><code>nf config interface &lt;mode&gt;</code></td><td style="padding:0.3rem 0.6rem;color:var(--text-dim)">Switch to semantic, algebraic, or geometric output</td></tr>
+            <tr><td style="padding:0.3rem 0.6rem"><code>nf config set &lt;key&gt; &lt;value&gt;</code></td><td style="padding:0.3rem 0.6rem;color:var(--text-dim)">Set session config: verbosity, auto_commit, etc.</td></tr>
+            <tr><td style="padding:0.3rem 0.6rem"><code>nf ask "&lt;question&gt;"</code></td><td style="padding:0.3rem 0.6rem;color:var(--text-dim)">Natural language query against field state</td></tr>
+            <tr><td style="padding:0.3rem 0.6rem"><code>nf compute &lt;expression&gt;</code></td><td style="padding:0.3rem 0.6rem;color:var(--text-dim)">Evaluate algebraic expressions: R(@p1,@p2), eigenvalues(R), etc.</td></tr>
+            <tr><td style="padding:0.3rem 0.6rem"><code>nf help [command]</code></td><td style="padding:0.3rem 0.6rem;color:var(--text-dim)">Context-sensitive help for any command</td></tr>
+          </tbody>
+        </table>
+        <div class="terminal" role="region" aria-label="Interface example" style="margin-top:1rem">
+          <div class="terminal-bar"><span class="terminal-dot"></span><span class="terminal-dot"></span><span class="terminal-dot"></span></div>
+          <div class="terminal-body">
+<span class="prompt">$</span> <span class="cmd">nf ask "Why did the logging pattern become dormant?"</span>
+<span class="out">  @logging became dormant at cycle 7. Its resonance with the</span>
+<span class="out">  dominant security cluster was only R=<span class="warn">0.25</span> (weak), meaning</span>
+<span class="out">  minimal amplification while suffering full decay &lambda;=0.05.</span>
+<span class="out">  Over 7 cycles: <span class="val">0.55</span> &rarr; <span class="warn">0.35</span> (below &tau;=0.40)</span>
+<span class="prompt">$</span> <span class="cmd">nf config interface algebraic</span>
+<span class="prompt">$</span> <span class="cmd">nf compute eigenvalues(R)</span>
+<span class="out">[COMPUTE] &lambda;1 = <span class="val">2.58</span>, &lambda;2 = 0.28, &lambda;3 = 0.14</span>
+<span class="out">  Gap ratio: <span class="val">9.21</span> (strong dominant mode)</span>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <p class="reveal" style="margin-top:2rem;color:var(--text-dim);font-size:0.9rem">For the complete reference with all flags, presets, and worked examples, see the <a href="https://github.com/Samuele95/neos/blob/main/docs/DETAILED-GUIDE.md" target="_blank" rel="noopener" style="color:var(--cyan)">Detailed Guide</a>. For step-by-step tutorials across 5 domains, see the <a href="https://github.com/Samuele95/neos/tree/main/examples" target="_blank" rel="noopener" style="color:var(--cyan)">examples/ directory</a>.</p>
+  </div>
+</section>
+
+<!-- ============================================================ -->
 <!-- SECTION 8: PROOF -->
 <!-- ============================================================ -->
 <section id="proof">
   <div class="container">
-    <span class="sec-num reveal">16 &mdash; Show, Don&rsquo;t Tell</span>
+    <span class="sec-num reveal">18 &mdash; Show, Don&rsquo;t Tell</span>
     <h2 class="reveal">Evidence: Two Sessions, One Engine</h2>
 
     <p class="reveal">Theory is beautiful. Evidence is convincing. Two independent sessions ran to completion under NEOS dynamics &mdash; one in <strong>abstract reasoning</strong> (software quality), one in <strong>adversarial forensics</strong> (network packet analysis). The same engine, the same master equation, the same dynamics produced meaningful emergent structure in both domains. Choose a case study below.</p>
@@ -2669,7 +3027,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 <!-- ============================================================ -->
 <section id="not">
   <div class="container">
-    <span class="sec-num reveal">17 &mdash; Honest Scope</span>
+    <span class="sec-num reveal">19 &mdash; Honest Scope</span>
     <h2 class="reveal">What NEOS Is Not</h2>
 
     <p class="reveal">Honesty builds credibility. Here is what NEOS does <em>not</em> claim to be:</p>
@@ -2720,7 +3078,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 <!-- ============================================================ -->
 <section id="future">
   <div class="container">
-    <span class="sec-num reveal">18 &mdash; The Horizon</span>
+    <span class="sec-num reveal">20 &mdash; The Horizon</span>
     <h2 class="reveal">The Future We&rsquo;re Building</h2>
 
     <p class="reveal">NEOS is a beginning, not an endpoint. Here is the roadmap &mdash; what the world looks like as NEOS matures from specification to ecosystem to paradigm.</p>
@@ -2820,7 +3178,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   <div class="shape" style="width:200px;height:200px;bottom:40px;right:-40px;background:radial-gradient(circle,rgba(123,97,255,0.5),transparent 70%);animation-delay:-5s" aria-hidden="true"></div>
   <div class="shape" style="width:250px;height:250px;top:50%;left:60%;background:radial-gradient(circle,rgba(255,61,142,0.4),transparent 70%);animation-delay:-10s" aria-hidden="true"></div>
   <div class="container" style="position:relative;z-index:1">
-    <span class="sec-num reveal">19 &mdash; Join Us</span>
+    <span class="sec-num reveal">21 &mdash; Join Us</span>
     <h2 class="reveal" style="text-align:center">The Future is a Field</h2>
     <p class="reveal" style="text-align:center;max-width:600px;margin:0 auto 3rem;color:var(--text-dim)">NEOS is open. The specification is published. The next step is building it &mdash; and we need <em>you</em>.</p>
 
