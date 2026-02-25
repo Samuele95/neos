@@ -370,6 +370,46 @@ The operator can also query the field in natural language
 (\texttt{nf branch create}), or switch to autonomous mode
 (\texttt{nf mode auto}) for hands-free analysis.
 
+\bigskip\noindent\textbf{The Same Cycle, Different Domain.}
+\nopagebreak[4]\smallskip
+
+\noindent
+The four-step cycle is domain-agnostic.  To illustrate, the following
+excerpt applies the identical workflow to \emph{code security analysis},
+using patterns drawn from a vulnerability assessment.
+
+\begin{terminalbox}[Code Security Analysis --- Inject, Cycle, Collapse]
+\begin{lstlisting}[style=neosshell]
+nf session new "Code Security Analysis"
+[SESSION] Created: Code Security Analysis
+
+nf inject "sql_query_construction" 0.9
+nf inject "user_input_handling" 0.85
+nf inject "string_concatenation" 0.8
+nf inject "no_input_validation" 0.75
+
+nf cycle 3 --compact
+[CYCLES 1-3]
+  1: C=0.65, 4 patterns
+  2: C=0.78 [ATTRACTOR-EMERGED] "sql_injection_vulnerability"
+     Core: {sql_query, user_input, string_concat, no_validation}
+  3: C=0.82 [HIGH] -- attractor stable
+
+nf collapse --strategy attractor
+[COLLAPSE] Dominant: sql_injection_vulnerability (C=0.82)
+  FINDING: SQL Injection Vulnerability
+  All patterns mutually reinforce.  Confidence: HIGH (0.82)
+\end{lstlisting}
+\end{terminalbox}
+
+\noindent
+Four security observations---query construction, user input, string
+concatenation, and missing validation---enter the field as patterns.
+Within three cycles, resonance amplification clusters them into a single
+attractor that the system names \texttt{sql\_injection\_vulnerability}.
+Collapse extracts a structured finding with a confidence score.  The
+domain changed; the cycle did not.
+
 \medskip
 \noindent
 This four-step cycle---inject, run dynamics, observe, collapse---is the
@@ -377,3 +417,6 @@ fundamental workflow of NEOS.  The empirical
 evidence~(\S\ref{sec:evidence}) demonstrates the same cycle operating
 at scale: 69~patterns over 52~cycles in software quality, and
 10~patterns over 12~cycles in network forensics.
+Section~\ref{sec:advanced} extends this foundation with multi-field
+orchestration, versioned thinking, and adjustable autonomy---each
+illustrated with terminal output from a distinct application domain.

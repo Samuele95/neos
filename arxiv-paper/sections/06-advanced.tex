@@ -285,6 +285,49 @@ equivalent of a microphone screech.
 \label{fig:coupling-matrix}
 \end{figure}
 
+\noindent
+The following excerpt demonstrates a complete multi-field workflow
+applied to \emph{product feature analysis}.  Three perspective fields
+are created, coupled through~$\Gamma$, and processed in parallel; the
+integration step reveals both consensus and conflict across
+perspectives.
+
+\begin{terminalbox}[Multi-Field Orchestration --- Product Feature Analysis]
+\begin{lstlisting}[style=neosshell]
+nf field create technical --role reasoning
+nf field create user --role evaluation
+nf field create business --role planning
+
+nf couple technical user --gamma 0.4
+nf couple technical business --gamma 0.35
+nf couple user business --gamma 0.45
+
+nf parallel technical,user,business --input "feature_request"
+[PARALLEL] Processing across 3 fields
+  Cycle 1: tech C=0.76, user C=0.80, biz C=0.78
+           Cross-field resonance: 0.52
+  Cycle 2: tech C=0.78, user C=0.82, biz C=0.80
+           Cross-field resonance: 0.61
+  Cycle 3: tech C=0.80, user C=0.83, biz C=0.81
+           Cross-field resonance: 0.68
+
+[INTEGRATION] Resonance-based fusion
+  Consensus:
+    security_review <-> competitive_advantage  R=0.72
+    user_value <-> market_opportunity          R=0.78
+  Conflicts:
+    testing_effort <-> timeline_pressure       R=0.28
+\end{lstlisting}
+\end{terminalbox}
+
+\noindent
+Cross-field resonance scores quantify agreement: the high consensus
+between \texttt{user\_value} and \texttt{market\_opportunity} ($R=0.78$)
+confirms alignment, while the low resonance between
+\texttt{testing\_effort} and \texttt{timeline\_pressure} ($R=0.28$)
+surfaces a tension that requires arbitration---a structural insight
+that no single-field analysis would produce.
+
 %% ─────────────────────────────────────────────────────────────────────
 \subsection{Versioned Thinking}\label{sec:versioning}
 
@@ -382,6 +425,53 @@ determines the outcome.
 \label{fig:branch-graph}
 \end{figure}
 
+\noindent
+Beyond counterfactual testing, versioned thinking supports full
+\emph{exploration workflows}: branching to investigate competing
+hypotheses, cycling each independently, and using \texttt{nf diff} to
+compare outcomes.  The following excerpt applies this to an
+\emph{architecture decision}, exploring microservices and monolith
+approaches in parallel.
+
+\begin{terminalbox}[Versioned Reasoning --- Architecture Decision]
+\begin{lstlisting}[style=neosshell]
+nf inject "user_requirements" 0.9
+nf inject "scalability_need" 0.85
+nf inject "team_expertise" 0.8
+nf inject "budget_constraints" 0.75
+nf cycle 3 --compact
+[CYCLES 1-3]  C: 0.48 -> 0.62 -> 0.71
+
+nf commit "Baseline requirements"
+nf branch create microservices
+nf branch create monolith
+
+nf checkout microservices
+nf inject "service_decomposition" 0.85
+nf inject "distributed_complexity" 0.7
+nf cycle 5 --compact
+[ATTRACTOR-EMERGED] "scalable_microservices" (C=0.72)
+
+nf checkout monolith
+nf inject "modular_monolith" 0.85
+nf inject "single_deployment" 0.8
+nf cycle 5 --compact
+[ATTRACTOR-EMERGED] "pragmatic_monolith" (C=0.82)
+
+nf diff microservices monolith
+[DIFF] Key differences:
+  @scalability_need:  0.88 vs 0.55
+  @team_expertise:    0.52 vs 0.85
+  Monolith attractor stronger (0.82 vs 0.72)
+\end{lstlisting}
+\end{terminalbox}
+
+\noindent
+The \texttt{nf diff} reveals that the monolith's higher coherence stems
+from stronger alignment with team expertise and budget constraints---a
+structural insight the operator would not reach by evaluating either
+branch in isolation.
+
 %% ─────────────────────────────────────────────────────────────────────
 \subsection{The Autonomy Dial}\label{sec:autonomy}
 
@@ -461,7 +551,45 @@ session might begin in Step mode for careful setup, shift to
 Checkpoint for exploratory analysis, and finish in Auto for a final
 batch consolidation.  This supports a \textbf{progressive trust model}:
 as the operator gains confidence in the field's behaviour, they
-gradually release control.
+gradually release control.  The following excerpt demonstrates all
+three modes in a single \emph{security code review} session.
+
+\begin{terminalbox}[Autonomy Modes --- Security Code Review]
+\begin{lstlisting}[style=neosshell]
+nf mode step
+nf inject "sql_query" 0.85
+[INJECT] sql_query (s: 0.85)
+  [PAUSED] 'nf proceed' to continue...
+nf proceed
+nf inject "user_input" 0.80
+  [PAUSED]
+
+nf mode checkpoint
+nf checkpoint add "attractor_emerged" --priority high
+nf cycle 10
+  Cycle 2: C=0.62
+  Cycle 4: C=0.72
+  [CHECKPOINT] attractor_emerged
+    Attractor: input_processing (C=0.72)
+  [PAUSED] Review attractor.
+
+nf proceed
+  Cycle 7: C=0.81
+  [CHECKPOINT] coherence > 0.8
+  [PAUSED] Target coherence reached.
+
+nf mode auto
+nf evolve --target 0.85
+[EVOLVE] Auto mode -- target C=0.85
+  Cycle 8: C=0.86
+[COMPLETE] Target reached.  Events logged: 2
+\end{lstlisting}
+\end{terminalbox}
+
+\noindent
+The session begins in Step mode for careful pattern injection, shifts to
+Checkpoint for monitored evolution, and finishes in Auto for fast
+convergence---three autonomy levels, one uninterrupted session.
 
 %% ─────────────────────────────────────────────────────────────────────
 \subsection{Observable Reasoning}\label{sec:observable}
@@ -503,6 +631,51 @@ The practical implications are immediate:
 \item \textbf{Auditors} can replay an entire reasoning trace to
   verify that conclusions follow from evidence.
 \end{itemize}
+
+\noindent
+The following excerpt shows two of the four view types applied to an
+\emph{API design} analysis: a field plot (activation bars) and a
+resonance network graph, both rendered in the terminal.
+
+\begin{terminalbox}[Observable Reasoning --- API Design Visualization]
+\begin{lstlisting}[style=neosshell]
+nf plot field
+[FIELD] api_design (Coherence: 0.74)
+
+REST            |#################################### 0.88
+GraphQL         |#################################  0.82
+versioning      |############################     0.72
+pagination      |##########################       0.68
+caching         |####################             0.55
+rate_limiting   |##################               0.48
+                +------------------------------------
+                0.0              0.5              1.0
+
+nf plot network
+[NETWORK] Field: api_design (6 patterns, 8 edges)
+
+  +----------+               +----------+
+  |   REST   |===============| GraphQL  |
+  |   0.88   |    R=0.72     |   0.82   |
+  +----+-----+               +----+-----+
+       |                          |
+       | R=0.68                   | R=0.65
+       |                          |
+  +----+-----+               +----+-----+
+  |versioning|---------------|pagination|
+  |   0.72   |    R=0.58     |   0.68   |
+  +----------+               +----------+
+
+Legend: === Strong (R>0.6)  --- Moderate
+\end{lstlisting}
+\end{terminalbox}
+
+\noindent
+The bar chart shows which ideas dominate; the network graph reveals
+\emph{why}---strong resonance between REST and GraphQL ($R=0.72$)
+and between REST and versioning ($R=0.68$) explains their mutual
+amplification.  Together, these two views make the field's internal
+dynamics legible at a glance.
 
 \begin{calloutbox}
 Observable reasoning is a design requirement, not a feature.  If a
