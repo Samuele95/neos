@@ -85,8 +85,10 @@ section:nth-child(even) { background: var(--bg2); }
   /* DIAGRAMS — clip overflow globally, scrollable variant for extreme-ratio SVGs */
   .diagram { overflow: hidden; }
   .diagram svg { min-width: 0; width: 100%; height: auto; }
-  .diagram--scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-  .diagram--scroll svg { min-width: 500px; width: 500px; }
+  .diagram--scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; position: relative; }
+  .diagram--scroll svg { min-width: 500px; width: 500px; cursor: zoom-in; }
+  .diagram--scroll::after { content: ''; position: absolute; top: 0; right: 0; bottom: 0; width: 2.5rem; background: linear-gradient(to right, transparent, rgba(7,7,12,0.8)); pointer-events: none; z-index: 1; transition: opacity 0.3s; }
+  .diagram--scroll.scrolled-end::after { opacity: 0; }
 
   /* Hide decorative shapes that bleed outside viewport */
   #cta .shape { display: none; }
@@ -105,6 +107,10 @@ section:nth-child(even) { background: var(--bg2); }
   .tabs { overflow-x: auto; flex-wrap: nowrap; scrollbar-width: none; -ms-overflow-style: none; }
   .tabs::-webkit-scrollbar { display: none; }
   .tab-btn { white-space: nowrap; min-height: 44px; flex-shrink: 0; }
+
+  /* Parameter playground — constrain viz on mobile */
+  #param-playground .grid-2 > div:last-child { max-height: 250px; }
+  #pg-viz { max-width: 250px; margin: 0 auto; }
 
   /* Disable hover transforms on touch devices */
   .card:hover { transform: none; }
@@ -163,8 +169,16 @@ section:nth-child(even) { background: var(--bg2); }
   /* Stack layers */
   .stack-layer { padding: 0.7rem 1rem; font-size: 0.88rem; }
 
-  /* Diagram spacing */
+  /* Diagram spacing and scroll min-width */
   .diagram { margin: 1.5rem 0; }
+  .diagram--scroll svg { min-width: 480px; }
+
+  /* Hero CTA — stack vertically */
+  #hero .hero-content { padding: 0 0.5rem; }
+  #hero .hero-content > a[href="neos-paper.pdf"] { display: block !important; margin-top: 0.8rem; }
+
+  /* Callout — prevent text overflow */
+  .callout { font-size: 0.95rem; word-break: break-word; }
 }
 @media (max-width: 390px) {
   .container { padding: 0 0.75rem; }
@@ -339,8 +353,7 @@ tr:hover td { background: rgba(0,212,255,0.03); }
 #toc-list a { display: block; padding: 0.3rem 0.7rem; font-size: 0.7rem; color: rgba(136,136,160,0.7); border-left: 2px solid transparent; transition: color 0.2s, border-color 0.2s; white-space: nowrap; text-decoration: none; border-radius: 0 4px 4px 0; }
 #toc-list a:hover { color: var(--text); background: rgba(255,255,255,0.03); }
 #toc-list a.active { color: var(--cyan); border-left-color: var(--cyan); }
-#toc-toggle { display: none; position: fixed; top: 1rem; right: 1rem; z-index: 91; width: 40px; height: 40px; border-radius: 10px; background: rgba(7,7,12,0.85); border: 1px solid rgba(0,212,255,0.06); color: var(--text-dim); font-size: 1.2rem; cursor: pointer; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); transition: opacity 0.4s; opacity: 0; pointer-events: none; }
-#toc-toggle.toc-visible { opacity: 1; pointer-events: auto; }
+#toc-toggle { display: none; position: fixed; top: 1rem; right: 1rem; z-index: 91; width: 40px; height: 40px; border-radius: 10px; background: rgba(7,7,12,0.85); border: 1px solid rgba(0,212,255,0.06); color: var(--text-dim); font-size: 1.2rem; cursor: pointer; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
 #toc-toggle:hover { color: var(--cyan); border-color: rgba(0,212,255,0.15); }
 @media (max-width: 1200px) {
   #toc { position: fixed; right: 0; top: 0; transform: none; max-height: 100vh; width: 220px; background: rgba(7,7,12,0.97); border-left: 1px solid rgba(0,212,255,0.06); padding-top: 3.5rem; transition: transform 0.3s, opacity 0.3s; opacity: 1; pointer-events: auto; }
@@ -374,10 +387,21 @@ tr:hover td { background: rgba(0,212,255,0.03); }
 /* Focus-visible */
 a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid var(--cyan); outline-offset: 2px; border-radius: 4px; }
 .tab-btn:focus-visible { outline-offset: -2px; }
+
+/* Diagram Lightbox */
+.diagram-lightbox { position: fixed; inset: 0; z-index: 200; background: rgba(7,7,12,0.92); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
+.diagram-lightbox.active { opacity: 1; pointer-events: auto; }
+.diagram-lightbox svg { max-width: 95vw; max-height: 85vh; width: auto; height: auto; }
+.diagram-lightbox-close { position: absolute; top: 1rem; right: 1rem; width: 44px; height: 44px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15); border-radius: 50%; color: #fff; font-size: 1.4rem; cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 201; }
+.diagram-lightbox-content { touch-action: pinch-zoom; overflow: auto; max-width: 95vw; max-height: 90vh; display: flex; align-items: center; justify-content: center; }
 </style>
 </head>
 <body>
 <canvas id="starfield" aria-hidden="true"></canvas>
+<div class="diagram-lightbox" id="diagram-lightbox" role="dialog" aria-label="Expanded diagram" aria-hidden="true">
+  <button class="diagram-lightbox-close" aria-label="Close">&times;</button>
+  <div class="diagram-lightbox-content"></div>
+</div>
 <svg style="position:absolute;width:0;height:0" aria-hidden="true">
   <defs>
     <filter id="glow-cyan" x="-50%" y="-50%" width="200%" height="200%">
@@ -398,8 +422,8 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 <div id="progress-bar"></div>
 <button id="back-to-top" aria-label="Back to top">&uarr;</button>
 
+<button id="toc-toggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
 <nav id="toc" aria-label="Table of contents">
-  <button id="toc-toggle" aria-label="Toggle navigation">&#9776;</button>
   <ol id="toc-list">
     <li><a href="#three-ages">01 The Three Ages</a></li>
     <li><a href="#vision">02 The Vision</a></li>
@@ -582,7 +606,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
     <!-- The Inversion Diagram -->
     <h3 class="reveal" style="text-align:center;margin-top:3rem">The Inversion</h3>
-    <div class="diagram reveal">
+    <div class="diagram diagram--scroll reveal">
       <svg viewBox="0 0 700 320" role="img" aria-label="Architecture inversion: LLM goes from app to foundation">
         <title>The Inversion: LLM as OS Foundation</title>
         <!-- Today's stack -->
@@ -705,7 +729,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <p class="reveal">NEOS rests on a triple foundation. Each pillar is necessary; together they make cognitive computing possible. Remove any one and the system either cannot <em>represent</em> meaning (no fields), cannot <em>manipulate</em> it (no symbols), or cannot <em>interpret</em> it (no quantum semantics).</p>
 
     <!-- Three Pillars Diagram -->
-    <div class="diagram reveal">
+    <div class="diagram diagram--scroll reveal">
       <svg viewBox="0 0 800 280" role="img" aria-label="Three pillars: Neural Fields, Symbolic Reasoning, Quantum Semantics">
         <title>The Three Pillars of NEOS</title>
         <!-- Pillar 1 -->
@@ -801,7 +825,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
     <p class="reveal">NEOS makes a parallel promise: <strong>"Think once, reason anywhere."</strong> NEOS decouples reasoning from any specific LLM. You don't care whether the underlying model is GPT-4, Claude, Gemini, or Llama &mdash; NEOS abstracts the model away. Your field configurations, your attractors, your collapsed insights &mdash; they are portable across any capable LLM.</p>
 
-    <div class="diagram reveal">
+    <div class="diagram diagram--scroll reveal">
       <svg viewBox="0 0 800 320" role="img" aria-label="JVM and NEOS architecture stacks side by side">
         <title>JVM vs NEOS: Parallel Architecture Stacks</title>
         <!-- JVM Stack -->
@@ -919,7 +943,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       <p>Each <code>nf cycle</code> executes six phases in sequence. This is the heartbeat of NEOS &mdash; the engine that transforms injected patterns into emergent structure. First, all patterns lose a fraction of their activation (decay). Then, every pair of patterns has its resonance computed across three dimensions: semantic similarity, logical support, and contextual fit. These resonance scores drive amplification (strong resonance boosts activation) and attenuation (isolated patterns fade). Patterns below threshold are removed. Finally, the system checks whether an attractor has emerged &mdash; a stable cluster of mutually reinforcing patterns that would recover from perturbation.</p>
       <!-- Dynamics Cycle SVG -->
       <button id="dynamics-play" aria-label="Play dynamics animation">&#9654; Step through cycle</button>
-      <div class="diagram">
+      <div class="diagram diagram--scroll">
         <svg id="dynamics-svg" viewBox="0 0 600 350" role="img" aria-label="Six-phase dynamics cycle">
           <title>The Six-Phase Dynamics Cycle</title>
           <!-- Central label -->
@@ -976,7 +1000,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <div class="tab-panel" id="tab-multi" role="tabpanel">
       <p>A single field is powerful. Multiple coupled fields are transformative. NEOS supports creating specialized fields for different perspectives &mdash; technical, user, business &mdash; then coupling them through a resonance matrix and routing information between them.</p>
       <p>Two orchestration modes: <strong>Pipeline</strong> (sequential: field A&rsquo;s output feeds into field B) and <strong>Parallel</strong> (simultaneous: all fields process the same input, results are integrated via resonance-weighted fusion). The coupling matrix &Gamma; governs how strongly each field influences the others, with spectral radius stability checks to prevent oscillation.</p>
-      <div class="diagram">
+      <div class="diagram diagram--scroll">
         <svg viewBox="0 0 600 250" role="img" aria-label="Multi-field orchestration network">
           <title>Multi-Field Orchestration</title>
           <!-- Four fields -->
@@ -1135,7 +1159,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
     <p class="reveal">The three pillars &mdash; neural fields, symbolic reasoning, and quantum semantics &mdash; are not independent theories bolted together. They are three <em>perspectives</em> on a single underlying reality, like how wave mechanics, matrix mechanics, and path integrals are all quantum mechanics.</p>
 
-    <div class="diagram reveal">
+    <div class="diagram diagram--scroll reveal">
       <svg viewBox="0 0 500 380" role="img" aria-label="Triangle showing three perspectives unified by Psi">
         <title>The Unified Field: Three Perspectives, One Reality</title>
         <!-- Triangle -->
@@ -1187,7 +1211,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
     <p class="reveal">NEOS is not a fantasy from science fiction. It is buildable <em>today</em> because four independent developments have converged simultaneously &mdash; and their intersection creates an opening that didn't exist even two years ago.</p>
 
-    <div class="diagram reveal">
+    <div class="diagram diagram--scroll reveal">
       <svg viewBox="0 0 600 300" role="img" aria-label="Four converging arrows leading to NEOS">
         <title>Why Now: Four Convergences</title>
         <!-- Four arrows converging to center -->
@@ -1253,7 +1277,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     </div>
 
     <!-- Coupling Matrix Heatmap -->
-    <div class="diagram reveal">
+    <div class="diagram diagram--scroll reveal">
       <svg viewBox="0 0 500 400" role="img" aria-label="4x4 coupling matrix heatmap between fields">
         <title>Coupling Matrix &Gamma; Heatmap</title>
         <text x="250" y="25" text-anchor="middle" fill="#0af" font-size="14" font-weight="600">Coupling Matrix &Gamma;</text>
@@ -1311,6 +1335,34 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <p class="reveal">Multi-field orchestration is the foundation for <strong>true multi-agent reasoning</strong>. Today's agent frameworks coordinate through message passing &mdash; one agent sends text to another, losing all nuance and intermediate state. In NEOS, agents share <em>resonance</em>. A pattern in the technical field that resonates with a pattern in the business field creates cross-field reinforcement, strengthening both. Conflicts are visible as low cross-field resonance scores. The system quantifies agreement and disagreement, enabling principled arbitration rather than crude majority voting.</p>
 
     <p class="reveal">In a completed multi-field session &mdash; a product feature analysis with technical, user, and business perspectives &mdash; NEOS produced an integrated recommendation at coherence 0.85, with explicit conflict documentation showing where timeline pressure conflicted with security requirements (cross-field R=0.28). The resolution strategy was visible, traceable, and auditable. Try doing that with a chain of prompts.</p>
+
+    <p class="reveal">Here is what that product feature analysis actually looks like in the terminal:</p>
+
+    <div class="terminal reveal" role="region" aria-label="Multi-field product feature analysis">
+      <div class="terminal-bar"><span class="terminal-dot"></span><span class="terminal-dot"></span><span class="terminal-dot"></span><span style="color:#666;font-size:0.8rem;margin-left:auto">multi-field orchestration</span></div>
+      <div class="terminal-body">
+<span class="prompt">$</span> <span class="cmd">nf field create technical --decay 0.02 --threshold 0.30</span>
+<span class="out">[FIELD] Created: technical (&lambda;=0.02, &tau;=0.30)</span>
+<span class="prompt">$</span> <span class="cmd">nf field create user_experience --decay 0.05 --threshold 0.25</span>
+<span class="out">[FIELD] Created: user_experience (&lambda;=0.05, &tau;=0.25)</span>
+<span class="prompt">$</span> <span class="cmd">nf field create business --decay 0.03 --threshold 0.35</span>
+<span class="out">[FIELD] Created: business (&lambda;=0.03, &tau;=0.35)</span>
+
+<span class="prompt">$</span> <span class="cmd">nf couple technical user_experience 0.3</span>
+<span class="out">[COUPLE] technical &harr; user_experience: &Gamma;=<span class="val">0.3</span></span>
+<span class="prompt">$</span> <span class="cmd">nf couple technical business 0.2</span>
+<span class="out">[COUPLE] technical &harr; business: &Gamma;=<span class="val">0.2</span></span>
+<span class="prompt">$</span> <span class="cmd">nf couple user_experience business 0.4</span>
+<span class="out">[COUPLE] user_experience &harr; business: &Gamma;=<span class="val">0.4</span></span>
+
+<span class="prompt">$</span> <span class="cmd">nf parallel --cycles 10 --strategy attractor</span>
+<span class="out">[PARALLEL] Running 3 fields with cross-resonance...</span>
+<span class="out">[CYCLE 10] technical C=<span class="val">0.82</span> | user_experience C=<span class="val">0.78</span> | business C=<span class="val">0.75</span></span>
+<span class="out">  <span class="hl">[CONSENSUS]</span> Cross-field coherence: <span class="val">0.85</span></span>
+<span class="out">  <span class="warn">[CONFLICT]</span> timeline vs security: R=<span class="warn">0.28</span></span>
+<span class="out">  Integrated recommendation ready &mdash; <span class="hl">nf collapse --all</span> to finalize</span>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1324,7 +1376,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
     <p class="reveal">Git revolutionized software development by making code changes <strong>trackable, branchable, and mergeable</strong>. NEOS brings the same revolution to reasoning. Every field state can be committed, branched, diffed, and merged &mdash; with one critical addition that Git doesn't have: <strong>resonance-weighted merge</strong>.</p>
 
-    <div class="diagram reveal">
+    <div class="diagram diagram--scroll reveal">
       <svg viewBox="0 0 600 200" role="img" aria-label="Git-style branch graph for reasoning">
         <title>Versioned Thinking: Git for Reasoning</title>
         <!-- Main branch -->
@@ -1374,6 +1426,34 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 <span class="out">  Changed: @singleton 0.90 &rarr; <span class="val">0.48</span> [DECAYING]</span>
 <span class="out">  Structural: same 4 inhibitors active at <span class="hl">BOTH</span> strengths</span>
 <span class="out">  Conclusion: expulsion is <span class="hl">TOPOLOGICAL</span>, not parametric</span>
+      </div>
+    </div>
+
+    <p class="reveal">The same workflow applies to any decision with competing alternatives. Here, an architecture team compares microservices against a monolith:</p>
+
+    <div class="terminal reveal" role="region" aria-label="Architecture decision branching">
+      <div class="terminal-bar"><span class="terminal-dot"></span><span class="terminal-dot"></span><span class="terminal-dot"></span><span style="color:#666;font-size:0.8rem;margin-left:auto">architecture decision</span></div>
+      <div class="terminal-body">
+<span class="prompt">$</span> <span class="cmd">nf commit "baseline architecture analysis"</span>
+<span class="out">[COMMIT] v3 &mdash; 12 patterns, C=<span class="val">0.74</span></span>
+<span class="prompt">$</span> <span class="cmd">nf branch create microservices</span>
+<span class="prompt">$</span> <span class="cmd">nf inject "service_isolation" 0.85</span>
+<span class="prompt">$</span> <span class="cmd">nf inject "independent_deployment" 0.80</span>
+<span class="prompt">$</span> <span class="cmd">nf cycle 5</span>
+<span class="out">[CYCLE 5] C=<span class="val">0.81</span> &mdash; <span class="hl">[ATTRACTOR]</span> "distributed_architecture"</span>
+
+<span class="prompt">$</span> <span class="cmd">nf checkout main</span>
+<span class="prompt">$</span> <span class="cmd">nf branch create monolith</span>
+<span class="prompt">$</span> <span class="cmd">nf inject "shared_memory_speed" 0.85</span>
+<span class="prompt">$</span> <span class="cmd">nf inject "simple_deployment" 0.80</span>
+<span class="prompt">$</span> <span class="cmd">nf cycle 5</span>
+<span class="out">[CYCLE 5] C=<span class="val">0.79</span> &mdash; <span class="hl">[ATTRACTOR]</span> "unified_architecture"</span>
+
+<span class="prompt">$</span> <span class="cmd">nf diff microservices monolith</span>
+<span class="out">  Shared patterns: <span class="val">8</span> | Divergent: <span class="warn">4</span></span>
+<span class="out">  microservices: +scalability(<span class="val">0.82</span>) +fault_isolation(<span class="val">0.79</span>)</span>
+<span class="out">  monolith: +simplicity(<span class="val">0.84</span>) +latency(<span class="val">0.81</span>)</span>
+<span class="out">  Key trade-off: <span class="hl">operational complexity vs development speed</span></span>
       </div>
     </div>
   </div>
@@ -1430,6 +1510,33 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <p class="reveal">You can switch modes mid-operation. Start in auto, notice something interesting in the progress log, switch to checkpoint to investigate, then step through a few cycles manually before letting it continue. The autonomy dial is always accessible. This is critical because human oversight needs vary by context. Exploring a new domain? Start in step mode to build intuition. Running an established workflow? Use auto. Somewhere in between? Checkpoint mode with <code>nf checkpoint "attractor_emerged"</code> lets the system run freely until something interesting happens.</p>
 
     <p class="reveal">The autonomy spectrum also enables progressive trust. A new user starts in step mode, watching each computation. As they develop confidence in the system's dynamics, they move to checkpoint, then auto. The same field configuration can be operated at any autonomy level without modification. This is the NEOS answer to the "AI alignment" question at the practical level: not a fixed policy, but a <strong>continuously adjustable dial</strong> that the human operator controls at all times.</p>
+
+    <p class="reveal">All three modes in action &mdash; a security code review that starts careful and progressively hands off control:</p>
+
+    <div class="terminal reveal" role="region" aria-label="Autonomy modes demonstration">
+      <div class="terminal-bar"><span class="terminal-dot"></span><span class="terminal-dot"></span><span class="terminal-dot"></span><span style="color:#666;font-size:0.8rem;margin-left:auto">security code review &mdash; autonomy modes</span></div>
+      <div class="terminal-body">
+<span class="out" style="color:var(--cyan)">--- Step Mode: full manual control ---</span>
+<span class="prompt">$</span> <span class="cmd">nf mode step</span>
+<span class="prompt">$</span> <span class="cmd">nf inject "sql_injection_risk" 0.90</span>
+<span class="out">[INJECT] sql_injection_risk (s: <span class="val">0.90</span>) &mdash; <span class="warn">PAUSED</span> (step mode)</span>
+<span class="out">  Press ENTER to continue or <span class="hl">nf state</span> to inspect...</span>
+
+<span class="out" style="color:var(--purple)">--- Checkpoint Mode: supervised autonomy ---</span>
+<span class="prompt">$</span> <span class="cmd">nf mode checkpoint</span>
+<span class="prompt">$</span> <span class="cmd">nf checkpoint "attractor_emerged"</span>
+<span class="prompt">$</span> <span class="cmd">nf cycle 20</span>
+<span class="out">[CYCLE 1..7] Running...</span>
+<span class="out">[CYCLE 8] <span class="hl">[ATTRACTOR-EMERGED]</span> "input_validation_critical"</span>
+<span class="out">  <span class="warn">AUTO-PAUSED</span> &mdash; checkpoint condition met</span>
+
+<span class="out" style="color:var(--green)">--- Auto Mode: full autonomy ---</span>
+<span class="prompt">$</span> <span class="cmd">nf mode auto</span>
+<span class="prompt">$</span> <span class="cmd">nf task "complete security audit" --target coherence=0.85</span>
+<span class="out">[AUTO] Running to target coherence 0.85...</span>
+<span class="out">[COMPLETE] 14 cycles, C=<span class="val">0.87</span>, 3 attractors, 2 warnings</span>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1536,6 +1643,31 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <p class="reveal">Outputs can be rendered in four formats: ASCII (terminal), SVG (visual), Mermaid (diagramming), and JSON (programmatic). This means NEOS reasoning is not just visible &mdash; it is <strong>exportable, shareable, and integrable</strong>. You can embed an attractor analysis in a report, pipe a resonance network into a visualization tool, or feed JSON state into a downstream system.</p>
 
     <p class="reveal">Consider the practical implications. A team of analysts working on a complex problem can <em>watch the same field evolve</em>, see which ideas are gaining traction, identify when consensus is forming (coherence rising) or when perspectives are diverging (coherence dropping). A teacher can use step mode to show students how ideas interact, compete, and crystallize into understanding. A researcher can compare two branches of reasoning side by side, with quantitative measures of how they differ. This is not a futuristic fantasy &mdash; it is what the specification already defines. The visualization is not a nice-to-have feature. It is the <strong>debugger for cognition</strong>.</p>
+
+    <p class="reveal">Here is what the debugger looks like. An API design session, visualized two ways:</p>
+
+    <div class="terminal reveal" role="region" aria-label="Observable reasoning terminal demo">
+      <div class="terminal-bar"><span class="terminal-dot"></span><span class="terminal-dot"></span><span class="terminal-dot"></span><span style="color:#666;font-size:0.8rem;margin-left:auto">api design &mdash; field visualization</span></div>
+      <div class="terminal-body">
+<span class="prompt">$</span> <span class="cmd">nf plot field --style ascii</span>
+<span class="out">  Field: api_design (12 patterns, C=<span class="val">0.78</span>)</span>
+<span class="out">  rest_conventions    <span class="hl">|========</span>         <span class="val">0.82</span></span>
+<span class="out">  error_handling      <span class="hl">|=======</span>          <span class="val">0.76</span></span>
+<span class="out">  versioning_strategy <span class="hl">|=======</span>          <span class="val">0.74</span></span>
+<span class="out">  rate_limiting       <span class="hl">|======</span>           <span class="val">0.68</span></span>
+<span class="out">  auth_scheme         <span class="hl">|=====</span>            <span class="val">0.61</span></span>
+<span class="out">  pagination          <span style="color:var(--text-dim)">|====</span>             <span style="color:var(--text-dim)">0.45</span></span>
+<span class="out">  caching_headers     <span style="color:var(--text-dim)">|===</span>              <span style="color:var(--text-dim)">0.38</span></span>
+
+<span class="prompt">$</span> <span class="cmd">nf plot network</span>
+<span class="out">  rest_conventions(<span class="val">0.82</span>)---[<span class="hl">0.89</span>]---error_handling(<span class="val">0.76</span>)</span>
+<span class="out">       |                              |</span>
+<span class="out">    [<span class="val">0.71</span>]                         [<span class="val">0.67</span>]</span>
+<span class="out">       |                              |</span>
+<span class="out">  versioning(<span class="val">0.74</span>)------[<span class="val">0.58</span>]------rate_limiting(<span class="val">0.68</span>)</span>
+<span class="out">  <span class="hl">[ATTRACTOR]</span> "api_best_practices" &mdash; core: 4 patterns, basin: 7</span>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1658,7 +1790,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
     <!-- Cluster Dependency Flow -->
     <h3 class="reveal">Cluster Dependency Flow</h3>
-    <div class="diagram reveal" style="padding:1.5rem">
+    <div class="diagram diagram--scroll reveal" style="padding:1.5rem">
       <svg viewBox="0 0 700 200" role="img" aria-label="Cluster dependency flowchart">
         <title>Cluster Dependency Flow: META → MODEL → GUARD → STRUCTURE → CRAFT → CHANGE ⇄ VERIFY</title>
         <!-- META -->
@@ -1784,7 +1916,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
     <!-- Eigenvector Bar Chart -->
     <h3 class="reveal">Five Eigenvectors of Software Quality</h3>
-    <div class="diagram reveal">
+    <div class="diagram diagram--scroll reveal">
       <svg viewBox="0 0 700 220" role="img" aria-label="Bar chart of five eigenvectors">
         <title>Five Eigenvectors with Variance Weights</title>
         <!-- Bars -->
@@ -1845,7 +1977,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     </table>
 
     <!-- Attractor Hierarchy Nested Boxes -->
-    <div class="diagram reveal" style="padding:1.5rem">
+    <div class="diagram diagram--scroll reveal" style="padding:1.5rem">
       <svg viewBox="0 0 720 380" role="img" aria-label="Nested box diagram showing attractor hierarchy">
         <title>Attractor Hierarchy: Ψ → α₁ → α₂/α₃, with α₄ and α₅/α₆/α₇</title>
         <!-- Ψ ground state (outermost) -->
@@ -1899,7 +2031,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
     <!-- Coherence Evolution Graph -->
     <h3 class="reveal">Coherence Evolution: 52 Cycles to Convergence</h3>
-    <div class="diagram reveal">
+    <div class="diagram diagram--scroll reveal">
       <svg viewBox="0 0 700 280" role="img" aria-label="Line chart showing coherence rising from 0 to 0.993 over 52 cycles">
         <title>Coherence Evolution Over 52 Cycles</title>
         <!-- Axes -->
@@ -1945,7 +2077,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
     <!-- Attractor Basin Topology -->
     <h3 class="reveal">Attractor Basin Landscape</h3>
-    <div class="diagram reveal">
+    <div class="diagram diagram--scroll reveal">
       <svg viewBox="0 0 700 200" role="img" aria-label="Energy landscape with seven attractor basins">
         <title>Attractor Basin Topology: 7 Basins</title>
         <!-- Energy landscape curve -->
@@ -1988,7 +2120,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
     <!-- Ground State Flowchart -->
     <h3 class="reveal">Collapsed Field Ground State</h3>
-    <div class="diagram reveal" style="padding:1.5rem">
+    <div class="diagram diagram--scroll reveal" style="padding:1.5rem">
       <svg viewBox="0 0 700 250" role="img" aria-label="Ground state flowchart showing Ψ generating all structure">
         <title>Collapsed Field: Ψ → SOLID/Functor/Protocol → Craft/Reuse → Guard/Model/Optimize</title>
         <!-- Ψ at top -->
@@ -2098,7 +2230,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     </div>
 
     <!-- Singleton Trajectory Plot -->
-    <div class="diagram reveal" style="padding:1rem">
+    <div class="diagram diagram--scroll reveal" style="padding:1rem">
       <svg viewBox="0 0 700 260" role="img" aria-label="Line chart showing Singleton activation decay from 0.65 to expulsion">
         <title>Singleton Trajectory: Activation Decay to Expulsion</title>
         <!-- Axes -->
@@ -2374,7 +2506,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
     <!-- Network Topology -->
     <h3 class="reveal">Network Topology</h3>
-    <div class="diagram reveal" style="padding:1.5rem">
+    <div class="diagram diagram--scroll reveal" style="padding:1.5rem">
       <svg viewBox="0 0 700 240" role="img" aria-label="Network topology showing infected host, DNS gateway, and C2 server">
         <title>AsyncRAT Network Topology</title>
         <!-- Infected Host -->
@@ -2403,7 +2535,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
     <!-- Coherence Evolution Graph -->
     <h3 class="reveal">Coherence Evolution: 12 Cycles to Convergence</h3>
-    <div class="diagram reveal">
+    <div class="diagram diagram--scroll reveal">
       <svg viewBox="0 0 700 280" role="img" aria-label="Line chart showing PCAP coherence rising from 0 to 0.93 over 12 cycles">
         <title>PCAP Coherence Evolution Over 12 Cycles</title>
         <!-- Axes -->
@@ -2550,7 +2682,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
     <p class="reveal"><strong>NEOS is not a prompt engineering toolkit.</strong> It does not help you craft better prompts. It replaces the paradigm of prompting entirely with a paradigm of field dynamics, resonance, and collapse. If prompts are assembly language, NEOS is the high-level language &mdash; they operate at different levels of abstraction.</p>
 
-    <div class="diagram reveal">
+    <div class="diagram diagram--scroll reveal">
       <svg viewBox="0 0 700 280" role="img" aria-label="Venn diagram showing NEOS scope versus AGI and Prompt Engineering">
         <title>What NEOS Is vs What It Isn't</title>
         <!-- Prompt Engineering circle -->
@@ -2594,7 +2726,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <p class="reveal">NEOS is a beginning, not an endpoint. Here is the roadmap &mdash; what the world looks like as NEOS matures from specification to ecosystem to paradigm.</p>
 
     <!-- Concentric rings roadmap -->
-    <div class="diagram reveal">
+    <div class="diagram diagram--scroll reveal">
       <svg viewBox="0 0 600 400" role="img" aria-label="Three-ring roadmap: near, medium, long term">
         <title>Roadmap: Three Horizons</title>
         <!-- Outer ring (long-term) -->
@@ -2631,7 +2763,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <p class="reveal"><strong>Long-term</strong>: <strong>The post-code world.</strong> Humans express intent in language, the NEOS shell formalizes it into field operations, LLMs execute it, and the output is meaning, not bytes. "Programming" becomes <em>field design</em> &mdash; a creative act more like architecture than engineering. Agent ecosystems built on NEOS, where agents share reasoning states, fork each other's thinking, merge insights, and operate as a collective intelligence. The "developer" of the future is a field architect &mdash; someone who understands resonance dynamics, coupling stability, and collapse strategies. They don't write code. They design cognitive environments.</p>
 
     <!-- Agent Ecosystem Diagram -->
-    <div class="diagram reveal">
+    <div class="diagram diagram--scroll reveal">
       <svg viewBox="0 0 700 320" role="img" aria-label="Interconnected NEOS agents sharing reasoning state">
         <title>Agent Ecosystem: Shared Reasoning Network</title>
         <!-- Central hub -->
@@ -2858,18 +2990,112 @@ if (sectionEls.length && 'IntersectionObserver' in window) {
   sectionEls.forEach(s => tocObs.observe(s));
 }
 
-// TOC: show/hide on scroll, hamburger toggle
+// TOC: mobile-aware show/hide + hamburger toggle
 const tocToggle = document.getElementById('toc-toggle');
 const tocNav = document.getElementById('toc');
-if (tocToggle && tocNav && heroEl) {
-  const tocScrollObs = new IntersectionObserver(entries => {
-    const past = !entries[0].isIntersecting;
-    tocNav.classList.toggle('toc-visible', past);
-    tocToggle.classList.toggle('toc-visible', past);
-  }, { threshold: 0 });
-  tocScrollObs.observe(heroEl);
-  tocToggle.addEventListener('click', () => tocNav.classList.toggle('closed'));
+if (tocToggle && tocNav) {
+  const isMobile = () => window.matchMedia('(max-width: 1200px)').matches;
+
+  // On mobile: start with TOC closed
+  if (isMobile()) tocNav.classList.add('closed');
+
+  // Hamburger click — toggle TOC, swap icon, update aria
+  tocToggle.addEventListener('click', () => {
+    const closing = !tocNav.classList.contains('closed');
+    tocNav.classList.toggle('closed', closing);
+    tocToggle.textContent = closing ? '\u2630' : '\u2715';
+    tocToggle.setAttribute('aria-expanded', String(!closing));
+  });
+
+  // TOC links auto-close on mobile
+  document.querySelectorAll('#toc-list a').forEach(link => {
+    link.addEventListener('click', () => {
+      if (isMobile()) {
+        tocNav.classList.add('closed');
+        tocToggle.textContent = '\u2630';
+        tocToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  });
+
+  // Desktop: fade TOC in/out based on scroll past hero
+  if (heroEl) {
+    const tocScrollObs = new IntersectionObserver(entries => {
+      const past = !entries[0].isIntersecting;
+      if (!isMobile()) {
+        tocNav.classList.toggle('toc-visible', past);
+      }
+    }, { threshold: 0 });
+    tocScrollObs.observe(heroEl);
+  }
 }
+
+// Diagram Lightbox + scroll-hint
+(function() {
+  const lightbox = document.getElementById('diagram-lightbox');
+  if (!lightbox) return;
+  const lbContent = lightbox.querySelector('.diagram-lightbox-content');
+  const lbClose = lightbox.querySelector('.diagram-lightbox-close');
+  const INTERACTIVE_IDS = ['dynamics-svg', 'pg-viz'];
+
+  function clearContainer(el) {
+    while (el.firstChild) el.removeChild(el.firstChild);
+  }
+
+  function openLightbox(svg) {
+    const clone = svg.cloneNode(true);
+    clone.style.cssText = 'max-width: 95vw; max-height: 85vh; width: auto; height: auto;';
+    clone.removeAttribute('cursor');
+    clearContainer(lbContent);
+    lbContent.appendChild(clone);
+    lightbox.classList.add('active');
+    lightbox.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove('active');
+    lightbox.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    clearContainer(lbContent);
+  }
+
+  lbClose.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && lightbox.classList.contains('active')) closeLightbox(); });
+
+  // Only enable tap-to-expand on mobile/tablet
+  if (!window.matchMedia('(max-width: 768px)').matches) return;
+
+  // Attach tap-to-expand on diagram containers
+  document.querySelectorAll('.diagram--scroll, .diagram').forEach(container => {
+    const svg = container.querySelector('svg');
+    if (!svg) return;
+    // Skip interactive SVGs
+    if (INTERACTIVE_IDS.includes(svg.id) || INTERACTIVE_IDS.includes(container.id)) return;
+    // Skip tiny card SVGs (viewBox width <= 300)
+    const vb = svg.getAttribute('viewBox');
+    if (vb) {
+      const parts = vb.split(/[\s,]+/);
+      if (parts.length >= 4 && parseFloat(parts[2]) <= 300) return;
+    }
+    container.addEventListener('click', (e) => {
+      // Don't intercept link clicks inside SVGs
+      if (e.target.closest('a')) return;
+      openLightbox(svg);
+    });
+  });
+
+  // Scroll-end detection for gradient hint
+  document.querySelectorAll('.diagram--scroll').forEach(container => {
+    function checkScroll() {
+      const atEnd = container.scrollLeft + container.clientWidth >= container.scrollWidth - 4;
+      container.classList.toggle('scrolled-end', atEnd);
+    }
+    container.addEventListener('scroll', checkScroll, { passive: true });
+    checkScroll();
+  });
+})()
 
 // Dynamics Step-Through Animation (Section 6)
 (function() {
