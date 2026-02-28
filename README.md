@@ -3,8 +3,9 @@
 <img src="assets/banner-hero.svg" alt="NEOS — The Operating System for Machine Intelligence" width="100%"/>
 
 [![Version](https://img.shields.io/badge/version-1.0-00d4ff?style=for-the-badge)](.)
-[![License](https://img.shields.io/badge/license-MIT-00ff88?style=for-the-badge)](.)
+[![License](https://img.shields.io/badge/license-MIT-00ff88?style=for-the-badge)](LICENSE)
 [![Runs on](https://img.shields.io/badge/runs%20on-LLM-7b61ff?style=for-the-badge)](.)
+[![Stars](https://img.shields.io/github/stars/Samuele95/neos?style=for-the-badge&color=ffd700)](https://github.com/Samuele95/neos/stargazers)
 
 [![Tested with](https://img.shields.io/badge/tested-Claude%20Code-da7756?style=flat-square)](https://claude.ai/claude-code)
 [![Tested with](https://img.shields.io/badge/tested-Gemini%20CLI-4285F4?style=flat-square)](https://github.com/google-gemini/gemini-cli)
@@ -19,6 +20,8 @@
 [![Presentation](https://img.shields.io/badge/🎬_Presentation-ff3d8e?style=for-the-badge&logoColor=white)](https://samuele95.github.io/neos/NEOS-PRESENTATION.html)
 
 [Quick Start](#03--quick-start) · [What It Is](#04--what-neos-is--today) · [What It Proved](#08--what-neos-proved) · [Commands](#14--command-reference) · [Detailed Guide](docs/DETAILED-GUIDE.md)
+
+[Contributing](CONTRIBUTING.md) · [Report a Bug](https://github.com/Samuele95/neos/issues/new?template=bug_report.md) · [Request a Feature](https://github.com/Samuele95/neos/issues/new?template=feature_request.md)
 
 </div>
 

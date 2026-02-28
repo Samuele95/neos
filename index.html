@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NEOS — The Operating System for Machine Intelligence</title>
+<meta name="description" content="NEOS: The first operating system for machine intelligence. Neural field dynamics, symbolic reasoning, quantum semantics — zero install, pure LLM specification.">
+<meta property="og:title" content="NEOS — The Operating System for Machine Intelligence">
+<meta property="og:description" content="The last operating system will not manage files. It will manage meaning.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://samuele95.github.io/neos/">
+<meta property="og:image" content="https://samuele95.github.io/neos/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="NEOS — The Operating System for Machine Intelligence">
+<meta property="og:site_name" content="NEOS">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="NEOS — The Operating System for Machine Intelligence">
+<meta name="twitter:description" content="The last operating system will not manage files. It will manage meaning.">
+<meta name="twitter:image" content="https://samuele95.github.io/neos/assets/og-image.png">
+<meta name="twitter:image:alt" content="NEOS — Zero Install, Neural Field Dynamics, Coherence 0.993">
+<link rel="canonical" href="https://samuele95.github.io/neos/">
+<meta name="author" content="Samuele Stronati">
+<meta name="theme-color" content="#07070c">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "NEOS",
+  "url": "https://samuele95.github.io/neos/",
+  "description": "The first operating system for machine intelligence. Neural field dynamics, symbolic reasoning, quantum semantics.",
+  "author": {
+    "@type": "Person",
+    "name": "Samuele Stronati",
+    "url": "https://github.com/Samuele95"
+  }
+}
+</script>
+<style>
+:root {
+  --bg: #07070c;
+  --bg2: #0c0c14;
+  --text: #e8e8ed;
+  --text-dim: #8888a0;
+  --cyan: #00d4ff;
+  --purple: #7b61ff;
+  --pink: #ff3d8e;
+  --green: #00ff88;
+  --gold: #ffd700;
+  --font: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, Helvetica, sans-serif;
+  --font-display: "Outfit", system-ui, sans-serif;
+  --mono: "JetBrains Mono", "SF Mono", "Fira Code", Consolas, monospace;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  text-align: center;
+}
+a { color: inherit; text-decoration: none; }
+
+.hero { max-width: 720px; }
+.hero-label {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  color: var(--cyan);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  opacity: 0.8;
+}
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 10vw, 6rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, var(--cyan), var(--purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.5rem;
+}
+.hero-subtitle {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: var(--text-dim);
+  letter-spacing: 0.1em;
+  margin-bottom: 1.5rem;
+}
+.hero-tagline {
+  font-size: 1.2rem;
+  font-style: italic;
+  color: var(--text);
+  margin-bottom: 2.5rem;
+  line-height: 1.6;
+}
+.hero-tagline em {
+  font-style: normal;
+  color: #fff;
+  font-weight: 700;
+}
+
+.cta-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 2.5rem;
+}
+.cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: all 0.2s;
+  border: 1.5px solid;
+}
+.cta-btn.primary {
+  background: linear-gradient(135deg, var(--cyan), var(--purple));
+  border-color: transparent;
+  color: #fff;
+}
+.cta-btn.primary:hover { opacity: 0.9; transform: translateY(-1px); }
+.cta-btn.secondary { border-color: var(--cyan); color: var(--cyan); }
+.cta-btn.secondary:hover { background: rgba(0,212,255,0.08); }
+.cta-btn.tertiary { border-color: var(--pink); color: var(--pink); }
+.cta-btn.tertiary:hover { background: rgba(255,61,142,0.08); }
+.cta-btn.paper { border-color: var(--gold); color: var(--gold); }
+.cta-btn.paper:hover { background: rgba(255,215,0,0.08); }
+
+.quickstart {
+  background: var(--bg2);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 12px;
+  padding: 1.5rem 2rem;
+  margin-bottom: 2rem;
+  max-width: 600px;
+}
+.quickstart-label {
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+.quickstart-code {
+  font-family: var(--mono);
+  font-size: 0.9rem;
+  color: var(--cyan);
+  word-break: break-all;
+}
+.quickstart-code span { color: var(--text-dim); }
+
+.star-widget { margin-bottom: 2rem; }
+
+.footer-line {
+  height: 2px;
+  width: 200px;
+  background: linear-gradient(90deg, transparent, var(--cyan), var(--purple), transparent);
+  border: none;
+  border-radius: 1px;
+  margin-bottom: 1rem;
+}
+.footer-text {
+  font-size: 0.75rem;
+  color: rgba(136,136,160,0.6);
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <p class="hero-label">Neural Field Operating System v1.0</p>
+  <h1 class="hero-title">NEOS</h1>
+  <p class="hero-subtitle">The Operating System for Machine Intelligence</p>
+  <p class="hero-tagline">"The last operating system will not manage files.<br>It will manage <em>meaning</em>."</p>
+
+  <div class="cta-group">
+    <a href="NEOS-BREAKTHROUGH.html" class="cta-btn primary">Explore the Website</a>
+    <a href="neos-paper.pdf" class="cta-btn paper">Read the Paper</a>
+    <a href="NEOS-PRESENTATION.html" class="cta-btn tertiary">View Presentation</a>
+    <a href="https://github.com/Samuele95/neos" class="cta-btn secondary" target="_blank" rel="noopener">GitHub</a>
+  </div>
+
+  <div class="quickstart">
+    <p class="quickstart-label">Quick Start</p>
+    <p class="quickstart-code">
+      <span>$</span> claude --prompt "Load nfos bootloader from prompts/nfos-kernel.md"
+    </p>
+  </div>
+
+  <div class="star-widget">
+    <iframe src="https://ghbtns.com/github-btn.html?user=Samuele95&repo=neos&type=star&count=true&size=large" frameborder="0" scrolling="0" width="170" height="30" title="GitHub Stars"></iframe>
+  </div>
+
+  <hr class="footer-line">
+  <p class="footer-text">&copy; 2025–2026 Samuele Stronati. MIT License.</p>
+</div>
+
+</body>
+</html>
