@@ -2,10 +2,6 @@
 
 <img src="assets/logo.svg" alt="NEOS Logo" width="420"/>
 
-<br/>
-
-<img src="assets/banner-hero.svg" alt="NEOS — The Operating System for Machine Intelligence" width="100%"/>
-
 [![Version](https://img.shields.io/badge/version-1.0-00d4ff?style=for-the-badge)](.)
 [![License](https://img.shields.io/badge/license-MIT-00ff88?style=for-the-badge)](LICENSE)
 [![Runs on](https://img.shields.io/badge/runs%20on-LLM-7b61ff?style=for-the-badge)](.)
