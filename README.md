@@ -1,5 +1,9 @@
 <div align="center">
 
+<img src="assets/logo.svg" alt="NEOS Logo" width="200"/>
+
+<br/>
+
 <img src="assets/banner-hero.svg" alt="NEOS — The Operating System for Machine Intelligence" width="100%"/>
 
 [![Version](https://img.shields.io/badge/version-1.0-00d4ff?style=for-the-badge)](.)
