@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/logo.svg" alt="NEOS Logo" width="200"/>
+<img src="assets/logo.svg" alt="NEOS Logo" width="420"/>
 
 <br/>
 
